@@ -1,0 +1,196 @@
+\section{Die reellen Zahlen}
+\begin{Bsp}
+  $\mb{R}$ ist nicht genug
+\end{Bsp}
+\begin{Sat}
+  Es gibt kein $q\in\mb{Q}$ so dass $q^2=2$
+\end{Sat}
+\begin{Bew}
+  Falls $q^2=2$, dann $(-q)^2=2$ OBdA $q\geq 0$ Deswegen $q>0$. Sei $q>0$ und $q\in\mb{Q}$ so dass $q^2=2$. $q=\frac{m}{n}$ mit $m>0$, $>0$. $\text{GGT}(m,n)=1$ (d.h. falls $r\in\mb{N}$ $m$ und $n$ dividiert, dann $r=1$!).
+  \begin{align*}
+    m^2=2n^2&\implies m \text{ ist gerade}&\implies m=2k \text{ für } k\in\mb{N}\\\{0\}\\
+    4k^2=2n^2&\implies n \text{ ist gerade}&\implies 2| n \text{(2 dividiert $n$)}
+  \end{align*}
+  $\implies$ Widerspruch! Weil $2$ dividiert $m$ und $n$! (d.h. es gibt \underline{keine} Zahl $q\in\mb{Q}$ mit $q^2=2$
+\end{Bew}
+\begin{Bsp}
+  \begin{align*}
+    \sqrt{2}=1,414\cdots
+  \end{align*}
+  Intuitiv:
+  \begin{align*}
+    1,4^2 & < & 2 & < & 1,5^2 & & 1,4 & < & \sqrt{2} & < & 1,5 \\
+    1,41^2 & < & 2 & < & 1,42^2 & \implies & 1,41 & < & \sqrt{2} & < & 1,42 \\
+    1,414^2 & < & 2 & < & 1,415^2 & & 1,414 & < & \sqrt{2} & < & 1,415 \\
+  \end{align*}
+\end{Bsp}
+\paragraph{Intuitiv}
+\begin{itemize}
+  \item $\mb{Q}$ hat ``Lücke''
+  \item $\mb{R}$ $= \{$ die reellen Zahlen $\}$ haben ``kein Loch''.
+\end{itemize}
+\paragraph{Konstruktion}
+Die reellen Zahlen kann man ``konstruieren''. (Dedekindsche Schritte, Cantor ``Vervollständigung''). Google knows more. Wir werden ``operativ'' sein, d.h. wir beschreiben einfach die wichtigsten Eigenschaften von $\mb{R}$
+\subsection{Körperstrukturen}
+\begin{itemize}
+  \item[K1] Kommutativgesetz
+  \begin{align*}
+    a+b &=& b + a\\
+    a\cdot b &=& b\cdot a & \\
+  \end{align*}
+  \item[K2]
+    \begin{align*}
+      (a+b)+c &=&a+(b+c)\\
+      (a\cdot b)\cdot c&=&a\cdot(b\cdot c)\\
+    \end{align*}
+  \item[K3]
+    \begin{align*}
+      a+x&=&b\\
+      a\cdot x&=& \text{falls $a\neq 0$}\\
+    \end{align*}
+  \item[K4]
+    \begin{align*}
+      (a+b)\cdot c&=& a\cdot c + b\cdot c
+    \end{align*}
+\end{itemize}
+\subsection{Die Anordnung von $\mb{R}$}
+\begin{itemize}
+  \item[A1] $\forall a\in\mb{R}$ gilt genau eine der drei Relationen:
+    \begin{itemize}
+      \item $a<0$
+      \item $a=0$
+      \item $a>0$
+    \end{itemize}
+  \item[A2] Falls $a>0$, $b>0$, dann $a+b>0$, $a\cdot b>0$
+  \item[A3] Archimedisches Axiom: $\forall a\in\mb{R} \exists n\in\mb{N}$ mit $n>a$
+\end{itemize}
+\begin{Ueb}
+  Beweisen Sie dass $a\cdot b>0$ falls $a<0$, $b<0$
+\end{Ueb}
+\begin{Sat}
+  $\forall x>-1$, $x\neq 0$ und $\forall n\in\mb{N}\\\{0,1\}$ gilt $(1+x)^n > (1+nx)$
+\end{Sat}
+\begin{Bew}
+  $$(1+x)^2 = 1+2x+\underbrace{x^2}_{>0}>1+2x$$
+  weil $x\neq0$.\\
+  Nehmen wir an dass
+  \begin{align*}
+    (1+x)^n&>& 1+nx & (x>-1, x\neq 0)\\
+    \underbrace{(1+x)}_a \underbrace{(1+x)^n}_c&>&\underbrace{(1+nx)}_d(1+x) & (\text{weil} (1+x)>0)\\
+  \end{align*}
+  $$c>d \iff c-d>0 \stackrel{\text{A2}}{\implies} a(c-d) > 0 \stackrel{\text{K4}}{\implies} ac-ad > 0 \stackrel{\text{A2}}{\implies} ac>ad$$
+  \begin{align*}
+    (1+x)^{n+1} > (1+nx)(1+x) = 1+nx+x+nx^2=\\
+    1+(n+1)x+\underbrace{nx^2}_{>0}>1+(n+1)x\\
+    \implies (1+x)^{n+1} > 1+(n+1)x
+  \end{align*}
+  Vollständige Induktion.
+\end{Bew}
+\begin{Def}
+  Für $a\in\mb{R}$ setzt man
+  \begin{align*}
+  \abs{a}=
+    \begin{cases}
+      a &\text{falls} a\geq0\\
+      -a &\text{falls} a < 0\\
+    \end{cases}
+  \end{align*}
+\end{Def}
+\begin{Sat}
+  Es gilt (Dreiecksungleichung):
+  \begin{align*}
+    \abs{ab}&=&\abs{a}\abs{b}\\
+    \abs{a+b}&\leq&\abs{a}+\abs{b}\\
+    \abs{\abs{a}-\abs{b}}&\leq&\abs{a-b}
+  \end{align*}
+\end{Sat}
+\begin{Bew}
+  \begin{itemize}
+    \item $\abs{ab} = \abs{a}\abs{b}$ trivial
+    \item 
+      \begin{align*}
+         a+b\leq \abs{a}+\abs{b} 
+      \end{align*}
+      ($a>0$ und $b>0$ $\implies$ $a+b=\abs{a}+\abs{b}$ sonst $a+b<\abs{a}+\abs{b}$ weil $x\leq\abs{x}$ $\forall x\in\mb{R}$ und die Gleichung gilt).
+      \begin{align*}
+        -(a+b)=-a-b\leq \abs{-a}+\abs{-b} = \abs{a}+\abs{b}
+      \end{align*}
+      Aber
+      \begin{align*}
+        \abs{a+b}=max\left\{ a+b, -(a+b) \right\}\leq \abs{a}+\abs{b}
+      \end{align*}
+    \item
+      \begin{align*}
+        \abs{\abs{a}-\abs{b}} \leq \abs{a-b}
+      \end{align*}
+      Zuerst:
+      \begin{align*}
+        \abs{a}=\abs{(a-b)+b}\leq \abs{a-b} + \abs{b} \\
+        \implies \abs{a}-\abs{b}\leq \abs{a-b}\\
+        \abs{b}=\abs{a+(b-a)}\leq \abs{a}+\abs{b-a}\\
+        \implies \abs{b}-\abs{a}\leq \abs{b-a} = \abs{a-b} \\
+        \implies \left( \abs{a}-\abs{b} \right)\leq \abs{a-b}\\
+      \end{align*}
+      \begin{align*}
+        \abs{\abs{a}-\abs{b}}=max\left\{ \abs{a}-\abs{b}, -\left( \abs{a}-\abs{b} \right) \right\}\leq\abs{a-b}
+      \end{align*}
+  \end{itemize}
+\end{Bew}
+\begin{Bem}
+  $$\abs{x}=max\left\{ -x,x \right\}$$
+\end{Bem}
+\subsection{Die Vollständigkeit der reellen Zahlen}
+Für $a<b$, $a\in\mb{R}$, heisst:
+% TODO itemize & umkehren
+\begin{align*}
+  \left[ a,b \right]&=&\left\{ x\in\mb{R}: a\leq x\leq b \right\} & \text{abgeschlossenes Intervall}\\
+  \left] a,b \right[&=&\left\{ x\in\mb{R}: a< x< b \right\} & \text{offenes Intervall}\\
+  \left[ a,b \right[&=&\left\{ x\in\mb{R}: a\leq x< b \right\} & \text{(nach rechts) halboffenes Intervall}\\
+  \left] a,b \right]&=&\left\{ x\in\mb{R}: a< x\leq b \right\} & \text{(nach links) halboffenes Intervall}\\
+\end{align*}
+Sei $I=[a,b]$ (bzw. $]a,b[$ \ldots). Dann $a,b$ sind die \underline{Randpunkte} von $I$. Die Zahl $\abs{I}=b-a$ ist die Länge von $I$. ($b-a>0$)
+\begin{Def}
+  Eine Intervallschachtelung ist eine Folge $I_1, I_2,\cdots$ geschlossener Intervalle (kurz $(I_n)_{n\in\mb{N}}$ oder $(I_n)$) mit diesen Eigenschaften:
+  \begin{itemize}
+    \item[I1] $I_{n+1}\subset I_n$
+    \item[I2] Zu jedem $\epsilon >0$ gibt es ein Intervall $I_n$ so dass $\abs{I_n} < \epsilon$
+  \end{itemize}
+\end{Def}
+\begin{Bsp}
+  $\sqrt{2}$
+  \begin{align*}
+    1,4^2 & < & 2 & < & 1,5^2 & & I_1 = \left[ 1,4 / 1,5 \right] & \abs{I_1} = 0.1\\
+    1,41^2 & < & 2 & < & 1,42^2 & \implies & I_2 = \left[ 1,41 / 1,42 \right] & \abs{I_2} = 0.01\\
+    1,414^2 & < & 2 & < & 1,415^2 & & I_3 = \left[ 1,414, 1,415 \right] & \abs{I_2} = 0.001 
+  \end{align*}
+\end{Bsp}
+\begin{Bew}
+  I1 und I2 sind beide erfüllt.
+\end{Bew}
+\begin{Axi}
+  Zu jeder Intervallschachtelung $\exists x\in\md{R}$ die allen ihren Intervallen angehört.
+\end{Axi}
+\begin{Sat}
+  Die Zahl ist eindeutig.
+\end{Sat}
+\begin{Bew}
+  Sei $(I_n)$ eine Intervallschachtelung. Nehmen wir an dass $\exists \alpha < \beta$ so dass $\alpha, \beta\in I_n\forall n$. Dann $\abs{I_n}\geq\abs{\beta-\alpha}> a$. Widerspruch!
+\end{Bew}
+\begin{Sat}
+  $\forall a\geq 0, a\in\md{R}$ und $\forall x\in\md{N}\\\left\{ 0 \right\}$, $\exists$ eine einziges $x\geq 0$, $x\in \md{R}$ s.d. $x^k=a$. Wir nennen $x=\sqrt[k]{a}=a^\frac{1}{k}$.\\
+  Sei $m,n\in\md{N}$, $a^{m+n}=a^ma^n$ und deswegen $a^{-m}=\frac{1}{a^m}$ für $m\in\md{N}$ (so dass die Regel $a^{m-m}=a^0=1$.\\
+  $n,m\in\md{N}\\\left\{ 0 \right\}$ $n$ Mal.
+  \begin{align*}
+    (a^m)^n=\underbrace{a^m\cdot a^m \cdots a^m}_{\text{$n$ Mal}} = a^{\overbrace{m+\cdots+m}^{\text{$n$ Mal}}} = a^{nm}
+  \end{align*}
+  Und mit $a^{-m}=\frac{1}{a^m}$ stimmt die Regel $(a^m)^n=a^{mn}$ auch $\forall m,n\in\md{Z}$!
+\end{Sat}
+\begin{Bem}
+    $x^k=\left( a^\frac{1}{k} \right)^k=a\left( =a^{\frac{1}{k}k} = a^1\right)$
+\end{Bem}
+\begin{Def}
+  $\forall q=\frac{m}{n}\in\md{Q}$, $\forall a>0$ mit definiertem $a^q=\left(\sqrt[n]{a}\right)^m$
+\end{Def}
+\begin{Bew}
+  Mit dieser Definition gilt $a^{q+q_2} = a^qa^q_2$ $\forall a>0$ und $\forall q,q_2\in\md{Q}$.
+\end{Bew}
