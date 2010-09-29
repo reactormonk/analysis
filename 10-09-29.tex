@@ -1,0 +1,127 @@
+% TODO missing
+\subsection{Supremumseigenschaft, Vollsätndigkeit}
+\begin{Def}
+  $s\in\md{R}$ heisst obere (untere) Schranke der Menge $M\subset \md{R}$ falls $s\geq x$ ($s\leq x$) $\forall x\in M$.
+\end{Def}
+\begin{Def}
+  $s\in\md{R}$ ist das Supremum der Menge $M\subset\md{R}$ falls es die kleinste obere Schranke ist. D.h.
+  \begin{itemize}
+    \item $s$ ist die obere Schranke
+    \item falls $s'<s$, dass ist $s'$ keine obere Schranke.
+  \end{itemize}
+\end{Def}
+\begin{Bsp}
+  $M=]0,1[$. In diesem Fall $s=\sup M\not\in M$
+\end{Bsp}
+\begin{Bsp}
+  $M=[0,1]$. $\sup M=1\in M$
+\end{Bsp}
+\begin{Def}
+  $s\in\md{R}$ heisst Infimum einer Menge $M$ ($s=\inf M$) falls $s$ die grösste obere Schranke ist.
+\end{Def}
+\begin{Def}
+  Falls $s=\sup M\in M$, nennt man $s$ das Maximum von $M$. Kurz: $s=\max M$. Analog Minimum.
+\end{Def}
+\begin{Sat}
+  Falls $M\subset \md{R}$ nach oben (unten) beschränkst ist, dann existiert $\sup M$ ($\inf M$).
+\end{Sat}
+\begin{Bew}
+  Wir konstruieren eine Intervallschachtelung $I_n$, so dass $b_n$ eine obere Schranke ist, und $a_n$ keine obere Schranke ist.
+  \begin{itemize}
+    \item $I_1=[a_1, b_1]$, wobei $b_1$ eine obere Schranke
+    \item $a_1$ ist keine obere Schranke
+  \end{itemize}
+  Sei $I_n$ gegeben. 
+  \begin{align*}
+    I_{n+1} = \begin{cases}
+      \left[ a_n,\frac{a_n+b_n}{2} \right]&\text{Falls $\frac{a_n+b_n}{2}$ eine obere Schranke ist-}\\
+      \left[ \frac{a_n+b_n}{2}, b_n \right]&\text{sonst}
+    \end{cases}
+  \end{align*}
+  Also, $\exists s\in I_n\forall n$
+\end{Bew}
+\begin{Beh}
+  $s$ ist das Supremum von $M$
+  \begin{itemize}
+    \item Warum ist $s$ eine obere Schranke? \\
+    Angenommen $\exists x\in M$ so dass $x>s$. Man wähle $\abs{I_n}<x-s$. Daraus folgt
+    \begin{align*}
+      x-s>b_n-a_n \geq b_n-s \implies x>b_n
+    \end{align*}
+    Widerspruch.
+  \item Warum ist $s$ die kleinste obere Schranke?\\
+    Angenommen $\exists s'<s$. Dann wähle $n'$ so dass $I_{n'} <s-s'$.
+    \begin{align*}
+      s-s'>b_{n'}-a_{n'}\geq s-a_{n'} \implies a_{n'}>s'
+    \end{align*}
+    Widerspruch.
+  \end{itemize}
+\end{Beh}
+\begin{Lem}
+  Jede nach oben (unten) beschränkte Menge $M\subsetequal \md{Z}$ besitzt das grösste (kleinste) Element.
+\end{Lem}
+\begin{Bew}
+  oBdA betrachte nur nach unten beschränkte Mengen $M\subset N$. Angenommen $M$ hat kein kleinstes Element.
+\end{Bew}
+\begin{Beh}
+  \begin{align*}
+    \forall n M\cut \left\{ 1,\cdots,n \right\} = \null\\
+    n=1\\
+    M\cut\left\{ 1 \right\}\\
+  \end{align*}
+  Angenommen
+  \begin{align*}
+    M\cut\left\{ 1,\cdots,n \right\} = \null\\
+    M\cut\left\{ 1,2,\cdots,n+1 \right\} = M\cut \left\{ 1,\cdots,n \right\}\union M\cut\left\{ n+1 \right\}=\null\\
+    \implies M\cut\md{N}=\null
+  \end{align*}
+\end{Beh}
+\begin{Sat}
+  $\md{Q}$ ist dich in $\md{R}$, bzw. für beliebige zwei $x,y\in\md{R}$, $y>x$, gibt es eine rationelle Zahl $q\in\md{Q}$, so dass $x<q<y$.
+\end{Sat}
+\begin{Bew}
+  Man wähle $n\in\md{N}$ so dass $\frac{1}{n}<y-x$. Betrachte die Menge $A\subsetequal\md{Z}$, so dass $M\in A$ $\implies$ $M>nx$. Lemma $\implies$ $\exist m=\min A$.
+  \begin{align*}
+    x<\frac{m}{n}=\frac{m-1}{n}+\frac{1}{n}<x+y-x=y
+  \end{align*}
+  Also setze $q=\frac{m}{n}$
+\end{Bew}
+\subsection{Abzählbarkeit}
+\begin{Def}
+  Die Mengen $A$ \& $B$ sind \underline{gleichmächtig}, wenn es eine Bijektion $f:A\to B$ gibt. $A$ hat grässere Mächtigkeit als $B$, falls $B$ gleichmächtig wie eine Teilmenge von $A$ ist, aber $A$ zu keiner Teilmenge von $B$ gleichmächtig ist.
+\end{Def}
+\begin{Bsp}
+  \begin{itemize}
+    \item ${1,2}$ \& ${3,4}$ sind gleichächtig.
+    \item ${1,2,\cdots,n}$ hat kleinere Mächtigkeit als ${1,2,\cdots,m}$, wenn $n<m$ ist.
+  \end{itemize}
+\end{Bsp}
+\begin{Def}
+  Eine Menge $A$ ist abzählbar, wenn es eine Bijektion zwischen $\md{N}$ und $A$ gibt. D.h. $A=\left\{ a_1,a_2,\cdots,a_n,\cdots \right\}$.
+\end{Def}
+\begin{Lem}
+  $\md{Z}$ ist abzählbar
+\end{Lem}
+\begin{Bew}
+  \begin{tabular}{c|ccccc}
+    \md{N} & 1 & 2 & 3 & 4 & 5 & \ldots \\
+    \md{Z} & 0 & 1 & -1 & 2 & -2 & \ldots
+  \end{tabular}
+  Formal:
+  \begin{align*}
+    f=\md{N}\to \md{Z}\\
+    f(n)=\begin{cases}
+      \frac{n}{2} & \text{wenn $n$ gerade}\\
+      \frac{1-n}{2} & \text{wenn $n$ ungerade}
+    \end{cases}
+  \end{align*}
+\end{Bew}
+\begin{Sat}
+  $\md{Q}$ ist abzählbar
+\end{Sat}
+\begin{Bew}
+  Sucht euch die Graphik auf Wikipedia oder sonstwo.
+\end{Bew}
+\begin{Sat}
+  $\md{R}$ ist nicht abzählbar.
+\end{Sat}
