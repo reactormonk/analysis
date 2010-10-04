@@ -1,0 +1,158 @@
+\section{Komplexe Zahlen}
+\begin{Bem}
+  $\forall a\in \mb{R}$, $a^2>0$. Deswegen ist $x^2=-1$ unlösbar.
+  Die Erfindung von $i^2=-1$ (die imaginäre Zahl) hat sehr interessante Konsequenzen auch für die üblichen reellen Zahlen.
+\end{Bem}
+\subsection{Definition}
+\begin{Def}
+  Sei $a,b\in\mb{R}$, dann $a+bi\in\mb{C}$.
+  \begin{equation*}
+    (a+bi)+(\alpha+\betai) = (a+\alpha)+(b+\beta)i\\
+    (a+bi)(\alpha+\betai) = (a\alpha-b\beta)+\underbrace{(a\beta+b\alpha)}_{A}
+  \end{equation*}
+\end{Def}
+\begin{Def}
+  Seien $A$ und $B$ zwei Mengen. Dann ist $A\cross B$ die Menge der Paare $(a,b)$ mit $a\in A$ und $b\in B$.
+\end{Def}
+\begin{Def}
+  $\mb{C}=\mb{R}\cross\mb{R}$ mit $+$ und $\cdot$ , die wir so definieren:
+  \begin{equation*}
+    (a,b)+(\alpha,\beta)=(a+\alpha,b+\beta)\
+    (a,b)(\alpha,\beta)=(a\alpha-b\beta, \underbrace{a\beta+b\alpha}_{A})
+  \end{equation*}
+\end{Def}
+\begin{Bem}
+  \begin{equation*}
+    \mb{R}\simeq \left\{ (a,0), a\in\mb{R} \right\}\subset\mb{C}\\
+    (a,0)+(\alpha,0)=(a+\alpha,0)\
+    (a,0)(\alpha,0)=(a\alpha,0)
+  \end{equation*}
+\end{Bem}
+\begin{Bem}
+  \begin{equation*}
+    (0,a)(0,b)=(-ab, 0)
+  \end{equation*}
+  Deswegen falls $-1\in\mb{R}$ ist $(-1,0)$.
+  \begin{equation*}
+    \underbrace{(0,1)}_{\text{Wurzel von -1}}(0,1)=(-1,0)\\
+    \underbrace{(0,-1)}_{\text{auch eine Wurzel von -1}}(0,-1)=(-1,0)
+  \end{equation*}
+\end{Bem}
+\begin{Def}
+  $i=(0,1)$ und wir schreiben $(a,b)$ für $a+bi$.
+\end{Def}
+\begin{Bem}
+  $0=(0,0)=0+0i$. $\xi\in\mb{C}$
+  \begin{align*}
+    0\xi=0\\
+    0+\xi=\xi
+  \end{align*}
+\end{Bem}
+\begin{Sat}
+  Alle Körperaxiome (K1-K4) gelten.
+\end{Sat}
+\begin{Bew}
+  \begin{itemize}
+    \item[K1] Kommultativität
+    \item[K2] Assoziativität
+    \item[K3] Distributivität
+    \item[K4] Seien $\xi, \zeta \in\mb{C}$.
+      \begin{align}
+        \exists \omega\in\mb{C}&\xi+\omega=\zeta\\
+        \xi\neq 0\exists \omega& \xi\omega=\zeta
+      \end{align}
+  \end{itemize}
+\end{Bew}
+\begin{Bew}
+  \begin{equation*}
+    \xi=a+bi\\
+    \zeta=c+di\\
+    \omega=x+yi
+  \end{equation*}
+  \begin{equation*}
+    \xi+\omega = (a+x)+(b+y)i = \xi = c+di
+  \end{equation*}
+  Sei $x:=c-a$, $y:=d-b$. Dann $\xi+\omega=\zeta$.
+\end{Bew}
+\begin{Bew}
+  Mit derselben Methode. $i \left[ = 1+0i \left[ =(1,0) \right] \right]$ ist das neutrale Element.
+  \begin{equation*}
+    (a+bi)(1+0i)=\underbrace{(a1-b0)}_{a}+\underbrace{(b1+a0)}_{b}=(a+bi)
+  \end{equation*}
+  Sei $\xi\neq 0$ und suchen wir $\alpha$ so dass $\xi\alpha=1$. Dann ist $\omega=\alpha\xi$ eine Lösung von (2) % TODO ref
+  (eigentlich DIE Lösung). Falls $\xi=a+bi$
+  \begin{equation*}
+    \alpha=\frac{a}{a^2+b^2}-\frac{b}{a^2+b^}\\
+    \xi\alpha=\overbrace{\left( \frac{aa}{a^2+b^2}-\frac{b(-b)}{a^2+b^2} \right)+\\
+    \left( \frac{a(-b)}{a^2+b^2}-\frac{ab}{a^2+b^2} \right)i=1
+  \end{equation*}
+\end{Bew}
+\begin{Def}
+  Sei $\xi=(x+yi)\in\mb{C}$. Dann:
+  \begin{itemize}
+    \item $x$ ist der reelle Teil von $\xi$ $(\Re\xi=x)$
+    \item $y$ ist der imaginäre Teil von $\xi$ $(\Im\xi=y)$
+    \item $x+yi$ ist die konjugierte Zahl $\left( \ol\xi=\left( =x-yi \right) \right)$
+  \end{itemize}
+\end{Def}
+\begin{Bew}
+  \[\sqrt{\ol\xi\ol\xi}=\sqrt{\left( \Re\xi \right)^2+\left( \In\xi \right)^2}=:\abs{\xi}\]
+\end{Bew}
+\begin{Def}
+  $\abs{\xi}$ ist der Betrag von $\xi$.
+\end{Def}
+\begin{Sat}
+  Es gilt: $(\forall a,b\in\mb{C})$:
+  \begin{itemize}
+    \item 
+      \begin{itemize}
+        \item \[\ol{a+b}=\ol{a}+\ol{b}\]
+        \item \[\ol{ab}=\ol{a}\ol{b}\]
+      \end{itemize}
+    \item 
+      \begin{itemize}
+        \item \[\Re a =\frac{a+\ol{a}}{2}\]
+        \item \[(\Im a) i=\frac{a-\ol{a}}{2}\]
+      \end{itemize}
+    \item $a=\ol{a}$ genau dann wenn $a\in\mb{R}$.
+    \item \[a\ol a=\abs{a}^2=\sqrt{\left( \Re a \right)^2+\left( \im a \right)^2}\geq 0\]
+      (die Gleicheit gilt genau dann wenn $a=0$)
+  \end{itemize}
+\end{Sat}
+\begin{Bem}
+  Sei $\omega$ so dass $\xi\omega=1$ $(\xi\neq 0)$. Man schreibt $\omega\frac{1}{\xi}$ und $\omega=\frac{\ol\xi}{\abs{\xi}^2}$
+\end{Bem}
+\begin{Sat}
+  $\forall a,b\in\mb{C}$
+  \begin{itemize}
+    \item $\abs{a}>0$ für $a\neq 0$ (trivial)
+    \item $\abs{\ol a}=\abs{a}$ (trivial)
+    \item $\abs{\Re a}\leq\abs{a}$, $\abs{\Im a}\leq\abs{a}$ (trivial)
+    \item $\abs{ab}=\abs{a}\abs{b}$
+    \item $\abs{a+b}\leq\abs{a}+\abs{b}$
+  \end{itemize}
+\end{Sat}
+\begin{Bew}
+  \begin{equation*}
+    \abs{ab}^2=(ab)\ol{(ab)}=ab\ol a\ol b=a\ol a\ol b=\abs{a}^2\abs{b}^2\\
+    \implies \abs{ab}=\abs{a}\abs{b}
+  \end{equation*}
+  \begin{equation*}
+    \iff \abs{a+b}^2\leq\left( \abs{a}+\abs{b} \right)^2\\
+    \underbrace{(a+b)\ol{(a+b)}}_{\abs{a+b}^2\in\mb{R}}=(a+b)(\ol a+\ol b)=a\ol a+b\ol b+a\ol b+b\ol a\\
+    = \underbrace{\abs{a}^2+\abs{b}^2}_{\in\mb{R}}+\left( a\ol b+b\ol a \right)\\
+    \iff \underbrace{a\ol b+b\ol a}\leq 2\abs{a}\abs{b}\\
+  \end{equation*}
+  Nebenbemerkung:
+  \begin{equation*}
+    b=(\alpha+\beta i)\\
+    \ol b=(\alpha - \beta i)\\
+    \ol{\ol b}=\left( \alpha-(-\beta)i \right) = \alpha+\beta i = b
+  \end{equation*}
+  \begin{equation*}
+    a\ol b+\ol a \ol{(\ol b)}\\
+    a\ol b+\ol{(a\ol b)}=2\Re(a+\ol b)=\Re(2(a\ol b))\leq \abs{2a\ol b}\\
+    =2\abs{a}\abs{\ol b}=2\abs{a}\abs{b}
+  \end{equation*}
+\end{Bew}
+% TODO irgend ne gute Idee das Zeugs zu zeichnen - scannen?
