@@ -35,22 +35,23 @@ Die reellen Zahlen kann man ``konstruieren''. (Dedekindsche Schritte, Cantor ``V
 \begin{itemize}
   \item[K1] Kommutativgesetz
   \begin{align*}
-    a+b &=& b + a\\
-    a\cdot b &=& b\cdot a & \\
+    % TODO align that on =
+    a+b &=& b + a &\\
+    a\cdot b &=& b\cdot a &\\
   \end{align*}
-  \item[K2]
+  \item[K2] Assoziativgesetz
     \begin{align*}
       (a+b)+c &=&a+(b+c)\\
       (a\cdot b)\cdot c&=&a\cdot(b\cdot c)\\
     \end{align*}
-  \item[K3]
-    \begin{align*}
-      a+x&=&b\\
-      a\cdot x&=& \text{falls $a\neq 0$}\\
-    \end{align*}
-  \item[K4]
+  \item[K3] Distributivgesetz
     \begin{align*}
       (a+b)\cdot c&=& a\cdot c + b\cdot c
+    \end{align*}
+  \item[K4] 
+    \begin{align*}
+      a+x&=&b\\
+      a\cdot x&=&b \text{falls $a\neq 0$}\\
     \end{align*}
 \end{itemize}
 \subsection{Die Anordnung von $\mb{R}$}
@@ -141,13 +142,12 @@ Die reellen Zahlen kann man ``konstruieren''. (Dedekindsche Schritte, Cantor ``V
 \end{Bem}
 \subsection{Die Vollständigkeit der reellen Zahlen}
 Für $a<b$, $a\in\mb{R}$, heisst:
-% TODO itemize & umkehren
-\begin{align*}
-  \left[ a,b \right]&=&\left\{ x\in\mb{R}: a\leq x\leq b \right\} & \text{abgeschlossenes Intervall}\\
-  \left] a,b \right[&=&\left\{ x\in\mb{R}: a< x< b \right\} & \text{offenes Intervall}\\
-  \left[ a,b \right[&=&\left\{ x\in\mb{R}: a\leq x< b \right\} & \text{(nach rechts) halboffenes Intervall}\\
-  \left] a,b \right]&=&\left\{ x\in\mb{R}: a< x\leq b \right\} & \text{(nach links) halboffenes Intervall}\\
-\end{align*}
+\begin{itemize}
+  \item abgeschlossenes Intervall: $\left[ a,b \right]=\left\{ x\in\mb{R}: a\leq x\leq b \right\}$ 
+  \item offenes Intervall: $\left] a,b \right[=\left\{ x\in\mb{R}: a< x< b \right\}$
+  \item (nach rechts) halboffenes Intervall: $\left[ a,b \right[=\left\{ x\in\mb{R}: a\leq x< b \right\}$
+  \item (nach links) halboffenes Intervall: $\left] a,b \right]=\left\{ x\in\mb{R}: a< x\leq b \right\}$
+\end{itemize}
 Sei $I=[a,b]$ (bzw. $]a,b[$ \ldots). Dann $a,b$ sind die \underline{Randpunkte} von $I$. Die Zahl $\abs{I}=b-a$ ist die Länge von $I$. ($b-a>0$)
 \begin{Def}
   Eine Intervallschachtelung ist eine Folge $I_1, I_2,\cdots$ geschlossener Intervalle (kurz $(I_n)_{n\in\mb{N}}$ oder $(I_n)$) mit diesen Eigenschaften:
@@ -168,7 +168,7 @@ Sei $I=[a,b]$ (bzw. $]a,b[$ \ldots). Dann $a,b$ sind die \underline{Randpunkte} 
   I1 und I2 sind beide erfüllt.
 \end{Bew}
 \begin{Axi}
-  Zu jeder Intervallschachtelung $\exists x\in\md{R}$ die allen ihren Intervallen angehört.
+  Zu jeder Intervallschachtelung $\exists x\in\mb{R}$ die allen ihren Intervallen angehört.
 \end{Axi}
 \begin{Sat}
   Die Zahl ist eindeutig.
@@ -177,20 +177,20 @@ Sei $I=[a,b]$ (bzw. $]a,b[$ \ldots). Dann $a,b$ sind die \underline{Randpunkte} 
   Sei $(I_n)$ eine Intervallschachtelung. Nehmen wir an dass $\exists \alpha < \beta$ so dass $\alpha, \beta\in I_n\forall n$. Dann $\abs{I_n}\geq\abs{\beta-\alpha}> a$. Widerspruch!
 \end{Bew}
 \begin{Sat}
-  $\forall a\geq 0, a\in\md{R}$ und $\forall x\in\md{N}\\\left\{ 0 \right\}$, $\exists$ eine einziges $x\geq 0$, $x\in \md{R}$ s.d. $x^k=a$. Wir nennen $x=\sqrt[k]{a}=a^\frac{1}{k}$.\\
-  Sei $m,n\in\md{N}$, $a^{m+n}=a^ma^n$ und deswegen $a^{-m}=\frac{1}{a^m}$ für $m\in\md{N}$ (so dass die Regel $a^{m-m}=a^0=1$.\\
-  $n,m\in\md{N}\\\left\{ 0 \right\}$ $n$ Mal.
+  $\forall a\geq 0, a\in\mb{R}$ und $\forall x\in\mb{N}\\\left\{ 0 \right\}$, $\exists$ eine einziges $x\geq 0$, $x\in \mb{R}$ s.d. $x^k=a$. Wir nennen $x=\sqrt[k]{a}=a^\frac{1}{k}$.\\
+  Sei $m,n\in\mb{N}$, $a^{m+n}=a^ma^n$ und deswegen $a^{-m}=\frac{1}{a^m}$ für $m\in\mb{N}$ (so dass die Regel $a^{m-m}=a^0=1$.\\
+  $n,m\in\mb{N}\\\left\{ 0 \right\}$ $n$ Mal.
   \begin{align*}
     (a^m)^n=\underbrace{a^m\cdot a^m \cdots a^m}_{\text{$n$ Mal}} = a^{\overbrace{m+\cdots+m}^{\text{$n$ Mal}}} = a^{nm}
   \end{align*}
-  Und mit $a^{-m}=\frac{1}{a^m}$ stimmt die Regel $(a^m)^n=a^{mn}$ auch $\forall m,n\in\md{Z}$!
+  Und mit $a^{-m}=\frac{1}{a^m}$ stimmt die Regel $(a^m)^n=a^{mn}$ auch $\forall m,n\in\mb{Z}$!
 \end{Sat}
 \begin{Bem}
     $x^k=\left( a^\frac{1}{k} \right)^k=a\left( =a^{\frac{1}{k}k} = a^1\right)$
 \end{Bem}
 \begin{Def}
-  $\forall q=\frac{m}{n}\in\md{Q}$, $\forall a>0$ mit definiertem $a^q=\left(\sqrt[n]{a}\right)^m$
+  $\forall q=\frac{m}{n}\in\mb{Q}$, $\forall a>0$ mit definiertem $a^q=\left(\sqrt[n]{a}\right)^m$
 \end{Def}
 \begin{Bew}
-  Mit dieser Definition gilt $a^{q+q_2} = a^qa^q_2$ $\forall a>0$ und $\forall q,q_2\in\md{Q}$.
+  Mit dieser Definition gilt $a^{q+q_2} = a^qa^{q_2}$ $\forall a>0$ und $\forall q,q_2\in\mb{Q}$.
 \end{Bew}
