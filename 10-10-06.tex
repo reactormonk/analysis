@@ -1,0 +1,130 @@
+\section{Funktionen}
+\subsection{Definition}
+\begin{Def}
+  Seien $A$ und $B$ zwei Mengen. Eine Funktion $f:A\to B$ ist eine Vorschrift die jedem Element $a\in A$ ein eindeutiges Element $f(a)\in B$ zuordnet.
+\end{Def}
+\begin{Bsp}
+  $A\subset \mb{R}$, $B=\mb{R}$ (oder $\mb{C}$)
+  \[f(x)=x^2\]
+\end{Bsp}
+\begin{Def}
+  $A$ ist der \underline{Definitionsbereich}.
+  \[f(A)=\left\{ f(x): x\in A \right\}\]
+  ist der Wertbereich
+\end{Def}
+\begin{Bem}
+  Wertbereich von $x^2$
+  \[\left\{ y\in\mb{R}: y\geq 0 \right\}\]
+\end{Bem}
+\begin{Def}
+  Der Graph einer Funktion $f:A\to B$ ist
+  \[G(f)=\left\{ (x, f(x))\in A \times B:x\in A \right\}\]
+\end{Def}
+\begin{Bsp}
+  % TODO scannen
+  Verboten: zwei Werte für die Stelle $x$.
+\end{Bsp}
+\begin{Bsp}
+  $f:\mb{R}\to\mb{R}$ $f(x)=\abs{x}$
+\end{Bsp}
+\subsection{Algebraische Operationen}
+Wenn $B=\mb{R}$ oder $\mb{C}$. Seien $f,g$ zwei Funktionen mit gleichem Definitionsbereich.
+\begin{itemize}
+  \item $f+g$ ist die Funktion $h$ so dass $h:A\to B$ \[h(x)=f(x) + g(x)\]
+  \item Die Funktion $fg$ $k:A\to B$ \[k(x)=f(x)g(x)\]
+  \item $\frac{f}{g}$ falls der Wertebereich von $g$ in $B\setminus \left\{ 0 \right\}$ enthalten ist. \[\frac{f}{g}(x)=\frac{f(x)}{g(x)}\]
+\end{itemize}
+Falls $B=\mb{C}$, kann man auch $\Re f$, $\Im f$, $\ol f$.
+\begin{Def}
+  Sei $f:A\to B$, $f:B\to C$. Die Komposition $g\circ f: A\to C$.
+  \[g\circ f(x)=g(f(x))\]
+\end{Def}
+\begin{Bem}
+  $f:A\to\mb{R}$, $g:A\to \mb{R}$ 
+  \[\Xi:A\to\mb{R}\times\mb{R}\]
+  \[\Xi(a)=(f(a),g(a))\]
+  \begin{align*}
+    \Phi:\mb{R}\times\mb{R}\to\mb{R}\\
+    \Phi(x,y)=xy\\
+    \Phi\circ\Xi(a)=\Phi(\Xi(a))=\Phi\left( \left( f(a) \right),g(a) \right)=f(a)g(a)
+  \end{align*}
+  Also: die ``algebraischen Operationen'' sind ``Kompositionen''.
+\end{Bem}
+\begin{Def}
+  \begin{itemize}
+    \item Wenn $f:A\to B$ und $f(A)=B$ dann ist $f$ \ul{surjektiv}.
+    \item Wenn $f:A\to B$ und die folgende Eigenschaft hat:
+      \[f(x)\neq f(y)\forall x\neq y\in A\]
+      dann ist $f$ \ul{injektiv}.
+    \item Falls $f$ surjektiv und injektiv ist, dann sagen wir, dass $f$ bijektiv ist.
+  \end{itemize}
+\end{Def}
+\begin{Bem}
+  Die bijektiven Funktionen sind umkehrbar. Sei $f:A\to B$ bijektiv. $\forall b\exists a:f(a)=b$ (surjektiv), $a$ ist eindeutig (injektiv). $\exists! a:f(a)=b$. Dann $g(b)=a$ ist eine ``wohldefinierte Funktion'', $g:B\to A$.
+\end{Bem}
+\begin{Def}
+  $g$ wird Umkehrfunktion genannt. $f:A\to B$, $g:B\to A$, $f\circ g: B\to B$, $g\circ f:A\to A$, $f\circ g(b)=b$, $g\circ f(a)=a$ % TODO table?
+\end{Def}
+\begin{Def}
+  Die ``dumme Funktion'' $h:A\to A$ mit $h(a)=a\forall a\in A$ heisst Identitätsfunktion ($\id$ $f\circ g=1$).
+\end{Def}
+\subsection{Zoo}
+\subsubsection{Exponentialfunktion}
+Wertebereich: $a\in\mb{R}, a>0$
+\[\Exp_a:\mb{Q}\to\mb{R}\]
+\[\Exp_a(n)=a^n (=1 \text{ falls }n=0\]
+\[\Exp_a(-n)=\frac{1}{a^n}\]
+\[\Exp_a\left( \frac{m}{n}) \right) = \left( \sqrt[n]{a} \right)^m\]
+$\Exp_a$ ist die \ul{einzige} Funktion $\Phi:\mb{Q}\to\mb{R}$ mit den folgenden Eigenschaften:
+\begin{itemize}
+  \item $\Phi(1)=a$
+  \item $\Phi(q+r)=\Phi(q)\Phi(r)$ $\forall q,r\in\mb{Q}$
+\end{itemize}
+\begin{Bem}
+  Später werden wir $\Exp_a$ auf \ul{$\mb{R}$ fortsetzen}.
+\end{Bem}
+\subsubsection{Polynome}
+\[f(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0\]
+\[f:\mb{R}\ni x\mapsto f(x)\in\mb{R} (\mb{R})\]
+Produkt von Polynomen $x\mapsto f(x)g(x)$
+\begin{align*}
+  f(x)g(x)=\left( a_nx^n+\cdots+a_0 \right)\left( b_mx^m+\cdots+b_0 \right)=\\
+  b_ma_nx^{n+m}+b_na_{n-1}x^{n-1+m}+\cdots=\\
+  b_ma_nx^{n+m}+\left( b_ma_{n-1}+b_{m-1}a_n \right)x^{n+m-1}+\cdots + a_0b_0 =\\
+  c_{m+n}x^{m+n} +\cdots +c_0
+\end{align*}
+\[c_k=\sum_{i+j=k}a_ib_j=\sum_{i=0}^ka_ib_{k-i}\]
+\begin{Def}
+  Der Grad von $a_nx^n+\cdots+a_0$ ist $n$ wenn $a_n\neq 0$
+\end{Def}
+\begin{Sat}
+  Sei $g\neq 0$ ein Polynom. Dann gibt es zu jedem Polynom $f$ zwei Polynome $q$ und $r$ so dass
+  \[g=qf+r\]
+  \[\Grad r < \Grad f\]
+\end{Sat}
+\begin{Bew}
+  \url{http://de.wikipedia.org/wiki/Polynomdivision}
+\end{Bew}
+\begin{Bem}
+  Sei $g=x-x_0$. Sei $f$ mit Grad $\geq 1$, Satz 2 $\implies f=gq+r=gq+c_0$ und Grad von $r < 1$. $r$ ist eine Konstante $r=c_0$.
+  \[f(x)=q(x)(x-x_0)+c_0\]
+  \[f(x_0)=q(x_0)0+c_0\]
+\end{Bem}
+\begin{Kor}
+  Falls $f$ ein Polynom ist und $f(x_0)=0$, dann $\exists q$ Polynom so dass $f=q(x-x_0)$
+\end{Kor}
+\begin{Kor}
+  Ein Polynom hat höchstens $\Grad f$ Nullstellen falls $f\neq 0$.
+\end{Kor}
+\begin{Kor}
+  Falls $f(x)=0$ $\forall x\in\mb{R}$, dann ist $f$ das Trivialpolynom.
+\end{Kor}
+\begin{Kor}
+  Falls $f,g$ Polynome sind und $f(x)=g(x)$ $\forall x\in\mb{R}$ dann sind die Koeffizienten von $f$ und $g$ gleich.
+\end{Kor}
+\begin{Bew}
+  $f-g$ ist ein Polynom mit $(fg)(x)=0$ $\forall x$. Das ist ein Trivialpolynom.
+\end{Bew}
+\begin{Def}
+  Seien $f,g$ Polynome. Dann ist $\frac{f}{g}$ eine rationale Funktion.
+\end{Def}
