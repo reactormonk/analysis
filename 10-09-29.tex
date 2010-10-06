@@ -1,10 +1,43 @@
-% TODO missing
-\subsection{Supremumseigenschaft, Vollsätndigkeit}
+\begin{Sat}
+  Zu jedem $x>0$ $(x\in\mb{R})$ und zu jedem $k\in\mb{N}$ gibt es eine reelle Zahl $y>0$ so dass $y^k=x$. In Zeichen:
+  \[y=x^\frac{1}{k}, y=\sqrt[k]{x}\]
+\end{Sat}
+\begin{Bew}
+  oBdA $x>1$ (sonst würden wir $\frac{1}{x}$ betrachten). wir konstruieren eine Intervallschachtelung $(I_n)$ so dass $\forall n a_n^k \geq x \geq b_n^k$
+  \begin{equation*}
+    I_1:=[1,x]\\
+    I_{n+1} = \begin{cases}
+      \left[ a_n, \frac{a_n+b_n}{2} \right] & \text{falls } x \leq \left( \frac{a_n+b_n}{2} \right)^k
+      \left[ \frac{a_n+b_n}{2}, _n \right]
+    \end{cases}\\
+    \abs{I_n} = \frac{1}{2^{n-1}}\abs{I_1}
+  \end{equation*}
+  Intervallschachtelungsprinzip $\implies$ $\exists y\in\mb{R}$ s.d. $y\in I_n \forall n\in\mb{N}$ 
+\end{Bew}
+\begin{Beh}
+  $y^k=x$
+\end{Beh}
+\begin{Bew}
+   Man definiert $J_n=[a_n^k, b_n^k$. Wir wollen zeigen, dass $J_n$ eine Intervallschachtelung ist.
+  \begin{itemize}
+    \item $J_{n+1}\subset J_n$ weil $I_{n+1}\subset I_n$
+    \item \[\abs{J_n} = b_n^k-a_n^k = \underbrace{\left( b_n - a_n \right)}_{\abs{I_n}} \underbrace{(b_n^{k-1}+b_n^{k-2}a_n + \cdots + a_n^{k-1})}_{\leq k b_1^{k-1}}\]
+  \end{itemize}
+  $\implies$ $\abs{J_n}\leq \abs{I_n}k k_1^{k-1}$.\\
+  Sei $\varepsilon$ gegeben. Man wähle $N$ gross genug, so dass
+  \[\abs{I_n}\leq\varepsilon'=\frac{\varepsilon}{kb_1^{k-1}}\implies\abs{J_n}\leq \varepsilon kb_1^{k-1}=\varepsilon\]
+  Einerseits
+  \[y\in\left[ a_n,b_n \right]\implies y^k\in\left[ a_n^k, b_n^k \right]=J_n\]
+  Andererseits
+  \[x\in J_n\forall n\in\mb{N}\]
+  Intervallschachtelungsprinzip $\implies$ $x=y^k$
+\end{Bew}
+\subsection{Supremumseigenschaft, Vollständigkeit}
 \begin{Def}
-  $s\in\md{R}$ heisst obere (untere) Schranke der Menge $M\subset \md{R}$ falls $s\geq x$ ($s\leq x$) $\forall x\in M$.
+  $s\in\mb{R}$ heisst obere (untere) Schranke der Menge $M\subset \mb{R}$ falls $s\geq x$ ($s\leq x$) $\forall x\in M$.
 \end{Def}
 \begin{Def}
-  $s\in\md{R}$ ist das Supremum der Menge $M\subset\md{R}$ falls es die kleinste obere Schranke ist. D.h.
+  $s\in\mb{R}$ ist das Supremum der Menge $M\subset\mb{R}$ falls es die kleinste obere Schranke ist. D.h.
   \begin{itemize}
     \item $s$ ist die obere Schranke
     \item falls $s'<s$, dass ist $s'$ keine obere Schranke.
@@ -17,13 +50,13 @@
   $M=[0,1]$. $\sup M=1\in M$
 \end{Bsp}
 \begin{Def}
-  $s\in\md{R}$ heisst Infimum einer Menge $M$ ($s=\inf M$) falls $s$ die grösste obere Schranke ist.
+  $s\in\mb{R}$ heisst Infimum einer Menge $M$ ($s=\inf M$) falls $s$ die grösste obere Schranke ist.
 \end{Def}
 \begin{Def}
   Falls $s=\sup M\in M$, nennt man $s$ das Maximum von $M$. Kurz: $s=\max M$. Analog Minimum.
 \end{Def}
 \begin{Sat}
-  Falls $M\subset \md{R}$ nach oben (unten) beschränkst ist, dann existiert $\sup M$ ($\inf M$).
+  Falls $M\subset \mb{R}$ nach oben (unten) beschränkst ist, dann existiert $\sup M$ ($\inf M$).
 \end{Sat}
 \begin{Bew}
   Wir konstruieren eine Intervallschachtelung $I_n$, so dass $b_n$ eine obere Schranke ist, und $a_n$ keine obere Schranke ist.
@@ -58,7 +91,7 @@
   \end{itemize}
 \end{Beh}
 \begin{Lem}
-  Jede nach oben (unten) beschränkte Menge $M\subsetequal \md{Z}$ besitzt das grösste (kleinste) Element.
+  Jede nach oben (unten) beschränkte Menge $M\subsetequal \mb{Z}$ besitzt das grösste (kleinste) Element.
 \end{Lem}
 \begin{Bew}
   oBdA betrachte nur nach unten beschränkte Mengen $M\subset N$. Angenommen $M$ hat kein kleinstes Element.
@@ -73,14 +106,14 @@
   \begin{align*}
     M\cut\left\{ 1,\cdots,n \right\} = \null\\
     M\cut\left\{ 1,2,\cdots,n+1 \right\} = M\cut \left\{ 1,\cdots,n \right\}\union M\cut\left\{ n+1 \right\}=\null\\
-    \implies M\cut\md{N}=\null
+    \implies M\cut\mb{N}=\null
   \end{align*}
 \end{Beh}
 \begin{Sat}
-  $\md{Q}$ ist dich in $\md{R}$, bzw. für beliebige zwei $x,y\in\md{R}$, $y>x$, gibt es eine rationelle Zahl $q\in\md{Q}$, so dass $x<q<y$.
+  $\mb{Q}$ ist dich in $\mb{R}$, bzw. für beliebige zwei $x,y\in\mb{R}$, $y>x$, gibt es eine rationelle Zahl $q\in\mb{Q}$, so dass $x<q<y$.
 \end{Sat}
 \begin{Bew}
-  Man wähle $n\in\md{N}$ so dass $\frac{1}{n}<y-x$. Betrachte die Menge $A\subsetequal\md{Z}$, so dass $M\in A$ $\implies$ $M>nx$. Lemma $\implies$ $\exist m=\min A$.
+  Man wähle $n\in\mb{N}$ so dass $\frac{1}{n}<y-x$. Betrachte die Menge $A\subsetequal\mb{Z}$, so dass $M\in A$ $\implies$ $M>nx$. Lemma $\implies$ $\exist m=\min A$.
   \begin{align*}
     x<\frac{m}{n}=\frac{m-1}{n}+\frac{1}{n}<x+y-x=y
   \end{align*}
@@ -97,19 +130,19 @@
   \end{itemize}
 \end{Bsp}
 \begin{Def}
-  Eine Menge $A$ ist abzählbar, wenn es eine Bijektion zwischen $\md{N}$ und $A$ gibt. D.h. $A=\left\{ a_1,a_2,\cdots,a_n,\cdots \right\}$.
+  Eine Menge $A$ ist abzählbar, wenn es eine Bijektion zwischen $\mb{N}$ und $A$ gibt. D.h. $A=\left\{ a_1,a_2,\cdots,a_n,\cdots \right\}$.
 \end{Def}
 \begin{Lem}
-  $\md{Z}$ ist abzählbar
+  $\mb{Z}$ ist abzählbar
 \end{Lem}
 \begin{Bew}
   \begin{tabular}{c|ccccc}
-    \md{N} & 1 & 2 & 3 & 4 & 5 & \ldots \\
-    \md{Z} & 0 & 1 & -1 & 2 & -2 & \ldots
+    \mb{N} & 1 & 2 & 3 & 4 & 5 & \ldots \\
+    \mb{Z} & 0 & 1 & -1 & 2 & -2 & \ldots
   \end{tabular}
   Formal:
   \begin{align*}
-    f=\md{N}\to \md{Z}\\
+    f=\mb{N}\to \mb{Z}\\
     f(n)=\begin{cases}
       \frac{n}{2} & \text{wenn $n$ gerade}\\
       \frac{1-n}{2} & \text{wenn $n$ ungerade}
@@ -117,11 +150,11 @@
   \end{align*}
 \end{Bew}
 \begin{Sat}
-  $\md{Q}$ ist abzählbar
+  $\mb{Q}$ ist abzählbar
 \end{Sat}
 \begin{Bew}
   Sucht euch die Graphik auf Wikipedia oder sonstwo.
 \end{Bew}
 \begin{Sat}
-  $\md{R}$ ist nicht abzählbar.
+  $\mb{R}$ ist nicht abzählbar.
 \end{Sat}
