@@ -7,15 +7,15 @@
 \begin{Def}
   Sei $a,b\in\mb{R}$, dann $a+bi\in\mb{C}$.
   \begin{equation*}
-    (a+bi)+(\alpha+\betai) = (a+\alpha)+(b+\beta)i\\
-    (a+bi)(\alpha+\betai) = (a\alpha-b\beta)+\underbrace{(a\beta+b\alpha)}_{A}
+    (a+bi)+(\alpha+\beta i) = (a+\alpha)+(b+\beta)i\\
+    (a+bi)(\alpha+\beta i) = (a\alpha-b\beta)+\underbrace{(a\beta+b\alpha)}_{A}
   \end{equation*}
 \end{Def}
 \begin{Def}
-  Seien $A$ und $B$ zwei Mengen. Dann ist $A\cross B$ die Menge der Paare $(a,b)$ mit $a\in A$ und $b\in B$.
+  Seien $A$ und $B$ zwei Mengen. Dann ist $A\times B$ die Menge der Paare $(a,b)$ mit $a\in A$ und $b\in B$.
 \end{Def}
 \begin{Def}
-  $\mb{C}=\mb{R}\cross\mb{R}$ mit $+$ und $\cdot$ , die wir so definieren:
+  $\mb{C}=\mb{R}\times\mb{R}$ mit $+$ und $\cdot$ , die wir so definieren:
   \begin{equation*}
     (a,b)+(\alpha,\beta)=(a+\alpha,b+\beta)\
     (a,b)(\alpha,\beta)=(a\alpha-b\beta, \underbrace{a\beta+b\alpha}_{A})
@@ -82,8 +82,8 @@
   Sei $\xi\neq 0$ und suchen wir $\alpha$ so dass $\xi\alpha=1$. Dann ist $\omega=\alpha\xi$ eine Lösung von (2) % TODO ref
   (eigentlich DIE Lösung). Falls $\xi=a+bi$
   \begin{equation*}
-    \alpha=\frac{a}{a^2+b^2}-\frac{b}{a^2+b^}\\
-    \xi\alpha=\overbrace{\left( \frac{aa}{a^2+b^2}-\frac{b(-b)}{a^2+b^2} \right)+\\
+    \alpha=\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}\\
+    \xi\alpha=\overbrace{\left( \frac{aa}{a^2+b^2}-\frac{b(-b)}{a^2+b^2} \right)}\\
     \left( \frac{a(-b)}{a^2+b^2}-\frac{ab}{a^2+b^2} \right)i=1
   \end{equation*}
 \end{Bew}
@@ -96,7 +96,7 @@
   \end{itemize}
 \end{Def}
 \begin{Bew}
-  \[\sqrt{\ol\xi\ol\xi}=\sqrt{\left( \Re\xi \right)^2+\left( \In\xi \right)^2}=:\abs{\xi}\]
+  \[\sqrt{\ol\xi\ol\xi}=\sqrt{\left( \Re\xi \right)^2+\left( \Im\xi \right)^2}=:\abs{\xi}\]
 \end{Bew}
 \begin{Def}
   $\abs{\xi}$ ist der Betrag von $\xi$.

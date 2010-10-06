@@ -14,9 +14,9 @@
   \end{equation*}
   Intervallschachtelungsprinzip $\implies$ $\exists y\in\mb{R}$ s.d. $y\in I_n \forall n\in\mb{N}$ 
 \end{Bew}
-\begin{Beh}
+\begin{Sat}
   $y^k=x$
-\end{Beh}
+\end{Sat}
 \begin{Bew}
    Man definiert $J_n=[a_n^k, b_n^k$. Wir wollen zeigen, dass $J_n$ eine Intervallschachtelung ist.
   \begin{itemize}
@@ -73,7 +73,7 @@
   \end{align*}
   Also, $\exists s\in I_n\forall n$
 \end{Bew}
-\begin{Beh}
+\begin{Sat}
   $s$ ist das Supremum von $M$
   \begin{itemize}
     \item Warum ist $s$ eine obere Schranke? \\
@@ -89,31 +89,31 @@
     \end{align*}
     Widerspruch.
   \end{itemize}
-\end{Beh}
+\end{Sat}
 \begin{Lem}
-  Jede nach oben (unten) beschränkte Menge $M\subsetequal \mb{Z}$ besitzt das grösste (kleinste) Element.
+  Jede nach oben (unten) beschränkte Menge $M\subseteq \mb{Z}$ besitzt das grösste (kleinste) Element.
 \end{Lem}
 \begin{Bew}
   oBdA betrachte nur nach unten beschränkte Mengen $M\subset N$. Angenommen $M$ hat kein kleinstes Element.
 \end{Bew}
-\begin{Beh}
+\begin{Sat}
   \begin{align*}
-    \forall n M\cut \left\{ 1,\cdots,n \right\} = \null\\
+    \forall n M\cap \left\{ 1,\cdots,n \right\} = \null\\
     n=1\\
-    M\cut\left\{ 1 \right\}\\
+    M\cap\left\{ 1 \right\}\\
   \end{align*}
   Angenommen
   \begin{align*}
-    M\cut\left\{ 1,\cdots,n \right\} = \null\\
-    M\cut\left\{ 1,2,\cdots,n+1 \right\} = M\cut \left\{ 1,\cdots,n \right\}\union M\cut\left\{ n+1 \right\}=\null\\
-    \implies M\cut\mb{N}=\null
+    M\cap\left\{ 1,\cdots,n \right\} = \null\\
+    M\cap\left\{ 1,2,\cdots,n+1 \right\} = M\cap \left\{ 1,\cdots,n \right\}\cup M\cap\left\{ n+1 \right\}=\null\\
+    \implies M\cap\mb{N}=\null
   \end{align*}
-\end{Beh}
+\end{Sat}
 \begin{Sat}
   $\mb{Q}$ ist dich in $\mb{R}$, bzw. für beliebige zwei $x,y\in\mb{R}$, $y>x$, gibt es eine rationelle Zahl $q\in\mb{Q}$, so dass $x<q<y$.
 \end{Sat}
 \begin{Bew}
-  Man wähle $n\in\mb{N}$ so dass $\frac{1}{n}<y-x$. Betrachte die Menge $A\subsetequal\mb{Z}$, so dass $M\in A$ $\implies$ $M>nx$. Lemma $\implies$ $\exist m=\min A$.
+  Man wähle $n\in\mb{N}$ so dass $\frac{1}{n}<y-x$. Betrachte die Menge $A\subseteq\mb{Z}$, so dass $M\in A$ $\implies$ $M>nx$. Lemma $\implies$ $\exists m=\min A$.
   \begin{align*}
     x<\frac{m}{n}=\frac{m-1}{n}+\frac{1}{n}<x+y-x=y
   \end{align*}
@@ -136,9 +136,9 @@
   $\mb{Z}$ ist abzählbar
 \end{Lem}
 \begin{Bew}
-  \begin{tabular}{c|ccccc}
-    \mb{N} & 1 & 2 & 3 & 4 & 5 & \ldots \\
-    \mb{Z} & 0 & 1 & -1 & 2 & -2 & \ldots
+  \begin{tabular}{c|cccccc}
+    $\mb{N}$ & 1 & 2 & 3 & 4 & 5 & \ldots \\
+    $\mb{Z}$ & 0 & 1 & -1 & 2 & -2 & \ldots
   \end{tabular}
   Formal:
   \begin{align*}
