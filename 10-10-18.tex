@@ -1,0 +1,144 @@
+\begin{Def}
+  Sei $a_n$ eine Folge von reellen Zahlen. Dann sagen wir:
+  \begin{itemize}
+    \item $a_n\to +\infty$ (oder $\lim_{n\to +\infty} a_n=+\infty$) falls $\forall M\in\mb{R}$ $\exists N\in\mb{R}:a_n\geq M$ $\forall n\geq N$ (oder  $a_n\geq$ für fast alle $n\in\mb{R}$)
+    \item $a_n\to-\infty$ ($\lim_{n\to -\infty} a_n=-\infty$) falls $\forall M\in\mb{R}$, $a_n\leq M$ für fast alle $n$.
+  \end{itemize}
+  Wenn die Folge $a_n$ keine obere Schranke besitzt: $\ol{\lim_{n\to+\infty}} a_n=+\infty$. Dasselbe gilt equivalent auch für untere Schranken.
+\end{Def}
+\begin{Ueb}
+  $\ol{\lim_{n\to+\infty}}a_n=+\infty$ $\iff$ $\exists$ Teilfolge $\left\{ a_{n_k} \right\}_{k\in\mb{N}}$ mit $a_{n_k}\stackrel{k\to+\infty}{\to}+\infty$
+\end{Ueb}
+\begin{Bem}
+  Sei $a_n$ eine wachsende (bzw. fallende) Folge. Dann:
+  \begin{itemize}
+    \item entweder konvergiert $a_n$
+    \item oder $\lim_{n\to+\infty}a_n=+\infty$ (bzw. $\lim_{n\to+\infty}a_n=-\infty$)
+  \end{itemize}
+\end{Bem}
+\section{Reihen}
+\subsection{Konvergenz der Reihen}
+\begin{Def}
+  Sei $(a_n)_{n\in\mb{N}}$ eine Folge komplexer Zahlen. Wir setzen:
+  \begin{align*}
+    s_0=a_0\\
+    s_1=a_0+a_1\\
+    s_2=a_0+a_1+a_2\\
+    \cdots\\
+  \end{align*}
+  \begin{equation*}
+    s_k:=\sum^k_{i=0}a_i
+  \end{equation*}
+\end{Def}
+\begin{Def}
+  Die $(s_k)_{k\in\mb{N}}$ ist die Folge der Partialsummen. Die Reihe ist die Folge $(s_k)_{k\in\mb{N}}$ falls der Limes von $s_k$ existiert, dann ist $\lim_{n\to+\infty}s_n$ ist der \ul{Wert der Reihe}. Und wir sagen dass $(s_k)$ eine \ul{konvergente Reihe} ist.
+\end{Def}
+\begin{Not}
+  Die Notation der Reihe ist $\sum^\infty_{i=0}a_i$ bezeichnet \ul{die Reihe} und \ul{den Wert der Reihe}.
+\end{Not}
+\begin{Bsp}
+  Sei $z$ eine komplexe Zahl. Dann ist die Reihe $\sum^\infty_{n=0}z^n$ die \ul{geometrische Reihe}.
+  \begin{itemize}
+    \item $\abs{z}<1$ dann konvergiert $\implies$ die geometrische Reihe.
+  \end{itemize}
+  Falls $z=0$ ist der Wert der Reihe $1$.
+  \begin{align*}
+    0\neq z, \abs{z}<1\\
+    (1-z)(1+z+\cdots z^n)=1-z^{n+1}\\
+    s_n=\frac{1-z^{n+1}}{1-z}\\
+    \lim_{n\to+\infty}\frac{1-z^n}{1-z}=\lim_{n\to+\infty}\left( \frac{1}{1-z} \right)-\frac{1}{1-z}\underbrace{\left( \lim_{n\to+\infty}z^n \right)}_{=0 \text{ weil } \abs{z}<1}=\frac{1}{1-z}
+  \end{align*}
+  Für $\abs{z}>1$ ist $s_n=\frac{(1-z)^{n+1}}{1-z}$ falls $\lim_{n\to+\infty}s_n$ existiert, dann konvergiert die Folge $z^{n+1}$ $\implies$ die Folge $\underbrace{\abs{z}^n+1}_{\text{falsch weil $\abs{z^n}$ divergiert}}$ konvergiert. Sei $a\in\mb{R}$, $a>1$
+  \[a^n=(1+(a-1))^n=1+n(a-1)\]
+  \begin{itemize}
+    \item $z=1$ $s_n=1+1+\cdots+1=n+1$ $\implies$ $(s_n)$ konvergiert nicht!
+    \item $s\neq 1$ $s_n$ konvergiert nicht weil $z^{n+1}$ nicht konvergiert!
+    \item $\abs{z}=1$ $\implies$ 
+      \[z=\cos\theta+i\sin\theta\implies z^{n+1}=\cos((n+1)\theta)+i\sin((n+1)\theta)\]
+      (Übung 4, Blatt 3)
+  \end{itemize}
+  \begin{Bem}
+    Falls $z\in\mb{R}$, $z\geq 1$. Dann ist $s_n$ eine Folge reeller Zahlen, $s_n\geq 0$, $s_n$ ist monoton wachsend ($s_{n+1}=s_n+z^{n+1}\geq s_n$). $\implies$ in diesem Fall $\sum^\infty_{n=0}z^n=+\infty$
+  \end{Bem}
+  $z\in\mb{R}$, $z=-1$
+  \[s_n=\begin{cases}
+    1&\text{für gerade $n$}\\
+    0&\text{für ungerade $n$}
+  \end{cases}\]
+  $\implies$ $s_n$ ist beschränkt und $s_n$ konvergiert nicht (Häufungspunkte ${0,1}$.\\
+  $z\in\mb{R}$, $z<-1$.
+  \[s_n=\frac{1-z^{n+1}}{1+z}\]
+  $\implies$ $(s_n)$ ist nicht beschränkt
+\end{Bsp}
+\begin{Bem}
+  Wenn die Partialsumme eine Folge reeller Zahlen ist und $s_n\to+\infty$ (bzw. $-\infty$), dann $\sum a_n=+\infty$ (bzw. $-\infty$).
+\end{Bem}
+\begin{Bsp}
+  Harmonische Reihe: $\sum^\infty_{n=1}\frac{1}{n}$ $s_{n+1}\geq s_n$ $\implies$ entweder $\lim_{n\to+\infty}s_n$ existiert oder $\lim{n\to+\infty}=+\infty$
+  \begin{align*}
+    s_{2^n-1}=1+\underbrace{\frac{1}{2}+\frac{1}{3}}+\underbrace{\cdots}_{2^{k-1}\leq j\leq 2^k-1}+\cdots+\underbrace{\cdots}_{2^{n-1}\leq j\leq 2^n-1}\\
+    \geq 1+\frac{1}{4}+\cdots+\underbrace{\frac{1}{2^k}+\cdots+\frac{1}{2^k}}_{2^{k-1}}+\cdots\\
+    \geq 1+\fac{1}{2}+\frac{1}{2}+ \cdots\\
+    =1+\frac{n-1}{2}
+    \sigma_n=s_{2^n-1}\geq +1\frac{n-1}{2}\implies\lim_{n\to+\infty}\sigma_n=+\infty
+  \end{align*}
+  $\implies$ die ursprüngliche Folge $(s_n)$ konvergiert nicht! 
+  \[\implies \lim_{n\to+\infty}s_n=+\infty\implies+\infty \implies \sun\frac{1}{n}=+\infty\]
+\end{Bsp}
+\subsection{Konvergenzkriterien für reelle Reihen}
+\begin{Bem}
+  (gilt auch für komplexe Reihen!)
+  \[\sum^\infty_{n=0}a_n \text{konvergiert}\implies a_n\to 0\]
+\end{Bem}
+\begin{Ueb}
+  ganz schnell: die geometrische Reihe konvergiert nicht falls $\abs{z}\geq 1$
+\end{Ueb}
+\begin{Bem}
+  $a_\to 0$ $\not\implies$ $\sum^\infty_{n=0}a_n$ konvergiert! Bsp: $a_n=\frac{1}{n}$
+\end{Bem}
+\begin{Sat}
+  Sei $\sum a_n$ eine Reihe mit reellen Zahlen $a_n\geq 0$. Dann:
+  \begin{itemize}
+    \item entweder ist die Folge $(s_n)$ beschränkt (und die Reihe konvergiert deswegen)
+    \item oder $\sum^\infty_{n=0}s_n=+\infty$
+  \end{itemize}
+\end{Sat}
+\begin{Sat}
+  (Konvergenzkriterium Leibnitz). Sei $(a_n)$ eine fallende Nullfolge. Dann konvergiert $\sum^\infty_{n=0}(-1)^na_n$ (eine alternierende Reihe).
+\end{Sat}
+\begin{Bew}
+  Betrachten wir 
+  \[s_k-s_{k-2}=(-1)^{k-1}a_{k-1}+(-1)^ka_k)(-1)^k\overbrace{(a_k-a_{k-1})}^{\leq 0}\]
+  \begin{itemize}
+    \item $s_k-s_{k-2}\geq 0$ falls $k$ ungerade ist
+    \item $s_k-s_{k-2}\leq 0$ falls $k$ gerade ist
+  \end{itemize}
+  Für $k$ ungerade:
+  \[s_1\leq s_3\leq s_5\leq \cdots\]
+  \[\underbrace{s_k}_{\text{gerade}}=\underbrace{s_{k+1}}_{\text{ungerade}}+\underbrace{(-1)^{k+1}}_{\geq 0}\underbrace{a_{n+1}}_{\geq 0}\leq s_{k+1}\leq s_n\]
+  Für $k$ gerade:
+  \[s_1\leq s_3\leq s_5\leq \cdots\]
+  (Beweis gleich wie für ungerade)\\
+  $\implies$ die Folge $s_0,s_2,s_4,\cdots$ ist monoton fallend und von unten beschränkt $\implies$ $\lim_{k\to+\infty} 2k=S_g\in\mb{R}$
+  \[S_u-S_g=\lim_{n\to+\infty}s_{2n+1}-\lim_{n\to+\infty}s_{2n}=\lim_{n\to+\infty}(s_{2n+1}-s_{2n})\lim_{n\to+\infty}a_{2n+1}=0\]
+  \[\implies S_u=S_g\implies \lim_{n\to+\infty}s_n=S_u(=S_g)\]
+\end{Bew}
+\begin{Kor}
+  \[1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots\]
+  konvergiert
+\end{Kor}
+\subsection{Konvergenzkriterien für allgemeine (komplexe) Reihen}
+\begin{Bem}
+  $\sum a_n$ konvergiert $\iff$ $(s_n)$ konvergiert $\iff$ $(s_n)$ ist eine Cauchyfolge. $\iff$ $\forall\varepsilon>0$ $\exists N: \abs{s_n-s_m}<\varepsilon$ $\forall n\geq m\geq N$. $\varepsilon>\abs{s_n-s_m}=\abs{a_{m+1}+\cdots+a_n}$.
+\end{Bem}
+\begin{Kor}
+  Majorantenkriterium: Sei $\sum a_n$ eine Reihe komplexer Zahlen und $\sum b_n$ eine konvergente Reihe nichtnegativer reeller Zahlen. Falls $\abs{a_n}\leq b_n$ (d.h. $\sum b_n$ majorisiert $\sum a_n$, dann ist $\sum a_n$ konvergent.
+\end{Kor}
+\begin{Bew}
+  $\sum b_n$ konvergiert $\iff$ $\sigma_n=\sum^n_{k=0} b_n$ ist eine Cauchyfolge.
+  \[\iff \forall \varepsilon>0 \exists N:\underbrace{\abs{\sigma_n-\sigma_m}}_<\varepsilon\forall n\geq m\geq N\]
+  \[b_n+\cdots+b_{m+1}\geq\abs{a_n}+\cdots+\abs{a_{m+1}}\geq \abs{a_n+\cdots+a_{m+1}}=\abs{s_n-s_m}\]
+  Wobei $\sum s_n=\sum^n_{k=0}a_n$.
+  \[\iff \forall \varepsilon>0 \abs{s_n-s_m}\leq \abs{\sigma_n-\sigma_m}<\varepsilon\forall n\geq m\geq N\]
+  $\iff$ $(s_n)$ ist eine Cauchyfolge $\iff$ $\sum a_n$ konvergiert
+\end{Bew}
