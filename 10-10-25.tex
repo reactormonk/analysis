@@ -1,0 +1,123 @@
+\section{Stetige Funktionen und Grenzwerte}
+\subsection{Stetigkeit}
+In $D\subset\mb{R}$, $D\subset\mb{C}$.
+\begin{Def}
+  Eine Funktion $f:D\mapsto \mb{R}(\mb{C})$. Sei $x_0\in D$. $f$ heisst stetig in $x_0$ falls $\forall \varepsilon >0$, $\exists\delta>0$ mit
+  \[\abs{x-x_0}<\delta, x\in D\implies \abs{f(x)-f(x_0)}<\varepsilon\]
+  (Bedingung S). Gegenüber:
+  \[\forall\delta>0 \exists x\in\left] x_0-\delta,x_0+\delta  \right[\text{ mit } \abs{f(x)-f(x_0)}\geq \varepsilon\]
+\end{Def}
+\begin{Bsp}
+  Die Polynome sind stetige Funktionen.
+\end{Bsp}
+\begin{Bsp}
+  (Später), Summe und Produkte stetiger Funktionen sind auch stetig.
+\end{Bsp}
+\begin{Bem}
+  \begin{itemize}
+    \item Die Bedingung (S) ist trivial für die Funktion $f=const$
+    \item Die Bedingung (S) ist trivial für die Funktion $f(x)=x$
+      \[\abs{x-x_0}<\delta=\varepsilon\implies\abs{f(x)-f(x_0)}=\abs{x-x_0}<\varepsilon\]
+  \end{itemize}
+\end{Bem}
+\begin{Def}
+  Eine Funktion $f:D\to \mb{R}(\mb{C})$ heisst Lipschitz(-stetig) falls $\exists L\geq 0$ mit
+  \[\abs{f(x)-f(y)}\leq L\abs{x-y}, \forall x,y\in D\]
+  (L) $\implies$ (S): wähle $\delta=\frac{\varepsilon}{L}$
+\end{Def}
+\begin{Kor}
+  $g(x):=\abs{x}$ ist stetig.
+  \[\abs{g(x)-g(y)}=\abs{\abs{x}-\abs{y}}\leq\abs{x-y}\]
+  d.h. (L) mit $L=1$
+\end{Kor}
+\begin{Bsp}
+  (Später): $\frac{f}{g}$ ist stetig falls $f$,$g$ stetig und $g(x)\neq 0$ $\forall x\in D$. $\implies$ Rationale Funktionen $\frac{P(x)}{Q(x)}$ sind stetig auf $d=\mb{C}\setminus\left\{ x:Q(x)=0 \right\}$
+\end{Bsp}
+\begin{Bsp}
+  $f(x)=x^k$, $k\in\mb{N}$ ist ein Polynom $\implies$ $f$ ist stetig. Sei $g(x):=x^\frac{1}{k}=\sqrt[k]{x}$, $k\in\mb{N}\setminus\left\{ 0 \right\}$ \left( $g(x)$ ist die einzige relle Zahl $y\in\mb{R}$ mit $y\geq 0$ und $y^k=x$ \right). $x_0\in\mb{R}$, $\varepsilon>0$
+  \[\abs{\underbrace{\sqrt[k]{x}}_y-\underbrace{\sqrt[k]{x_0}}_{y_0}} \leq \sqrt[k]{abs{x-x_0}}\]
+  \[\iff \abs{y-y_0}^k\leq\abs{y^k-y_0^k}\]
+  oBdA $y\geq y_0$
+  \[\underbrace{\left( y-y_0 \right)^k}_a\leq \underbrace{y^k}_c-\underbrace{y_0^k}_b\]
+  \[\iff a^k+b^k\leq c^k=(a+b)^k\]
+  \[a^k+b^k\leq (a+b)^k=a^k+\overbrace{\binom{k}{1}a^{k-1}b+\cdots}^{\geq 0}+b^k\]
+  Deswegen: $\delta=\varepsilon^{k}$. $\abs{x-x_0}<\delta$ $x>x_0$, $x<x_0+\delta$
+  \[\abs{\sqrt[k]{x}-\sqrt[k]{x_0}}=\left( \sqrt[k]{x}-\sqrt[k]{x_0} \right)<\left( \sqrt[k]{x_0+\delta}+\sqrt[k]{x_0} \right)\]
+  \[=\abs{\sqrt[k]{x_0+\delta}-\sqrt[k]{x_0}}\leq\sqrt[k]{\delta}=\sqrt[k]{\varepsilon^k}=\varepsilon\]
+  Oder wähle $\delta=\left( \frac{\varepsilon}{2} \right)^k$
+  \[\abs{x-x_0}< \delta \implies \abs{\sqrt[k]{x}-\sqrt[k]{x_0}}\leq\sqrt[k]{\abs{x-x_0}}\leq\sqrt[k]{\left( \frac{\varepsilon}{2} \right)^k}=\frac{\varepsilon}{2}<\varepsilon\]
+\end{Bsp}
+\begin{Bsp}
+  Sei $a>0$ und $f(x)=a^x$ $\forall x\in\mb{Q}$ $f:\mb{Q}\to\mb{R}$ ist stetig!
+\end{Bsp}
+\begin{Sat}
+  Sei $f:D\to\mb{R}(\mb{C})$. Sei $x_0\in D$. Diese zwei Aussagen sind equivalent:
+  \begin{itemize}
+    \item $f$ ist stetig an der Stelle $x_0$.
+    \item $\forall(x_n)\subset D$ mit $x_n\to x_0$ haben wir $f(x_n)\to f(x_0)$
+  \end{itemize}
+\end{Sat}
+\begin{Bew}
+  Sei $\varepsilon >0$. $f$ stetig in $x_0$ $\implies$ $\exists\delta>0$ mit $\abs{f(x)-f(x_0)}<\varepsilon$ falls $\abs{x-x_0}<\delta$. $x_n\to x_0$ $\implies$ $\exists N$:
+  \[\abs{x_n-x_0}<\delta\forall n\geq N\implies \abs{f(x_n)-f(x_0)}<\varepsilon\]
+  Andere Richtung: Nehmen wir an dass $f$ stetig falsch ist.
+  \[\implies \exists \varepsilon>0: \forall \delta>0 \exists x: \abs{x-x_0}<\delta\wedge\abs{f(x)-f(x_0)}\geq \varepsilon\]
+  $forall n\in\mb{N}\setminus\left\{ 0 \right\}$. Ich setze $\delta=\frac{1}{n}\implies \exists x_n$ mit $\abs{x_n-x_0}<\frac{1}{n}$ und $\abs{f(x_n)-f(x_0)}\geq \varepsilon$ $\implies$ $x_n\to x_0$ und $f(x_n)\not\to f(x_0)$.
+\end{Bew}
+\begin{Sat}
+  Seien $f,g:D\to\mb{R}(\mb{C})$ zwei stetige Funktionen. Dann:
+  \begin{itemize}
+    \item $f+g$, $fg$ sind stetig
+    \item $\frac{f}{g}$ ist stetig auf $D\setminus\left\{ x:g(x)=0 \right\}$
+  \end{itemize}
+\end{Sat}
+\begin{Bew}
+  Sei $x_0\in D$, $(x_n)\subset D$ $x_n\to x_0$ (für $\frac{f}{g}$ $g(x_n)\neq 0, q(x_0)\neq 0$ weil $(x_n), {x_0}\subset D\setminus\left\{ x:g/x(=0 \right\})$
+  \begin{align*}
+    f(x_n)+g(x_n)&\to& f(x_0)+g(x_0)\\
+    f(x_n)g(x_n)&\to& f(x_0)g(x_0)\\
+    \frac{f(x_n)}{g(x_n)}&\to& \frac{f(x_0)}{g(x_0)}\\
+  \end{align*}
+\end{Bew}
+\begin{Sat}
+  $f:D\to A$, $g:A\to B$ stetig $\implies g\circ f:D\to B$ stetig.
+\end{Sat}
+\begin{Bew}
+  $x_0, (x_n)\subset D$ mit $x_n\to x_0$ $\implies \underbrace{f(x_n)}_{y_n}\to f(x_0)_{y_0}$ $(y_n), y_0\in A$ $\implies$ 
+  \begin{itemize}
+    \item $g(y_n)\to g(y_0)$
+    \item $g(f(x_n))\to g(f(x_0))$
+  \end{itemize}
+  $\implies$ $g\circ f(x_n)\to g\circ f(x_0)$ $\implies$ Stetigkeit von $g\circ f$
+\end{Bew}
+\begin{Sat}
+  Sei $f:\left[ a,b \right]\to\mb{R}(\mb{C})$ injektiv. Sei
+  \[B:=f\left( \left[ a,b \right] \right)\left( =\left\{ z:\exists x\in\left[ a,b \right]\text{ mit } f(x)=z \right\} \right)\]
+  \begin{Bem}
+    $f:\left[ a,b \right]\to B$ ist bijektiv und deswegen umkehrbar.
+  \end{Bem}
+  Sei $f^{-1}:B\to\left[ a,b \right]$ die Umkehrfunktion. Dann ist $f^{-1}B\to \left[ a,b \right]$ stetig, falls $f$ stetig ist.
+\end{Sat}
+\begin{Bew}
+  Sei $x_0\in B$, $(x_n)$ mit $(x_n)\subset B$ und $x_n\to x_0$. Die Folge
+  \[\underbrace{f^{-1}(x_n)}_{=y_n}\stackrel{?}{\to}\underbrace{f^{-1}(x_0)}_{=y_0}\]
+  $(y_n)\subset\left[ a,b \right]$, $y_0\in\left[ a,b \right]$. Falls $y_n\not\to y_0$, dann:
+  \[\exists\varepsilon>0: \forall N\in\mb{N}\eixsts \underbrace{n}_{n_k}\geq \underbrace{N}_{k}: \abs{y_n-y_0}\geq\varepsilon\]
+  \[n_k\geq n_{k-1}\implies\text{Teilfolge } (y_{n_k}): \abs{y_{n_k}-y_0}\geq \varepsilon\forall k\in \mb{N}\]
+  \[\text{Bolzano-Weiterstrass}\implies \exists y_{n_k}\to\bar{y}\implies \bar{y}\neq y_0\]
+  \[f(y_{n_{k_j}})=x_{n_{k_j}}\]
+  Stetigkeit von $f$:$f(y_{n_{k_j}})\to f(\bar y)$ Und da $x_{n_{k_j}}\to x_0$ sowie  $x_{n_{k_j}} = f(y_{n_{k_j}}$, heisst dass das $f(\bar y)=x_0$, aber $f(y_0)=x_0$ $\impies f(\bar y)=f(y_0)$, mit $\bar y\neq y_0$. Widerspruch mit der Injektivität von $f$. Deswegen $f^{-1}(x_n)=y_n\to y_0=f^{-1}(x_0)$ $\implies$ $f^{-1}$ ist stetig.
+\end{Bew}
+\begin{Bem}
+  Aus diesem Satz schliessen Sie die Stetigkeit von $x\mapsto x^{\frac{1}{k}}$ von der Stetigkeit $x\mapsto x^k$.
+\end{Bem}
+\begin{Def}
+  Wenn eine Funktion $f:D\to\mb{R}(D)$ stetig ist für $x\in D$, dann ist $f$ stetig auf $D$.
+\end{Def}
+\begin{Bem}
+  Für Satz 1 genügt die Stetigkeit der beiden Funktionen ander der Stelle $x_0$. Für Satz 2 ähnlich. Für Satz 3 ist die Stetigkeit auf dem ganzen $D$ wichtig.
+\end{Bem}
+\subsection{Zwischenwertsatz}
+\begin{Sat}
+  Sei $f:\left[ a,b \right]\to\mb{R}$ stetig, mit $f(b)\geq f(a)$ (bzw. $f(b)\leq f(a)$). Dann $\forall y\in\left[ f(a),f(b) \right]$ (bzw. $\forall y\in\left[ f(b),f(a) \right]$) $exists x\in\left[ a,b \right]$ mit $f(x)=y$.
+\end{Sat}
