@@ -1,0 +1,116 @@
+\subsection{Zwischenwertsatz}
+\begin{Sat}
+  Eine stetige Abbildung $f:[a,b]\to\mb{R}$ nimmt jeden Wert $\gamma$ zwischen $f(a)$ und $f(b)$ an.
+\end{Sat}
+\begin{Bew}
+  oBdA $f(a)\leq f(b)$ und $f(a)\leq \gamma\leq f(b)$
+  \[I_0=\left[ a,b \right]=\left[ a_0,b_0 \right]\]
+  \[\left[ a,\frac{a+b}{2} \right],\left[ \frac{a+b}{2},b \right]\]
+  \[f\left( \frac{a+b}{2} \right)\geq\gamma\implies I_1=\left[ a,\frac{a+b}{2} \right]=\left[ a_1,b_1 \right]\]
+  \[f\left( \frac{a+b}{2} \right)<\gamma\implies I_1=\left[ \frac{a+b}{2},b \right]=\left[ a_1,b_1 \right]\]
+  Rekursiv $I_k=\left[ a_k,b_k \right]$ mit $f(a_k)\leq\gamma\leq f(b_k)$, $I_{k+1}=\left[ a_{k+1},b_{k+1} \right]$
+  \[I_{k+1}=\begin{cases}
+    \left[ a_k,\frac{a_k+b_k}{2} \right]&f\left( \frac{a_k+b_k}{2} \right)\geq\gamma\\
+    \left[ \frac{a_k+b_k}{2},b_k \right]&\text{sonst}\\
+  \end{cases}\]
+  \[\abs{I_k}=2^{-k}(b-a)\stackrel{k\to+\infty}{\to}0\]
+  Intervallschachtelung $\implies$ $\exists ! x_0$ mit $x_0\in I_k$ $\forall k$.
+  \[b_k\downarrow x_0\implies f(x_0)=\lim_{k\to+\infty}f(b_k)\geq \gamma\]
+  \[b_k\downarrow x_0\implies f(x_0)=\lim_{k\to+\infty}f(a_k)\geq \gamma\]
+  \[\implies f(x_0)=\gamma\]
+\end{Bew}
+\begin{Kor}
+  \ul{Fixpunktsatz}: Sei $f:\left[ a,b \right]\to\left[ a,b \right]$ eine stetige Abbildung. Dann besitzt $f$ einen Fixpunkt, d.h.
+  \[\exists x_0\in\left[ a,b \right]:f(x_0)=x_0\]
+\end{Kor}
+\begin{Bew}
+  $g(x):=f(x)-x$
+  \[g(a)=f(a)-a\geq 0\]
+  \[g(b)=f(b)-b\geq 0\]
+  Mithilfe des oberen Satzes $\implies$ $\exists x_0$ mit 
+  \[g(x_0)=0\iff f(x_0)-x_0=0\iff f(x_0)=x_0\]
+\end{Bew}
+\subsection{Maxima und Minima}
+\begin{Sat}
+  Sei $f:[a,b]\to\mb{R}$ stetig. Dann $\exists x_M, x_m\in [a,b]$ mit
+  \[f(x_m)\geq f(x)\geq f(x_M)\s\forall x\in [a,b]\]
+\end{Sat}
+\begin{Bew}
+  oBdA suche ich die Maximumstelle
+  \[S=\sup \left\{ f(x):x\in\left[ a,b \right] \right\}\]
+  \[(=+\infty\s\text{falls}\s\left\{ f(x):x\in\left[ a,b \right] \right\}\s\text{keine obere Schranke}\]
+  $S\in\mb{R}$, sei $S_n=S-\frac{1}{n}$ $\implies$ $\exists x_n$ mit $f(x_n)\geq S-\frac{1}{n}$
+  \[(x_n)\subset\left[ a,b \right]\implies\exists\left( x_{n_k} \right)\s\text{mit}\s x_{n_k}\to \bar x\]
+  \[\stackrel{S\in \mb{R}}{\implies}f(\bar x)=\lim_{k\to+\infty}f(x_{n_k})=S\stackrel{!}{=}\max_{x\in\left[ a,b \right]}f(x)=\max_{\left[ a,b \right]} f
+  \[\stackrel{S=+\infty}{\implies}f(\bar x)=\lim_{k\to +\infty}f(x_{n_k})=+\infty\implies \text{Widerspruch\}\]
+\end{Bew}
+\begin{Bem}
+  Sei $E\subset\mb{R}$ eine Menge mit der Eigenschaft $\forall (x_n)\subset E$ $\exists$eine Teilfolge $(x_{n_k})$ $x\in E$ mit
+  \[x_{n_k}\to x\]
+  Ist $E$ immer ein abgeschlossenes Intervall? Nein
+  \[E:=\left[ 0,1 \right]\cup \left[ 2,3 \right]\]
+  Sei $(x_n)\subset\left[ 0,1 \right]\cup\left[ 2,3 \right]$. Dann $\exists\left( x_{n_k} \right)$ die entweder in $\left[ 0,1 \right]$ oder in $\left[ 2,3 \right]$ enthalten ist $\implies$ $\exists$ eine konvergente Teilfolge.
+\end{Bem}
+\begin{Def}
+  Die Mengen $E(\subset\mb{R},\subset\mb{C})$ mit der Eigenschaft in der Bemerkung oben heissen \ul{kompakte Mengen}.
+\end{Def}
+\begin{Sat}
+  Eine reellwertige stetige Funktion auf einem kompakten Definitionbereich besitzt mindestens eine Maximumstelle (und eine Minimumstelle).
+\end{Sat}
+\begin{Def}
+  \ul{Stetigkeit} an einer Stelle $x$:
+  \[\forall \varepsilon>0\s\exists\delta>0\s\text{mit}\s\underbrace{\abs{x-y}<\delta\s\text{und}\s y\in D}\implies \abs{f(x)-f(y)}<\varepsilon\]
+  Stetigkeit auf $D$ bedeutet Stetigkeit an jeder Stelle $x\in D$.
+\end{Def}
+\begin{Def}
+  Eine Funktion $f:D\to\mb{R}(\mb{C})$ heisst \ul{gleichmässig stetig} falls
+  \[\forall \varepsilon>0\s\exists\delta>0\s\text{mit}\s\abs{x-y}<\delta\s\text{mit}\s x,y\in D\implies \abs{f(x)-f(y)}<\varepsilon\]
+\end{Def}
+\begin{Bsp}
+  $f$ Lipschitz
+  \[\abs{f(x)-f(y)}\leq L\abs{x-y}\s\forall x,y\in D\]
+  Dann ist $f$ gleichmässig stetig $\delta=\frac{\varepsilon}{L}$
+  \[\abs{x-y}<\frac{\varepsilon}{L}\implies \abs{f(x)-f(y)}\leq L\abs{x-y}<L \delta=L\frac{\varepsilon}{L}=\varepsilon\]
+\end{Bsp}
+\begin{Sat}
+  Falls $D$ eine kompakte Menge ist, ist jede stetige Funktion $f:D\to \mb{R}(\mb{C})$ gleichmässig stetig!
+\end{Sat}
+\begin{Bew}
+  (Widerspruchsbeweis) $f$ stetig aber nicht gleichmässig. Dann $\exists \varepsilon>0:\forall \delta$ die ich wählen kann
+  \[\exists x,y\in D\s\text{mit}\s\abs{x-y}<\delta\s\text{und}\s\abs{f(x)-f(y)}\geq \varepsilon\]
+  \[\delta=\frac{1}{n}>0\implies\exists x_n,y_n\s\text{mit}\s\abs{x_n-y_n}<\frac{1}{n}\s\text{und}\s\abs{f(x_n)-f(y_n)}\geq \varepsilon\]
+  \[\text{Kompaktheit}\implies\exists x_{n_k}\s\text{Teilfolge mit}\s x_{n_k}\to x\in D\]
+  \[\implies y_{n_k}\to x\in D\]
+  \[\implies \stackrel{f(x_{n_k})\to f(x)}{f(y_{n_k})\to f(x)}\implies \abs{f(x_{n_k})-f(y_{n_k})}\to 0\]
+\end{Bew}
+\subsection{Stetige Fortsetzung, Grenzwerte}
+\begin{Def}
+  Sei $f:D\to\mb{R}(\mb{C})$ stetig. Sei $E>D$. Eine stetige Fortsetzung von $f$ ist eine $\tilde f:E\to\mb{R}(\mb{C})$ stetig mit $f(x)=\tilde f(x)\s\forall x\in D$
+\end{Def}
+\begin{Def}
+  $g:E\to A$, $D\subset E$, 
+  \[g\|_D\to A\s\text{mit}\s g\|_D(x)=g(x)\s\forall x\in D\]
+\end{Def}
+\begin{Bem}
+  Sei $f:D\to\mb{R}(\mb{C})$ stetig. Sei $x_0\not\in D$. Die Fragen:
+  \begin{itemize}
+    \item gibt es eine stetige Fortsetzung von $f$ auf $D\cup \left\{ x_0 \right\}$
+    \item ist diese Fortsetzung eindeutig?
+  \end{itemize}
+\end{Bem}
+\begin{Def}
+  $x_0$ ist ein Häufungspunkt von einer Menge $E$ wenn $\forall \varepsilon>0$ $\exists$ unendlich viele Punkte $x\in E$ mit
+  \[\abs{x-x_0}<\varepsilon\]
+\end{Def}
+\begin{Bem}
+  $x_0$ ist ein Häufungspunkt von $E\iff \exists(x_n)\subset\setminus\left\{ x_0 \right\}$ mit $x_n\to x_0$
+\end{Bem}
+\begin{Bem}
+  In Bem 10, 1. Frage: Falls $x_0$ kein Häufungspunkt von $D$ ist: $\exists$ stetige Fortsetzungen, $\exists$ unendlich viele!
+\end{Bem}
+\begin{Bem}
+  Wenn $x_0$ ein Häufungspunkt von $D$ ist, die Antwort zur 2. Frage ist ja. Die Antwort zur 1. ist undefiniert.
+\end{Bem}
+\begin{Def}
+  $x_0$ Häufungspunkt von $D$, $x_0\not\in D$, falls $\exists$ stetige Fortsetzung $\tilde f$ von $f$ auf $D\cup\left\{ x_0 \right\}$ existiert. Dann $\tilde f(x_0)=\lim_{x\to x_0}f(x)$
+\end{Def}
