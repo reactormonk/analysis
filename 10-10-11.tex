@@ -1,0 +1,149 @@
+\section{Folgen}
+\begin{Def}
+  Eine Folge komplexer (reeller) Zahlen ist eine Abbildung: $f:\mb{N}\to\mb{C}(\mb{R})$. Das heisst:
+  \[\forall n\in\mb{N}, f(n)\in\mb{C}(\mb{R}), a_n:=f(n)\]
+  $\mb{N}$ ist auch eine Folge! $a_n=f(n)=n$.
+\end{Def}
+\begin{Def}
+  Eine Folge $(a_n)$ heisst konvergent, falls $\exists a\in\mb{C}$ so dass:
+  \[\forall\varepsilon>0\s\exists N\in\mb{N}:\abs{a_n-a}<\varepsilon\s\forall n\geq N\]
+\end{Def}
+\begin{Bsp}
+  $a_n=\frac{1}{n}$ ist eine konvergente Folge. Sei $a=0$. Wählen wir $\varepsilon>0$. Sei dann $N>\frac{1}{\varepsilon}$. Für $n\geq N$:
+  \[\abs{a_n}=\left( \frac{1}{n}-0 \right)=\frac{1}{n}\leq\frac{1}{N}\]
+\end{Bsp}
+\begin{Bem}
+  Die Zahl $a$ im Konvergenzkriterium ist eindeutig. Sie heisst \ul{der Limes} der Folge $(a_n)$.
+\end{Bem}
+\begin{Bew}
+  Seien $a\neq a'$ zwei relle Zahlen, die das Konvergenzkriterium erfüllen. $\varepsilon:=\frac{\abs{a-a'}}{2}$
+  \[\exists N:\abs{a_n-a}<\varepsilon\s\forall n\geq N\]
+  \[\exists N:\abs{a_n-a'}<\varepsilon\s\forall n\geq N'\]
+  Für $n\geq \max \left\{ N,N' \right\}$
+  \[\abs{a'-a}\leq\abs{a'-a_n}+\abs{a-a_n}<2\varepsilon=\abs{a'-a}\]
+  \[\abs{a'-a}<\abs{a'-a}\]
+  $\implies$ Widerspruch
+\end{Bew}
+\begin{Bem}
+  $a=\lim_{n\to+\infty}(a_n)$
+\end{Bem}
+\begin{Bem}
+  $\exists M$ so dass $M>\frac{1}{\varepsilon}$, $M$ hat $N$ Ziffern: $10^{N+1}>M>\frac{1}{\varepsilon}$
+\end{Bem}
+\begin{Def}
+  Sei $(a_n)$ eine Folge und $A(n)$ eine ``Folge von Aussagen über $a_n$''. Wir sagen dass $A(n)$ wahr für ``fast alle'' $a_n$ ist, wenn $\exists N$ so dass $A(n)$ stimmt $\forall n\geq N$. Ein alternatives Konvergenzkriterium ist also:
+  \[\abs{a_n-a}<\varepsilon\s\text{für fast alle}\s a_n\]
+\end{Def}
+\begin{Bsp}
+  Sei $s\in\mb{Q}$ $s>0$. Sei $a_n=\frac{1}{n^s}$. Dann
+  \[\lim_{n\to+\infty}\left( \frac{1}{n^s} \right)=0\]
+  Sei $n>\varepsilon^{\frac{1}{s}}$.
+  \[\abs{0-a_n}=\frac{1}{n^s}<\varepsilon\]
+  falls $n\geq N$. $\frac{1}{s}$ ist wohldefiniert $(s\neq 0)$.
+  \[\frac{1}{n^s}<\varepsilon \iff n^s>\frac{1}{\varepsilon}\iff n>\frac{1}{\varepsilon^{\frac{1}{s}}}\s\text{falls}\s s>0\]
+\end{Bsp}
+\begin{Bsp}
+  $a>0$
+  \[\lim_{n\to+\infty}\sqrt[n]{a}=1\]
+  $a>1$ zu beweisen:
+  \[\forall \varepsilon>0 \s\exists N:\sqrt[n]{a}-1<\varepsilon\s\foral n\geq N\in\mb{N}\]
+  Sei $x_n=\sqrt[n]{a}-1>0$
+  \[a=(1+x)^n=1+nx_1+\binom{n}{2}x^2_2+\binom{n}{3}x^3+\dots+x^n\]
+  \[a\geq +nx_n\s x_n\leq\frac{a-1}{n}\s\text{für}\s n\geq N\]
+  Sei $\varepsilon>0$. Wähle $N\geq \frac{a-1}{\varepsilon}$
+  \[\implies\sqrt[n]{a}-1=x_n\leq\frac{a-1}{n}\leq\frac{a-1}{N}<\frac{a-1}{\frac{a-1}{\varepsilon}}=\varepsilon\]
+  $0<a<1$
+  \[\frac{1}{a}>1\s\sqrt[n]{a}=\frac{1}{\sqrt[n]{\frac{1}{a}}}\s\text{ist fast 1}\]
+\end{Bsp}
+\begin{Bsp}
+  $\lim_{n\to+\infty}\sqrt[n]{n}$
+  \[x_n=\sqrt[n]{n}-1\]
+  \[n=(1+x_n)^n=1+nx_n+\binom{n}{2}x_2^2+\dots+x_n^n\]
+  $a_n=\sqrt[n]{n}$
+  \[n\geq 1\]
+  $a_0=$ Pietro % TODO WTF?
+  \[n\geq 1+nx_n\]
+  \[0\leq x_n\leq\frac{n-1}{n}=1-\frac{1}{n}\]
+  \[n\geq1+\binom{n}{2} x_n^2=1+\frac{n(n-1)}{2}x_n^2 \]
+  \[x_n^2\leq\frac{2}{n-1}\implies x_n\leq \sqrt[2]{\frac{2}{n-1}}\]
+  Sei $\varepsilon>0$, wähle $N$ so dass
+  \[\sqrt{\frac{N-1}{2}}>\varepsilon^{-1}\iff N>\left( 2\varepsilon^{-2}+1 \right)\]
+  \[0\geq\sqrt[n]{n}-1<\sqrt{\frac{2}{n-1}}\leq\sqrt{\frac{2}{N-1}}<\sqrt{\frac{2}{\frac{2}{\varepsilon^2}}}=\varepsilon\]
+  \[\implies \abs{\sqrt[n]{n}-1}<\varepsilon\]
+\end{Bsp}
+\begin{Ueb}
+  $\sqrt[n]{n^2}$, $\sqrt[n]{n^k}$ für $k$ konstant. Antwort $\lim = 1$
+\end{Ueb}
+\begin{Bsp}
+  Sei $q\in\mb{C}$ mit $\abs{q}<1$.
+  \[\lim_{n\to+\infty}q^n=0\]
+  \[\abs{q^n-0}=\abs{q^n}-\abs{0}\leq\abs{q}^n\implies\forall \varepsilon>0\s \exists N:\abs{q^n}<\varepsilon\s\forall n\geq N\]
+\end{Bsp}
+\subsection{Rechenregeln}
+\begin{Sat}
+  Seien $(a_n)$ und $(b_n)$ zwei konvergente Folgen, mit $a_n\to a$ und $b_n\to b$, dann:
+  \begin{itemize}
+    \item $a_n b_n\to ab$
+    \item $a_n+b_n\to a+b$
+    \item $\frac{a_n}{b_n}\to\frac{a}{b}$ falls $b\neq 0$
+  \end{itemize}
+\end{Sat}
+\begin{Bew}
+  \[\abs{\left( a_n+b_n \right)-\left( a-b \right)}=\abs{\left( a_n-a \right)+\left( b_n-b \right)}\leq\abs{a_n-a}+\abs{b_n-b}\]
+  $\varepsilon>0$:
+  \[exists N:\abs{a_n-a}<\frac{\varepsilon}{2}\s\forall n\in\mb{N}\forall n\geq N\]
+  \[exists N':\abs{a_n-a}<\frac{\varepsilon}{2}\s\forall n\in\mb{N}\forall n\geq N'\]
+\end{Bew}
+\begin{Def}
+  Eine Folge heisst beschränkt, falls
+  \[\exists M>0:\abs{a_n}\leq M\]
+\end{Def}
+\begin{Lem}
+  Eine konvergente Reihe ist immer beschränkt.
+\end{Lem}
+\begin{Bew}
+  \begin{align*}
+    = \abs{a_nb_n-ab}\\
+    = \abs{a_nb_n-a_nb+a_nb-ab}\\
+    = \abs{a_n(b_n-b)+b(a_n-a)}\\
+    \leq \abs{a_n}\abs{b_n-b}+\abs{b}\abs{a_n-a}\\
+    \leq M\abs{b_n-b}+\abs{b}\abs{a_n-a}\\
+    < M\left( \frac{\varepsilon}{2M}\right)+\abs{b}\left( \frac{\varepsilon}{2\abs{b}} \right)
+  \end{align*}
+\end{Bew}
+\begin{Bew}
+  Folgt aus dem oberen $+\frac{1}{b_n}\to\frac{1}{b}$ falls $b\neq 0$
+  \begin{align*}
+    \frac{1}{b_n}-\frac{1}{b}\\
+    =\abs{\frac{b-b_n}{b_nb}}\\
+    \leq\frac{1}{\abs{b}}\frac{\abs{b-b_n}}{\abs{b_n}}\\
+    \leq\frac{2}{\abs{b}^2}\abs{b_n-b}\\
+    < \cdots
+  \end{align*}
+  Sei $\varepsilon=\frac{\abs{b}}{2}$ dann
+  \[\exists N:\abs{b_n-b}<\frac{\abs{b}}{2}\s\forall n\geq N\]
+  \[\abs{b_n}\geq \abs{b}-\abs{b-b_n}\geq \frac{\abs{b}}{2}>0\]
+\end{Bew}
+\begin{Sat}
+  Sei $a_n\to a$ ($a_n\in\mb{C}$), dann:
+  \begin{itemize}
+    \item $\abs{a_n}\to\abs{a}$
+    \item $\bar{a_n}\to\bar{a}$
+    \item $\Re a_n\to\Re a$
+    \item $\Im a_n\to\Im a$
+  \end{itemize}
+\end{Sat}
+\begin{Bew}
+  \begin{itemize}
+    \item $\abs{\abs{a_n}-\abs{a}}\leq \abs{a_n-a}$
+    \item $\abs{\bar{a_n}-\bar{a}}= \abs{a_n-a}$
+    \item $\abs{\Im a_n-\Im a}\leq \abs{a_n-a}$
+    \item $\abs{\Re a_n-\Re a}\leq \abs{a_n-a}$
+  \end{itemize}
+\end{Bew}
+\begin{Sat}
+  Seien $a_n\to a$, $b_n\to b$ mit $a_n\leq b_n$. Dann $a\geq b$.
+\end{Sat}
+\begin{Kor}
+  Seien $a_n\to a$, $b_n\to a$. Sei $a_n$ mit $a_n\geq c_n\geq b_n$. Dann ist $c_n$ eine konvergente Folge mit $c_n\to a$
+\end{Kor}
