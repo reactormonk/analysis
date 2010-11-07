@@ -1,0 +1,132 @@
+\begin{Sat}
+  Seien $a_n\to a$ und $b_n\to b$ reelle Folgen. Falls $a_n\leq b_n$, dann $a\leq b$.
+\end{Sat}
+\begin{Bew}
+  Sei $\varepsilon>0$. Dann:
+  \begin{itemize}
+    \item 
+      \[\exists N:\abs{a_n-a}<\varepsilon\s\forall n\geq N\]
+    \item
+      \[\exists N:\abs{b_n-b}<\varepsilon\s\forall n\geq N'\]
+  \end{itemize}
+  Sei $n\geq \max\left\{ N',N \right\}$.
+  \[b-a=b_n+(b-b_n)-a_n+(a_n-a)\geq (b-b_n)+(a_n-a)\]
+  \[\geq -\abs{a_n-a}-\abs{b_n-b}\geq -2\varepsilon\]
+  \[b-a\geq -2\varepsilon\stackrel{\forall \varepsilon>0}{\implies} b-a\geq 0\]
+  (wäre $b-a<0$: Sei
+  \[Sei \varepsilon=\frac{\abs{b-a}}{3}=\frac{-(b-a)}{3}\]
+  Widerspruch!)
+\end{Bew}
+\begin{Sat}
+  (Einschliessungsregel). Sei $c_n$ eine Folge reeller Zahlen. Seien $a_n\to a$ und $b_n\to a$ so dass $a_n\leq c_n\leq b_n$. Dann $c_n\to a$.
+\end{Sat}
+\begin{Bew}
+  Sei $\varepsilon>0$.
+  \begin{itemize}
+    \item 
+      \[\exists N:\abs{a_n-a}<\varepsilon\s\forall n\geq N\]
+    \item
+      \[\exists N:\abs{b_n-a}<\varepsilon\s\forall n\geq N'\]
+  \end{itemize}
+  Sei $n\geq \max\left\{ N,N' \right\}$.
+  \[a\varepsilon\leq a_n\leq c_n\leq b_n<a+\varepsilon\]
+  \[\implies \abs{c_n-a}<\varepsilon\]
+\end{Bew}
+\begin{Bsp}
+  \[\Limi{n}\sqrt[n]{n^k}=1\s k\in\mb{N}\]
+  \[\sqrt[n]{n^s}\s s\in\mb{Q}, s>0\]
+  \[\underbrace{1}_{a_n}\leq\underbrace{\sqrt[n]{n^s}}_{c_n}\leq\underbrace{\sqrt[n]{n^k}}_{b_n}\]
+  Einschliessungsregel: $\sqrt[n]{n^s}\to 1$.
+\end{Bsp}
+\subsection{Monotone Folgen}
+\begin{Def}
+  Eine Folge $a_n$ reeller Zahlen heisst fallend (bzw. wachsend) falls $a_n\geqa_{n-1}$ $\forall n\in\mb{N}$ ($a_n\geq a_{n-1}\forall n\in\mb{N}$). Monoton bedeuted fallend oder wachsend.
+\end{Def}
+\begin{Sat}
+  Eine monotone (beschränkte) Folge konvergiert.
+\end{Sat}
+\begin{Bew}
+  oBdA kann ich $(a_n)$ wachsend annehmen. (Sei $a_n$ fallend, dann $-a_n$ wachsend. $a_n$ konvergiert (mit Limes $=L$), $a_n$ konvergiert mit Limes $-L$. $a_n=(-1)(-a_n)$ $a_n\to \lim(-1)\lim(-a_n)=-1$, $L=-L$). Sei 
+  \[s=\sup \underbrace{\left\{ a_n:n\in\mb{N} \right\}}_M\]
+  Behauptung:
+  \[s=\Limi{n} a_n\]
+  $a_n\geq a$. Zu beweisen:
+  \[forall \varepsilon>0\s\exists N: a_n> s-\varepsilon\s\forall n\geq N\]
+  Beweis:
+  \[forall \varepsilon>0\s\exists a_j\in M:a_j>s-\varepsilon\]
+  Die Folge wächst $\implies$ $a_n\geq a_j>s-\varepsilon$ $\forall n\geq j$.
+\end{Bew}
+\begin{Bsp}
+  \[a_n=(-1)^n\]
+\end{Bsp}
+\subsection{Der Satz von Bolzano-Weierstrass}
+\begin{Def}
+  Sei $(a_n)$ eine Folge. Eine Teilfolge von $(a_n)$ ist eine neue Folge $b_n:= a_{n_k}$, $n_k\in\mb{N}$ mit $n_k>n_{k-1}$
+  \[\underbrace{a_0}\s a_1\s\underbrace{a_2}\s a_3\s a_4 \s a_5 \s\underbrace{a_6}\ s \cdots\]
+\end{Def}
+\begin{Sat}
+  Jede berschränkte Folge $(a_n)$ $(\subset\mb{R}, \mb{C})$ besitzt eine konvergente Teilfolge.
+\end{Sat}
+\begin{Bew}
+  Schritt 1: Sei $(a_n)$ eine Folge reeller Zahlen. Sei $I$ und $M\in\mb{R}$ so dass $I\leq a_n\leq M$ $\forall n\in\mb{N}$.
+  \[\overbrace{\left[ I,M \right]}^{J_0}=\left[ I,A_0 \right]\cup \left[ A_0, M \right]\sA_0=\frac{M-I}{2}+I=\frac{M+I}{2}\]
+  mindestens ein Intervall enthält unendlich viele $(a_n)$. Nennen wir dieses Intervall $J_1$.
+  % TODO missing
+  Intervallschachtelung:
+  \begin{itemize}
+    \item $J_{k+1}\subset J_k$
+    \item $l_k=$ Länge von $J_k$. $l_0=M-I$, $l_k=(M-I)2^{-k}$, $l_k\downarrow 0$
+  \end{itemize}
+  \[\exists a\in J_k\s\forall k\in\mb{N}\]
+  \[\exists n_0: a_{n_0}\in J_0\]
+  $J_1$ enthält unendlich viele $a_n\implies \exists n_1>n_0$ mit $a_{n_1}\in J$. Rekursiv: $(a_{a_k})$ Teilfolge mit $a_{n_k}\in J_k$
+  \[\abs{a_{n_k}-a}\leq l_k=(M-I)2^{-k}\implies a_{n_k}-a\to 0\]
+  \[\overbrace{a_{n_k}}^{\to a+a=a}=\underbrace{a_{n_k}}_{\to 0}+\underbrace{a}_{\to a}\]
+  \[a_k=\xi_k+i\Xi_k\]
+  $(\xi_k)$ ist eine beschränkte Folge reeller Zahlen. $\exists (\xi_{k_j})$ Teilfolge die konvergiert.
+  \[a_{k_j}=\xi_{k_j}+i\Xi_{k_j}\]
+  $(\Xi_{k_j})$ ist eine beschränkte Folge reeller Zahlen und $(\Xi_{k_j})$ eine konvergente Teilfolge.
+  \[a_{k_{j_l}}=\Xi_{k_{j_l}}+i\Xi_{k_{j_l}}\]
+  ist eine konvergente Teilfolge!
+\end{Bew}
+\begin{Def}
+  Falls $(a_k)$ eine Folge ist und $a$ der Limes einer Teilfolge, dann heisst $a$ \ul{Häufungswert}.
+\end{Def}
+\begin{Lem}
+  Sei $(a_k)$ eine Folge. $a$ Häufungswert $\iff$ $\forall$ Invervall mit $a\in I$ $\exists$ unendlich viele $a_k\in I$.
+\end{Lem}
+\begin{Def}
+  Wenn die Menge der Häufungswerte von $(a_n)$ (relle Folge) ein Supremum (bzw. ein Infimum) besitzen, heisst dieses Supremum ``Limes Superior'' (bzw. ``Limes Inferior'').
+\end{Def}
+\begin{Lem}
+  Der Limes Superior (bzw. Inferior) ist das Maximum (bzw. Minimum) der der Häufungswerte.
+  \[\Limi{n}a_n=\Limi{n}\mathtext{sup} a_n=\text{Limes Superior}\] % TODO mathtext oke?
+  \[\Limi{n}a_n=\Limi{n}\mathtext{inf} a_n=\text{Limes Inferior}\]
+\end{Lem}
+\subsection{Konvergenzkriterium von Cauchy}
+\begin{Sat}
+  Eine Folge komplexer Zahlen konvergiert genau dann, wenn:
+  \[\forall \varepsilon>0\s\exists N:\abs{a_n-a_m}<\varepsilon\s\forall n,m\geq N\]
+\end{Sat}
+\begin{Bew}
+  Konvergenz $\implies$ Cauchy: $a_n\to a$. Sei $\varepsilon>0$
+  \[\abs{a_n-a_m}=\abs{a_n-a+a-a_m}\leq \abs{a_n-a}+\abs{a-a_n}<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\s\forall n,m\geq N\]
+  Dann 
+  \[\exists N:\abs{a_n-a}<\frac{\varepsilon}{2}\s\forall n\geq N\]
+  \begin{Bem}
+    Falls $a$ ein Häufungswert ist, dann konvergiert die Ganze Folge $\to$ fertig! Weil: $a_{n_k}\to a$
+    \[\forall \varepsilon>0\s\exists K:k>K:\abs{a_{n_k}-a}<\frac{\varepsilon}{2}\]
+    \[\exists N:\forall m,n\geq N\s \abs{a_{n_k}-a}<\frac{\varepsilon}{2}\]
+  \end{Bem}
+  Cauchy $\implies$ Konvergenz
+  Sei $n\geq N$. Sicher: $\exists n_k>N$ $\implies$
+  \[\abs{a-a_n}=\abs{a-a_{n_k}+a_{n_k}-a_n}\]
+  \[\leq\abs{a-a_{n_k}}+\abs{a_{n_k}-a_n}\]
+  \[<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon\]
+  Wähle $\varepsilon=1$. 
+  \[\exists \bar N:\abs{a_n-a_m}<1\s\forall n,m\geq \bar N\]
+  \[\abs{a_n}\leq \abs{a_n-a_{\bar N}}+\abs{a_{\bar N}}<\abs{a_{\bar N}}+1\s\forall n\geq \bar N\]
+  Sei nun
+  \[M:=\max\left( \left\{ \abs{a_k}:k<\bar N \right\}\cup\left\{ \abs{a_{\bar N}+1 \right\} \right)\]
+  \[\abs{a_n}\leq M\s\forall n\in\mb{N}\s\stackrel{\text{B-W}}{\implies} \exists\s\text{ein Häufungswert}\]
+\end{Bew}
