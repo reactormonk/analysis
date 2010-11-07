@@ -6,7 +6,7 @@
   Majorantenkriterium $\iff$ die absolute Konvergent impliziert die Konvergent.
 \end{Bem}
 \begin{Sat} (Quotientenkriterium)
-  Sei $\sum a_n$ eine Reihe mit $a_n\neq 0$ für fast alle $n$ und s.d. $\lim_{n\to+\infty}\abs{\frac{a_{n+1}}}{a_n}=q$ existiert. Falls
+  Sei $\sum a_n$ eine Reihe mit $a_n\neq 0$ für fast alle $n$ und s.d. $\lim_{n\to+\infty}\abs{\frac{a_{n+1}}{a_n}}=q$ existiert. Falls
   \begin{itemize}
     \item $q<1$ konvergiert die Reihe absolut.
     \item $q>1$ divergiert die Reihe.
@@ -54,15 +54,15 @@
     \item $s>1$ konvergiert! $\sum\frac{1}{n^2}$ Bernoulli?? $=\frac{\pi^2}{6}$
       \[\sum\frac{1}{n^{2k}}\sim \underbrace{c_k}_{\in\mb{Q}}\pi^{2k}\]
     \item $a_n=\frac{1}{n^s}$
-      \[\lim_{n\to+\intfy}\frac{a_{n+1}}{a_n}=1\forall s\geq 1\]
-      \[\lim_{n\to+\intfy}\sqrt[n]{a_n}=1\forall s\geq 1\]
+      \[\lim_{n\to+\infty}\frac{a_{n+1}}{a_n}=1\forall s\geq 1\]
+      \[\lim_{n\to+\infty}\sqrt[n]{a_n}=1\forall s\geq 1\]
       $s=1$ $\implies$ Divergenz, $s>1$ $\implies$ Konvergenz.
       \[\implies \frac{1}{1^s}+\frac{1}{2^s}+\frac{1}{3^s}+\frac{1}{4^s}+\cdots+\frac{1}{7^s}+\cdots\]
       \[\sum^\infty_{n=0} b_n= \frac{1}{1^s}+\frac{1}{2^s}+\frac{1}{4^s}+\frac{1}{4^s}+\cdots+\frac{1}{4^s}+\cdots\]
       $b_n\geq 0$
       \[s_n=b_0+\cdots+b_n\]
       $\left\{ s_n \right\}$ ist beschränkt. Wir setzen 
-      \[s_{2k-1}=\frac{1}{1^s}+\frac{2}{2^s}+\cdots+\frac{2^{k-1}}{2^{(k-1)s}=\frac{1}{1^{s-1}+\frac{1}{2^{s-1}+\cdots+\frac{1}{2^{(s-1)(k-1)}}\]
+      \[s_{2k-1}=\frac{1}{1^s}+\frac{2}{2^s}+\cdots+\frac{2^{k-1}}{2^{(k-1)s}}=\frac{1}{1^{s-1}}+\frac{1}{2^{s-1}}+\cdots+\frac{1}{2^{(s-1)(k-1)}}\]
       \[=\frac{1}{\alpha}+\frac{1}{\alpha^1}+\cdots+\frac{1}{a^{k-1}}\leq\sum^\infty_{k=0}\frac{1}{\alpha^s}<+\infty\]
       \[\alpha:=2^{s-1}>2^0=1\]
       \[\stackrel{\text{Majo.}}{\implies}\sum \frac{1}{n^s}\text{ konvergiert}\]
@@ -91,14 +91,14 @@
   Absolute Konvergenz:
   \begin{itemize}
     \item $\sum\abs{c_k}<+\infty$
-    \item $B_n=\sum^_{k=0}\abs{c_k}$
+    \item $B_n=\sum^\infty_{k=0}\abs{c_k}$
   \end{itemize}
   $\left( B_n \right)$ ist eine beschränkte Folge
   \[B_n=\sum^N_{k=0}\abs{sum_{i+j\geq k}a_ib_j}\leq\sum^N_{k=0}\sum_{i+j=k}\abs{a_i}\abs{b_j}\]
   \[=\sum_{i+j\leq N}\abs{a_i}\abs{b_j}\leq\sum^N_{i=0}\sum^N_{j=0}\abs{a_i}\abs{b_j}\]
   \[=\left( \sum^N_{i00}\abs{a_i} \right)\left( \sum_{j=0}^N\abs{b_j} \right)\leq\left( \sum\abs{a_i} \right)\left( \sum\abs{b_j} \right)\]
   \[=LM\]
-  Wobei $L=\sum\abs{a_i}$ und $M=\sum\abs{b_j}$. $\implies$ $\left( B_n \right)$ konvergiert $\impies$ $\sum c_n$ konvergiert absolut.
+  Wobei $L=\sum\abs{a_i}$ und $M=\sum\abs{b_j}$. $\implies$ $\left( B_n \right)$ konvergiert $\implies$ $\sum c_n$ konvergiert absolut.
   \[\abs{ \sum^N_{i=0}a_i \sum^N_{j=0}b_j-\sum^N_{k=0}}\]
   \[=\abs{\sum^N_{i=0, j=0}a_ib_j-\sum_{i+j\leq N}a_ib_j}\]
   \[=\abs{\sum_{i+j>N, i\leq , j\leq N}a_ib_j}\leq\sum_{i+j>N, i\leq , j\leq N}\abs{a_i}\abs{b_j}\]
@@ -123,7 +123,7 @@
   $\implies$ $\sum C\alpha^n$ eine konvergente Majorante.
 \end{Bew}
 \begin{Sat}
-  Sei $(a_n)$ eine Folge von Koeffizienten $a_n\in\mb{C}$. Sei $K:=\left\{ z\in\mb{C}:\sum a_nz^n\text{ konvergiert} \right\}$ $K\ni z\tof(z)=\sum^\infty_{n=0}a_nz^n$. Wenn
+  Sei $(a_n)$ eine Folge von Koeffizienten $a_n\in\mb{C}$. Sei $K:=\left\{ z\in\mb{C}:\sum a_nz^n\text{ konvergiert} \right\}$ $K\ni z\to f(z)=\sum^\infty_{n=0}a_nz^n$. Wenn
   \[f(z)=\sum a_nz^n, g(z)=\sum b_nz^n\]
   \[\implies f(z)+g(z)=\sum(a_n+b_n)z^n\]
   \[\implies f(z)g(z)=\underbrace{\sum c_nz^n}_{\text{falls $z$ absolute Konvergenz garantiert}}\]
@@ -135,7 +135,7 @@
   \[=\sum {n=0}z^n\underbrace{\sum_{i+j=n}a_ib_j}_{=c_n}\]
 \end{Bew}
 \begin{Sat}
-  (Cauchy-Hadamard) $\suma_nz^n$. Sei $L:=\limsup \sqrt[n]{\abs{a_n}}$. Dann (Wurzerlkriterium)
+  (Cauchy-Hadamard) $\sum a_nz^n$. Sei $L:=\limsup \sqrt[n]{\abs{a_n}}$. Dann (Wurzerlkriterium)
   \begin{itemize}
     \item $\abs{z}<\frac{1}{L}\implies$ $\sum a_nz^n$ konvergiert absolut
     \item $\abs{z}>\frac{1}{L}\implies$ $\sum a_nz^n$ divergiert

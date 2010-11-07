@@ -40,7 +40,7 @@
 \end{Bsp}
 \subsection{Monotone Folgen}
 \begin{Def}
-  Eine Folge $a_n$ reeller Zahlen heisst fallend (bzw. wachsend) falls $a_n\geqa_{n-1}$ $\forall n\in\mb{N}$ ($a_n\geq a_{n-1}\forall n\in\mb{N}$). Monoton bedeuted fallend oder wachsend.
+  Eine Folge $a_n$ reeller Zahlen heisst fallend (bzw. wachsend) falls $a_n\geq a_{n-1}$ $\forall n\in\mb{N}$ ($a_n\geq a_{n-1}\forall n\in\mb{N}$). Monoton bedeuted fallend oder wachsend.
 \end{Def}
 \begin{Sat}
   Eine monotone (beschränkte) Folge konvergiert.
@@ -69,7 +69,7 @@
 \end{Sat}
 \begin{Bew}
   Schritt 1: Sei $(a_n)$ eine Folge reeller Zahlen. Sei $I$ und $M\in\mb{R}$ so dass $I\leq a_n\leq M$ $\forall n\in\mb{N}$.
-  \[\overbrace{\left[ I,M \right]}^{J_0}=\left[ I,A_0 \right]\cup \left[ A_0, M \right]\sA_0=\frac{M-I}{2}+I=\frac{M+I}{2}\]
+  \[\overbrace{\left[ I,M \right]}^{J_0}=\left[ I,A_0 \right]\cup \left[ A_0, M \right]\s A_0=\frac{M-I}{2}+I=\frac{M+I}{2}\]
   mindestens ein Intervall enthält unendlich viele $(a_n)$. Nennen wir dieses Intervall $J_1$.
   % TODO missing
   Intervallschachtelung:
@@ -100,8 +100,8 @@
 \end{Def}
 \begin{Lem}
   Der Limes Superior (bzw. Inferior) ist das Maximum (bzw. Minimum) der der Häufungswerte.
-  \[\Limi{n}a_n=\Limi{n}\mathtext{sup} a_n=\text{Limes Superior}\] % TODO mathtext oke?
-  \[\Limi{n}a_n=\Limi{n}\mathtext{inf} a_n=\text{Limes Inferior}\]
+  \[\Limi{n}a_n=\limsup_{n\to+\infty} a_n=\text{Limes Superior}\]
+  \[\Limi{n}a_n=\liminf_{n\to+\infty} a_n=\text{Limes Inferior}\]
 \end{Lem}
 \subsection{Konvergenzkriterium von Cauchy}
 \begin{Sat}
@@ -127,6 +127,6 @@
   \[\exists \bar N:\abs{a_n-a_m}<1\s\forall n,m\geq \bar N\]
   \[\abs{a_n}\leq \abs{a_n-a_{\bar N}}+\abs{a_{\bar N}}<\abs{a_{\bar N}}+1\s\forall n\geq \bar N\]
   Sei nun
-  \[M:=\max\left( \left\{ \abs{a_k}:k<\bar N \right\}\cup\left\{ \abs{a_{\bar N}+1 \right\} \right)\]
+  \[M:=\max\left( \left\{ \abs{a_k}:k<\bar N \right\}\cup\left\{ \abs{a_{\bar N}+1} \right\} \right)\]
   \[\abs{a_n}\leq M\s\forall n\in\mb{N}\s\stackrel{\text{B-W}}{\implies} \exists\s\text{ein Häufungswert}\]
 \end{Bew}
