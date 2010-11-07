@@ -1,50 +1,50 @@
-\begin{Sat}
-  Zu jedem $x>0$ $(x\in\mb{R})$ und zu jedem $k\in\mb{N}$ gibt es eine reelle Zahl $y>0$ so dass $y^k=x$. In Zeichen:
-  \[y=x^\frac{1}{k}, y=\sqrt[k]{x}\]
-\end{Sat}
-\begin{Bew}
-  oBdA $x>1$ (sonst würden wir $\frac{1}{x}$ betrachten). wir konstruieren eine Intervallschachtelung $(I_n)$ so dass $\forall n a_n^k \geq x \geq b_n^k$
-  \begin{equation*}
-    I_1:=[1,x]\\
-    I_{n+1} = \begin{cases}
-      \left[ a_n, \frac{a_n+b_n}{2} \right] & \text{falls } x \leq \left( \frac{a_n+b_n}{2} \right)^k
-      \left[ \frac{a_n+b_n}{2}, _n \right]
-    \end{cases}\\
-    \abs{I_n} = \frac{1}{2^{n-1}}\abs{I_1}
-  \end{equation*}
-  Intervallschachtelungsprinzip $\implies$ $\exists y\in\mb{R}$ s.d. $y\in I_n \forall n\in\mb{N}$ 
-\end{Bew}
-\begin{Sat}
-  $y^k=x$
-\end{Sat}
-\begin{Bew}
-   Man definiert $J_n=[a_n^k, b_n^k$. Wir wollen zeigen, dass $J_n$ eine Intervallschachtelung ist.
+
+\begin{proof}[Beweis vom Satz \ref{s:Wurz}]
+  OBdA $x>1$ (sonst würden wir $\frac{1}{x}$ betrachten). 
+wir konstruieren eine Intervallschachtelung $(I_n)$, $I_n = [a_n, b_n]$ so dass $a_n^k \geq x \geq b_n^k$
+$\forall n\in \mb{N}$  Wie setzten
+$$
+I_1:=[1,x]
+$$
+$$
+I_{n+1} \;=\; \left\{\begin{array}{ll}
+      \left[ a_n, \frac{a_n+b_n}{2} \right] & \qquad\mbox{falls } x \leq \left( \frac{a_n+b_n}{2} \right)^k\\
+      \left[ \frac{a_n+b_n}{2}, b_n \right] & \qquad\mbox{falls } x > \left( \frac{a_n+b_n}{2} \right)^k
+    \end{array}\right.
+$$
+$\abs{I_n} = \frac{1}{2^{n-1}}\abs{I_1}$ und $I_{n+1}\subset I_n$.
+Intervallschachtelungsprinzip $\implies$ $\exists y\in\mb{R}$ s.d. $y\in I_n \forall n\in\mb{N}$ 
+
+Wir behaupten dass $y^k=x$.
+
+Man definiert $J_n=[a_n^k, b_n^k]$. Wir wollen zeigen, dass $J_n$ eine Intervallschachtelung ist.
   \begin{itemize}
     \item $J_{n+1}\subset J_n$ weil $I_{n+1}\subset I_n$
     \item \[\abs{J_n} = b_n^k-a_n^k = \underbrace{\left( b_n - a_n \right)}_{\abs{I_n}} \underbrace{(b_n^{k-1}+b_n^{k-2}a_n + \cdots + a_n^{k-1})}_{\leq k b_1^{k-1}}\]
   \end{itemize}
-  $\implies$ $\abs{J_n}\leq \abs{I_n}k k_1^{k-1}$.\\
+  $\implies$ $\abs{J_n}\leq \abs{I_n}k b_1^{k-1}$.\\
   Sei $\varepsilon$ gegeben. Man wähle $N$ gross genug, so dass
-  \[\abs{I_n}\leq\varepsilon'=\frac{\varepsilon}{kb_1^{k-1}}\implies\abs{J_n}\leq \varepsilon kb_1^{k-1}=\varepsilon\]
+  \[\abs{I_n}\leq\varepsilon'=\frac{\varepsilon}{kb_1^{k-1}}\implies\abs{J_n}\leq \varepsilon' kb_1^{k-1}=\varepsilon\]
   Einerseits
-  \[y\in\left[ a_n,b_n \right]\implies y^k\in\left[ a_n^k, b_n^k \right]=J_n\]
+  \[y\in\left[ a_n,b_n \right]\quad\implies\quad y^k\in\left[ a_n^k, b_n^k \right]=J_n\]
   Andererseits
-  \[x\in J_n\forall n\in\mb{N}\]
-  Intervallschachtelungsprinzip $\implies$ $x=y^k$
-\end{Bew}
+  \[x\in J_n\qquad\forall n\in\mb{N}\]
+Satz \ref{s:Int_Ein} $\implies$ $x=y^k$
+\end{proof}
 \subsection{Supremumseigenschaft, Vollständigkeit}
 \begin{Def}
   $s\in\mb{R}$ heisst obere (untere) Schranke der Menge $M\subset \mb{R}$ falls $s\geq x$ ($s\leq x$) $\forall x\in M$.
 \end{Def}
 \begin{Def}
-  $s\in\mb{R}$ ist das Supremum der Menge $M\subset\mb{R}$ falls es die kleinste obere Schranke ist. D.h.
+  $s\in\mb{R}$ ist das Supremum der Menge $M\subset\mb{R}$ ($s=\sup M$)
+falls es die kleinste obere Schranke ist. D.h.
   \begin{itemize}
     \item $s$ ist die obere Schranke
-    \item falls $s'<s$, dass ist $s'$ keine obere Schranke.
+    \item falls $s'<s$, dann ist $s'$ keine obere Schranke.
   \end{itemize}
 \end{Def}
 \begin{Bsp}
-  $M=]0,1[$. In diesem Fall $s=\sup M\not\in M$
+  $M=]0,1[$. In diesem Fall $\sup M=1 \not\in M$
 \end{Bsp}
 \begin{Bsp}
   $M=[0,1]$. $\sup M=1\in M$
@@ -56,9 +56,9 @@
   Falls $s=\sup M\in M$, nennt man $s$ das Maximum von $M$. Kurz: $s=\max M$. Analog Minimum.
 \end{Def}
 \begin{Sat}
-  Falls $M\subset \mb{R}$ nach oben (unten) beschränkst ist, dann existiert $\sup M$ ($\inf M$).
+  Falls $M\subset \mb{R}$ nach oben (unten) beschränkt ist, dann existiert $\sup M$ ($\inf M$).
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   Wir konstruieren eine Intervallschachtelung $I_n$, so dass $b_n$ eine obere Schranke ist, und $a_n$ keine obere Schranke ist.
   \begin{itemize}
     \item $I_1=[a_1, b_1]$, wobei $b_1$ eine obere Schranke
@@ -67,14 +67,13 @@
   Sei $I_n$ gegeben. 
   \begin{align*}
     I_{n+1} = \begin{cases}
-      \left[ a_n,\frac{a_n+b_n}{2} \right]&\text{Falls $\frac{a_n+b_n}{2}$ eine obere Schranke ist-}\\
-      \left[ \frac{a_n+b_n}{2}, b_n \right]&\text{sonst}
+      \left[ a_n,\frac{a_n+b_n}{2} \right]&\text{falls $\frac{a_n+b_n}{2}$ eine obere Schranke ist;}\\ \\
+      \left[ \frac{a_n+b_n}{2}, b_n \right]&\text{sonst\, .}
     \end{cases}
   \end{align*}
-  Also, $\exists s\in I_n\forall n$
-\end{Bew}
-\begin{Sat}
-  $s$ ist das Supremum von $M$
+  Also, $\exists s$ s.d. $s\in I_n\quad \forall n$.
+
+Wir behaupten dass $s$ das Supremum von $M$ ist.
   \begin{itemize}
     \item Warum ist $s$ eine obere Schranke? \\
     Angenommen $\exists x\in M$ so dass $x>s$. Man wähle $\abs{I_n}<x-s$. Daraus folgt
@@ -89,72 +88,78 @@
     \end{align*}
     Widerspruch.
   \end{itemize}
-\end{Sat}
-\begin{Lem}
-  Jede nach oben (unten) beschränkte Menge $M\subseteq \mb{Z}$ besitzt das grösste (kleinste) Element.
+\end{proof}
+\begin{Lem}\label{l:Voll}
+  Jede nach oben (unten) beschränkte Menge $M\subseteq \mb{Z}$ mit $M\neq \emptyset$
+besitzt das grösste (kleinste) Element.
 \end{Lem}
-\begin{Bew}
-  oBdA betrachte nur nach unten beschränkte Mengen $M\subset N$. Angenommen $M$ hat kein kleinstes Element.
-\end{Bew}
-\begin{Sat}
-  \begin{align*}
-    \forall n M\cap \left\{ 1,\cdots,n \right\} = \null\\
-    n=1\\
-    M\cap\left\{ 1 \right\}\\
-  \end{align*}
-  Angenommen
-  \begin{align*}
-    M\cap\left\{ 1,\cdots,n \right\} = \null\\
-    M\cap\left\{ 1,2,\cdots,n+1 \right\} = M\cap \left\{ 1,\cdots,n \right\}\cup M\cap\left\{ n+1 \right\}=\null\\
-    \implies M\cap\mb{N}=\null
-  \end{align*}
-\end{Sat}
+\begin{proof}[Beweis]
+OBdA betrachte nur nach unten beschränkte Mengen $M\subset N$. Angenommen $M$ hat kein kleinstes Element.
+Mit der Vollst\"andigen Induktion beweisen wir dass $M=\emptyset$. 
+\begin{itemize}
+ \item $0\not\in M$, sonst ist $0$ das kleinste Element;
+\item Angenommen dass $\{0, 1, \ldots, k\}\cap M=\emptyset$, wir schliessen auch
+$\{0, 1, \ldots, k+1\}\cap M =\emptyset$, sonst ist $k+1$ das kleinste Element von $M$.
+\end{itemize}
+Vollst\"andige Induktion $\implies$ $\{0, \ldots, n\}\cap M=\emptyset$ $\forall n\in \mb{N}$.
+D.h. $M\cap \mb{N}=\emptyset$.
+\end{proof}
 \begin{Sat}
   $\mb{Q}$ ist dich in $\mb{R}$, bzw. für beliebige zwei $x,y\in\mb{R}$, $y>x$, gibt es eine rationelle Zahl $q\in\mb{Q}$, so dass $x<q<y$.
 \end{Sat}
-\begin{Bew}
-  Man wähle $n\in\mb{N}$ so dass $\frac{1}{n}<y-x$. Betrachte die Menge $A\subseteq\mb{Z}$, so dass $M\in A$ $\implies$ $M>nx$. Lemma $\implies$ $\exists m=\min A$.
+\begin{proof}[Beweis]
+  Man wähle $n\in\mb{N}$ so dass $\frac{1}{n}<y-x$. Betrachte die Menge $A\subseteq\mb{Z}$, so dass $M\in A$ $\implies$ $M>nx$. Lemma \ref{l:Voll} $\implies$ $\exists m=\min A$.
   \begin{align*}
     x<\frac{m}{n}=\frac{m-1}{n}+\frac{1}{n}<x+y-x=y
   \end{align*}
   Also setze $q=\frac{m}{n}$
-\end{Bew}
+\end{proof}
 \subsection{Abzählbarkeit}
 \begin{Def}
-  Die Mengen $A$ \& $B$ sind \underline{gleichmächtig}, wenn es eine Bijektion $f:A\to B$ gibt. $A$ hat grässere Mächtigkeit als $B$, falls $B$ gleichmächtig wie eine Teilmenge von $A$ ist, aber $A$ zu keiner Teilmenge von $B$ gleichmächtig ist.
+  Die Mengen $A$ \& $B$ sind \underline{gleichmächtig}, wenn es eine Bijektion $f:A\to B$ gibt. D.h. es gibt eine Vorschrift $f$ s.d.
+\begin{itemize}
+\item $f$ zuordnet ein Element $b\in B$ jedem $a \in A$; dieses Element wird mit $f(a)$ bezichnet;
+\item $f(a)\neq f(b)$ falls $a\neq b$; 
+\item $\forall b\in B$ $\exists a\in A$ mit $b= f(a)$.
+\end{itemize}
+($f$ ist eine {\em bijektive Abbildung}; siehe Kapitel \ref{s:F}).
+$A$ hat gr\"ossere Mächtigkeit als $B$, falls $B$ gleichmächtig wie eine Teilmenge von $A$ ist, aber $A$ zu keiner Teilmenge von $B$ gleichmächtig ist.
 \end{Def}
 \begin{Bsp}
   \begin{itemize}
-    \item ${1,2}$ \& ${3,4}$ sind gleichächtig.
-    \item ${1,2,\cdots,n}$ hat kleinere Mächtigkeit als ${1,2,\cdots,m}$, wenn $n<m$ ist.
+    \item $\{1,2\}$ \& $\{3,4\}$ sind gleichmächtig.
+    \item $\{1,2,\cdots,n\}$ hat kleinere Mächtigkeit als $\{1,2,\cdots,m\}$, wenn $n<m$ ist.
   \end{itemize}
 \end{Bsp}
 \begin{Def}
-  Eine Menge $A$ ist abzählbar, wenn es eine Bijektion zwischen $\mb{N}$ und $A$ gibt. D.h. $A=\left\{ a_1,a_2,\cdots,a_n,\cdots \right\}$.
+  Eine Menge $A$ ist abzählbar, wenn es eine Bijektion zwischen $\mb{N}$ und $A$ gibt
+D.h. $A=\left\{ a_1,a_2,\cdots,a_n,\cdots \right\}$.
 \end{Def}
 \begin{Lem}
   $\mb{Z}$ ist abzählbar
 \end{Lem}
-\begin{Bew}
+\begin{proof}[Beweis]
   \begin{tabular}{c|cccccc}
     $\mb{N}$ & 1 & 2 & 3 & 4 & 5 & \ldots \\
     $\mb{Z}$ & 0 & 1 & -1 & 2 & -2 & \ldots
   \end{tabular}
-  Formal:
+
+\medskip
+
+Formal, definiere
   \begin{align*}
-    f=\mb{N}\to \mb{Z}\\
-    f(n)=\begin{cases}
+    f:\mb{N}\to \mb{Z}\\
+    f(n):=\begin{cases}
       \frac{n}{2} & \text{wenn $n$ gerade}\\
       \frac{1-n}{2} & \text{wenn $n$ ungerade}
     \end{cases}
   \end{align*}
-\end{Bew}
+\end{proof}
 \begin{Sat}
   $\mb{Q}$ ist abzählbar
 \end{Sat}
-\begin{Bew}
-  Sucht euch die Graphik auf Wikipedia oder sonstwo.
-\end{Bew}
+
 \begin{Sat}
   $\mb{R}$ ist nicht abzählbar.
 \end{Sat}
+(F\"ur die Beweise siehe Kapitel 2.4 von K. K\"onigsberger {\em Analysis I}).

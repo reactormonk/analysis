@@ -1,129 +1,213 @@
 \section{Folgen}
 \begin{Def}
-  Eine Folge komplexer (reeller) Zahlen ist eine Abbildung: $f:\mb{N}\to\mb{C}(\mb{R})$. Das heisst:
-  \[\forall n\in\mb{N}, f(n)\in\mb{C}(\mb{R}), a_n:=f(n)\]
-  $\mb{N}$ ist auch eine Folge! $a_n=f(n)=n$.
-\end{Def}
+  Eine Folge komplexer (reeller) Zahlen ist eine Abbildung: $f:\mb{N}\to\mb{C}$(bzw. $\mb{R})$. Das heisst:
+  \[\forall n\in\mb{N}\qquad f(n)\in\mb{C}\;\;(\mbox{bzw. }\mb{R})\, .\]
+Wir schreiben $a_n$ f\"ur $f(n)$
+ \end{Def}
+N.B.: $\mb{N}$ ist auch eine Folge: $a_n=f(n)=n$.
 \begin{Def}
   Eine Folge $(a_n)$ heisst konvergent, falls $\exists a\in\mb{C}$ so dass:
-  \[\forall\varepsilon>0\s\exists N\in\mb{N}:\abs{a_n-a}<\varepsilon\s\forall n\geq N\]
+\begin{equation}\label{e:konvergiert}
+ \forall\varepsilon>0\s\exists N\in\mb{N}:\quad\abs{a_n-a}<\varepsilon\s\forall n\geq N\, .
+\end{equation}
 \end{Def}
 \begin{Bsp}
-  $a_n=\frac{1}{n}$ ist eine konvergente Folge. Sei $a=0$. Wählen wir $\varepsilon>0$. Sei dann $N>\frac{1}{\varepsilon}$. Für $n\geq N$:
-  \[\abs{a_n}=\left( \frac{1}{n}-0 \right)=\frac{1}{n}\leq\frac{1}{N}\]
+  $a_n=\frac{1}{n}$ ist eine konvergente Folge. Sei $a=0$. Wählen wir $\varepsilon>0$. 
+Sei dann $N\in \mb{N}$ mit $N>\frac{1}{\varepsilon}$ (diese Zahl existiert wegen des
+Axioms von Archimedes!). F\"ur $n\geq N$:
+  \[\abs{a_n}=\left( \frac{1}{n}-0 \right)=\frac{1}{n}\leq\frac{1}{N} < \varepsilon\]
 \end{Bsp}
 \begin{Bem}
   Die Zahl $a$ im Konvergenzkriterium ist eindeutig. Sie heisst \ul{der Limes} der Folge $(a_n)$.
 \end{Bem}
-\begin{Bew}
-  Seien $a\neq a'$ zwei relle Zahlen, die das Konvergenzkriterium erfüllen. $\varepsilon:=\frac{\abs{a-a'}}{2}$
+\begin{proof}[Beweis]
+  Seien $a\neq a'$ zwei relle Zahlen, die das Konvergenzkriterium \eqref{e:konvergiert}
+erf\"ullen. Sei $\varepsilon:=\frac{\abs{a-a'}}{2}$
   \[\exists N:\abs{a_n-a}<\varepsilon\s\forall n\geq N\]
-  \[\exists N:\abs{a_n-a'}<\varepsilon\s\forall n\geq N'\]
+  \[\exists N':\abs{a_n-a'}<\varepsilon\s\forall n\geq N'\]
   Für $n\geq \max \left\{ N,N' \right\}$
   \[\abs{a'-a}\leq\abs{a'-a_n}+\abs{a-a_n}<2\varepsilon=\abs{a'-a}\]
-  \[\abs{a'-a}<\abs{a'-a}\]
-  $\implies$ Widerspruch
-\end{Bew}
-\begin{Bem}
-  $a=\lim_{n\to+\infty}(a_n)$
-\end{Bem}
-\begin{Bem}
-  $\exists M$ so dass $M>\frac{1}{\varepsilon}$, $M$ hat $N$ Ziffern: $10^{N+1}>M>\frac{1}{\varepsilon}$
+  \[\implies \abs{a'-a}<\abs{a'-a}\quad \mbox{Widerspruch!}\]
+\end{proof}
+Wenn eine Folge kovergiert und die Zahl $a$ \eqref{e:konvergiert} erf\"ullt, wir schreiben
+$$ 
+a=\lim_{n\to+\infty}(a_n)\, 
+$$
+oder
+$$
+a_n\to a\, .
+$$
+\begin{Bem} Sei $\alpha = A+ 0,b_0 b_1 b_2\ldots $ eine reelle Zahl, wobei $A\in \mb{N}$ und $b_i$ die
+Ziffern der Dezimaldarstellung von $\alpha-A$ sind. F\"ur jede $n\in \mb{N}$ sei
+$$
+a_n := A + 0,b_0\ldots b_n \quad\in \mb{Q}\, .
+$$
+Die Folge $(a_n)$ konvergiert gegen $\alpha$. In der Tat, sei $\varepsilon$ eine beliebige
+positive reelle Zahl. Sei $N$ s.d. $10^N > \frac{1}{\varepsilon}$. F\"ur $n\geq N$ gilt
+$|a_n-\alpha|\leq 10^{-N} < \varepsilon$.
 \end{Bem}
 \begin{Def}
-  Sei $(a_n)$ eine Folge und $A(n)$ eine ``Folge von Aussagen über $a_n$''. Wir sagen dass $A(n)$ wahr für ``fast alle'' $a_n$ ist, wenn $\exists N$ so dass $A(n)$ stimmt $\forall n\geq N$. Ein alternatives Konvergenzkriterium ist also:
-  \[\abs{a_n-a}<\varepsilon\s\text{für fast alle}\s a_n\]
+  Sei $(a_n)$ eine Folge und $A(n)$ eine ``Folge von Aussagen über $a_n$''. 
+Wir sagen dass $A(n)$ wahr für ``fast alle'' $a_n$ ist, wenn $\exists N$ so dass $A(n)$ 
+stimmt $\forall n\geq N$. Eine alternative Formulierung von \eqref{e:konvergiert} ist also:
+  \[\abs{a_n-a}<\varepsilon\s\text{f\"ur fast alle}\s a_n\]
 \end{Def}
 \begin{Bsp}
   Sei $s\in\mb{Q}$ $s>0$. Sei $a_n=\frac{1}{n^s}$. Dann
   \[\lim_{n\to+\infty}\left( \frac{1}{n^s} \right)=0\]
-  Sei $n>\varepsilon^{\frac{1}{s}}$.
-  \[\abs{0-a_n}=\frac{1}{n^s}<\varepsilon\]
-  falls $n\geq N$. $\frac{1}{s}$ ist wohldefiniert $(s\neq 0)$.
-  \[\frac{1}{n^s}<\varepsilon \iff n^s>\frac{1}{\varepsilon}\iff n>\frac{1}{\varepsilon^{\frac{1}{s}}}\s\text{falls}\s s>0\]
+  Sei $N\in \mb{N}$ mit $N>\varepsilon^{\frac{1}{s}}$ (Axiom von Archimedes!). Dann
+  \[\abs{0-a_n}=\frac{1}{n^s}<\varepsilon\qquad =\mbox{falls $n\geq N$}\]
+(NB: $\frac{1}{s}$ ist wohldefiniert weil $s\neq 0$. Ausserdem
+\[\frac{1}{n^s}<\varepsilon \iff n^s>\frac{1}{\varepsilon}\iff n>
+\frac{1}{\varepsilon^{\frac{1}{s}}}\quad\s\text{weil $s> 0$.)}\]
 \end{Bsp}
 \begin{Bsp}
   $a>0$
   \[\lim_{n\to+\infty}\sqrt[n]{a}=1\]
-  $a>1$ zu beweisen:
-  \[\forall \varepsilon>0 \s\exists N:\sqrt[n]{a}-1<\varepsilon\s\forall n\geq N\in\mb{N}\]
-  Sei $x_n=\sqrt[n]{a}-1>0$
-  \[a=(1+x)^n=1+nx_1+\binom{n}{2}x^2_2+\binom{n}{3}x^3+\dots+x^n\]
-  \[a\geq +nx_n\s x_n\leq\frac{a-1}{n}\s\text{für}\s n\geq N\]
+  {\bf Fall $a>1$}. Zu beweisen:
+  \[\forall \varepsilon>0 \s\exists N:\quad \sqrt[n]{a}-1<\varepsilon\s\forall n\geq N\in\mb{N}\]
+  Sei $x_n=\sqrt[n]{a}-1>0$ und $n\geq 1$
+  \[a=(1+x_n)^n=1+nx_n+\binom{n}{2}x^2_n+\binom{n}{3}x_n^3+\dots+x_n^n\, .\]
+  Deswegen\[a\geq 1+nx_n\s x_n\leq\frac{a-1}{n}\s\text{für}\s\]
   Sei $\varepsilon>0$. Wähle $N\geq \frac{a-1}{\varepsilon}$
-  \[\implies\sqrt[n]{a}-1=x_n\leq\frac{a-1}{n}\leq\frac{a-1}{N}<\frac{a-1}{\frac{a-1}{\varepsilon}}=\varepsilon\]
-  $0<a<1$
-  \[\frac{1}{a}>1\s\sqrt[n]{a}=\frac{1}{\sqrt[n]{\frac{1}{a}}}\s\text{ist fast 1}\]
+  \[\implies\sqrt[n]{a}-1=x_n\leq\frac{a-1}{n}\leq\frac{a-1}{N}<\frac{a-1}{\frac{a-1}{\varepsilon}}=
+  \varepsilon\]
+  {\bf Fall $0<a<1$} Wir haben $\frac{1}{a}>1$ und nuzten die Rechenregeln (siehe Satz 
+\ref{s:Regeln_Folgen}(iii), unten!):
+\[\sqrt[n]{a}=\frac{1}{\sqrt[n]{\frac{1}{a}} \to \frac{1}{1} = 1}\]
+ {\bf Fall $a=1$} Trivial! Die Folge ist ``konstant'': $a_n=1 \forall n$.
 \end{Bsp}
 \begin{Bsp}
-  $\lim_{n\to+\infty}\sqrt[n]{n}$
+  $\lim_{n\to+\infty}\sqrt[n]{2} =1$. Wie oben
   \[x_n=\sqrt[n]{n}-1\]
-  \[n=(1+x_n)^n=1+nx_n+\binom{n}{2}x_2^2+\dots+x_n^n\]
-  $a_n=\sqrt[n]{n}$
-  \[n\geq 1\]
-  $a_0=$ Pietro % TODO WTF?
-  \[n\geq 1+nx_n\]
-  \[0\leq x_n\leq\frac{n-1}{n}=1-\frac{1}{n}\]
-  \[n\geq1+\binom{n}{2} x_n^2=1+\frac{n(n-1)}{2}x_n^2 \]
-  \[x_n^2\leq\frac{2}{n-1}\implies x_n\leq \sqrt[2]{\frac{2}{n-1}}\]
-  Sei $\varepsilon>0$, wähle $N$ so dass
-  \[\sqrt{\frac{N-1}{2}}>\varepsilon^{-1}\iff N>\left( 2\varepsilon^{-2}+1 \right)\]
-  \[0\geq\sqrt[n]{n}-1<\sqrt{\frac{2}{n-1}}\leq\sqrt{\frac{2}{N-1}}<\sqrt{\frac{2}{\frac{2}{\varepsilon^2}}}=\varepsilon\]
+  \[n=(1+x_n)^n=1+nx_n+\binom{n}{2}x_n^2+\dots+x_n^n\]
+Hier wir nuzte die st\"arkere Ungleichung: ($n\geq 2$)
+\[n\geq1+\binom{n}{2} x_n^2=1+\frac{n(n-1)}{2}x_n^2 \]
+\[x_n^2\leq\frac{2}{n}\implies x_n\leq \sqrt[2]{\frac{2}{n}}\]
+Sei $\varepsilon>0$, wähle $N$ so dass
+  \[\sqrt{\frac{N}{2}}>\varepsilon^{-1}\qquad (\iff N> 2\varepsilon^{-2})\]
+Dann, f\"ur $n\geq N$,
+  \[0\geq\sqrt[n]{n}-1<\sqrt{\frac{2}{n}}\leq\sqrt{\frac{2}{N}}<\sqrt{\frac{2}{\frac{2}{\varepsilon^2}}}=\varepsilon\]
   \[\implies \abs{\sqrt[n]{n}-1}<\varepsilon\]
 \end{Bsp}
-\begin{Ueb}
-  $\sqrt[n]{n^2}$, $\sqrt[n]{n^k}$ für $k$ konstant. Antwort $\lim = 1$
+\begin{Ueb} Sei $k\in \mb{N}$. Dann $\lim_n \sqrt[n]{n^k} =1$.
 \end{Ueb}
 \begin{Bsp}
-  Sei $q\in\mb{C}$ mit $\abs{q}<1$.
+  Sei $q\in\mb{C}$ mit $\abs{q}<1$. Dann,
   \[\lim_{n\to+\infty}q^n=0\]
-  \[\abs{q^n-0}=\abs{q^n}-\abs{0}\leq\abs{q}^n\implies\forall \varepsilon>0\s \exists N:\abs{q^n}<\varepsilon\s\forall n\geq N\]
+In der Tat \[\abs{q^n-0}=\abs{q^n}-\abs{0}\leq\abs{q}^n\] 
+Sei nun $\varepsilon>0$. Da $\sqrt[n]{\varepsilon} \to 1$ und $|q|<1$, $\exists N$ s.d.
+\[|\sqrt[n]{\varepsilon} - 1| < 1- |q| \qquad\forall n\geq N\]
+Deswegen, f\"ur $n\geq N$,
+$$
+\sqrt[n]{\varepsilon}> 1-(1-|q|) = |q| \quad \implies \quad
+\varepsilon > |q|^n\, .
+$$
 \end{Bsp}
+\begin{Ueb}
+Sei $k\in \mb{N}$ und $q\in \mb{C}$ mit $|q|<1$. Dann
+$$
+\lim_{n\to\infty} n^k q^n\;=\; 0\, .
+$$
+\end{Ueb}
+
 \subsection{Rechenregeln}
-\begin{Sat}
+\begin{Sat}\label{s:Regeln_Folgen}
   Seien $(a_n)$ und $(b_n)$ zwei konvergente Folgen, mit $a_n\to a$ und $b_n\to b$, dann:
   \begin{itemize}
-    \item $a_n b_n\to ab$
-    \item $a_n+b_n\to a+b$
-    \item $\frac{a_n}{b_n}\to\frac{a}{b}$ falls $b\neq 0$
+     \item[(ii)] $a_n+b_n\to a+b$
+     \item[(i)] $a_n b_n\to ab$
+     \item[(iii)] $\frac{a_n}{b_n}\to\frac{a}{b}$ falls $b\neq 0$
   \end{itemize}
 \end{Sat}
-\begin{Bew}
-  \[\abs{\left( a_n+b_n \right)-\left( a-b \right)}=\abs{\left( a_n-a \right)+\left( b_n-b \right)}\leq\abs{a_n-a}+\abs{b_n-b}\]
-  $\varepsilon>0$:
-  \[exists N:\abs{a_n-a}<\frac{\varepsilon}{2}\s\forall n\in\mb{N}\forall n\geq N\]
-  \[exists N':\abs{a_n-a}<\frac{\varepsilon}{2}\s\forall n\in\mb{N}\forall n\geq N'\]
-\end{Bew}
+\begin{proof}[Beweis vom Satz \ref{s:Regeln_Folgen}(i)]
+  \begin{equation}\label{e:(4.1)}
+\abs{\left( a_n+b_n \right)-\left( a-b \right)}=\abs{\left( a_n-a \right)+\left( b_n-b 
+  \right)}\leq\abs{a_n-a}+\abs{b_n-b}
+\end{equation}
+  Sei $\varepsilon>0$:
+  \begin{equation}\label{e:(4.2)}
+\exists N:\qquad\abs{a_n-a}<\frac{\varepsilon}{2}\quad\forall n\geq N
+  \end{equation}
+\begin{equation}\label{e:(4.3)}
+\exists N':\qquad\abs{a_n-a}<\frac{\varepsilon}{2}\quad\forall n\geq N'
+\end{equation}
+F\"ur $n\geq \max \{N, N'\}$:
+$$
+|(a_n+b_n)-(a+b)| \stackrel{\eqref{e:(4.1)},\eqref{e:(4.2)} \& \eqref{e:(4.3)}}{<}
+\frac{\varepsilon}{2}+\frac{\varepsilon}{2} = \varepsilon\, .
+$$
+\end{proof}
 \begin{Def}
   Eine Folge heisst beschränkt, falls
-  \[\exists M>0:\abs{a_n}\leq M\]
+\begin{equation}\label{e:besch}
+\exists M>0:\qquad \abs{a_n}\leq M\quad \forall N\, .
+\end{equation}
 \end{Def}
-\begin{Lem}
-  Eine konvergente Reihe ist immer beschränkt.
+\begin{Lem}\label{l:kon->bes}
+  Eine konvergente Folge ist immer beschränkt.
 \end{Lem}
-\begin{Bew}
-  \begin{align*}
-    = \abs{a_nb_n-ab}\\
-    = \abs{a_nb_n-a_nb+a_nb-ab}\\
-    = \abs{a_n(b_n-b)+b(a_n-a)}\\
-    \leq \abs{a_n}\abs{b_n-b}+\abs{b}\abs{a_n-a}\\
-    \leq M\abs{b_n-b}+\abs{b}\abs{a_n-a}\\
-    < M\left( \frac{\varepsilon}{2M}\right)+\abs{b}\left( \frac{\varepsilon}{2\abs{b}} \right)
-  \end{align*}
-\end{Bew}
-\begin{Bew}
-  Folgt aus dem oberen $+\frac{1}{b_n}\to\frac{1}{b}$ falls $b\neq 0$
-  \begin{align*}
-    \frac{1}{b_n}-\frac{1}{b}\\
-    =\abs{\frac{b-b_n}{b_nb}}\\
-    \leq\frac{1}{\abs{b}}\frac{\abs{b-b_n}}{\abs{b_n}}\\
-    \leq\frac{2}{\abs{b}^2}\abs{b_n-b}\\
-    < \cdots
-  \end{align*}
-  Sei $\varepsilon=\frac{\abs{b}}{2}$ dann
-  \[\exists N:\abs{b_n-b}<\frac{\abs{b}}{2}\s\forall n\geq N\]
-  \[\abs{b_n}\geq \abs{b}-\abs{b-b_n}\geq \frac{\abs{b}}{2}>0\]
-\end{Bew}
+\begin{proof}[Beweis]
+Sei $a_n\to a$. Dann $\exists N$ s.d. $|a_n-a|<1$ $\forall n\geq N$.
+Deswegen, $|a_n|< |a|+1$ $\forall n\geq N$. W\"ahlen wir
+$$
+M := \max \{|a_0|, \ldots, |a_{N-1}|, |a|+1\}\, .
+$$
+Dann $|a_n|\leq M$ $\forall n$.
+\end{proof}
+\begin{proof}[Beweis vom Satz \ref{s:Regeln_Folgen}(ii)\&(iii)]
+{\bf (ii)} Wegen des Lemmas \ref{l:kon->bes} $\exists M>0$ die \eqref{e:besch}
+erf\"ullt
+  \begin{eqnarray}
+\abs{a_nb_n-ab} &=& \abs{a_nb_n-a_nb+a_nb-ab}
+    = \abs{a_n(b_n-b)+b(a_n-a)}\nonumber\\
+    &\leq& \abs{a_n}\abs{b_n-b}+\abs{b}\abs{a_n-a}
+\leq M\abs{b_n-b}+\abs{b}\abs{a_n-a}\label{e:(4.4)}
+\end{eqnarray}
+W\"ahle
+\begin{eqnarray*}
+&&N\in \mb{N} : \qquad |b_n-b|\leq \frac{\eps}{2M} \quad \forall n\geq N\label{e:(4.5)}\\
+&&N\in \mb{N'} : \qquad |a_n-a|\leq \frac{\eps}{2|b|} \quad \forall n\geq N'\label{e:(4.6)}
+\end{eqnarray*}
+F\"ur $n\geq \max \{N, N'\}$ gilt 
+$$
+|a_nb_n-ab| \stackrel{\eqref{e:(4.4)},\eqref{e:(4.5)} \& \eqref{e:(4.6)}}{<}
+\frac{\varepsilon}{2}+\frac{\varepsilon}{2} = \varepsilon
+$$ 
+
+\medskip
+{\bf (iii)} Folgt aus (ii) und
+\begin{equation}\label{e:inv}
+ \frac{1}{b_n}\to\frac{1}{b} \qquad \mbox{falls $b_n\to b\neq 0$}
+\end{equation}
+Um \eqref{e:inv} zu beweisen:
+\begin{equation}\label{e:(4.7)}
+\left|\frac{1}{b_n}-\frac{1}{b}\right|
+=\abs{\frac{b-b_n}{b_nb}}
+=\frac{1}{\abs{b}}\frac{\abs{b-b_n}}{\abs{b_n}}
+\end{equation}
+Da $|b|>0$ und $b_n\to b$,
+  \[\exists N:\qquad\abs{b_n-b}<\frac{\abs{b}}{2}\quad\forall n\geq N\]
+Deswegen, f\"ur $n\geq N$,
+\begin{equation}\label{e:(4.8)} 
+\abs{b_n}\geq \abs{b}-\abs{b-b_n}\geq \frac{\abs{b}}{2}>0
+\end{equation}
+und 
+$$
+\left|\frac{1}{b_n}-\frac{1}{b}\right| \leq \frac{2}{|b|^2} |b_n-b|\, .
+$$
+Sei $\varepsilon > 0$ und w\"ahle $N'$ s.d. $|b_n-b| < \eps |b|^2/2$ forall
+$n\geq N$. F\"ur $n\geq \max\{N, N'\}$ schliessen wir 
+$$
+\left|\frac{1}{b_n} - \frac{1}{b}\right| < \eps\, .
+$$ 
+\end{proof}
+
+\begin{Bem} Falls $a_n\to a$ und $\lambda\in \mb{C}$, folgt aus dem Satz \ref{s:Regeln_Folgen}(ii)
+dass $\lambda a_n \to \lambda a$: wir setzen eifach $b_n := \lambda$ $\forall n$!
+\end{Bem}
+
+
 \begin{Sat}
   Sei $a_n\to a$ ($a_n\in\mb{C}$), dann:
   \begin{itemize}
@@ -133,17 +217,56 @@
     \item $\Im a_n\to\Im a$
   \end{itemize}
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis] Die Behauptungen sind triviale Konsequenzen des
+Konvergenzkriteriums \eqref{e:konvergiert} und der folgenden Ungleichungen:
   \begin{itemize}
     \item $\abs{\abs{a_n}-\abs{a}}\leq \abs{a_n-a}$
     \item $\abs{\bar{a_n}-\bar{a}}= \abs{a_n-a}$
     \item $\abs{\Im a_n-\Im a}\leq \abs{a_n-a}$
     \item $\abs{\Re a_n-\Re a}\leq \abs{a_n-a}$
   \end{itemize}
-\end{Bew}
+\end{proof}
 \begin{Sat}
   Seien $a_n\to a$, $b_n\to b$ mit $a_n\leq b_n$. Dann $a\geq b$.
 \end{Sat}
-\begin{Kor}
-  Seien $a_n\to a$, $b_n\to a$. Sei $a_n$ mit $a_n\geq c_n\geq b_n$. Dann ist $c_n$ eine konvergente Folge mit $c_n\to a$
-\end{Kor}
+\begin{proof}[Beweis] Sei $\varepsilon>0$. Dann
+\begin{eqnarray*}
+&&\exists N\in \mb{N}: \qquad |a_n-a|< \varepsilon \quad \forall n\geq N\\
+&&\exists N'\in \mb{N}: \qquad |a_n-a|< \varepsilon \quad \forall n\geq N'
+\end{eqnarray*}
+F\"ur $n=\max \{N, N'\}$:
+$$
+b-a\geq b_n - |b_n-b| - a_n - |a-a_n| \geq (b_n-a_n) + 2\varepsilon \geq 2\varepsilon\, . 
+$$
+Da $\varepsilon$ eine beliebige positive Zahl ist, gilt $b-a\geq 0$. 
+\end{proof}
+
+\begin{Sat}
+  Seien $a_n\to a$, $b_n\to a$. Sei $(c_n)$ mit $a_n\geq c_n\geq b_n$. 
+Dann ist $(c_n)$ eine konvergente Folge mit $c_n\to a$
+\end{Sat}
+\begin{proof}[Beweis]
+Sei $\eps>0$ und w\"ahle
+\begin{eqnarray*}
+&& N\in \mb{N}: \qquad |a_n-a|< \varepsilon \quad \forall n\geq N\\
+&& N'\in \mb{N}: \qquad |a_n-a|< \varepsilon \quad \forall n\geq N'
+\end{eqnarray*}
+F\"ur $n\geq \max \{N, N'\}$:
+$$
+a- \varepsilon < a - |a -a_n| \leq a_n = a_n \leq c_n
+\leq b_n \leq a + |b_n-a| < a+\varepsilon\, .
+$$
+$$
+\implies |c_n-a|<\varepsilon\, .
+$$
+\end{proof}
+
+\begin{Bsp} Sei $s\geq 0$ und w\"ahle $k\in \mb{N}$ mit $k\leq s\leq k+1$.
+Sei $q\in \mb{C}$ mit $|q|<1$. Dann 
+\begin{eqnarray*}
+&&\sqrt[n]{n^k}\leq \sqrt[n]{n^s}\leq \sqrt[n]{n^{k+1}}\\
+&& 0\leq n^s|q|^n \leq n^k |q|^n\, .
+\end{eqnarray*}
+Deswegen $\sqrt[n]{n^s} \to 1$ und $n^k q^n \to 0$.
+\end{Bsp}
+

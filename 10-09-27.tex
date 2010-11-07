@@ -1,18 +1,18 @@
 \section{Die reellen Zahlen}
-\begin{Bsp}
-  $\mb{R}$ ist nicht genug
-\end{Bsp}
+$\mb{Q}$ ist nicht genug!
+
 \begin{Sat}
   Es gibt kein $q\in\mb{Q}$ so dass $q^2=2$
 \end{Sat}
-\begin{Bew}
-  Falls $q^2=2$, dann $(-q)^2=2$ OBdA $q\geq 0$ Deswegen $q>0$. Sei $q>0$ und $q\in\mb{Q}$ so dass $q^2=2$. $q=\frac{m}{n}$ mit $m>0$, $>0$. $\text{GGT}(m,n)=1$ (d.h. falls $r\in\mb{N}$ $m$ und $n$ dividiert, dann $r=1$!).
+\begin{proof}[Beweis]
+  Falls $q^2=2$, dann $(-q)^2=2$ OBdA $q\geq 0$ Deswegen $q>0$. Sei $q>0$ und $q\in\mb{Q}$ so dass $q^2=2$. 
+$q=\frac{m}{n}$ mit $m,n\in\mb{N}\setminus \{0\}$ und $\text{GGT}(m,n)=1$ (d.h. falls $r\in\mb{N}$ $m$ und $n$ dividiert, dann $r=1$!).
   \begin{align*}
-    m^2=2n^2&\implies m \text{ ist gerade}&\implies m=2k \text{ für } k\in\mb{N}\\\{0\}\\
+    m^2=2n^2&\implies m \text{ ist gerade}&\implies m=2k \text{ für } k\in\mb{N}\\\\
     4k^2=2n^2&\implies n \text{ ist gerade}&\implies 2| n \text{(2 dividiert $n$)}
   \end{align*}
-  $\implies$ Widerspruch! Weil $2$ dividiert $m$ und $n$! (d.h. es gibt \underline{keine} Zahl $q\in\mb{Q}$ mit $q^2=2$
-\end{Bew}
+  $\implies$ Widerspruch! Weil $2$ dividiert $m$ und $n$! (d.h. es gibt \underline{keine} Zahl $q\in\mb{Q}$ mit $q^2=2$).
+\end{proof}
 \begin{Bsp}
   \begin{align*}
     \sqrt{2}=1,414\cdots
@@ -20,7 +20,7 @@
   Intuitiv:
   \begin{align*}
     1,4^2 & < & 2 & < & 1,5^2 & & 1,4 & < & \sqrt{2} & < & 1,5 \\
-    1,41^2 & < & 2 & < & 1,42^2 & \implies & 1,41 & < & \sqrt{2} & < & 1,42 \\
+    1,41^2 & < & 2 & < & 1,42^2 & \qquad\implies & 1,41 & < & \sqrt{2} & < & 1,42 \\
     1,414^2 & < & 2 & < & 1,415^2 & & 1,414 & < & \sqrt{2} & < & 1,415 \\
   \end{align*}
 \end{Bsp}
@@ -30,29 +30,43 @@
   \item $\mb{R}$ $= \{$ die reellen Zahlen $\}$ haben ``kein Loch''.
 \end{itemize}
 \paragraph{Konstruktion}
-Die reellen Zahlen kann man ``konstruieren''. (Dedekindsche Schritte, Cantor ``Vervollständigung''). Google knows more. Wir werden ``operativ'' sein, d.h. wir beschreiben einfach die wichtigsten Eigenschaften von $\mb{R}$
-\subsection{Körperstrukturen}
+Die reellen Zahlen kann man ``konstruieren''. (Dedekindsche Schnitte, 
+siehe Kapitel I.10 in H. Amann, J. Escher {\em Analysis I}, oder
+Kapitel 1.8 in W. Rudin {\em Principle of Mathematical Analysis};
+Cantorsche ``Vervollst\"andigung'', siehe I. Stewart {\em Introduction to metic
+and topological spaces}). 
+Wir werden ``operativ'' sein, d.h. wir beschreiben einfach die wichtigsten Eigenschaften von $\mb{R}$
+durch:
+\begin{itemize}
+ \item die K\"operaxiomen (K1) -- (K4);
+\item die Anordnugsaxiomen (A1)-- (A3);
+\item das Vollst\"andigkeitsaxiom (V).
+\end{itemize}
+
+\subsection{K\"orperstrukturen}
 \begin{itemize}
   \item[K1] Kommutativgesetz
   \begin{align*}
     % TODO align that on =
-    a+b &=& b + a &\\
-    a\cdot b &=& b\cdot a &\\
+    a+b &= b + a &\\
+    a\cdot b &= b\cdot a &\\
   \end{align*}
   \item[K2] Assoziativgesetz
     \begin{align*}
-      (a+b)+c &=&a+(b+c)\\
-      (a\cdot b)\cdot c&=&a\cdot(b\cdot c)\\
+      (a+b)+c &=a+(b+c)\\
+      (a\cdot b)\cdot c&=a\cdot(b\cdot c)\\
     \end{align*}
   \item[K3] Distributivgesetz
     \begin{align*}
-      (a+b)\cdot c&=& a\cdot c + b\cdot c
+      (a+b)\cdot c&= a\cdot c + b\cdot c
     \end{align*}
-  \item[K4] 
+  \item[K4] Die L\"osungen $x$ folgender Gleichungen existieren: 
     \begin{align*}
-      a+x&=&b\\
-      a\cdot x&=&b \text{falls $a\neq 0$}\\
+      a+x&=b &\qquad \forall a,b\in \mb{R} \\
+      a\cdot x&=b &\qquad \forall a,b\in \mb{R}, a\neq 0.\\
     \end{align*}
+NB: $0$ ist das ``Annallierungselement'', d.h. das einzige Element $0$ so dass $a 0=0$
+f\"ur jede $a\in \mb{R}$.
 \end{itemize}
 \subsection{Die Anordnung von $\mb{R}$}
 \begin{itemize}
@@ -63,56 +77,65 @@ Die reellen Zahlen kann man ``konstruieren''. (Dedekindsche Schritte, Cantor ``V
       \item $a>0$
     \end{itemize}
   \item[A2] Falls $a>0$, $b>0$, dann $a+b>0$, $a\cdot b>0$
-  \item[A3] Archimedisches Axiom: $\forall a\in\mb{R} \exists n\in\mb{N}$ mit $n>a$
+  \item[A3] Archimedisches Axiom: $\forall a\in\mb{R}\; \exists n\in\mb{N}$ mit $n>a$
 \end{itemize}
 \begin{Ueb}
   Beweisen Sie dass $a\cdot b>0$ falls $a<0$, $b<0$
 \end{Ueb}
-\begin{Sat}
+\begin{Sat}[Bernoullische Ungleichung]
   $\forall x>-1$, $x\neq 0$ und $\forall n\in\mb{N}\\\{0,1\}$ gilt $(1+x)^n > (1+nx)$
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]Vollst\"andige Induktion.\\
+{\bf Schritt 1}
   $$(1+x)^2 = 1+2x+\underbrace{x^2}_{>0}>1+2x$$
   weil $x\neq0$.\\
   Nehmen wir an dass
   \begin{align*}
-    (1+x)^n&>& 1+nx & (x>-1, x\neq 0)\\
-    \underbrace{(1+x)}_a \underbrace{(1+x)^n}_c&>&\underbrace{(1+nx)}_d(1+x) & (\text{weil} (1+x)>0)\\
-  \end{align*}
-  $$c>d \iff c-d>0 \stackrel{\text{A2}}{\implies} a(c-d) > 0 \stackrel{\text{K4}}{\implies} ac-ad > 0 \stackrel{\text{A2}}{\implies} ac>ad$$
+    (1+x)^n&>& 1+nx &\qquad (x>-1, x\neq 0)\\
+   \end{align*}
+Dann
+$$
+   \underbrace{(1+x)}_a \underbrace{(1+x)^n}_c > \underbrace{(1+nx)}_d(1+x) \qquad (\mbox{weil}\quad (1+x)>0)\\
+$$
+(In der Tat,  
+$$c>d \iff c-d>0 \stackrel{\text{A2}}{\implies} a(c-d) > 0 \stackrel{\text{K4}}{\implies} ac-ad > 0 
+\stackrel{\text{A2}}{\implies} ac>ad)$$
   \begin{align*}
     (1+x)^{n+1} > (1+nx)(1+x) = 1+nx+x+nx^2=\\
     1+(n+1)x+\underbrace{nx^2}_{>0}>1+(n+1)x\\
     \implies (1+x)^{n+1} > 1+(n+1)x
   \end{align*}
-  Vollständige Induktion.
-\end{Bew}
+
+ \end{proof}
 \begin{Def}
   Für $a\in\mb{R}$ setzt man
   \begin{align*}
   \abs{a}=
     \begin{cases}
-      a &\text{falls} a\geq0\\
-      -a &\text{falls} a < 0\\
+      a &\qquad\mbox{falls}\quad a\geq0\\
+      -a &\qquad\mbox{falls}\quad a < 0\\
     \end{cases}
   \end{align*}
 \end{Def}
+\begin{Bem}
+  $$\abs{x}=max\left\{ -x,x \right\}$$
+\end{Bem}
 \begin{Sat}
-  Es gilt (Dreiecksungleichung):
-  \begin{align*}
-    \abs{ab}&=&\abs{a}\abs{b}\\
-    \abs{a+b}&\leq&\abs{a}+\abs{b}\\
-    \abs{\abs{a}-\abs{b}}&\leq&\abs{a-b}
-  \end{align*}
+  Es gilt :
+  \begin{eqnarray}
+    \abs{ab}&=&\abs{a}\abs{b}\label{e:1}\\
+    \abs{a+b}&\leq&\abs{a}+\abs{b}\qquad \mbox{(Dreiecksungleichung)}\label{e:2}\\
+    \abs{\abs{a}-\abs{b}}&\leq&\abs{a-b}\label{e:3}
+  \end{eqnarray}
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   \begin{itemize}
-    \item $\abs{ab} = \abs{a}\abs{b}$ trivial
-    \item 
+    \item \eqref{e:1} ist trivial.
+    \item Zu \eqref{e:2}:
       \begin{align*}
          a+b\leq \abs{a}+\abs{b} 
       \end{align*}
-      ($a>0$ und $b>0$ $\implies$ $a+b=\abs{a}+\abs{b}$ sonst $a+b<\abs{a}+\abs{b}$ weil $x\leq\abs{x}$ $\forall x\in\mb{R}$ und die Gleichung gilt).
+      (weil $x\leq\abs{x}$ $\forall x\in\mb{R}$ und die Gleichung gilt genau, dann wenn $x\geq 0$).
       \begin{align*}
         -(a+b)=-a-b\leq \abs{-a}+\abs{-b} = \abs{a}+\abs{b}
       \end{align*}
@@ -120,28 +143,21 @@ Die reellen Zahlen kann man ``konstruieren''. (Dedekindsche Schritte, Cantor ``V
       \begin{align*}
         \abs{a+b}=max\left\{ a+b, -(a+b) \right\}\leq \abs{a}+\abs{b}
       \end{align*}
-    \item
+    \item Zu \eqref{e:3}.
+      \begin{eqnarray}
+        &\abs{a}=\abs{(a-b)+b}\leq \abs{a-b} + \abs{b} \nonumber\\
+        \implies &\abs{a}-\abs{b}\leq \abs{a-b} \label{e:+}\\
+        &\abs{b}=\abs{a+(b-a)}\leq \abs{a}+\abs{b-a}\nonumber\\
+        \implies &\abs{b}-\abs{a}\leq \abs{b-a} = \abs{a-b} \label{e:-}
+      \end{eqnarray}
       \begin{align*}
-        \abs{\abs{a}-\abs{b}} \leq \abs{a-b}
-      \end{align*}
-      Zuerst:
-      \begin{align*}
-        \abs{a}=\abs{(a-b)+b}\leq \abs{a-b} + \abs{b} \\
-        \implies \abs{a}-\abs{b}\leq \abs{a-b}\\
-        \abs{b}=\abs{a+(b-a)}\leq \abs{a}+\abs{b-a}\\
-        \implies \abs{b}-\abs{a}\leq \abs{b-a} = \abs{a-b} \\
-        \implies \left( \abs{a}-\abs{b} \right)\leq \abs{a-b}\\
-      \end{align*}
-      \begin{align*}
-        \abs{\abs{a}-\abs{b}}=max\left\{ \abs{a}-\abs{b}, -\left( \abs{a}-\abs{b} \right) \right\}\leq\abs{a-b}
+        \abs{\abs{a}-\abs{b}}=max\left\{ \abs{a}-\abs{b}, -\left( \abs{a}-\abs{b} \right) \right\}\stackrel
+{\eqref{e:+}, \eqref{e:-}}{\leq}\abs{a-b}
       \end{align*}
   \end{itemize}
-\end{Bew}
-\begin{Bem}
-  $$\abs{x}=max\left\{ -x,x \right\}$$
-\end{Bem}
+\end{proof}
 \subsection{Die Vollständigkeit der reellen Zahlen}
-Für $a<b$, $a\in\mb{R}$, heisst:
+Für $a<b$, $a,b\in\mb{R}$, heisst:
 \begin{itemize}
   \item abgeschlossenes Intervall: $\left[ a,b \right]=\left\{ x\in\mb{R}: a\leq x\leq b \right\}$ 
   \item offenes Intervall: $\left] a,b \right[=\left\{ x\in\mb{R}: a< x< b \right\}$
@@ -159,38 +175,47 @@ Sei $I=[a,b]$ (bzw. $]a,b[$ \ldots). Dann $a,b$ sind die \underline{Randpunkte} 
 \begin{Bsp}
   $\sqrt{2}$
   \begin{align*}
-    1,4^2 & < & 2 & < & 1,5^2 & & I_1 = \left[ 1,4 / 1,5 \right] & \abs{I_1} = 0.1\\
-    1,41^2 & < & 2 & < & 1,42^2 & \implies & I_2 = \left[ 1,41 / 1,42 \right] & \abs{I_2} = 0.01\\
-    1,414^2 & < & 2 & < & 1,415^2 & & I_3 = \left[ 1,414, 1,415 \right] & \abs{I_2} = 0.001 
+    1,4^2 & < & 2 & < & 1,5^2 & & I_1 = \left[ 1,4 / 1,5 \right] &\quad \abs{I_1} = 0.1\\
+    1,41^2 & < & 2 & < & 1,42^2 & \implies & I_2 = \left[ 1,41 / 1,42 \right] &\quad \abs{I_2} = 0.01\\
+    1,414^2 & < & 2 & < & 1,415^2 & & I_3 = \left[ 1,414, 1,415 \right] &\quad \abs{I_2} = 0.001\\
+\ldots\\
+\ldots &&&&&& I_n = \ldots
   \end{align*}
+I1 und I2 sind beide erf\"ullt.
 \end{Bsp}
-\begin{Bew}
-  I1 und I2 sind beide erfüllt.
-\end{Bew}
 \begin{Axi}
-  Zu jeder Intervallschachtelung $\exists x\in\mb{R}$ die allen ihren Intervallen angehört.
+  Zu jeder Intervallschachtelung $\exists x\in\mb{R}$ die allen ihren Intervallen angeh\"ort.
 \end{Axi}
-\begin{Sat}
+\begin{Sat}\label{s:Int_Ein}
   Die Zahl ist eindeutig.
 \end{Sat}
-\begin{Bew}
-  Sei $(I_n)$ eine Intervallschachtelung. Nehmen wir an dass $\exists \alpha < \beta$ so dass $\alpha, \beta\in I_n\forall n$. Dann $\abs{I_n}\geq\abs{\beta-\alpha}> a$. Widerspruch!
-\end{Bew}
-\begin{Sat}
-  $\forall a\geq 0, a\in\mb{R}$ und $\forall x\in\mb{N}\\\left\{ 0 \right\}$, $\exists$ eine einziges $x\geq 0$, $x\in \mb{R}$ s.d. $x^k=a$. Wir nennen $x=\sqrt[k]{a}=a^\frac{1}{k}$.\\
-  Sei $m,n\in\mb{N}$, $a^{m+n}=a^ma^n$ und deswegen $a^{-m}=\frac{1}{a^m}$ für $m\in\mb{N}$ (so dass die Regel $a^{m-m}=a^0=1$.\\
-  $n,m\in\mb{N}\\\left\{ 0 \right\}$ $n$ Mal.
+\begin{proof}[Beweis]
+  Sei $(I_n)$ eine Intervallschachtelung. Nehmen wir an dass $\exists \alpha < \beta$ so dass $\alpha, \beta\in I_n$
+f\"ur alle $n$. Dann $\abs{I_n}\geq\abs{\beta-\alpha}> a$. Widerspruch!
+\end{proof}
+\begin{Sat}\label{s:Wurz}
+$\forall a\in\mb{R}$ mit $a\geq 0$ und $\forall k\in\mb{N}\setminus\left\{ 0 \right\}$, 
+$\exists ! x\in\mb{R}$ mit 
+$x\geq 0$ und $x^k=a$ ($\exists ! x$ bedeutet ``es gibt genau ein $x$''). 
+Wir nennen $x=\sqrt[k]{a}=a^\frac{1}{k}$.\\
+\end{Sat}
+
+Sei $a>0$ und $m,n\in\mb{N}$. Dann $a^{m+n}=a^ma^n$. Wir definieren $a^{-m}:=\frac{1}{a^m}$ f\"ur $m\in\mb{N}$.
+(so dass die Gleichung $a^{m-m}=a^0=1$ stimmt). Wir haben dann die Eigenschaft: $a^{j+k}= a^j\cdot a^k$ $\forall
+j,k\in \mb{Z}$. Wir haben aber auch, f\"ur $m,n\in \mb{N}$, 
   \begin{align*}
     (a^m)^n=\underbrace{a^m\cdot a^m \cdots a^m}_{\text{$n$ Mal}} = a^{\overbrace{m+\cdots+m}^{\text{$n$ Mal}}} = a^{nm}
   \end{align*}
-  Und mit $a^{-m}=\frac{1}{a^m}$ stimmt die Regel $(a^m)^n=a^{mn}$ auch $\forall m,n\in\mb{Z}$!
-\end{Sat}
-\begin{Bem}
-    $x^k=\left( a^\frac{1}{k} \right)^k=a\left( =a^{\frac{1}{k}k} = a^1\right)$
-\end{Bem}
+(Und mit $a^{-m}=\frac{1}{a^m}$ stimmt die Regel $(a^m)^n=a^{mn}$ auch $\forall m,n\in\mb{Z}$!).
+Diese Gleichung motiviert die Notation
+$a^\frac{1}{k}$ f\"ur $\sqrt[k]{a}$.
+
 \begin{Def}
-  $\forall q=\frac{m}{n}\in\mb{Q}$, $\forall a>0$ mit definiertem $a^q=\left(\sqrt[n]{a}\right)^m$
+  $\forall q=\frac{m}{n}\in\mb{Q}$, $\forall a>0$, wir setzen $a^q :=\left(\sqrt[n]{a}\right)^m$
 \end{Def}
-\begin{Bew}
-  Mit dieser Definition gilt $a^{q+q_2} = a^qa^{q_2}$ $\forall a>0$ und $\forall q,q_2\in\mb{Q}$.
-\end{Bew}
+
+Es ist leicht zu sehen dass die Gleichungen
+$$
+a^{q+r} = a^q\cdot a^r \qquad \mbox{und} \qquad a^{qr}=(a^q)^r
+$$
+f\"ur alle $q,r\in \mb{Q}$ gelten.

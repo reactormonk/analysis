@@ -1,46 +1,56 @@
 \section{Komplexe Zahlen}
 \begin{Bem}
   $\forall a\in \mb{R}$, $a^2>0$. Deswegen ist $x^2=-1$ unlösbar.
-  Die Erfindung von $i^2=-1$ (die imaginäre Zahl) hat sehr interessante Konsequenzen auch für die üblichen reellen Zahlen.
+  Die Erfindung der imagin\"are Einheit $i$ (die imaginäre Zahl mit $i^2=-1$) 
+hat sehr interessante Konsequenzen auch für die üblichen reellen Zahlen.
 \end{Bem}
-\subsection{Definition}
-\begin{Def}
-  Sei $a,b\in\mb{R}$, dann $a+bi\in\mb{C}$.
+\subsection{Definition}[Erste Definition der Komplexen Zahlen]\label{d:C1}
+\begin{Def} Sei $a,b\in\mb{R}$, dann $a+bi\in\mb{C}$. Wir definieren die Summe:
   \begin{equation*}
-    (a+bi)+(\alpha+\beta i) = (a+\alpha)+(b+\beta)i\\
-    (a+bi)(\alpha+\beta i) = (a\alpha-b\beta)+\underbrace{(a\beta+b\alpha)}_{A}
+    (a+bi)+(\alpha+\beta i) = (a+\alpha)+(b+\beta)i
+\end{equation*}
+und das Produkt
+\begin{equation*}
+    (a+bi)(\alpha+\beta i) = (a\alpha-b\beta)+ \underbrace{(a\beta+b\alpha)}_A i
   \end{equation*}
 \end{Def}
 \begin{Def}
   Seien $A$ und $B$ zwei Mengen. Dann ist $A\times B$ die Menge der Paare $(a,b)$ mit $a\in A$ und $b\in B$.
 \end{Def}
-\begin{Def}
+\begin{Def}[Zweite Definition der Komplezen Zahlen]\label{d:C2}
   $\mb{C}=\mb{R}\times\mb{R}$ mit $+$ und $\cdot$ , die wir so definieren:
-  \begin{equation*}
-    (a,b)+(\alpha,\beta)=(a+\alpha,b+\beta)\
-    (a,b)(\alpha,\beta)=(a\alpha-b\beta, \underbrace{a\beta+b\alpha}_{A})
-  \end{equation*}
+  \begin{eqnarray*}
+    (a,b)+(\alpha,\beta)&=&(a+\alpha,b+\beta)\\
+    (a,b)(\alpha,\beta)&=&(a\alpha-b\beta, \underbrace{a\beta+b\alpha}_{A})
+  \end{eqnarray*}
 \end{Def}
 \begin{Bem}
   \begin{equation*}
     \mb{R}\simeq \left\{ (a,0), a\in\mb{R} \right\}\subset\mb{C}\\
-    (a,0)+(\alpha,0)=(a+\alpha,0)\
+\end{equation*}
+In der Sprache der abstrakte Algebra $\mb{R}$ ist isomorph zu 
+$\mb{R}' := \{(a,0):a\in \mb{R}\}$: d.h. die Summe und 
+das Produkt in $\mb{R}$ und $\mb{R}'$ sind ``gleich'': 
+\begin{eqnarray*} 
+    (a,0)+(\alpha,0)=(a+\alpha,0)\\
     (a,0)(\alpha,0)=(a\alpha,0)
-  \end{equation*}
+  \end{eqnarray*}
+Deswegen wir schreiben $a$ statt $(a,0)$.
 \end{Bem}
 \begin{Bem}
   \begin{equation*}
     (0,a)(0,b)=(-ab, 0)
   \end{equation*}
-  Deswegen falls $-1\in\mb{R}$ ist $(-1,0)$.
+  Deswegen:
   \begin{equation*}
     \underbrace{(0,1)}_{\text{Wurzel von -1}}(0,1)=(-1,0)\\
     \underbrace{(0,-1)}_{\text{auch eine Wurzel von -1}}(0,-1)=(-1,0)
   \end{equation*}
 \end{Bem}
-\begin{Def}
-  $i=(0,1)$ und wir schreiben $(a,b)$ für $a+bi$.
-\end{Def}
+\begin{Bem}
+  $i=(0,1)$ und wir schreiben $(a,b)$ für $a+bi$. D.h. die zwei Definitionen der
+komplezen Zahlen sind equivalent!
+\end{Bem}
 \begin{Bem}
   $0=(0,0)=0+0i$. $\xi\in\mb{C}$
   \begin{align*}
@@ -48,56 +58,59 @@
     0+\xi=\xi
   \end{align*}
 \end{Bem}
-\begin{Sat}
+\begin{Sat}\label{s:CK}
   Alle Körperaxiome (K1-K4) gelten.
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   \begin{itemize}
-    \item[K1] Kommultativität
-    \item[K2] Assoziativität
-    \item[K3] Distributivität
+    \item[K1] Kommultativität: {\em trivial}
+    \item[K2] Assoziativität: {\em trivial}
+    \item[K3] Distributivität: {\em trivial}.
     \item[K4] Seien $\xi, \zeta \in\mb{C}$.
       \begin{align}
-        \exists \omega\in\mb{C}&\xi+\omega=\zeta\\
-        \xi\neq 0\exists \omega& \xi\omega=\zeta
+        \exists \omega\in\mb{C} :&\qquad \xi+\omega=\zeta\label{e:minus}\\
+        \xi\neq 0\exists \omega: &\qquad \xi\omega=\zeta\label{e:/}
       \end{align}
   \end{itemize}
-\end{Bew}
-\begin{Bew}
-  \begin{equation*}
+{\em Zu \eqref{e:minus}}. Wir setzen
+  \begin{eqnarray*}
     \xi=a+bi\\
     \zeta=c+di\\
     \omega=x+yi
-  \end{equation*}
+  \end{eqnarray*}
   \begin{equation*}
     \xi+\omega = (a+x)+(b+y)i = \xi = c+di
   \end{equation*}
   Sei $x:=c-a$, $y:=d-b$. Dann $\xi+\omega=\zeta$.
-\end{Bew}
-\begin{Bew}
-  Mit derselben Methode. $i \left[ = 1+0i \left[ =(1,0) \right] \right]$ ist das neutrale Element.
+
+\medskip
+
+{\em Zu \eqref{e:/}} $1$ ( $= 1+0i)$) das neutrale Element.
   \begin{equation*}
     (a+bi)(1+0i)=\underbrace{(a1-b0)}_{a}+\underbrace{(b1+a0)}_{b}=(a+bi)
   \end{equation*}
-  Sei $\xi\neq 0$ und suchen wir $\alpha$ so dass $\xi\alpha=1$. Dann ist $\omega=\alpha\xi$ eine Lösung von (2) % TODO ref
-  (eigentlich DIE Lösung). Falls $\xi=a+bi$
+  Sei $\xi\neq 0$ und suchen wir $\alpha$ so dass $\xi\alpha=1$. Dann ist $\omega=\alpha\zeta$ eine Lösung von 
+\eqref{e:/} (eigentlich DIE Lösung). Falls $\xi=a+bi$, dann
   \begin{equation*}
-    \alpha=\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}\\
-    \xi\alpha=\overbrace{\left( \frac{aa}{a^2+b^2}-\frac{b(-b)}{a^2+b^2} \right)}\\
-    \left( \frac{a(-b)}{a^2+b^2}-\frac{ab}{a^2+b^2} \right)i=1
-  \end{equation*}
-\end{Bew}
+    \alpha=\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}\, .
+\end{equation*}
+In der Tat:
+\begin{equation*}
+    \xi\alpha=\overbrace{\left( \frac{aa}{a^2+b^2}-\frac{b(-b)}{a^2+b^2} \right)}^1 + 
+    \overbrace{\left( \frac{a(-b)}{a^2+b^2}-\frac{ab}{a^2+b^2} \right)}^0 i=1\, .
+\end{equation*}
+\end{proof}
 \begin{Def}
   Sei $\xi=(x+yi)\in\mb{C}$. Dann:
   \begin{itemize}
     \item $x$ ist der reelle Teil von $\xi$ $(\Re\xi=x)$
     \item $y$ ist der imaginäre Teil von $\xi$ $(\Im\xi=y)$
-    \item $x+yi$ ist die konjugierte Zahl $\left( \ol\xi=\left( =x-yi \right) \right)$
+    \item $x-yi$ ist die konjugierte Zahl $\left( \ol\xi =x-yi \right)$
   \end{itemize}
 \end{Def}
-\begin{Bew}
+\begin{Bem}
   \[\sqrt{\ol\xi\ol\xi}=\sqrt{\left( \Re\xi \right)^2+\left( \Im\xi \right)^2}=:\abs{\xi}\]
-\end{Bew}
+\end{Bem}
 \begin{Def}
   $\abs{\xi}$ ist der Betrag von $\xi$.
 \end{Def}
@@ -115,12 +128,13 @@
         \item \[(\Im a) i=\frac{a-\ol{a}}{2}\]
       \end{itemize}
     \item $a=\ol{a}$ genau dann wenn $a\in\mb{R}$.
-    \item \[a\ol a=\abs{a}^2=\sqrt{\left( \Re a \right)^2+\left( \im a \right)^2}\geq 0\]
+    \item \[a\ol a=\abs{a}^2=\sqrt{\left( \Re a \right)^2+\left( \Im a \right)^2}\geq 0\]
       (die Gleicheit gilt genau dann wenn $a=0$)
   \end{itemize}
 \end{Sat}
 \begin{Bem}
-  Sei $\omega$ so dass $\xi\omega=1$ $(\xi\neq 0)$. Man schreibt $\omega\frac{1}{\xi}$ und $\omega=\frac{\ol\xi}{\abs{\xi}^2}$
+  Sei $\omega$ so dass $\xi\omega=1$ $(\xi\neq 0)$. Man schreibt $\omega\frac{1}{\xi}$.
+Der Beweis vom Satz \ref{s:CK} impliziert $\omega=\frac{\ol\xi}{\abs{\xi}^2}$
 \end{Bem}
 \begin{Sat}
   $\forall a,b\in\mb{C}$
@@ -132,28 +146,21 @@
     \item $\abs{a+b}\leq\abs{a}+\abs{b}$
   \end{itemize}
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   \begin{equation*}
     \abs{ab}^2=(ab)\ol{(ab)}=ab\ol a\ol b=a\ol a\ol b=\abs{a}^2\abs{b}^2\\
     \implies \abs{ab}=\abs{a}\abs{b}
   \end{equation*}
-  \begin{align*}
-    \iff \abs{a+b}^2\leq\left( \abs{a}+\abs{b} \right)^2\\
-    \underbrace{(a+b)\ol{(a+b)}}_{\abs{a+b}^2\in\mb{R}}=\\
-    (a+b)(\ol a+\ol b)=a\ol a+b\ol b+a\ol b+b\ol a =\\
-    \underbrace{\abs{a}^2+\abs{b}^2}_{\in\mb{R}}+\left( a\ol b+b\ol a \right)\\
-    \iff \underbrace{a\ol b+b\ol a}\leq 2\abs{a}\abs{b}\\
-  \end{align*}
-  Nebenbemerkung:
-  \begin{equation*}
-    b=(\alpha+\beta i)\\
-    \ol b=(\alpha - \beta i)\\
-    \ol{\ol b}=\left( \alpha-(-\beta)i \right) = \alpha+\beta i = b
-  \end{equation*}
-  \begin{equation*}
-    a\ol b+\ol a \ol{(\ol b)}\\
-    a\ol b+\ol{(a\ol b)}=2\Re(a+\ol b)=\Re(2(a\ol b))\leq \abs{2a\ol b}\\
-    =2\abs{a}\abs{\ol b}=2\abs{a}\abs{b}
-  \end{equation*}
-\end{Bew}
-% TODO irgend ne gute Idee das Zeugs zu zeichnen - scannen?
+\begin{eqnarray}
+\underbrace{|a+b|^2}{\in \mb{R}} &=& (a+b)\ol{(a+b)} = 
+    (a+b)(\ol a+\ol b)=a\ol a+b\ol b+a\ol b+b\ol a \nonumber\\
+&=& \underbrace{\abs{a}^2+\abs{b}^2}_{\in\mb{R}}+\left( a\ol b+b\ol a \right)\, .\label{e:10}
+\end{eqnarray}
+Bemerkung: die Identit\"at implizert dass $a\ol b+b\ol a$. In der Tat
+$a\ol b + b\ol a= a\ol b+ \ol{a\ol b} = 2 \re a \ol b$. Deswegen
+\begin{eqnarray}
+|a+b|^2 &=& |a|^2 +|b|^2 + 2 \re a\ol b \;\leq\; |a|^2+|b|^2+ 2|a \ol b|\nonumber\\
+&=& |a|^2 + |b|^2 + 2 |a||b| = (|a|+|b|)^2\, .
+\end{eqnarray}
+\end{proof}
+

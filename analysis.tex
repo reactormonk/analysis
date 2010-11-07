@@ -81,7 +81,7 @@
 \newcommand{\Index}[1]{\emph{#1}\index{#1}}
 \newcommand{\Int}[4]{\displaystyle\int\limits_{#1}^{#2}#3\,\mathrm{d}#4}
 \newcommand{\diff}[1]{\operatorname{d}\!#1}
-\newcommand{\Limi}[1]{\displaystyle\lim_{#1\to+\infty}}
+\newcommand{\Limi}[1]{\displaystyle\lim_{#1\rightarrow\infty}}
 \newcommand{\Limo}[1]{\displaystyle\lim_{#1\rightarrow0}}
 \newcommand{\mb}[1]{\mathbb{#1}}
 \newcommand{\ds}{\displaystyle}
@@ -146,21 +146,22 @@
 %= Environments ========================================================================
 \def\thechapter{\Roman{chapter}}
 \def\thesection{\arabic{section}}
-\newtheorem{Bew}{Beweis}
-\newtheorem{Axi}{Axiom}
-\newtheorem{Lem}{Lemma}
-\newtheorem{Kor}{Korollar}
-\newtheorem{Sat}{Satz}
-\newtheorem{Prop}{Proposition}
-\newtheorem{Beh}{Behauptung}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{Bew}[theorem]{Beweis}
+\newtheorem{Axi}[theorem]{Axiom}
+\newtheorem{Lem}[theorem]{Lemma}
+\newtheorem{Kor}[theorem]{Korollar}
+\newtheorem{Sat}[theorem]{Satz}
+\newtheorem{Prop}[theorem]{Proposition}
+\newtheorem{Beh}[theorem]{Behauptung}
 \theoremstyle{definition}
-\newtheorem{Bsp}{Beispiel}
-\newtheorem{Def}{Definition}
-\newtheorem{Ueb}{Übung}
+\newtheorem{Bsp}[theorem]{Beispiel}
+\newtheorem{Def}[theorem]{Definition}
+\newtheorem{Ueb}[theorem]{\"Ubung}
 \theoremstyle{remark}
-\newtheorem{Bem}{Bemerkung}
-\newtheorem{Eig}{Eigenschaften}
-\newtheorem{Not}{Notation}
+\newtheorem{Bem}[theorem]{Bemerkung}
+\newtheorem{Eig}[theorem]{Eigenschaften}
+\newtheorem{Not}[theorem]{Notation}
 
 \def\pstexInput#1{%
   \begin{center}
