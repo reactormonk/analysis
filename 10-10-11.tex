@@ -56,7 +56,7 @@ stimmt $\forall n\geq N$. Eine alternative Formulierung von \eqref{e:konvergiert
   Sei $s\in\mb{Q}$ $s>0$. Sei $a_n=\frac{1}{n^s}$. Dann
   \[\lim_{n\to+\infty}\left( \frac{1}{n^s} \right)=0\]
   Sei $N\in \mb{N}$ mit $N>\varepsilon^{\frac{1}{s}}$ (Axiom von Archimedes!). Dann
-  \[\abs{0-a_n}=\frac{1}{n^s}<\varepsilon\qquad =\mbox{falls $n\geq N$}\]
+  \[\abs{0-a_n}=\frac{1}{n^s}<\varepsilon\qquad \mbox{falls $n\geq N$}\]
 (NB: $\frac{1}{s}$ ist wohldefiniert weil $s\neq 0$. Ausserdem
 \[\frac{1}{n^s}<\varepsilon \iff n^s>\frac{1}{\varepsilon}\iff n>
 \frac{1}{\varepsilon^{\frac{1}{s}}}\quad\s\text{weil $s> 0$.)}\]
@@ -68,11 +68,11 @@ stimmt $\forall n\geq N$. Eine alternative Formulierung von \eqref{e:konvergiert
   \[\forall \varepsilon>0 \s\exists N:\quad \sqrt[n]{a}-1<\varepsilon\s\forall n\geq N\in\mb{N}\]
   Sei $x_n=\sqrt[n]{a}-1>0$ und $n\geq 1$
   \[a=(1+x_n)^n=1+nx_n+\binom{n}{2}x^2_n+\binom{n}{3}x_n^3+\dots+x_n^n\, .\]
-  Deswegen\[a\geq 1+nx_n\s x_n\leq\frac{a-1}{n}\s\text{für}\s\]
+  Deswegen\[a\geq 1+nx_n\s\text{für}\sx_n\leq\frac{a-1}{n}\]
   Sei $\varepsilon>0$. Wähle $N\geq \frac{a-1}{\varepsilon}$
   \[\implies\sqrt[n]{a}-1=x_n\leq\frac{a-1}{n}\leq\frac{a-1}{N}<\frac{a-1}{\frac{a-1}{\varepsilon}}=
   \varepsilon\]
-  {\bf Fall $0<a<1$} Wir haben $\frac{1}{a}>1$ und nuzten die Rechenregeln (siehe Satz 
+  {\bf Fall $0<a<1$} Wir haben $\frac{1}{a}>1$ und nutzen die Rechenregeln (siehe Satz 
 \ref{s:Regeln_Folgen}(iii), unten!):
 \[\sqrt[n]{a}=\frac{1}{\sqrt[n]{\frac{1}{a}} \to \frac{1}{1} = 1}\]
  {\bf Fall $a=1$} Trivial! Die Folge ist ``konstant'': $a_n=1 \forall n$.
