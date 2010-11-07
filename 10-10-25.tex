@@ -34,7 +34,7 @@ In $D\subset\mb{R}$, $D\subset\mb{C}$.
   (Später): $\frac{f}{g}$ ist stetig falls $f$,$g$ stetig und $g(x)\neq 0$ $\forall x\in D$. $\implies$ Rationale Funktionen $\frac{P(x)}{Q(x)}$ sind stetig auf $d=\mb{C}\setminus\left\{ x:Q(x)=0 \right\}$
 \end{Bsp}
 \begin{Bsp}
-  $f(x)=x^k$, $k\in\mb{N}$ ist ein Polynom $\implies$ $f$ ist stetig. Sei $g(x):=x^\frac{1}{k}=\sqrt[k]{x}$, $k\in\mb{N}\setminus\left\{ 0 \right\}$ \left( $g(x)$ ist die einzige relle Zahl $y\in\mb{R}$ mit $y\geq 0$ und $y^k=x$ \right). $x_0\in\mb{R}$, $\varepsilon>0$
+  $f(x)=x^k$, $k\in\mb{N}$ ist ein Polynom $\implies$ $f$ ist stetig. Sei $g(x):=x^\frac{1}{k}=\sqrt[k]{x}$, $k\in\mb{N}\setminus\left\{ 0 \right\}$ ( $g(x)$ ist die einzige relle Zahl $y\in\mb{R}$ mit $y\geq 0$ und $y^k=x$ ). $x_0\in\mb{R}$, $\varepsilon>0$
   \[\abs{\underbrace{\sqrt[k]{x}}_y-\underbrace{\sqrt[k]{x_0}}_{y_0}} \leq \sqrt[k]{abs{x-x_0}}\]
   \[\iff \abs{y-y_0}^k\leq\abs{y^k-y_0^k}\]
   oBdA $y\geq y_0$
@@ -102,11 +102,11 @@ In $D\subset\mb{R}$, $D\subset\mb{C}$.
   Sei $x_0\in B$, $(x_n)$ mit $(x_n)\subset B$ und $x_n\to x_0$. Die Folge
   \[\underbrace{f^{-1}(x_n)}_{=y_n}\stackrel{?}{\to}\underbrace{f^{-1}(x_0)}_{=y_0}\]
   $(y_n)\subset\left[ a,b \right]$, $y_0\in\left[ a,b \right]$. Falls $y_n\not\to y_0$, dann:
-  \[\exists\varepsilon>0: \forall N\in\mb{N}\eixsts \underbrace{n}_{n_k}\geq \underbrace{N}_{k}: \abs{y_n-y_0}\geq\varepsilon\]
+  \[\exists\varepsilon>0: \forall N\in\mb{N}\exists \underbrace{n}_{n_k}\geq \underbrace{N}_{k}: \abs{y_n-y_0}\geq\varepsilon\]
   \[n_k\geq n_{k-1}\implies\text{Teilfolge } (y_{n_k}): \abs{y_{n_k}-y_0}\geq \varepsilon\forall k\in \mb{N}\]
   \[\text{Bolzano-Weiterstrass}\implies \exists y_{n_k}\to\bar{y}\implies \bar{y}\neq y_0\]
   \[f(y_{n_{k_j}})=x_{n_{k_j}}\]
-  Stetigkeit von $f$:$f(y_{n_{k_j}})\to f(\bar y)$ Und da $x_{n_{k_j}}\to x_0$ sowie  $x_{n_{k_j}} = f(y_{n_{k_j}}$, heisst dass das $f(\bar y)=x_0$, aber $f(y_0)=x_0$ $\impies f(\bar y)=f(y_0)$, mit $\bar y\neq y_0$. Widerspruch mit der Injektivität von $f$. Deswegen $f^{-1}(x_n)=y_n\to y_0=f^{-1}(x_0)$ $\implies$ $f^{-1}$ ist stetig.
+  Stetigkeit von $f$:$f(y_{n_{k_j}})\to f(\bar y)$ Und da $x_{n_{k_j}}\to x_0$ sowie  $x_{n_{k_j}} = f(y_{n_{k_j}}$, heisst dass das $f(\bar y)=x_0$, aber $f(y_0)=x_0$ $\implies f(\bar y)=f(y_0)$, mit $\bar y\neq y_0$. Widerspruch mit der Injektivität von $f$. Deswegen $f^{-1}(x_n)=y_n\to y_0=f^{-1}(x_0)$ $\implies$ $f^{-1}$ ist stetig.
 \end{Bew}
 \begin{Bem}
   Aus diesem Satz schliessen Sie die Stetigkeit von $x\mapsto x^{\frac{1}{k}}$ von der Stetigkeit $x\mapsto x^k$.
