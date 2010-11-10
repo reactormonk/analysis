@@ -1,0 +1,190 @@
+\subsection{Eigenschaften}
+\begin{itemize}
+  \item $f(z+w)=f(z)f(w)$
+  \item $\Limo{z}\frac{l^z-1}{z}=1$
+\end{itemize}
+\begin{Sat}
+  \begin{enumerate}
+    \item positiv
+    \item monoton steigend
+    \item bijektiv
+  \end{enumerate}
+\end{Sat}
+\begin{Bew}
+  \begin{enumerate}
+    \item \[l^x=l^{\frac{x}{2}+\frac{x}{2}} = (e^\frac{x}{2})^2>0\]
+    \item \[\frac{e^{x+h}}{e^x}=e^h=1+\frac{h}{1!}+\cdots > 1\]
+    \item z.z.: $\forall y\in\mb{R}^+$
+      \[\exists x: e^x=y\]
+      Falls $y\geq 1$
+      \[e^0=1\leq y\leq e^y\stackrel{\text{ZWS}}{\implies}\exists x:e^x=y\]
+      Falls $0<y<1$, dann betrachte $\frac{1}{y}>1$
+      \[\exists x: e^x=frac{1}{y}\implies e^{-x}=y\]
+  \end{enumerate}
+\end{Bew}
+\begin{Sat}{vom Wachstum}\label{s:wachstum1}
+  \[\Limi{x}\frac{e^x}{x^n}=+\infty\]
+  \[\lim_{x\to-\infty}x^ne^x=0\]
+\end{Sat}
+\begin{Bew}
+  \[e^x>\frac{x^{n+1}}{(n+1)!}\implies\frac{e^x}{x^n}>\frac{x}{(n+1)!}\to_{x\to\infty}\infty\]
+  \[x^ne^x=\frac{x^n}{e^{-x}}=(-1)^n\frac{(-x)^n}{e^{-x}}\to_{x\to\infty}\infty\]
+\end{Bew}
+\subsection{Natürlicher Logarithmus}
+\begin{Def}
+  $\ln:\mb{R}^+\to\mb{R}$ ist die Inverse der exponentiellen Funktion.
+\end{Def}
+\begin{Sat}
+  \[\ln(xy)=\ln x + \ln y\]
+\end{Sat}
+\begin{Bew}
+  \[e^{\ln(xy)}=xy=e^{\ln x}e^{\ln y}=e^{\ln x + \ln y}\]
+  \[\implies ln(xy)=\ln x + \ln y\]
+\end{Bew}
+\begin{Sat}{vom Wachstum 2} \label{s:wachstum2}
+  \[\Limi{x}\frac{\ln x}{\sqrt[n]{x}}=0\]
+\end{Sat}
+\begin{Bew}
+  \[\frac{\ln x}{\sqrt[n]{x}}=\frac{\ln e^{ny}}{sqrt[n]{e^{ny}}}=\frac{ny}{e^y}\]
+  \[\exists y:x=e^{ny}\]
+  \[\underbrace{y\to\infty}_{\iff x\to\infty}\implies \frac{\ln x}{\sqrt[n]{x}}\to 0\]
+\end{Bew}
+\begin{Sat}
+  \[\Limo{x}\frac{\ln(1+x)}{x}=1\]
+\end{Sat}
+\begin{Bew}
+  \[\Limo{x}\frac{\ln(1+x)}{x}=\Limo{y}\frac{\ln e^y}{e^y-1}=\Limo{y}\frac{y}{e^y-1}=1\]
+\end{Bew}
+\begin{Bem}
+  $\ln:\mb{R}^+\to\mb{R}$ ist stetig
+\end{Bem}
+\begin{Bem}
+  $y=\frac{m}{n}\in\mb{Q}, n\in\mb{N}, a>0$
+  \[\sqrt[n]{a^n}=\frac{m}{n}=e^{y\ln a}\]
+  Warum?
+  \[f(2)=e^{2\ln a}\]
+  \[f(0)=1\]
+  \[f(2+r)=f(2)f(r)\]
+  \[f:\mb{Q}\to\mb{R}\]
+  \[\implies a^y=e^{y\ln a}\]
+\end{Bem}
+\begin{Def}
+  $a>0$, $z\in\mb{C}$
+  \[a^z:=e^{z\ln a}\]
+\end{Def}
+\begin{Sat}
+  \begin{enumerate}
+    \item \[a^{x+y}=a^xa^y\s(x,y\in\mb{C})\]
+    \item \[(a^x)^y=a^{xy}\s(x,y\in\mb{R})\]
+    \item \[(ab)^x=a^xb^x\]
+  \end{enumerate}
+\end{Sat}
+\begin{Bew}
+  \begin{enumerate}
+    \item \[a^{x+y}=w^{(x+y)\ln a}=e^{x\ln a+y\ln a}=e^{x\ln a}e^{y\ln a}=a^xa^y\]
+    \item ähnlich
+    \item $\uparrow$
+  \end{enumerate}
+\end{Bew}
+\begin{Sat}
+  \begin{enumerate}
+    \item \[\Limi{x}x^a= \begin{cases}
+      \infty&a>0\\
+      1&a=0\\
+      0&a<0\\
+    \end{cases}\] \label{i:101110a}
+    \item \[\Limo{x}x^a= \begin{cases}
+      0&a>0\\
+      1&a=0\\
+      \infty&a<0\\
+    \end{cases}\]  \label{i:101110b}
+    \item \[\Limi{x}x^a= \begin{cases}
+      +\infty&a\geq0\\
+      0&a<0\\
+    \end{cases}\] \label{i:101110c}
+    \item \[x^ae^x=+\infty\] \label{i:101110d}
+    \item \[\Limo{x}\frac{a^x-1}{x}\ln a\] \label{i:101110e}
+  \end{enumerate}
+\end{Sat}
+\begin{Bew}
+  \begin{enumerate}
+    \item 
+      \[\text{Bild}(x\mapsto x^a)=\mb{R}^+\implies\Limi{x}x^a=+\infty\]
+      $a=0$ trivial
+      $a>0$
+      \[x^a=\frac{1}{x^{-a}}\to0\]
+      (Wegen $-a>0$ und $x^{-a}\to\infty$)
+    \item folgt aus \ref{i:101110a} durch die Substitution $x\mapsto \frac{1}{x}$. \ref{i:101110a} Falls $a>0$, $x^a$ monoton wachsend.
+    \item $a\geq 0$ offensichtlich, $a<0$: $\exists n\in\mb{N}$, $a<-\frac{1}{n}$, $-a>\frac{1}{n}$
+      \[x^a\ln x=\frac{\ln x}{x^{-a}}<\frac{\ln x}{x^{\frac{1}{n}}}\stackrel{\text{Satz \ref{s:wachstum2}}}{\to} 0\]
+    \item $a>0$ trivial, $a<0$, $\exists n\in\mb{N}$ so dass $a>-n$ ($-a<n$)
+      \[x^ae^x=\frac{e^x}{a^{-a}}>\frac{e^x}{x^n}\stackrel{\text{Satz \ref{s:wachstum1}}}{\to}\infty\]
+    \item $\Limo{x}\frac{a-1}{x}=\ln a$
+      \[\frac{a^x-1}{x}=\frac{e^{x\ln a}-1}{x}=\overbrace{\frac{e^{x\ln a}-1}{x\ln a}}^{\to 1}\ln a\to_{x\to 0} \ln a\]
+  \end{enumerate}
+\end{Bew}
+\subsection{Euler}
+\begin{Def}
+  \[\cos(\phi):=\cos(\phi-2\pi n)\]
+  \[\sin(\phi):=\sin(\phi-2\pi n)\]
+\end{Def}
+\begin{Sat}
+  Für $\phi$ klein genug gilt:
+  \begin{enumerate}
+    \item 
+      \[\abs{\sin\phi}\leq\abs{\phi}\leq\frac{\abs{\sin\phi}}{\cos\phi}\]
+    \item
+      \[1-\cos\phi\leq\phi^2\]
+  \end{enumerate}
+\end{Sat}
+\begin{Bew}
+  \begin{enumerate}
+    \item Ziemlich graphisch, plottet wer gerne? Bitte melden.
+    \item
+      \[1-\cos\phi=\frac{(1-\cos\phi)(1+\cos\phi)}{1+\cos\phi}=\frac{1-(\cos\phi)^2}{1+\cos\phi}\leq\frac{\sin^2\phi}{1}\leq\phi^2\]
+  \end{enumerate}
+\end{Bew}
+\begin{Kor}
+  \begin{enumerate}
+    \item \[\Limo{\phi}\frac{\sin\phi}{\phi}=1\]
+    \item \[\Limo{\phi}\frac{1-\cos\phi}{\phi}=0\]
+    \item $\sin$ und $\cos$ sind stetig.
+  \end{enumerate}
+\end{Kor}
+\begin{Bew}
+  \begin{enumerate}
+    \item \[\frac{1}{\cos\phi}\leq\frac{\abs{\sin\phi}}{\phi}\leq 1\]
+    \item \[0\leq\frac{1-\cos\phi}{\abs{\phi}}\leq\abs{\phi}\]
+    \item Additionsregeln
+      \[\cos(x+y)=\cos x\cos y-\sin x\sin y\]
+      \[\sin(x+y)=\sin x\cos y+\cos x\sin y\]
+  \end{enumerate}
+\end{Bew}
+\begin{Sat}{von Euler}\label{s:Euler}
+  \[e^{x+iy}=e^x(\cos x+\sin y)\]
+\end{Sat}
+\begin{Bew}
+  Definiere $f(z)=e^x(\cos x+\sin y)$.
+  $f$ erfüllt (E1) und (E2) % TODO ref
+  \begin{itemize}
+    \item[E1] folgt aus den Additionsregeln
+    \item[E2] 2 Spezialfälle:
+      \begin{itemize}
+        \item $z=x\in\mb{R}$
+          \[\Limo{z}\frac{f(z)-1}{z}=\Limo{x}\frac{e^x-1}{x}=1\]
+        \item $z=iy$
+          \[\Limo{z}\frac{f(z)-1}{z}=\Limo{y}\frac{\cos y+i\sin y-1}{iy}\]
+          \[=\frac{1}{i}\Limo{y}\frac{\cos y-1}{y}+\frac{1}{i}\Limo{y}\frac{i\sin y}{y}=\frac{1}{i}0+\frac{1}{i}i=q\]
+      \end{itemize}
+      Der allgemeine Fall wird im Übungsblatt behandelt.
+  \end{itemize}
+\end{Bew}
+\begin{Bem}(Was hat Euler gemacht?) Wegen der Taylor'schen Reihen:
+  \[\cos y=\sum_{k=0}^\infty(-1)^k\frac{y^{2k}}{(2k)!}\]
+  \[\sin y=\sum_{k=0}^\infty(-1)^k\frac{y^{2k+1}}{(2k+1)!}\]
+  Wenn man die Formel
+  \[e^z:=\sum^\infty_{k=0}\frac{z^k}{k!}\]
+  \[e^y=\sum^\infty_{k=0}\frac{(iy)^k}{k!}=\underbrace{\sum_{k=0}^\infty(-1)^k\frac{y^{2k}}{(2k)!}}_{\cos y}+i\underbrace{\sum_{k=0}^\infty(-1)^k\frac{y^{2k+1}}{(2k+1)!}}_{\sin y}\]
+  \[\implies e^{iy}=\cos y+i\sin y\]
+  $e^{i\pi}=-1$ $\to$ die berühmte Formel von Euler.
+\end{Bem}
