@@ -13,60 +13,75 @@
     \item $q=1$ unentschieden.
   \end{itemize}
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   \begin{itemize}
-    \item $q>1$ $\implies \exists N$ so dass $\abs{a_{n+1}}\geq \tilde q\abs{a_n}$ falls $n\geq N$. $1<\tilde q=\frac{1}{2}+\frac{q}{2}<q$.
+    \item $q>1$. $1<\tilde q=\frac{1}{2}+\frac{q}{2}<q$.Dann $\exists N$ so dass $\abs{a_{n+1}}\geq \tilde q\abs{a_n}$ 
+falls $n\geq N$. Deswegen:
       \[\abs{a_n}\geq \tilde q\abs{a_{n-1}}\geq \tilde{q}^2\abs{a_{n-2}}\cdots>\tilde{q}^{n-N}\abs{a_N}\]
-      oBdA $\abs{a_N}\neq 0$
+      OBdA $\abs{a_N}\neq 0$
       \[\implies \lim_{n\to+\infty}\abs{a_n}=+\infty\implies\sum a_n\text{ divergiert}\]
-    \item $q<1$ $1<\tilde q=\frac{1}{2}+\frac{q}{2}<q$ $\exists N$ so dass $\abs{a_n}\leq \tilde{q}^{n-N}\abs{a_N}$ (das gleiche Argument wie vorher).
-      \[b_n=\tilde{q}^{n-N}\abs{a_N}=C\tilde{q}^n\]
-      \[b_n=\abs{a_n}\]
+    \item $q<1$. $1<\tilde q=\frac{1}{2}+\frac{q}{2}<q$. $\exists N$ so dass $\abs{a_n}\leq \tilde{q}^{n-N}\abs{a_N}$ (das gleiche Argument wie vorher).
+      \[b_n=\tilde{q}^{n-N}\abs{a_N}=C\tilde{q}^n \qquad \mbox{falls $n\geq N$}\]
+      \[b_n=\abs{a_n} \qquad \mbox{falls $n<N$}\]
       $\sum b_n$ majorisiert $\sum a_n$
       \[\sum b_n \text{ konv }\stackrel{\text{Maj.}}{\implies}\sum\abs{a_n} \text{ konvergiert}\]
   \end{itemize}
-\end{Bew}
+\end{proof}
 \begin{Sat} (Wurzelkriterium)
-  Sei $\sum a_n$ eine Reihe und $L:=\limsup_{n\to+\infty}\sqrt[n]{\abs{a_n}}$ (``$L=+\infty$'' falls $\abs{a_n}$ unbeschränkt ist!) Dann:
+  Sei $\sum a_n$ eine Reihe und $L:=\limsup_{n\to+\infty}\sqrt[n]{\abs{a_n}}$ 
+(``$L=+\infty$'' falls $\sqrt[n]{\abs{a_n}}$ unbeschränkt ist!) Dann:
   \begin{itemize}
     \item $L<1$ konvergiert die Reihe absolut
     \item $L>1$ divergiert die Reihe
     \item $L=1$ unentschieden
   \end{itemize}
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   \begin{itemize}
     \item $L<1$ 
-      \[L<\tilde L=\frac{L}{2}+\frac{1}{2}<1 \implies \exists N: \sqrt[n]{\abs{a_n}}\leq\tilde L\implies\abs{a_n}\leq\tilde{L}^n\]
-      für $n\geq N$ haben wir wie oben die absolute Konvergenz.
+      \[L<\tilde L=\frac{L}{2}+\frac{1}{2}<1 \implies \exists N: 
+\sqrt[n]{\abs{a_n}}\leq\tilde L\; \forall n\geq N\, . \]
+Dann $|\abs{a_n}|\leq\tilde{L}^n$ für $n\geq N$ und wir haben
+(wie oben) die absolute Konvergenz.
     \item $L>1$
       \[\exists k_n: \sqrt[k_n]{\abs{a_{k_n}}}\to L\]
       \[1<\tilde{L}=\frac{L}{2}+\frac{1}{2}<L\]
-      \[\exists N: k_n\geq N: \sqrt[k_n]{\abs{a_{k_n}}}\geq \tilde L\]
+      \[\exists N: k_n\geq N \implies \sqrt[k_n]{\abs{a_{k_n}}}\geq \tilde L\]
       \[\implies \abs{a_{k_n}}\geq \tilde{L}^{k_n}\to+\infty\text{ für } n\to+\infty\]
       \[\implies a_n\not\to 0\implies \sum a_n\text{ divergiert}\]
   \end{itemize}
-\end{Bew}
+\end{proof}
 \begin{Bsp}
   Sei $s\geq 1$ $\sum\frac{1}{n^s}$
   \begin{itemize}
-    \item $s=1$ harmonische Reihe divergiert
-    \item $s>1$ konvergiert! $\sum\frac{1}{n^2}$ Bernoulli?? $=\frac{\pi^2}{6}$
+    \item $s=1$ harmonische Reihe: divergiert.
+    \item $s>1$ konvergiert! (eine bekannte Erfolg von Euler
+ist die Formel $\sum\frac{1}{n^2} =\frac{\pi^2}{6}$).
       \[\sum\frac{1}{n^{2k}}\sim \underbrace{c_k}_{\in\mb{Q}}\pi^{2k}\]
-    \item $a_n=\frac{1}{n^s}$
-      \[\lim_{n\to+\infty}\frac{a_{n+1}}{a_n}=1\forall s\geq 1\]
-      \[\lim_{n\to+\infty}\sqrt[n]{a_n}=1\forall s\geq 1\]
-      $s=1$ $\implies$ Divergenz, $s>1$ $\implies$ Konvergenz.
-      \[\implies \frac{1}{1^s}+\frac{1}{2^s}+\frac{1}{3^s}+\frac{1}{4^s}+\cdots+\frac{1}{7^s}+\cdots\]
-      \[\sum^\infty_{n=0} b_n= \frac{1}{1^s}+\frac{1}{2^s}+\frac{1}{4^s}+\frac{1}{4^s}+\cdots+\frac{1}{4^s}+\cdots\]
-      $b_n\geq 0$
-      \[s_n=b_0+\cdots+b_n\]
-      $\left\{ s_n \right\}$ ist beschränkt. Wir setzen 
-      \[s_{2k-1}=\frac{1}{1^s}+\frac{2}{2^s}+\cdots+\frac{2^{k-1}}{2^{(k-1)s}}=\frac{1}{1^{s-1}}+\frac{1}{2^{s-1}}+\cdots+\frac{1}{2^{(s-1)(k-1)}}\]
-      \[=\frac{1}{\alpha}+\frac{1}{\alpha^1}+\cdots+\frac{1}{a^{k-1}}\leq\sum^\infty_{k=0}\frac{1}{\alpha^s}<+\infty\]
-      \[\alpha:=2^{s-1}>2^0=1\]
-      \[\stackrel{\text{Majo.}}{\implies}\sum \frac{1}{n^s}\text{ konvergiert}\]
-  \end{itemize}
+\end{itemize} 
+Bermerken Sie dass ($a_n=\frac{1}{n^s}$):
+\[\lim_{n\to+\infty}\frac{a_{n+1}}{a_n}=1\forall s\geq 1\]
+\[\lim_{n\to+\infty}\sqrt[n]{a_n}=1\forall s\geq 1\]
+Deswegen sind die F\"alle $q=1$, bzw. $L=1$, f\"ur das
+Quotientekriterium, bzw. Wurzelrkiterum, unentschieden.
+
+Wir habe schon gesehen dass die harmonische Reihe divergiert.
+Wir beweisen die Konvergenz von $\sum a_n$ im Fall $s>1$.
+Betrachten wir die Reihe:
+\[\sum_n b_n = \frac{1}{1^s}+\underbrace{\frac{1}{2^s}+\frac{1}{2^s}}_
+{\mbox{$2$ mal}}+ \underbrace{\frac{1}{4^s}+\cdots+
+\frac{1}{4^s}}_{\mbox{$4$ mal}}+\cdots + \underbrace{\frac{1}{2^{ks}}+\cdots
++ \frac{1}{2^{ks}}}_{\mbox{$2^k$ mal.}}
+\]
+und die entsprechenden Partialsummen $s_n$. $\sum b_n$ majorisiert $\sum a_n$.
+Da $b_n\geq 0$, es bleibt die beschr\"anktheit von $s_n$ zu zeigen.
+In der Tat
+\begin{eqnarray*}
+s_{2^k-1}&=&\frac{1}{1^s}+\frac{2}{2^s}+\cdots+\frac{2^{k-1}}{2^{(k-1)s}}\\
+&\leq& \sum_{j=0}^\infty \frac{1}{2^{j(s-1)}} = \sum_{j=0}^\infty
+\left(\frac{1}{2^{s-1}}\right)^j = \frac{1}{1-2^{-(s-1)}} <\infty\, .
+\end{eqnarray*}
+Die Konvergenz von $\sum a_n$ folgt aus dem Majorantenkriterium.
 \end{Bsp}
 \subsection{Das Cauchyprodukt}
 \begin{Def}
@@ -75,67 +90,85 @@
 \end{Def}
 \begin{Sat}
   Falls $\sum a_n$ und $\sum b_n$ absolut konvergieren, dann konvergiert das CP absolut.
-  \[\sum c_n=\left( \sum a_n \right)\left( \sum b_n \right)\]
+Ausserdem  \[\sum c_n=\left( \sum a_n \right)\left( \sum b_n \right)\]
 \end{Sat}
-\begin{Bew}
-  \[s-k=\sum^k_{j=0}a_j, \sigma_k=\sum_{i=0}^k b_i\]
+NB:
+\begin{align*}
+&c_0=a_0b_0\\
+&c_1=a_0b_1+a_1b_0\\
+&c_1=a_0b_2+a_1b_1+a_2b_0\\
+& \ldots 
+\end{align*}
+
+\begin{proof}[Beweis]
+  \[s_k=\sum^k_{j=0}a_j,\qquad \sigma_k=\sum_{i=0}^k b_i\]
   \[s_k\sigma_k=\sum^n_{j=0}\sum^n_{i=0}b_ia_j\]
-  \[c_n=\sum_{j+i=n}a_ib_j, \beta_k=\sum^k_{n=0}c_k\]
+  \[c_n=\sum_{j+i=n}a_ib_j,\qquad \beta_k=\sum^k_{n=0}c_k\]
   \[\sum^k_{n=0}\sum_{i+j=n}a_ib_j=\sum_{i+j\leq n}a_ib_j\]
-  \begin{align*}
-    c_0=a_0b_0\\
-    c_1=a_0b_1+a_1b_0\\
-    c_1=a_0b_2+a_1b_1+a_2b_0\\
-  \end{align*}
-  \[\beta_k-\sigma_ks_k\]
-  Absolute Konvergenz:
-  \begin{itemize}
-    \item $\sum\abs{c_k}<+\infty$
-    \item $B_n=\sum^\infty_{k=0}\abs{c_k}$
-  \end{itemize}
-  $\left( B_n \right)$ ist eine beschränkte Folge
-  \[B_n=\sum^N_{k=0}\abs{sum_{i+j\geq k}a_ib_j}\leq\sum^N_{k=0}\sum_{i+j=k}\abs{a_i}\abs{b_j}\]
+  Unseres Ziel ist die Differenz  \[\beta_k-\sigma_ks_k\]
+abzusch\"atzen.
+
+Zuerst wir zeigen die Absolte Konvergenz: $\sum\abs{c_k}<+\infty$.
+Wir setzten $B_n=\sum^\infty_{k=0}\abs{c_k}$ und zeigen dass
+$\left( B_n \right)$ eine beschränkte Folge ist.
+  \[B_n=\sum^N_{k=0}\abs{\sum_{i+j\geq k}a_ib_j}\leq\sum^N_{k=0}\sum_{i+j=k}\abs{a_i}\abs{b_j}\]
   \[=\sum_{i+j\leq N}\abs{a_i}\abs{b_j}\leq\sum^N_{i=0}\sum^N_{j=0}\abs{a_i}\abs{b_j}\]
-  \[=\left( \sum^N_{i00}\abs{a_i} \right)\left( \sum_{j=0}^N\abs{b_j} \right)\leq\left( \sum\abs{a_i} \right)\left( \sum\abs{b_j} \right)\]
-  \[=LM\]
-  Wobei $L=\sum\abs{a_i}$ und $M=\sum\abs{b_j}$. $\implies$ $\left( B_n \right)$ konvergiert $\implies$ $\sum c_n$ konvergiert absolut.
-  \[\abs{ \sum^N_{i=0}a_i \sum^N_{j=0}b_j-\sum^N_{k=0}}\]
-  \[=\abs{\sum^N_{i=0, j=0}a_ib_j-\sum_{i+j\leq N}a_ib_j}\]
-  \[=\abs{\sum_{i+j>N, i\leq , j\leq N}a_ib_j}\leq\sum_{i+j>N, i\leq , j\leq N}\abs{a_i}\abs{b_j}\]
-  \[\leq \sum_{i\leq N, j\leq N, i\geq \frac{N}{2}, j\geq\frac{N}{2}}\abs{a_i}\abs{b_j}=\sum_{i,j\leq N}\abs{a_i}\abs{b_j}=\sum_{i,j<\frac{N}{2}}\abs{a_i}\abs{b_j}\]
-  \[=\underbrace{\left( \sum^N_{i=0}\abs{a_i} \right)\left( \sum^N_{j=0}\abs{b_j} \right)-\left( \sum_{i=0}^{\floor\frac{N}{2}}\abs{a_i} \right)\left( \sum^{\floor\frac{N}{2}}_{j=0}\abs{b_j} \right)}_{\Gamma_N}\]
-  \[0\leq\abs{\sum_{i=0}^Na_i\sum^N_{j=0}b_j-\sum^N_{k=0}c_k}\leq \Gamma_N\]
+  \[=\left( \sum^N_{i00}\abs{a_i} \right)\left( \sum_{j=0}^N\abs{b_j} \right)\leq\left( \sum\abs{a_i} \right)\left( \sum\abs{b_j} \right) = LM\]
+  Wobei $L=\sum\abs{a_i}$ und $M=\sum\abs{b_j}$. $\implies$ $\left( B_n \right)$ 
+konvergiert $\implies$ $\sum c_n$ konvergiert absolut.
+Non wir beweisen dass $\beta_n - \sigma_n s_n \to 0$.  
+\[|\beta_n - \sigma_n s_n| \;=\; \left| \sum^N_{i=0}a_i \sum^N_{j=0}b_j-\sum^N_{k=0} c_k
+\right|\]
+  \[=\left|\sum^N_{i=0, j=0}a_ib_j-\sum_{i+j\leq N}a_ib_j\right|\]
+  \[=\left|\sum_{i+j>N, i , j\leq N}a_ib_j\right|\leq
+\sum_{i+j>N, i , j\leq N}\abs{a_i}\abs{b_j}\]
+  \[\leq \sum_{i\leq N, j\leq N, i\geq \frac{N}{2}, j\geq\frac{N}{2}}\abs{a_i}\abs{b_j}=\sum_{i,j\leq N}\abs{a_i}\abs{b_j}- \sum_{i,j<\frac{N}{2}}\abs{a_i}\abs{b_j}\]
+  \[=\underbrace{\left( \sum^N_{i=0}\abs{a_i} \right)\left( \sum^N_{j=0}\abs{b_j} \right)-\left( \sum_{i=0}^{\floor{\frac{N}{2}}}\abs{a_i} \right)\left( \sum^{\floor{\frac{N}{2}}}_{j=0}\abs{b_j} \right)}_{\Gamma_N}\]
+Aber:
   \[\lim_{N\to+\infty}\Gamma_N=\sum^\infty_{i=0}\abs{a_i}\sum^\infty_{j=0}\abs{b_j}-\sum^\infty_{i=0}\abs{a_i}\sum^\infty_{j=0}\abs{b_j}\]
-  \[\implies \sum c_k=\sum a_i\sum b_j\]
-\end{Bew}
+Deswegen,
+\[\limsup_{n\to\infty} |\beta_n - s_n\sigma_n| \leq \lim_{n\to\infty} \Gamma_n 
+= 0\]
+und
+\[ \sum_n c_n = \lim_n \beta_n = \lim_n s_n\sigma_n = \sum_n a_n \sum_n b_n\, .
+\]
+\end{proof}
 \subsection{Potenzreihen}
 \begin{Def}
-  Die Potenzreihen: $\sum a_nz^n$, $z\in\mb{C}$
+  Die Potenzreihen: $\sum a_nz^n$, $z\in\mb{C}$.
 \end{Def}
 \begin{Lem}
   Falls $a_nz_0^n$ eine konvergente Reihe ist, dann $\forall z$ mit $\abs{z}<\abs{z_0}$ konvergiert $\sum a_nz^n$ absolut.
 \end{Lem}
-\begin{Bew}
+\begin{proof}[Beweis]
   $a_nz_0^n$ ist eine Nullfolge.
-  \[\implies \exists C:\abs{a_nz_0^n}\leq C\forall n\]
+  \[\implies \exists C:\abs{a_nz_0^n}\leq C\qquad\forall n\]
   \[\abs{a_nz^n}\leq\abs{a_nz^n_0}\underbrace{\frac{\abs{z}^n}{\abs{z_0}^n}}_\alpha\leq C\alpha^n\]
   \[\abs{z}<\abs{z_0}\implies \alpha<1\]
   $\implies$ $\sum C\alpha^n$ eine konvergente Majorante.
-\end{Bew}
+\end{proof}
+  Sei $(a_n)$ eine Folge von Koeffizienten $a_n\in\mb{C}$. Sei 
+\[K:=\left\{ z\in\mb{C}:\sum a_nz^n\text{ konvergiert} \right\}\] 
+Die Werte der Potenzreihen geben eine wohldefinierte Funktion:
+\[K\ni z\mapsto f(z)=\sum^\infty_{n=0}a_nz^n.\]
+
 \begin{Sat}
-  Sei $(a_n)$ eine Folge von Koeffizienten $a_n\in\mb{C}$. Sei $K:=\left\{ z\in\mb{C}:\sum a_nz^n\text{ konvergiert} \right\}$ $K\ni z\to f(z)=\sum^\infty_{n=0}a_nz^n$. Wenn
-  \[f(z)=\sum a_nz^n, g(z)=\sum b_nz^n\]
-  \[\implies f(z)+g(z)=\sum(a_n+b_n)z^n\]
-  \[\implies f(z)g(z)=\underbrace{\sum c_nz^n}_{\text{falls $z$ absolute Konvergenz garantiert}}\]
+Seien
+\[f(z)=\sum a_nz^n, g(z)=\sum b_nz^n\]
+mit Definitionsbreiche $K$ and $K'$.
+Auf $K\cap K'$:
+\[f(z)+g(z)=\sum(a_n+b_n)z^n\]
+\[f(z)g(z)=\underbrace{\sum c_nz^n}_{\text{falls $z$ absolute Konvergenz garantiert}}\]
+wobei $\sum c_n$ das Cauchy Produkt von $\sum_n a_n$ und $\sum b_n$ ist.
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   Sei $\sum \gamma_n$ das CP von $\sum a_nz^n$ und $b_nz^n$.
-  \[\sum\gamma_n=\sum a_nz^n\sum b_nz^n\]
+  \[\sum a_nz^n\sum b_nz^n = sum \gamma_n\]
   \[=\sum\sum_{i+j=n}\left( a_iz^i \right)\left( b_jz^j \right)=\sum^\infty_{n=0}\sum_{i+j=n}a_ib_jz^{i+j}\]
-  \[=\sum {n=0}z^n\underbrace{\sum_{i+j=n}a_ib_j}_{=c_n}\]
-\end{Bew}
-\begin{Sat}
-  (Cauchy-Hadamard) $\sum a_nz^n$. Sei $L:=\limsup \sqrt[n]{\abs{a_n}}$. Dann (Wurzerlkriterium)
+  \[=\sum_{n=0}^\infty z^n\underbrace{\sum_{i+j=n}a_ib_j}_{=c_n}\]
+\end{proof}
+Als ein einfaches Korollar des Wurzelkriteriums erhalten wir:
+\begin{Sat}[Cauchy-Hadamard] $\sum a_nz^n$. Sei $L:=\limsup \sqrt[n]{\abs{a_n}}$. Dann 
   \begin{itemize}
     \item $\abs{z}<\frac{1}{L}\implies$ $\sum a_nz^n$ konvergiert absolut
     \item $\abs{z}>\frac{1}{L}\implies$ $\sum a_nz^n$ divergiert
