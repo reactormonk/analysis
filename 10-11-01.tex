@@ -1,16 +1,20 @@
-\subsection{Grenzwerte}
+
 \begin{Def}
-  Sei $f:D\to\mb{R}(\mb{C})$, $D\subset \mb{R}(\mb{C})$. Sei $x_0\in D$ ein Häufungspunkt. Der Grenzwert von $f$ (falls er existiert) an der Stelle $x_0$ ist die einzige Zahl $a\in\mb{R}(\mb{C})$ so dass
+  Sei $f:D\to\mb{R}(\mb{C})$, $D\subset \mb{R}(\mb{C})$. 
+Sei $x_0\in D$ ein Häufungspunkt. 
+Der Grenzwert von $f$ (falls er existiert) an der Stelle 
+$x_0$ ist die einzige Zahl $a\in\mb{R}(\mb{C})$ so dass
   \[F(x)=\begin{cases}
     f(x)&x\in D\setminus \left\{ x_0 \right\}\\
     a&x=x_0
   \end{cases}\]
-  stetig in $x_0$ ist. $\left( f(x_0)\neq a \right)$ falls $x_0\in D$
+  stetig in $x_0$ ist.
 \end{Def}
 \begin{Bem}
-  $f(x_0)=a$ und $x_0\in D$ $\implies$ $f$ ist stetig an der Stelle $x_0$
+  $f(x_0)=a$ und $x_0\in D$ $\implies$ $f$ ist stetig an der Stelle $x_0$.
+Aber nicht unbedingt $f(x_0)=a$!
 \end{Bem}
-\begin{Sat}
+\begin{Sat}\label{s:Ch}
   Die folgenden Aussagen sind äquivalent:
   \begin{itemize}
     \item $\lim_{x\to x_0}f(x)=a$
@@ -18,15 +22,21 @@
     \item $\forall \varepsilon >0$ $\exists\delta>0$ so dass $\abs{x-x_0}<\delta$ und $x\in D\setminus\left\{ x_0 \right\}$ $\implies$ $\abs{f(x)-a}<0$
   \end{itemize}
 \end{Sat}
+\begin{proof}[Beweis] Die sind triviale Folgerungen der 
+Definitionen und des Folgenkriteriums f\"ur die Stetigkeit von $f$.
+\end{proof}
+
 \begin{Sat}
   (Rechenregeln) $f,g:D\to\mb{R}(\mb{C})$, $x_0$ Häufungspunkt von $D$
   \[\lim_{x\to x_0}(f+g)(x)=\left( \lim_{x\to x_0} f(x) \right) + \left( \lim_{x\to x_0} g(x_0) \right)\]
   falls die Grenzwerte existieren!
   \[\lim_{x\to x_0}(fg)(x)=\left( \lim_{x\to x_0} f(x) \right) \left( \lim_{x\to x_0} g(x_0) \right)\]
-  \[\lim_{x\to x_0}\frac{f}{g}(x)\s\text{falls}\s\lim_{x\to x_0}g(x)\neq 0\]
+  \[\lim_{x\to x_0}\frac{f}{g}(x)=
+\frac{\lim_{x\to x_0} f (x)}{\lim_{x\to x_0} f(x)}\s
+\text{falls}\s\lim_{x\to x_0}g(x)\neq 0\]
 \end{Sat}
 \begin{Sat}
-  Seien $f:D\to E$, $g:E\to \mb{R}\mb{C}$ mit
+  Seien $f:D\to E$, $g:E\to \mb{R} (\mb{C})$ mit
   \begin{itemize}
     \item $x_0$ Häufungspunkt von $D$ und $y_0=\lim_{x\to x_0}f(x)$
     \item $y_0\in E$ und $g$ ist stetig and der Stelle $y_0$
@@ -34,15 +44,14 @@
   Dann:
   \[\lim_{x_\to x_0} g\circ f(x)=g(y_0)=g(\lim_{x\to x_0}f(x))\]
 \end{Sat}
-\begin{Bew}
-  Wenden Sie die entsprechenden Rechenregeln für Folgen $x_\to x_0$ $\left( \left\{ x_n \right\}\subset D\setminus \left\{ x_0 \right\} \right)$
-\end{Bew}
-\begin{Bsp}
-  Teil 1 von Satz 3. A $\implies$ B: für $f,g\implies\forall \left\{ x_n \right\}\subset D\setminus \left\{ x_0 \right\}$ mit $x_n\to x_0$
+\begin{proof}[Beweis]
+  Wenden Sie die entsprechenden Rechenregeln für Folgen.
+Als Beispiel:
+Teil 1 von Satz 3.Für $f,g$ wir haben: $\forall \left\{ x_n \right\}\subset D\setminus \left\{ x_0 \right\}$ mit $x_n\to x_0$
   \[\lim_{n\to \infty} f(x_n)=\lim_{x\to x_0}f(x_0)\wedge\lim_{n\to \infty} g(x_n)=\lim_{x\to x_0}g(x_0)\]
-  \[\implies \lim_{n\to\infty}(f+g)=\overbrace{\lim_{n\to\infty}f(x_n)}^{\lim_{x\to x_0}f(x)}+\overbrace{\lim_{n\to \infty}g(x_n)}^{\lim_{x\to x_0}g(x)}\]
-  \[\stackrel{\text{Satz 2}}{\implies}\lim_{x\to x_0}(f+g)(x)=\lim_{x\to x_0} f(x)+\lim_{x\to x_0} g(x)\]
-\end{Bsp}
+  \[\implies \lim_{n\to\infty}(f+g) (x_n)=\overbrace{\lim_{n\to\infty}f(x_n)}^{\lim_{x\to x_0}f(x)}+\overbrace{\lim_{n\to \infty}g(x_n)}^{\lim_{x\to x_0}g(x)}\]
+  \[\stackrel{\text{Satz \ref{s:Ch}}}{\implies}\lim_{x\to x_0}(f+g)(x)=\lim_{x\to x_0} f(x)+\lim_{x\to x_0} g(x)\]
+\end{proof}
 \begin{Def}
   Falls $f:D\to\mb{R}$ und $x_0$ ein Häufungspunkt von $D$ ist, dann:
   \begin{itemize}
@@ -52,80 +61,99 @@
   \begin{itemize}
     \item $D$ ist nicht nach oben beschränkt. Wir schreiben $\lim_{x\to+\infty}f(x)=a$ genau dann, wenn $\forall\left\{ x_n \right\}\subset D$ mit $x_n\to\infty$ gilt $\lim_{n\to+\infty}f(x_n)=a$
   \end{itemize}
-  gleich wenn $D$ nicht nach unten beschränkt ist. $\lim_{x\to\infty}f(x)=a$
+  gleich wenn $D$ nicht nach unten beschränkt ist. $\lim_{x\to-\infty}f(x)=a$
+\"Ahnlicherweise handelt man die F\"alle
   \[\lim_{x\to+\infty}f(x)=\pm\infty\]
   \[\lim_{x\to-\infty}f(x)=\pm\infty\]
 \end{Def}
 \begin{Def}
-  Sei $D\subset\mb{R}$, $f:D\to\mb{R}(\mb{C})$. Falls $x_0$ ein Häufungspunkt von $\left] -\infty,x_0 \right[\cap D$ ist, dann $\lim{x\uparrow x_0}f(x)=a$ falls $\forall \left\{ x_n \right\}\subset D\cap \left] -\infty, x_0 \right[$ mit $x_n\in D$ $x_n<x_n$ $\left( \lim_{x\to x_0^-}f(x) \right)$ gilt $\lim_{n\to+\infty}f(x_n)=a$. Falls $x_0$ ein Häufingspunkt von $D\cap \left] x_0+\infty \right[$ ist
-  \[\lim_{x\downarrow x_0}f(x)=a\wedge(\lim_{\to x_0^+} f(x))\]
-  falls $\forall \left\{ x_n \right\}\subset D\cap \left] x_0, +\infty \right[$ mit $x_n\to x_0$ gilt $f(x_n)\to a$. Ähnlich $\lim_{x\to x_0^\pm}f(x)=\pm\infty$.
+  Seien $D\subset\mb{R}$, $f:D\to\mb{R}(\mb{C})$ und $x_0$ ein Häufungspunkt 
+von $\left] -\infty,x_0 \right[\cap D$. Dann $\lim_{x\uparrow x_0}f(x)=a$ falls 
+\[\forall \left\{ x_n \right\}\subset D\cap \left] -\infty, x_0 \right[ 
+\;\;\mbox{mit } x_n\to x \quad\mbox{gilt}\quad 
+\lim_{n\to+\infty}f(x_n)=a\] 
+Man schreibt auch
+\[
+\lim_{x\to x_0^-} f(x)=a
+\]
+Falls $x_0$ ein Häufingspunkt von $D\cap \left] x_0+\infty \right[$ ist
+  \[\lim_{x\downarrow x_0}f(x)=a \qquad \left(\lim_{x\to x_0^+} f(x)\right)\]
+  falls $\forall \left\{ x_n \right\}\subset D\cap \left] x_0, +\infty \right[$ 
+mit $x_n\to x_0$ gilt $f(x_n)\to a$. Ähnlich definiert
+man $\lim_{x\to x_0^\pm}f(x)=\pm\infty$.
 \end{Def}
 \begin{Bsp}
   Stetigkeit:
   \[\lim_{x\to x_0}f(x)=f(x_0)\]
   \begin{itemize}
-    \item $\exists \lim_{x\to x_0}$ $f(x)\neq f(x_0)$ wenn die Funktion $f$ in $x_0$ nicht stetig ist
-    \item $\lim_{x\to x_0}f(x)=+\infty$ wenn die Funktion $f$ in $x_0$ eine Asymptote hat.
+    \item $\exists \lim_{x\to x_0}$ $f(x)\neq f(x_0)$ $\implies$ 
+$f$ in $x_0$ nicht stetig ist
+\item $\lim_{x\to x_0}f(x)=+\infty$: die Funktion $f$ in $x_0$ hat eine Asymptote.
   \end{itemize}
 \end{Bsp}
 \section{Exponentialfunktion}
-$a\in\mb{R} a>0$ $a^a=a^\frac{m}{n}=\sqrt[n]{m}$, $q=\frac{m}{n}\in\mb{Q}$
+Sei $a\in\mb{R}$ $a>0$. Dann $a^q=a^\frac{m}{n}=\sqrt[n]{m}$, f\"ur jede
+$q=\frac{m}{n}\in\mb{Q}$. Ziel dieses Kapitel ist die Funktion $a^z$
+auf der ganzen komplexen Ebene zu definieren.
+
 \subsection{Existenz und Eindeutigkeit}
-\begin{Sat}
+\begin{Sat}\label{s:Exp}
   $\exists ! \Exp:\mb{C}\to\mb{C}$ mit folgenden Eigenschaften:
   \begin{itemize}
-    \item Additionstheorem $\Exp(z+w)=\Exp(z)\Exp(w)$
-    \item $\lim_{z\to 0}\frac{\Exp(z)-1}{z}=1$
+    \item[(AT)] Additionstheorem $\Exp(z+w)=\Exp(z)\Exp(w)$
+    \item[(WT)] Wachstum $\lim_{z\to 0}\frac{\Exp(z)-1}{z}=1$
   \end{itemize}
   Für $\Exp$ wissen wir:
   \begin{itemize}
     \item $\Exp(z)=\sum_{n=0}^\infty\frac{z^n}{n!}$ $\forall z\in\mb{C}$
     \item $\Exp(z)=\lim_{n\to+\infty}\left( 1+\frac{z}{n} \right)^n$ $\forall z\in \mb{C}$
-    \item $\Exp$ ist stetig und falls $e=\Exp(1)$ dann $e^q=\Exp(1)$ $forall q\in \mb{R}$
-  \end{itemize}
-\end{Sat}
-\begin{Bem}
+    \item $\Exp$ ist stetig und falls $e=\Exp(1)$ dann $e^q=\Exp(1)$ $\forall q\in \mb{R}$,
+wobei 
   \[e=\sum\frac{1}{n!}=\lim_{n\to+\infty}\left( 1+\frac{1}{n} \right)^n\]
-\end{Bem}
-\begin{Bem}
-  Kernidee:
-  \[\Exp(z)=f(z)\]
-  \[f(z) = f(\frac{nz}{n})=f(\frac{z}{n}+\frac{z}{n}+\cdots+\frac{z}{n})\stackrel{\text{Add}}{=}f(z)^n\]
-  \[f\left( \frac{z}{n} \right)=1+\frac{z_n}{n}=\left( 1+\frac{z_n}{n} \right)^n\]
-  \[z_n=n\left( f\left( \frac{z}{n} \right) -1 \right)=\left( \frac{f\left( \frac{z}{n} \right)-1}{\frac{z}{n}} \right)z\]
-  $n\to+\infty$ $\frac{z}{n}\to 0$
-  \[\lim_{n\to+\infty}z_n=z\lim_n\to{n\to+\infty}\frac{f\left( \frac{z}{n} \right)-1}{\frac{z}{n}}=z\]
-  \[f(z)=\left( 1+\frac{z_n}{n}\right)^n\implies f(z)=\lim_{n\to+\infty}\left( 1+\frac{\{overbrace{z_n}^z}{n}\right)^n\stackrel{?}{=}\lim_{n\to+\infty}\left( 1+\frac{z}{n}\right)^n\]
-\end{Bem}
-\begin{Bem}
-  Zusammenfassung: Falls $f$ die Bedingungen Additionstheorem und Wachstum erfüllt, dann:
-  \[f(z)=\lim_{n\to +\infty}\left( 1+\frac{z}{n}\right)^n\]
-  wobei $\lim_{n\to +\infty}z_n=z$
+ \end{itemize}
+\end{Sat}
+\begin{Bem}\label{b:Kern}
+  Kernidee: Wir suchen eine Funktion $\Exp(z)=f(z)$ mit den Eigenschaften
+(AT) und (WT)
+\begin{equation}\label{e:100} f(z) = f\left(\frac{nz}{n}\right)=
+f\left(\frac{z}{n}+\frac{z}{n}+\cdots+\frac{z}{n}\right)\stackrel{\text{(AT)}}{=}
+f\left(\frac{z}{n}\right)^n
+\end{equation}
+Wir definieren
+  \[f\left( \frac{z}{n} \right)=1+\frac{z_n}{n}\qquad
+\mbox{d.h.} \qquad z_n = n \left(f\left(\frac{z}{n}\right) -1\right)\]
+F\"ur  $n\to+\infty$ $\frac{z}{n}\to 0$ und aus (WT) schliessen wir
+\begin{equation}\label{e:Subs}
+\lim_{n\to+\infty}z_n=z\lim_{n\to+\infty}
+\frac{f\left( \frac{z}{n} \right)-1}{\frac{z}{n}}=z
+\end{equation}
+Aus \eqref{e:100} folgt
+\begin{equation}\label{e:101}
+f(z)=\left( 1+\frac{z_n}{n}\right)^n\implies f(z)
+=\lim_{n\to+\infty}\left( 1+\frac{z_n}{n}\right)^n
+\end{equation}
+D\"urfen wir, wegen \eqref{e:Subs}, $z_n$ durch $z$ in \eqref{e:101}
+ersetzen? Die Antwort ist im n\"achsten Lemma enthalten
 \end{Bem}
 \begin{Lem}
   Fundamentallemma: $\forall \left\{ z_n \right\}\subset\mb{C}$ mit $z_n\to z$ gilt:
   \[\Limi{n}\left( 1+\frac{z_n}{n}\right)^n=\Limi{n}\left( 1+\frac{z}{n}\right)^n=\sum \frac{z^n}{n!}\]
 \end{Lem}
 \begin{Bem}
-  (1)+(2) liefern Eindeutigkeit und zwei Darstellungen: Die Darstellungen definieren eine stetige Funktion mit den ganzen Eigenschaften des Theorems.
-\end{Bem}
-\begin{Bem}
   $\sum \frac{z^n}{n!}$ konvergiert auf $\mb{C}$ (und konvergiert deswegen absolut)
 \end{Bem}
-\begin{Bew}
+\begin{proof}[Beweis]
   Das Kriterium von Hadamand:
   \[R:=\frac{1}{\limsup_{n\to+\infty}\sqrt{\frac{1}{n!}}}=+\infty\]
   Das bedeutet:
-  \[\lim_{n\to +\infty}\sqrt[n]{\frac{1}{n}}=0\]
+  \[\lim_{n\to +\infty}\sqrt[n]{\frac{1}{n!}}=0\]
   \[\begin{cases}
-    n\s\text{gerade}& n!\geq \underbrace{n(n-1)\cdots}_{\frac{n}{2}}\\
-    n\s\text{ungerade}& n!\geq \underbrace{n(n-1)\cdots}_{\frac{n-1}{2}}\\
+    n\s\text{gerade}& n!\geq \underbrace{n(n-1)\cdots \left(\frac{n}{2}+1\right)}_{\frac{n}{2}}
+\frac{n}{2}\cdot 1 \geq \left(\frac{n}{2}\right)^{\frac{n}{2}}\\
+    n\s\text{ungerade}& n!\geq \underbrace{n(n-1)\cdots \frac{n+1}{2}}_{\frac{n+1}{2}}\frac{n-1}{2}\cdot 1
+\geq \left(\frac{n+1}{2}\right)^{\frac{n+1}{2}}\geq \left(\frac{n}{2}\right)^{\frac{n}{2}}\\
   \end{cases}\]
-  \[n!\geq\frac{n}{2}^{\frac{n}{2}}\]
-  $n$ gerade:
-  %\[0\geq\sqrt[n]{\frac{1}{n!}}=\frac{1}{\left( n! \right)^{\frac{1}{n}}}\leq\frac{1}{\left( \left( \frac{n}{2} \right)^{\frac{n}{2} \right)^{\frac{1}{n}}}}=\frac{1}{\sqrt{\frac{1}{2}}}\to 0\]
-  $n$ ungerade
-  %\[0\geq\sqrt[n]{\frac{1}{n!}}=\frac{1}{\left( n! \right)^{\frac{1}{n}}}\leq\frac{1}{\left( \left( \frac{n}{2} \right)^{\frac{n-1}{2} \right)^{\frac{1}{n}}}}=\frac{1}{\sqrt{\frac{1}{2}} \left( \frac{1}{2} \right)^{-\frac{1}{2n}}\to 0\]
-  % TODO missing
-\end{Bew}
+Deswegen
+  \[\sqrt[n]{n!}\geq\left(\left(\frac{n}{2}\right)^{\frac{n}{2}}\right)^{1/n}
+= \frac{\sqrt[2]{n}}{\sqrt[n]{2}} \to \infty\]
+\end{proof}

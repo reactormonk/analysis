@@ -1,81 +1,95 @@
-\begin{Bew}
-  Die Reihe $\sum^\infty_{n=0}\frac{z^n}{n!}$ konvergiert absolut $\forall z\in\mb{C}$
-\end{Bew}
-\begin{Beh}
-  \[\underbrace{\lim_{n\to+\infty}(sup)\abs{\left( 1-\frac{z_n}{n} \right)^n-\sum^\infty_{n=0}\frac{z^k}{k!}}}_{A_n}=0\]
-\end{Beh}
-\begin{Bem}
-  \[\left( 1-\frac{z_n}{n} \right)^n-\sum^\infty_{n=0}\frac{z^k}{k!}=\abs{\sum^n_{k=0}\binom{n}{k}\frac{z^k_n}{n^k}-\sum^\infty_{k=0}\frac{z^k}{k!}}\]
-  Sei $M\in\mb{N}$ und $M\leq n$
-  \[\leq \underbrace{\abs{\sum^M_{k=0}\left( \binom{n}{k}\frac{z^k_n}{n^k}-\frac{z^k}{k!} \right)}}_{B_n}+\underbrace{\sum^n_{k\geq M+1}\binom{n}{k}\frac{\abs{z_n}^k}{n^k}}_{C_n}+\underbrace{\sum^\infty_{k=M+1}\frac{\abs{z}^k}{k!}}_{D}\]
-  \[\underbrace{\binom{n}{k}\frac{z^k_n}{n^k}}_{z^k_n}=\frac{n!}{(n-k)!k!}\frac{z^k_n}{n^k}=\underbrace{\frac{n(n-1)\cdots(n-k+1)}{nn\cdots n}}_{k\s\text{mal}}\frac{z^k_n}{k!}\]
+\begin{proof}[Beweis des Fundamentallemmas]
+Es gen\"ugt zu beweisen dass
+\[\limsup_{n\to+\infty}\Bigg|\underbrace{
+\left( 1-\frac{z_n}{n} \right)^n-\sum^\infty_{n=0}\frac{z^k}{k!}}_{A_n}\Bigg|=0\]
+
+  \[|A_n|=
+\left|\sum^n_{k=0}\binom{n}{k}\frac{z^k_n}{n^k}-\sum^\infty_{k=0}\frac{z^k}{k!}\right|\]
+  Sei $M\in\mb{N}$ und $M\leq n$. Dann
+  \[|A_n|\leq \underbrace{\left|\sum^M_{k=0}\left( \binom{n}{k}\frac{z^k_n}{n^k}-\frac{z^k}{k!} \right)\right|}_{B_n}+\underbrace{\sum^n_{k\geq M+1}\binom{n}{k}\frac{\abs{z_n}^k}{n^k}}_{C_n}+\underbrace{\sum^\infty_{k=M+1}\frac{\abs{z}^k}{k!}}_{D}\]
+  \[\underbrace{\binom{n}{k}\frac{a_{k,n}}{n^k}}_{z^k_n}=\frac{n!}{(n-k)!k!}\frac{z^k_n}{n^k}=\underbrace{\frac{n(n-1)\cdots(n-k+1)}{nn\cdots n}}_{k\s\text{mal}}\frac{z^k_n}{k!}\]
   \begin{equation}
-    \lim_{n\to\infty}a^k_n=\lim_{n\to+\infty}1\left( 1-\frac{1}{n} \right)\cdots\left( 1-\frac{k-1}{n} \right)\frac{z^k_n}{k!}=\frac{z^k}{k!}
+    \lim_{n\to\infty}a_{k,n}=\lim_{n\to+\infty}1\left( 1-\frac{1}{n} \right)\cdots\left( 1-\frac{k-1}{n} \right)\frac{z^k_n}{k!}=\frac{z^k}{k!}
     \label{1011034}
   \end{equation}
-  \[\limsup_{n\to+\infty}A_n\leq\underbrace{\limsup_{n\to+\infty}B_n}_{=0, aus \ref{1011034}} + \limsup_{n\to+\infty}C_n+D\]
+  \[\limsup_{n\to+\infty}|A_n|\leq\underbrace{\limsup_{n\to+\infty}B_n}_{=0, aus \eqref{1011034}} + \limsup_{n\to+\infty}C_n+D\]
   Abschätzung für $C_n$:
   \[C_n=\sum^n_{k=M+1}\frac{\abs{z_n}^k}{k!}1\left( 1-\frac{1}{n} \right)\cdots\left( 1-\frac{k-1}{n} \right)\]
   $\abs{z_n}$ konvergiert nach $\abs{z}$ $\implies$ $\exists R\geq 0$ mit $\abs{z_n}\leq R$
-  \[\leq\sum^n_{k=M+1}\frac{\abs{z_n}^k}{k!}\leq\sum^\infty_{k=M+1}\frac{R^k}{k!}\]
+  \[C_n \leq\sum^n_{k=M+1}\frac{\abs{z_n}^k}{k!}\leq\sum^\infty_{k=M+1}\frac{R^k}{k!}\]
   \begin{equation}
-    \limsup_{n\to+\infty}A_n\leq \sum^\infty_{k=M+1}\frac{R^k}{k!}+\sum^\infty_{k=M+1}\frac{\abs{z}^k}{k!}
+    \limsup_{n\to+\infty}|A_n|\leq \sum^\infty_{k=M+1}\frac{R^k}{k!}+\sum^\infty_{k=M+1}\frac{\abs{z}^k}{k!}
+\leq 2 \sum^\infty_{k=M+1}\frac{R^k}{k!}
     \label{1011035}
   \end{equation}
   \begin{equation}
     \limsup_{n\to+\infty}\sum^\infty_{k=M+1}\frac{R^k}{k!}=0
     \label{1011036}
   \end{equation}
-  \[(\text{weil}\s\limsup_{n\to+\infty}\sum^M_{k=0}\frac{R^k}{k!}=\sum^\infty_{k=0}\frac{R^k}{k!}\implies\lim_{M\to+\infty}\sum^\infty_{k=M+1}\frac{R^k}{k!}\]
-  \[\lim_{M\to+\infty}\left( \sum^\infty_{k=0}\frac{R^k}{k!}- \sum^M_{k=0}\frac{R^k}{k!}\right)=0)\]
-  \[\ref{1011035}\ref{1011036}\implies\limsup_{n\to+\infty}A_n=0\]
-\end{Bem}
-\begin{Bem}
-  Lemma + Bemerkung $\implies$ Falls eine Funktion mit der Eigenschaft (AT) und (WT) existiert, dann gilt:
-  \[\Exp(z)=\lim_{n\to+\infty}\left( 1+\frac{z}{n} \right)^n=\sum^\infty_{k=0}\frac{z^k}{k!}\]
-\end{Bem}
-\begin{Bew}
-  (Eindeutigkeit haben wir schon $\uparrow$.) Wir definieren
-  \[\Exp(z)=\sum^\infty_{k=0}\frac{z^k}{k=0}\left( =\lim_{n\to+\infty}\left( 1+\frac{z}{n} \right)^n \right)\]
+  \[\Bigg(\text{weil}\s\limsup_{n\to+\infty}\sum^M_{k=0}\frac{R^k}{k!}=\sum^\infty_{k=0}\frac{R^k}{k!}\implies\lim_{M\to+\infty}\sum^\infty_{k=M+1}\frac{R^k}{k!}\]
+  \[= \lim_{M\to+\infty}\left( \sum^\infty_{k=0}\frac{R^k}{k!}- \sum^M_{k=0}\frac{R^k}{k!}\right)=0\Bigg)\]
+Deswegen, \eqref{1011035}\& \eqref{1011036}$\implies\limsup_n |A_n| =0$.
+\end{proof}
+\begin{proof}[Beweis vom Satz \ref{s:Exp}: Teil 1]
+Das Fundemantallemma und die Bemerkung \ref{b:Kern}
+$\implies$ Falls eine Funktion mit der Eigenschaft (AT) und (WT) existiert, dann gilt:
+\[\Exp(z)=\lim_{n\to+\infty}\left( 1+\frac{z}{n} \right)^n=
+\sum^\infty_{k=0}\frac{z^k}{k!}\]
+Die Eindeutigkeit und die zwei bemerkenswerte Darstellungen der
+Exponentialfunktion sind deswegen schon bewisen.
+F\"ur die Existenz, wir definieren
+  \[\Exp(z)=\sum^\infty_{k=0}\frac{z^k}{k!}\left( =\lim_{n\to+\infty}\left( 1+\frac{z}{n} \right)^n \right)\]
   (AT) gilt:
   \[\Exp(z)\Exp(w)=\Limi{n}\left( 1+\frac{z}{n} \right)^n\Limi{n}\left( 1+\frac{w}{n} \right)^n\]
   \[=\Limi{n}\left( \left( 1+\frac{z}{n} \right)\left( 1+\frac{w}{n} \right) \right)^n=\Limi{n}\left( 1+\frac{z+w}{n}+\frac{zw}{n^2} \right)^n\]
   \[=\Limi{n}\left( 1+\frac{\overbrace{\left( z+w+\frac{zw}{n} \right)}^{\alpha_n}}{n} \right)\stackrel{\text{Fundamentallemma}}{=}\Limi{n}\left( 1+\frac{z+w}{n} \right)^n\]
-  \[=\Exp(z+w)\s\text{da} \alpha\to(z+w)\]
-  Sei
+  \[=\Exp(z+w)\s\qquad (\text{da}\quad \alpha_n\to(z+w))\]
+Ausserdem, sei
   \[e=\Exp(1)\left( \Limi{n}\left( 1+\frac{1}{n} \right)^n =\sum^\infty_{k=0}\frac{1}{k!}\right)\]
   \[\Exp(q+s)=\Exp(q)\Exp(s)\s\forall q,s\in\mb{Q}\]
   (Zur Erinnerung: Falls $f:\mb{Q}\to\mb{R}$ erfüllt $f(1)=a>0$ und $f(q+s)=f(q)(s)$. Dann $f(q)=a^q$ $\forall q\in\mb{Q}$.) Setze
   \[f:\Exp\implies\Exp{q}=e^q\s\forall q\in\mb{Q}\]
-  (Später: $\Exp(z)=e^z$)
-\end{Bew}
-\begin{Lem}
+\end{proof}
+
+Um den zweiten Teil vom Satz \ref{s:Exp} zu beweisen brauchen wir noch:
+
+\begin{Lem}\label{l:stet_Rei}
   Sei $\sum a_nz^n$ eine Potenzreihe mit Konvergenzradius $R>$ ($R=+\infty$ falls die Reihe überall konvergiert). Dann ist $f(z)=\sum a_nz^n$ eine stetige Funktion auf $\left\{ \abs{z}<R \right\}$ ($\mb{C}$ falls $R=+\infty$).
 \end{Lem}
-\begin{Bem}
+\begin{proof}[Beweis vom Satz \ref{s:Exp} Teil 2]
   Lemma $\implies$ Stetigkeit von $\Exp$. Ausserdem:
   \[\Limo{z}\frac{\Exp{z}-1}{z}=1\]
   \[\frac{\Exp(z)-1}{z}=\frac{1+\sum^\infty_{k=1}\frac{z^k}{k!}-1}{z}=\sum^\infty_{k=1}\frac{z^{k-1}}{k!}=G(z)\]
-  Die Reihe, die $G$ definiert hatKonvergenzradius $+\infty$. Deswegen ist $G$ stetig.
-  \[\implies\Limo{z}\frac{\Exp(z)-1}{z}=\Limo{z}G(z)-G(0)=1\]
-\end{Bem}
-\begin{Bew}
+  Die Reihe, die $G$ definiert hat Konvergenzradius $+\infty$. Deswegen ist $G$ stetig.
+  \[\implies\Limo{z}\frac{\Exp(z)-1}{z}=\Limo{z}G(z)-G(0)=1\].
+Wir schliessen dass (WT) gilt.
+\end{proof}
+\begin{proof}[Beweis vom Lemma \ref{l:stet_Rei}]
   Zu beweisen: Sei $z_0$ mit $\abs{z_0}<R$
-  \[\text{Stetigkeit in}\s x_0\iff \lim{z\to z_0}f(z)=f(z_0)\]
-  \[\lim_{z\to z_0}\sum^\infty_{n=0}a_nz^n=\sum^+\infty_{n=0}a_nz^n_0\]
-  Finden sie $a_{k,n}\in\mb{R}$ $\forall k\Limi{n}a_{k,n}=a_n (k,n\in\mb{N})$ aber $\Limi{n}\sum^\infty_{n=0}a_{k,n}\neq\sum^\infty_{k=0}a_k$. Sei $z_k\to z_0$.
+  \[\text{Stetigkeit in}\s z_0\iff \lim{z\to z_0}f(z)=f(z_0)\]
+  \[\iff \lim_{z\to z_0}\sum^\infty_{n=0}a_nz^n=\sum^{\infty}_{n=0}a_nz^n_0\]
+D.h., wir h\"atten gern $\lim$ und $\sum$ zu vertauschen.
+Allgein ist das unm\"oglich (\"Ubung:
+  Finden sie $a_{k,n}\in\mb{R}$ $\forall k\Limi{n}a_{k,n}=a_n (k,n\in\mb{N})$ 
+aber $\Limi{n}\sum^\infty_{n=0}a_{k,n}\neq\sum^\infty_{k=0}a_k$). 
+
+Sei $z_k\to z_0$.
   \[\limsup_{k\to+\infty}\overbrace{\abs{\sum^\infty_{n=0}a_nz_k^n-\sum^\infty_{n=0}z^n_0}}^{A_k}\]
-  \[\leq\limsup_{k\to+\infty}\abs{\sum^M_{n=0}a_nz_k^n-\sum^M_{n=0}a_nz^n_0}+\limsup_{k\to+\infty}\sum^\infty_{n=M}\abs{a_n}\abs{z^n_k}+\sum^\infty_{n=M}\abs{a_n}\abs{z_0}^n\]
+  \[\leq\limsup_{k\to+\infty}\left|\sum^M_{n=0}a_nz_k^n-\sum^M_{n=0}a_nz^n_0\right|+\limsup_{k\to+\infty}\sum^\infty_{n=M}\abs{a_n}\abs{z^n_k}+\sum^\infty_{n=M}\abs{a_n}\abs{z_0}^n\]
   Sei $\rho$ mit $\abs{z_0}<\rho<R$. Da $z_k\to z_0$: $\abs{z_k}<\rho$, falls $k$ gross genug ist.
   \[\limsup_{k\to+\infty}A_k\leq 0+2\sum^\infty_{n=M+1}\abs{a_n}\rho^n\]
-  \[\implies\limsup_{k\to+\infty}A_k\leq 2\limsup_{M\to+\infty}\underbrace{\sum\infty_{n=M+1}\abs{a_n}\rho^n}_{\text{konvergiert}}=0\]
-  \[\implies\Limi{k}(z_n)=\left( \sum^\infty_{n=0}z_k^na_n \right)=f(z_0)\left( =\sum^\infty_{n=0}z_0^na_n \right)\implies \lim_{z\to z_0}f(z)=f(z_0)\]
-\end{Bew}
-\begin{Bem}
-  \[\abs{\sum^\infty_{n=0}\xi_n-\sum^\infty_{n=0}\zeta_n}\]
-  \[=\abs{\Limi{N}\left( \sum^N_{n=0}\xi_n-\zeta_n \right)}\]
-  \[\leq \Limi{N}\left\{ \abs{\sum^M_{n=0}\left( \xi_n-\zeta_n \right) }+\abs{\sum^N_{n=M+1}\left( \xi_n-\zeta_n \right)}\right\}\]
-  \[=\abs{\sum_{n=0}^M\left( \xi_n-\zeta_n \right)}+\Limi{N}\abs{\sum_{n=M+1}^\infty\left( \xi_n-\zeta_n \right)}\]
-  \[\leq\abs{\sum_{n=0}^M\left( \xi_n-\zeta_n \right)}+\Limi{N}\sum_{n=M+1}^\infty\left( \abs{\xi_n}-\abs{\zeta_n} \right)\]
-  \[=\abs{\sum_{n=0}^M\left( \xi_n-\zeta_n \right)}+\sum_{n=M+1}^\infty\abs{\xi_n}-\sum_{n=M+1}^\infty\abs{\zeta_n}\]
+Aber
+  \[\limsup_{M\to+\infty}\sum^\infty_{n=M+1}\abs{a_n}\rho^n =0\]
+weil $\sum_n |a_n| \rho^n$ eine konvergente Reihe ist (siehe den Beweis
+vom Fundamentallemma!) 
+  \[\implies\Limi{k} f(z_n)=\left( \sum^\infty_{n=0}z_k^na_n \right)=f(z_0)\left( =\sum^\infty_{n=0}z_0^na_n \right)\implies \lim_{z\to z_0}f(z)=f(z_0)\]
+\end{proof}
+\begin{Bem} Wir haben die folgenden Absch\"atzungen benutzt:
+  \[\left|\sum^\infty_{n=0}\xi_n-\sum^\infty_{n=0}\zeta_n\right|\]
+  \[=\left|\Limi{N}\left( \sum^N_{n=0}\xi_n-\zeta_n \right)\right|\]
+  \[\leq \Limi{N}\left\{ \left|\sum^M_{n=0}\left( \xi_n-\zeta_n \right) \right|+
+\left|\sum^N_{n=M+1}\left( \xi_n-\zeta_n \right)\right|\right\}\]
+  \[=\left|\sum_{n=0}^M\left( \xi_n-\zeta_n \right)\right|+\Limi{N}\left|\sum_{n=M+1}^N\left( \xi_n-\zeta_n \right)\right|\]
+  \[\leq\abs{\sum_{n=0}^M\left( \xi_n-\zeta_n \right)}+\Limi{N}\sum_{n=M+1}^N\left( \abs{\xi_n}+\abs{\zeta_n} \right)\]
+  \[=\abs{\sum_{n=0}^M\left( \xi_n-\zeta_n \right)}+\sum_{n=M+1}^\infty\abs{\xi_n}+\sum_{n=M+1}^\infty\abs{\zeta_n}\]
 \end{Bem}

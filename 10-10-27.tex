@@ -2,7 +2,7 @@
 \begin{Sat}
   Eine stetige Abbildung $f:[a,b]\to\mb{R}$ nimmt jeden Wert $\gamma$ zwischen $f(a)$ und $f(b)$ an.
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   oBdA $f(a)\leq f(b)$ und $f(a)\leq \gamma\leq f(b)$
   \[I_0=\left[ a,b \right]=\left[ a_0,b_0 \right]\]
   \[\left[ a,\frac{a+b}{2} \right],\left[ \frac{a+b}{2},b \right]\]
@@ -16,34 +16,35 @@
   \[\abs{I_k}=2^{-k}(b-a)\stackrel{k\to+\infty}{\to}0\]
   Intervallschachtelung $\implies$ $\exists ! x_0$ mit $x_0\in I_k$ $\forall k$.
   \[b_k\downarrow x_0\implies f(x_0)=\lim_{k\to+\infty}f(b_k)\geq \gamma\]
-  \[b_k\downarrow x_0\implies f(x_0)=\lim_{k\to+\infty}f(a_k)\geq \gamma\]
+  \[a_k\uparrow x_0\implies f(x_0)=\lim_{k\to+\infty}f(a_k)\leq \gamma\]
   \[\implies f(x_0)=\gamma\]
-\end{Bew}
+\end{proof}
 \begin{Kor}
   \ul{Fixpunktsatz}: Sei $f:\left[ a,b \right]\to\left[ a,b \right]$ eine stetige Abbildung. Dann besitzt $f$ einen Fixpunkt, d.h.
   \[\exists x_0\in\left[ a,b \right]:f(x_0)=x_0\]
 \end{Kor}
-\begin{Bew}
+\begin{proof}[Beweis]
   $g(x):=f(x)-x$
   \[g(a)=f(a)-a\geq 0\]
-  \[g(b)=f(b)-b\geq 0\]
+  \[g(b)=f(b)-b\leq 0\]
   Mithilfe des oberen Satzes $\implies$ $\exists x_0$ mit 
   \[g(x_0)=0\iff f(x_0)-x_0=0\iff f(x_0)=x_0\]
-\end{Bew}
+\end{proof}
 \subsection{Maxima und Minima}
 \begin{Sat}
   Sei $f:[a,b]\to\mb{R}$ stetig. Dann $\exists x_M, x_m\in [a,b]$ mit
   \[f(x_m)\geq f(x)\geq f(x_M)\s\forall x\in [a,b]\]
 \end{Sat}
-\begin{Bew}
-  oBdA suche ich die Maximumstelle
-  \[S=\sup \left\{ f(x):x\in\left[ a,b \right] \right\}\]
-  \[(=+\infty\s\text{falls}\s\left\{ f(x):x\in\left[ a,b \right] \right\}\s\text{keine obere Schranke}\]
-  $S\in\mb{R}$, sei $S_n=S-\frac{1}{n}$ $\implies$ $\exists x_n$ mit $f(x_n)\geq S-\frac{1}{n}$
+\begin{proof}[Beweis]
+  oBdA suche ich die Maximumstelle. Sei
+  \[S:=\sup \left\{ f(x):x\in\left[ a,b \right] \right\}\]
+  \[(=+\infty\s\text{falls}\s\left\{ f(x):x\in\left[ a,b \right] \right\}\s\text{keine obere Schranke besitzt)}\]
+Falls $S\in\mb{R}$, sei $S_n=S-\frac{1}{n}$. Falls $S=+\infty$, sei
+$S=n$. In beiden F\"alle $\implies$ $\exists x_n$ mit $f(x_n)\geq S_n$
   \[(x_n)\subset\left[ a,b \right]\implies\exists\left( x_{n_k} \right)\s\text{mit}\s x_{n_k}\to \bar x\]
   \[\stackrel{S\in \mb{R}}{\implies}f(\bar x)=\lim_{k\to+\infty}f(x_{n_k})=S\stackrel{!}{=}\max_{x\in\left[ a,b \right]}f(x)=\max_{\left[ a,b \right]} f\]
   \[\stackrel{S=+\infty}{\implies}f(\bar x)=\lim_{k\to +\infty}f(x_{n_k})=+\infty\implies \text{Widerspruch}\]
-\end{Bew}
+\end{proof}
 \begin{Bem}
   Sei $E\subset\mb{R}$ eine Menge mit der Eigenschaft $\forall (x_n)\subset E$ $\exists$eine Teilfolge $(x_{n_k})$ $x\in E$ mit
   \[x_{n_k}\to x\]
@@ -57,6 +58,9 @@
 \begin{Sat}
   Eine reellwertige stetige Funktion auf einem kompakten Definitionbereich besitzt mindestens eine Maximumstelle (und eine Minimumstelle).
 \end{Sat}
+\begin{proof}[Beweis] Gleich wie oben!
+\end{proof}
+
 \begin{Def}
   \ul{Stetigkeit} an einer Stelle $x$:
   \[\forall \varepsilon>0\s\exists\delta>0\s\text{mit}\s\underbrace{\abs{x-y}<\delta\s\text{und}\s y\in D}\implies \abs{f(x)-f(y)}<\varepsilon\]
@@ -64,7 +68,7 @@
 \end{Def}
 \begin{Def}
   Eine Funktion $f:D\to\mb{R}(\mb{C})$ heisst \ul{gleichmässig stetig} falls
-  \[\forall \varepsilon>0\s\exists\delta>0\s\text{mit}\s\abs{x-y}<\delta\s\text{mit}\s x,y\in D\implies \abs{f(x)-f(y)}<\varepsilon\]
+  \[\forall \varepsilon>0\s\exists\delta>0\s\text{s.d. }\quad\s\abs{x-y}<\delta\s\text{mit}\s x,y\in D\implies \abs{f(x)-f(y)}<\varepsilon\]
 \end{Def}
 \begin{Bsp}
   $f$ Lipschitz
@@ -75,27 +79,29 @@
 \begin{Sat}
   Falls $D$ eine kompakte Menge ist, ist jede stetige Funktion $f:D\to \mb{R}(\mb{C})$ gleichmässig stetig!
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   (Widerspruchsbeweis) $f$ stetig aber nicht gleichmässig. Dann $\exists \varepsilon>0:\forall \delta$ die ich wählen kann
   \[\exists x,y\in D\s\text{mit}\s\abs{x-y}<\delta\s\text{und}\s\abs{f(x)-f(y)}\geq \varepsilon\]
   \[\delta=\frac{1}{n}>0\implies\exists x_n,y_n\s\text{mit}\s\abs{x_n-y_n}<\frac{1}{n}\s\text{und}\s\abs{f(x_n)-f(y_n)}\geq \varepsilon\]
   \[\text{Kompaktheit}\implies\exists x_{n_k}\s\text{Teilfolge mit}\s x_{n_k}\to x\in D\]
   \[\implies y_{n_k}\to x\in D\]
-  \[\implies \stackrel{f(x_{n_k})\to f(x)}{f(y_{n_k})\to f(x)}\implies \abs{f(x_{n_k})-f(y_{n_k})}\to 0\]
-\end{Bew}
+  \[\implies f(x_{n_k})\to f(x) \mbox{ und } f(y_{n_k})\to f(x)\implies \abs{f(x_{n_k})-f(y_{n_k})}\to 0\]
+\end{proof}
 \subsection{Stetige Fortsetzung, Grenzwerte}
 \begin{Def}
-  Sei $f:D\to\mb{R}(\mb{C})$ stetig. Sei $E>D$. Eine stetige Fortsetzung von $f$ ist eine $\tilde f:E\to\mb{R}(\mb{C})$ stetig mit $f(x)=\tilde f(x)\s\forall x\in D$
+  Sei $f:D\to\mb{R}(\mb{C})$ stetig. Sei $E>D$. 
+Eine stetige Fortsetzung von $f$ ist eine $\tilde f:E\to\mb{R}(\mb{C})$ stetig mit $f(x)=\tilde f(x)\s\forall x\in D$
 \end{Def}
 \begin{Def}
   $g:E\to A$, $D\subset E$, 
-  \[g\|_D\to A\s\text{mit}\s g\|_D(x)=g(x)\s\forall x\in D\]
+  \[g|_D\to A\s\text{bezeichnet die Funktion mit }\s g|_D(x)=g(x)\s\forall x\in D\, ,\]
+d.h. die Einschr\"ankung von $g$ auf $D$.
 \end{Def}
-\begin{Bem}
+\begin{Bem}\label{b:Fragen}
   Sei $f:D\to\mb{R}(\mb{C})$ stetig. Sei $x_0\not\in D$. Die Fragen:
   \begin{itemize}
-    \item gibt es eine stetige Fortsetzung von $f$ auf $D\cup \left\{ x_0 \right\}$
-    \item ist diese Fortsetzung eindeutig?
+    \item[(a)] gibt es eine stetige Fortsetzung von $f$ auf $D\cup \left\{ x_0 \right\}$
+    \item[(b)] ist diese Fortsetzung eindeutig?
   \end{itemize}
 \end{Bem}
 \begin{Def}
@@ -106,11 +112,12 @@
   $x_0$ ist ein Häufungspunkt von $E\iff \exists(x_n)\subset\setminus\left\{ x_0 \right\}$ mit $x_n\to x_0$
 \end{Bem}
 \begin{Bem}
-  In Bem 10, 1. Frage: Falls $x_0$ kein Häufungspunkt von $D$ ist: $\exists$ stetige Fortsetzungen, $\exists$ unendlich viele!
+  In Bemerkung \ref{b:Fragen}, Frage (a): 
+Falls $x_0$ kein Häufungspunkt von $D$ ist: $\exists$ stetige Fortsetzungen.
+Frage (b): $\exists$ immer unendlich viele!
 \end{Bem}
 \begin{Bem}
-  Wenn $x_0$ ein Häufungspunkt von $D$ ist, die Antwort zur 2. Frage ist ja. Die Antwort zur 1. ist undefiniert.
+  Wenn $x_0$ ein Häufungspunkt von $D$ ist, die Antwort zur Frage (b) ist ja. 
+Die Antwort zur 1. ist undefiniert, manchmal ja, manchmal nein.
 \end{Bem}
-\begin{Def}
-  $x_0$ Häufungspunkt von $D$, $x_0\not\in D$, falls $\exists$ stetige Fortsetzung $\tilde f$ von $f$ auf $D\cup\left\{ x_0 \right\}$ existiert. Dann $\tilde f(x_0)=\lim_{x\to x_0}f(x)$
-\end{Def}
+

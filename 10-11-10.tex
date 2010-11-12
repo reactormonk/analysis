@@ -1,35 +1,39 @@
-\subsection{Eigenschaften}
-\begin{itemize}
-  \item $f(z+w)=f(z)f(w)$
-  \item $\Limo{z}\frac{l^z-1}{z}=1$
-\end{itemize}
-\begin{Sat}
+\subsection{Die Exponentialfunlktion auf der reellen Gerade}
+
+%\begin{itemize}
+%  \item $f(z+w)=f(z)f(w)$
+%  \item $\Limo{z}\frac{l^z-1}{z}=1$
+%\end{itemize}
+\begin{Sat} Die Funtion $\mb{R}\ni x \mapsto e^x \in \mb{R}$ ist
   \begin{enumerate}
     \item positiv
     \item monoton steigend
-    \item bijektiv
+    \item bijektiv (falls $\mb{R}$ durch $\mb{R}^+$ ersetzt wird).
   \end{enumerate}
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   \begin{enumerate}
-    \item \[l^x=l^{\frac{x}{2}+\frac{x}{2}} = (e^\frac{x}{2})^2>0\]
+    \item \[e^x=e^{\frac{x}{2}+\frac{x}{2}} = (e^\frac{x}{2})^2 \geq 0\]
+$e^x = 0$ ist nicht m\"oglich, sonst w\"are $e^{xq}=0$ f\"ur alle 
+$q\in \mb{Q}$ und, wegen der Dichtheit der rationalen Zahlen und
+der Stetigkeit von $f$, $e^x\equiv 0$.
     \item \[\frac{e^{x+h}}{e^x}=e^h=1+\frac{h}{1!}+\cdots > 1\]
     \item z.z.: $\forall y\in\mb{R}^+$
       \[\exists x: e^x=y\]
       Falls $y\geq 1$
       \[e^0=1\leq y\leq e^y\stackrel{\text{ZWS}}{\implies}\exists x:e^x=y\]
       Falls $0<y<1$, dann betrachte $\frac{1}{y}>1$
-      \[\exists x: e^x=frac{1}{y}\implies e^{-x}=y\]
+      \[\exists x: e^x=\frac{1}{y}\implies e^{-x}=y\]
   \end{enumerate}
-\end{Bew}
-\begin{Sat}{vom Wachstum}\label{s:wachstum1}
+\end{proof}
+\begin{Sat}[vom Wachstum]\label{s:wachstum1}
   \[\Limi{x}\frac{e^x}{x^n}=+\infty\]
   \[\lim_{x\to-\infty}x^ne^x=0\]
 \end{Sat}
-\begin{Bew}
-  \[e^x>\frac{x^{n+1}}{(n+1)!}\implies\frac{e^x}{x^n}>\frac{x}{(n+1)!}\to_{x\to\infty}\infty\]
-  \[x^ne^x=\frac{x^n}{e^{-x}}=(-1)^n\frac{(-x)^n}{e^{-x}}\to_{x\to\infty}\infty\]
-\end{Bew}
+\begin{proof}[Beweis]
+  \[e^x>\frac{x^{n+1}}{(n+1)!}\implies\frac{e^x}{x^n}>\frac{x}{(n+1)!}\stackrel{x\to\infty}{\to}\infty\]
+  \[x^ne^x=\frac{x^n}{e^{-x}}=(-1)^n\frac{(-x)^n}{e^{-x}}\stackrel{x\to\infty}{\to}\infty\]
+\end{proof}
 \subsection{Natürlicher Logarithmus}
 \begin{Def}
   $\ln:\mb{R}^+\to\mb{R}$ ist die Inverse der exponentiellen Funktion.
@@ -37,24 +41,24 @@
 \begin{Sat}
   \[\ln(xy)=\ln x + \ln y\]
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   \[e^{\ln(xy)}=xy=e^{\ln x}e^{\ln y}=e^{\ln x + \ln y}\]
-  \[\implies ln(xy)=\ln x + \ln y\]
-\end{Bew}
-\begin{Sat}{vom Wachstum 2} \label{s:wachstum2}
+  \[\implies \ln(xy)=\ln x + \ln y\]
+\end{proof}
+\begin{Sat}[vom Wachstum 2] \label{s:wachstum2}
   \[\Limi{x}\frac{\ln x}{\sqrt[n]{x}}=0\]
 \end{Sat}
-\begin{Bew}
-  \[\frac{\ln x}{\sqrt[n]{x}}=\frac{\ln e^{ny}}{sqrt[n]{e^{ny}}}=\frac{ny}{e^y}\]
+\begin{proof}[Beweis]
+  \[\frac{\ln x}{\sqrt[n]{x}}=\frac{\ln e^{ny}}{\sqrt[n]{e^{ny}}}=\frac{ny}{e^y}\]
   \[\exists y:x=e^{ny}\]
   \[\underbrace{y\to\infty}_{\iff x\to\infty}\implies \frac{\ln x}{\sqrt[n]{x}}\to 0\]
-\end{Bew}
+\end{proof}
 \begin{Sat}
   \[\Limo{x}\frac{\ln(1+x)}{x}=1\]
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   \[\Limo{x}\frac{\ln(1+x)}{x}=\Limo{y}\frac{\ln e^y}{e^y-1}=\Limo{y}\frac{y}{e^y-1}=1\]
-\end{Bew}
+\end{proof}
 \begin{Bem}
   $\ln:\mb{R}^+\to\mb{R}$ ist stetig
 \end{Bem}
@@ -62,9 +66,8 @@
   $y=\frac{m}{n}\in\mb{Q}, n\in\mb{N}, a>0$
   \[\sqrt[n]{a^n}=\frac{m}{n}=e^{y\ln a}\]
   Warum?
-  \[f(2)=e^{2\ln a}\]
-  \[f(0)=1\]
-  \[f(2+r)=f(2)f(r)\]
+  \[f(1)=e^{\ln a} =a\]
+  \[f(q+r)=f(q)f(r)\]
   \[f:\mb{Q}\to\mb{R}\]
   \[\implies a^y=e^{y\ln a}\]
 \end{Bem}
@@ -79,13 +82,13 @@
     \item \[(ab)^x=a^xb^x\]
   \end{enumerate}
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   \begin{enumerate}
     \item \[a^{x+y}=w^{(x+y)\ln a}=e^{x\ln a+y\ln a}=e^{x\ln a}e^{y\ln a}=a^xa^y\]
     \item ähnlich
-    \item $\uparrow$
+    \item \"ahnlich
   \end{enumerate}
-\end{Bew}
+\end{proof}
 \begin{Sat}
   \begin{enumerate}
     \item \[\Limi{x}x^a= \begin{cases}
@@ -106,7 +109,7 @@
     \item \[\Limo{x}\frac{a^x-1}{x}\ln a\] \label{i:101110e}
   \end{enumerate}
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   \begin{enumerate}
     \item 
       \[\text{Bild}(x\mapsto x^a)=\mb{R}^+\implies\Limi{x}x^a=+\infty\]
@@ -122,11 +125,14 @@
     \item $\Limo{x}\frac{a-1}{x}=\ln a$
       \[\frac{a^x-1}{x}=\frac{e^{x\ln a}-1}{x}=\overbrace{\frac{e^{x\ln a}-1}{x\ln a}}^{\to 1}\ln a\to_{x\to 0} \ln a\]
   \end{enumerate}
-\end{Bew}
-\subsection{Euler}
-\begin{Def}
-  \[\cos(\phi):=\cos(\phi-2\pi n)\]
-  \[\sin(\phi):=\sin(\phi-2\pi n)\]
+\end{proof}
+\subsection{Trigonometrische Funktionen}
+\begin{Def} Falls $\phi$ die Gr\"osse eines Winkels (in Radianten) ist,
+dann $\cos (\phi)$ und $\sin (\phi)$ sind die entsprenchenden Werte des
+Cosinus und Sinus. Wir erweitern diese Funktionen auf der ganzen reellen
+Gerade:
+  \[\cos(\phi):=\cos(\phi-2\pi n) \qquad \mbox{falls } 2\pi n \leq \phi < 2\pi (n+1)\]
+  \[\sin(\phi):=\sin(\phi-2\pi n) \qquad \mbox{falls } 2\pi n \leq \phi < 2\pi (n+1)\]
 \end{Def}
 \begin{Sat}
   Für $\phi$ klein genug gilt:
@@ -137,13 +143,15 @@
       \[1-\cos\phi\leq\phi^2\]
   \end{enumerate}
 \end{Sat}
-\begin{Bew}
+\begin{proof}
   \begin{enumerate}
-    \item Ziemlich graphisch, plottet wer gerne? Bitte melden.
+    \item Die Gr\"osse des Winkelns in Radianten ist die L\"ange des
+entsprechenden Kreissektors (auf einem Kreis mit Radius 1): diese ist
+gr\"osser als die L\"ange des (kleineren) Katheten.
     \item
       \[1-\cos\phi=\frac{(1-\cos\phi)(1+\cos\phi)}{1+\cos\phi}=\frac{1-(\cos\phi)^2}{1+\cos\phi}\leq\frac{\sin^2\phi}{1}\leq\phi^2\]
   \end{enumerate}
-\end{Bew}
+\end{proof}
 \begin{Kor}
   \begin{enumerate}
     \item \[\Limo{\phi}\frac{\sin\phi}{\phi}=1\]
@@ -151,7 +159,7 @@
     \item $\sin$ und $\cos$ sind stetig.
   \end{enumerate}
 \end{Kor}
-\begin{Bew}
+\begin{proof}[Beweis]
   \begin{enumerate}
     \item \[\frac{1}{\cos\phi}\leq\frac{\abs{\sin\phi}}{\phi}\leq 1\]
     \item \[0\leq\frac{1-\cos\phi}{\abs{\phi}}\leq\abs{\phi}\]
@@ -159,16 +167,16 @@
       \[\cos(x+y)=\cos x\cos y-\sin x\sin y\]
       \[\sin(x+y)=\sin x\cos y+\cos x\sin y\]
   \end{enumerate}
-\end{Bew}
-\begin{Sat}{von Euler}\label{s:Euler}
-  \[e^{x+iy}=e^x(\cos x+\sin y)\]
+\end{proof}
+\begin{Sat}[von Euler]\label{s:Euler}
+  \[e^{x+iy}=e^x(\cos x+\sin y) \qquad \forall x,y\in \mb{R}\]
 \end{Sat}
 \begin{Bew}
   Definiere $f(z)=e^x(\cos x+\sin y)$.
-  $f$ erfüllt (E1) und (E2) % TODO ref
+  $f$ erfüllt (AT) und (WT) im Satz \ref{s:Exp}% TODO ref
   \begin{itemize}
-    \item[E1] folgt aus den Additionsregeln
-    \item[E2] 2 Spezialfälle:
+    \item[(AT)] folgt aus den Additionsregeln
+    \item[(WT)] 2 Spezialfälle:
       \begin{itemize}
         \item $z=x\in\mb{R}$
           \[\Limo{z}\frac{f(z)-1}{z}=\Limo{x}\frac{e^x-1}{x}=1\]
@@ -182,9 +190,13 @@
 \begin{Bem}(Was hat Euler gemacht?) Wegen der Taylor'schen Reihen:
   \[\cos y=\sum_{k=0}^\infty(-1)^k\frac{y^{2k}}{(2k)!}\]
   \[\sin y=\sum_{k=0}^\infty(-1)^k\frac{y^{2k+1}}{(2k+1)!}\]
-  Wenn man die Formel
+das wussten die Mathematikern schon vor Euler seinen Satz entdeckte:
+man kann diese Reihen mit der Differentialrechnung bestimmen
+(und werden wir sp\"ater lernen).
+Wenn man die Formel
   \[e^z:=\sum^\infty_{k=0}\frac{z^k}{k!}\]
-  \[e^y=\sum^\infty_{k=0}\frac{(iy)^k}{k!}=\underbrace{\sum_{k=0}^\infty(-1)^k\frac{y^{2k}}{(2k)!}}_{\cos y}+i\underbrace{\sum_{k=0}^\infty(-1)^k\frac{y^{2k+1}}{(2k+1)!}}_{\sin y}\]
+f\"ur $z=iy$ anwendet:
+  \[e^{iy}=\sum^\infty_{k=0}\frac{(iy)^k}{k!}=\underbrace{\sum_{k=0}^\infty(-1)^k\frac{y^{2k}}{(2k)!}}_{\cos y}+i\underbrace{\sum_{k=0}^\infty(-1)^k\frac{y^{2k+1}}{(2k+1)!}}_{\sin y}\]
   \[\implies e^{iy}=\cos y+i\sin y\]
   $e^{i\pi}=-1$ $\to$ die berühmte Formel von Euler.
 \end{Bem}
