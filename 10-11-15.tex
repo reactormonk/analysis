@@ -1,0 +1,164 @@
+\subsection{Noch andere spezielle Funktionen}
+\[\tan=\frac{\sin}{\cos}\]
+\[\tan=\mb{R}\setminus\underbrace{\left\{ \frac{\pi}{2}+k\pi; k\in\mb{N} \right\}}_{\text{Die Nullstellen des Cosinus}}\to\mb{R}\]
+Geometrisch leicht zu sehen: 
+\[\sin:\left[ -\frac{\pi}{2},\frac{\pi}{2} \right]\to\left[ 1,1 \right]\]
+ist injektiv und surjektiv. Die Umkehrfunktion
+\[\arcsin:\left[ -1,1 \right]\to\left[ -\frac{\pi}{2},\frac{\pi}{2} \right]\]
+\[\cos:\left[ 0,\pi \right]\to\left[ -1,1 \right]\]
+ist bijektiv. Die Umkehrfunktion
+\[\arccos:\left[ -1,1 \right]\to\left[ 0,\pi \right]\]
+\begin{Bem}
+  \[\tan:\left] -\frac{\pi}{2},\frac{\pi}{2} \right[\to\mb{R}\]
+  \[\lim_{x\to\pm\frac{\pi}{2}}\tan(x)=\pm\infty\]
+  Surjektivität des Tagens auf $\left] -\frac{\pi}{2}, \frac{\pi}{2} \right[$ nach $\mb{R}$ ist leicht zu sehen. Injektivität werden wir später sehen.
+\end{Bem}
+\[\arctan:\mb{R}\to\left] -\frac{\pi}{2},\frac{\pi}{2} \right[\]
+ist die Umkehrfunktion.
+\[\sinh(t)=\frac{e^t-e^{-t}}{2}\]
+\[\cosh(t)=\frac{e^t+e^{-t}}{2}\]
+\[\tanh(t)=\frac{\sinh}{\cosh}\]
+\begin{Bem}
+  \[\cosh^2(t)-\sinh^2(t)=1\]
+\end{Bem}
+\begin{Bem}
+  $\forall t\in\mb{R}$, $\left( \cos t, \sin t \right)$ $\in$ Kreis mit Radius 1 und Mittelpunkt 0. $\forall t\in\mb{R}$, $\left( \cosh t, \sinh t \right)$ $\in$ Hyperbola.
+\end{Bem}
+\section{Differentialrechnung}
+Eine affine Funktion $f:\mb{R}\to\mb{R}$ hat die Gestalt:
+\[f(t)=c_0+m_0x\]
+\[m_0=\frac{f(t_2)-f(t_1)}{t_2-t_1}\]
+$f$ heisst linear wenn $c_0=0$
+\subsection{Ableitung}
+\begin{Def}
+  Die beste Approximation von $f$ in der Nähne von $x_0$ mit einer affinen Funktion $g$ 
+\end{Def}
+\begin{Bem}
+  \[f(x)=\abs{x}\]
+  $x_0=0$: $\exists$ keine gute Approximation mit einer affinen Funktion.
+\end{Bem}
+\begin{Def}
+  Sei $f:\left] a,b \right[\to\mb{R}(\mb{C})$. Die Ableitung an der Stelle $x_0$ von $f$ ist
+  \[f'(x)=\lim_{h\downarrow 0}\frac{f(x_0+h)-f(x_0)}{x_0+h-x_0}\]
+\end{Def}
+\begin{Def}
+  Die Funktion heisst differenzierbar an der Stelle $x_0$, wenn die Ableitung $f'(x_0=$ existiert.
+\end{Def}
+\begin{Sat}
+  $f:I\to\mb{C}$ ist in $x_0$ genau dann differenzierbar, wenn $\exists L:\mb{R}\to\mb{C}$ linear so dass
+  \[\Limo{h}\frac{f(x_0+h)-f(x_0)-L(h)}{h}=0\]
+\end{Sat}
+\begin{Bew}
+  \[L(h)\s\text{linear}\iff\exists m_0\in\mb{C}: L(h)=m_0h\s\forall h\in\mb{R}\]
+  \begin{equation}
+    \label{e:differential151}
+    \Limo{h}\frac{f(x_0+h)-f(x_0)-L(h)}{h}
+  \end{equation}
+  \begin{equation}
+    \label{e:differential152}
+    \Limo{h}\frac{f(x_0+h)-f(x_0)}{h}-m_0
+  \end{equation}
+  \[\ref{e:differential151}=0\iff\ref{e:differential152}=m_0(=f(x_0))\]
+\end{Bew}
+\begin{Sat}
+  $f:I\to\mb{C}$ ist in $x_0\in I$ genau dann differenzierbar, wenn es ein $\phi:I\to\mb{C}$ gibt so dass
+  \begin{itemize}
+    \item $\phi$ ist stetig in $x_0$
+    \item $f(x)-f(x_0)=\phi(x)(x-x_0)$
+  \end{itemize}
+\end{Sat}
+\begin{Bew}
+  $\exists\phi$ $\implies$ differenzierbar
+  \[\phi(x_0)\lim{x\to x_0}=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}\]
+  \[=\Limo{h}\frac{f(x_0+h)-f(x_0)}{h}=f(x)\]
+  \[\Leftarrow\]
+  \begin{Def}
+    \[\phi=\begin{cases}
+      f'(x_0)& x=x_0\\
+      \frac{f(x)-f(x_0)}{x-x_0}& x\neq x_0
+    \end{cases}\implies \phi\s\text{erfüllt die Bedingungen}\]
+  \end{Def}
+\end{Bew}
+\begin{Bsp}
+  $f(x)=x^n$
+  \[f'(x_0)=\Limo{h}\frac{(x_0+h)^n-x_0^n}{h}=\Limo{h}\frac{\left\{ \left( x_0^n+\binom{n}{1}x_0^{n-1}+\binom{n}{2}x_0^{n-2}h^2+\cdots + h^n \right)-x_0^n \right\}}{h}\]
+  \[\Limo{h}\left[ nx_0^{n-1}+\left\{ \binom{n}{2}x_0^{n-2}h+\cdots+h^{n-1} \right\} \right]=nx_0^{n-1}\]
+\end{Bsp}
+\begin{Bsp}
+  $f(x)=e^x$
+  \[f'(x_0)=\Limo{h}\frac{e^{x_0+h}-e^{x_0}}{h}\]
+  \[=e^{x_0}\Limo{h}\frac{e^h-1}{h}=e^{x_0}\]
+\end{Bsp}
+\begin{Ueb}
+  $f(x)=a^x$
+  \[f'(x_0)=\ln(a) a^x\]
+\end{Ueb}
+\begin{Bsp}
+  $f(x)=\ln x$
+  \[f'(x_0)=\frac{\ln(x_0+h)-\ln(x_0)}{h}\]
+  \[=\frac{\ln\left( \frac{x_0+h}{x_0} \right)}{h}\]
+  \[=\left( \Limo{h}\frac{\ln\left( 1+\frac{h}{x_0} \right)}{\frac{h}{x_0}} \right)\frac{1}{x}\]
+\end{Bsp}
+\begin{Bem}
+  Falls $f$ in $x_0$ differenzierbar ist, dann ist $f$ auch stetig in $x_0$.
+  \[\lim x_0\iff\lim_{x\to x_0}f(x)f(x_0)\iff\lim{x\to x_0}\left( f(x)-f(x_0) \right)=0\]
+  \[\Leftarrow\lim_{x\to x_0}\left( \frac{f(x)-f(x_0)}{x-x_0} \right)(x-x_0)=f'(x_0)0=0\]
+\end{Bem}
+\begin{Bem}
+  Umgekehrt falsch $f(x)=\sqrt[n]{\abs{x}}$
+  $n\geq 2$:
+  \[\lim_{x\to 0}\frac{f(x)-f(0)}{x-0}=+\infty\]
+  $n=1$:
+  \[\lim_{x\to 0}\frac{f(x)-f(0)}{x-0}=\pm1\]
+  Für $x\neq 0$ ist $\sqrt[n]{\abs{x}}$ differenzierbar
+\end{Bem}
+\subsection{Rechenregeln}
+\begin{Sat}
+  Seien $f,g:I\to\mb{C}$ differenzierbar in $x_0$.
+  \begin{itemize}
+    \item $f+g$ ist auch differenzierbar in $x_0$: 
+      \[(f+g)'(x_0)=f'(x_0)+g'(x_0)\]
+    \item $fg$ ist auch differenzierbar in $x_0$: 
+      \[(fg)'(x_0)=f'(x_0)g(x_0)+f(x)g'(x_0)\]
+    \item $\frac{f}{g}$ ist in der Nähne von $x_0$ wohldefiniert wenn $g(x_0)\neq 0$. Ausserdem ist $\frac{f}{g}$ dort differenzierbar.
+      \[\left( \frac{f}{g} \right)(x_0)=\frac{f'(x_0)g(x_0)-f(x_0)g'(x_0)}{g(x_0)^2}<\]
+  \end{itemize}
+\end{Sat}
+\begin{Bew}
+  \begin{itemize}
+    \item
+      \[\Limo{h}\frac{(f+g)(x_0+h)-(f+g)(x_0)}{h}=\Limo{h}\left\{ \overbrace{\frac{f(x_0+h)-f(x_0)}{h}}^{f'(x_0)}+\overbrace{\frac{g(x_0+h)-g(x_0)}{h}}^{g'(x_0)}\right\}\]
+    \item
+      \[\Limo{h}\frac{(fg)(x_0+h)-(fg)(x_0)}{h}\]
+      \[=\Limo{h}\frac{f(x_0+h)g(x_0+h)-f(x_0+h)g(x_0)+f(x_0+h)g(x_0)-f(x_0)g(x_0)}{h}\]
+      \[=\Limo{h}\left\{ f(x_0+h)\frac{g(x_0+h)-g(x_0)}{h}+g(x_0)\frac{f(x_0+h)-f(x_0)}{h} \right\}\]
+      \[=f(x_0)g'(x_0)+g(x_0)f'(x_0)\]
+    \item
+      \[\Limo{h}\frac{\frac{f(x_0+h)}{g(x_0+h)}-\frac{f(x_0)}{g(x_0)}}{h}=\Limo{h}\frac{f(x_0+h)g(x_0)-f(x_0)g(x_0+h)}{\left[ g(x_0)g(x_0+h) \right]}h\]
+      \[=\Limo{h}\frac{1}{g(x_0)g(x_0+h)}\left\{ \frac{f(x_0+h)(g(x_0)-g(x_0+h)}{h}+\frac{f(x_0+h)g(x_0+h)-f(x_0)g(x_0+h)}{h} \right\}\]
+      \[=\Limo{h}\frac{1}{g(x_0)g(x_0+h)}\left\{ f(x_0+h)\left[ -\frac{g(x_0+h)-g(x_0)}{h}\right] +g(x_0+h)\frac{f(x_0+h)-f(x_0)}{h} \right\}\]
+  \end{itemize}
+\end{Bew}
+\begin{Sat}{Kettenregel}
+  Seien $I\stackrel{f}{\to}J\stackrel{g}{\to}\mb{C}$, mit $I, J\subset\mb{R}$, $f$ und $g$ an der Stelle $x_0$ und $f(x_0)$ differenzierbar sind, dann ist $g\circ f$ an der Stelle $x_0$ differenzierbar und
+  \[(g\circ f)'(x_0)=g'(f(x_0))f'(x_0)\]
+\end{Sat}
+\begin{Bew}
+  \[\Limo{h}\frac{g\circ f(x_0+h)-g\circ f(x_0)}{x-x_0}\]
+  \[=\Limo{h}\frac{g(f(x_0+h))-g(f(x_0))}{x-x_0}\]
+  \[=\Limo{h}\frac{\overbrace{g(f(x_0+h))}^y-\overbrace{g(f(x_0))}^{y_0}}{\underbrace{f(x_0+h)}_y-\underbrace{f(x_0)}_{y_0}}\frac{f(x_0+h)-f(x_0)}{x-x_0}\]
+  \[=g'(y_0)f'(x_0)=g'(f(x_0))f'(x_0)\]
+  Problem: $y-y_0$ kann null werden. Lösung:
+  \[f(x)-f(x_0)=\phi(x)(x-x_0)\]
+  \[g(x)-g(x_0)=\gamma(x)(x-x_0)\]
+  mit $\phi$ stetig in $x_0$, mit $\phi(x_0)=f'(x_0)$. $\gamma$ stetig in $y_0$ mit $\gamma'(y_0)=g'(y_0)$.
+  \[g(f(x))-g(f(x_0))=\gamma(f(x))(f(x)-f(x_0))=\underbrace{\gamma(f(x))\phi(x)}_{\Phi(x)}(x-x_0)\]
+  $\Phi$ ist stetig an der Stelle $x_0$. $\implies$ $g\circ f$ ist differenzierbar in $x_0$.
+  \[(g\circ f)'(x_0)=\Phi(x_0)=\gamma(f(x_0))\phi(x_0)=g'(f(x_0))f'(x_0)\]
+\end{Bew}
+\begin{Bsp}
+  \[e^{it}=\cos t+i\sin t\]
+  \[(\cos x)'=\left(\frac{e^{ix}+e^{-ix}}{2}\right)=\frac{1}{2}\left( (e^{ix})'+(e^{ix})' \right)=\frac{i}{2}(e^{ix}+\frac{i}{2}e^{-ix}=-\frac{1}{2i}(e^{ix}-e^{-ix})=-\sin x\]
+  \[(\sin x)'=\left(\frac{e^{ix}-e^{-ix}}{2i}\right)=\frac{1}{2i}\left( (e^{ix})'-(e^{ix})' \right)=\cdots=\cos x\]
+  \[\tan'=\left( \frac{\sin}{\cos} \right)'=\frac{\sin'\cos-\sin\cos'}{\cos^2}=\frac{\sin^2+\cos^2}{\cos^2}=\frac{1}{\cos^2}\]
+\end{Bsp}
