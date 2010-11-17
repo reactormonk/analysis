@@ -1,0 +1,158 @@
+\begin{Sat}{Differentiation der Umkehrfunktion}
+  Sei $g$ die Umkehrfunktion einer streng monotonen Funktion $f:I\to\mb{R}$. Falls $f$ in $x_0$ differenzierbar ist und $f'(x_0)\neq 0$, dann ist $g$ in $y_0 = f(x_0)$ differenzierbar und
+  \[g'(y_0)=\frac{1}{f(x_0)}\left( =\frac{1}{f'(g(y_0))} \right)\]
+\end{Sat}
+\begin{Bew}
+  \[f(x)-f(x_0)=\phi(x)(x-x_0)\]
+  wobei
+  \begin{itemize}
+    \item $\phi$ ist stetig in $x_0$
+    \item $\phi(x_0) = f'(x_0)$
+  \end{itemize}
+  \begin{eqnarray*}
+    x=g(y)\\
+    x_0=g(y_0)
+  \end{eqnarray*}
+  $\implies$
+  \[y-y_0=\phi(g(y))(g(y)-g(y_0))\]
+  \[g(y)-g(y_0)=\frac{1}{\phi(g(y))}(g(y)-g(y_0))\]
+  Aber:
+  \[\phi(g(y_0))=\phi(x_0)=f'(x_0)\neq 0\]
+  $\phi$ ist stetig in $x_0$ und $g$ ist stetig in $y_0$ $\implies$ $\phi(g)$ ist stetig in $y_0$
+  \[\exists\varepsilon>0: \abs{y-y_0}<\varepsilon\implies \phi(g(y))\neq 0\]
+  Sei
+  \[\psi = \begin{cases}
+    \frac{1}{\phi(g(y))}&\abs{y-y_0}<\varepsilon\\
+    \frac{g(y)-g(y_0)}{y-y_0}&\abs{y-y_0}>\varepsilon
+  \end{cases}\]
+  \[\implies g(y)-g(y_0)=\psi(y)(y-y_0)\]
+  und $\psi$ iste stetig an der Stelle $y_0$. $g$ ist differenzierbar in $y_0$ und deswegen
+  \[\psi(y_0)=g'(y_0)\]
+  \[=\frac{1}{\phi(g(y_0))}=\frac{1}{\phi(x_0)}=\frac{1}{f(x_0)}=\frac{1}{f(g(y_0))}\]
+\end{Bew}
+\begin{Bem}
+  $f:I\to\mb{R}$ $f$ ist streng monoton und stetig, $g$ die Umkehrfunktion von $f$ $g:J\to I$.
+  Kettenregel:
+  \[(f\circ g)'(x_0)=f'(g(x_0))g'(x_0)=1\]
+  wenn
+  \[f'(g(x_0))\neq 0\implies g'(x_0)=\frac{1}{f'(g(x_0))}\]
+\end{Bem}
+\begin{Bsp}
+  (Übung: arcsin', arccos')
+  \[\tan'(y_0)=\frac{1}{\cos^2(y_0)}\neq 0\]
+  \[(\arctan)'(x_0)=\frac{1}{\tan'(\arctan(x_0))}=\frac{1}{\frac{1}{\cos^2(\arctan(x_0))}}\]
+  \[=\cos^2(\arctan(x_0))\]
+  \[\cos^2=\frac{1}{\tan^2}\left( =\frac{1}{1+\frac{\sin^2}{\cos^2}}=\frac{1}{\frac{\cos^2+\sin^2}{\cos^2}}=\cos^2 \right)\]
+  \[\cos^2(\arctan(x_0))=\frac{1}{1+(\tan(\arctan(x_0)))^2}=\frac{1}{1+x_0^2}\]
+  \[\implies \arctan'(x)=\frac{1}{1+x^2}\]
+\end{Bsp}
+\begin{Sat}
+  Sei $f:I\to\mb{R}$ eine überall differenzierbare Funktion. Sei $x_0\in I$ ein Maximum (bzw. ein Minium)
+  \begin{itemize}
+    \item $x_0$ im Inneren $\implies$ $f'(x_0)=0$
+    \item $x_0$ ist das rechte Extremum von $I$ $\implies$
+      \[f'(x_0)\geq 0\]
+      bzw. bei Minima:
+      \[f'(x_0)\leq 0\]
+    \item $x_0$ ist das linke Extremum von $I$ $\implies$
+      \[f'(x_0)\leq 0\]
+      bzw. bei Minima:
+      \[f'(x_0)\geq 0\]
+  \end{itemize}
+\end{Sat}
+\begin{Bew}
+  $x_0$ im Innern.
+  \[f'(x_0(0\Lim{x}{x_0}\underbrace{\frac{f(x)-f(x_0)}{x-x_0}}_{=0}\]
+  \[\begin{cases}
+    \lim_{x\downarrow x_0} \frac{\overbrace{f(x)-f(x_0)}^{\leq 0}}{\underbrace{x-x_0}_{\geq 0}}\leq 0\\
+    \lim_{x\uparrow x_0} \frac{\overbrace{f(x)-f(x_0)}^{\leq 0}}{\underbrace{x-x_0}_{\leq 0}}\geq 0
+  \end{cases}\]
+  $x_0$ ist das linke Extremum:
+  \[f'(x_0)=\lim_{x\downarrow x_0}\frac{f(x)-f(x_0)}{x-x_0}\leq 0\]
+\end{Bew}
+\begin{Sat}{Mittelwertsatz, Lagrange}\label{s:lagrange}
+  Sei $f[a,b]\to\mb{R}$ stetig (überall) und differenzierbar in $]a,b[$. Dann $\exists \xi\in ]a,b[$ mit
+  \[f'(\xi)=\frac{f(b)-f(a)}{b-a}\]
+\end{Sat}
+\begin{Sat}{Rolle}\label{s:rolle}
+  Sei $f$ wie oben mit $f(b)=f(a)$. Dann $\exists\underbrace{\xi}_{\in ]a,b[}:f'(\xi)=0$
+\end{Sat}
+\begin{Bew}{Rolle}
+  \[f(b)=f(a)\implies \begin{cases}
+    \exists x\in ]a,b[\s\text{mit}\s f(x)<f(b)\\
+    \exists x\in ]a,b[\s\text{mit}\s f(x)>f(b)\\
+    f(x)=f(b)\s\forall x\in ]a,b[
+  \end{cases}\]
+  Dritte Möglichkeit $\implies$ $f$ ist Konstant!
+  \[f'(\xi)=0\s\forall \xi\in ]a,b[ \]
+  Erste Möglichkeit $\implies$ Sei $x_0$ eine Maximumstelle von $f$ in $[a,b]$
+  \[\implies x_0\in ]a,b[ \implies f'(x_0)=0\]
+  Zweite Möglichkeit: Sei $x_0$ eine Maximumstelle:
+  \[x_0\in ]a,b[\implies f'(x_0)=0\]
+\end{Bew}
+\begin{Bew}{Lagrange}
+  Sei
+  \[g(x)=f(a)+\frac{x-a}{b-a}(f(b)-f(a))\]
+\end{Bew}
+\begin{Bem}
+  $g(b)=f(b)$ und $g(a)=f(a)$ $\implies$ Sei $h:=f-g$. $h(a)=0$, $h(b)=0$. 
+  \[\stackrel{\text{Satz von Rolle}}{\implies}\exists \xi\in ]a,b[\s\text{mit}\s f'(\xi)=0\]
+  \[\implies f'(\xi)-g'(\xi)=\frac{f(b)-f(a)}{a-b}\]
+\end{Bem}
+\begin{Kor}
+  Sei $f:[a,b]\to\mb{R}$ eine differenzierbare Funktion.
+  \begin{itemize}
+    \item $f'\geq 0$ $\implies$ $f$ ist wachsend.
+    \item $f'> 0$ $\implies$ $f$ ist wachsend, streng monoton.
+    \item $f'\leq 0$ $\implies$ $f$ ist fallend.
+    \item $f'< 0$ $\implies$ $f$ ist fallend, streng monoton.
+  \end{itemize}
+\end{Kor}
+\begin{Bew}
+  Seien $c<d\in [a,b]$
+  \[\stackrel{\text{Mittel}}{\implies}\exists \xi\in ]c,d[\s\text{mit}\]
+  \[f(d)-f(c)=f'(\xi\underbrace{(d-c)}_{>0}\]
+  $\geq 0$ im ersten Fall, $>0$ im zweiten Fall usw.
+\end{Bew}
+\begin{Kor}
+  Sei $f:]a,b[\to\mb{R}$ differenzierbar. Falls:
+  \begin{itemize}
+    \item $f'(x)<0$ $\forall x>x_0$
+    \item $f'(x)>0$ $\forall x<x_0$
+  \end{itemize}
+  dann ist $x_0$ das Maximum von $f$ auf $]a,b[$.
+\end{Kor}
+\begin{Kor}
+  Sei $f]a,b[$ differenzierbar mit $f'=0$. Dann $f=\text{konst}$.
+\end{Kor}
+\begin{Bsp}
+  $\tan$ ist streng monoton auf $]-\frac{\pi}{2},\frac{\pi}{2}[$.
+  \[\tan'=1\frac{1}{\cos^2}>0\]
+  (nicht streng monoton auf $\mb{R}\setminus\left\{ \frac{\pi}{2}+k\pi:k\in\mb{Z} \right\}$)
+\end{Bsp}
+\subsection{Schrankensatz und De L'Hôpitalsche Regel}
+\begin{Sat}{Schrankensatz}
+  Sei $f:[a,b]\to\mb{R}$ stetig (überall) und differenzierbar in $]a,b[$ mit
+  \[\abs{f'(\xi)}\leq M\s\forall \xi\in ]a,b[\]
+  Dann ist $f$ Lipschitzstetig und
+  \[\abs{f(y)-f(x)}\leq M\abs{x-y}\s\forall x,y\in [a,b]\]
+\end{Sat}
+\begin{Bew}
+  $\forall y\neq x$ (OBdA: $y>x$)
+  \[\exists \xi\in ]x,y[\subset ]a,b[: f(y)-f(x)=f(\xi)(y-x)\]
+  \[\implies \abs{f(y)-f(x)}=\abs{f'(\xi)}\abs{y-x}\leq M\abs{y-x}\]
+\end{Bew}
+\begin{Sat}{Cauchy}
+  Seien $f,g:[a,b]\to\mb{R}$ überall stetig und differenzierbar in $]a,b[$. Ausserdem $g'(x)\neq 0$ $\forall x\in ]a,b[$. Dann
+  \[\exists \underbrace{\xi}_{\in ]a,b[}:\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}\]
+\end{Sat}
+\begin{Bem}
+  Mittelwertsatz: $x_0\in ]a,b[$
+  \[g(b)-g(a)=\overbrace{g'(x_0)}^{\neq 0}\overbrace{(b-a)}^{\neq 0}\]
+  \[g(b)-g(a)\neq 0\]
+\end{Bem}
+\begin{Bew}
+  Sei 
+  \[F(x)=f(x)-\frac{f(b)-f(a)}{g(b)-g(a)}(g(x)-g(a))\]
+  \[F(a)=f(a)=F(b)\implies \exists \xi: F'(\xi)=0\implies f'(\xi)\frac{f(b)-f(a)}{g(b)-g(a)}g'(\xi)\]
+\end{Bew}
