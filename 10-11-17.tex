@@ -1,8 +1,10 @@
-\begin{Sat}{Differentiation der Umkehrfunktion}
-  Sei $g$ die Umkehrfunktion einer streng monotonen Funktion $f:I\to\mb{R}$. Falls $f$ in $x_0$ differenzierbar ist und $f'(x_0)\neq 0$, dann ist $g$ in $y_0 = f(x_0)$ differenzierbar und
+\begin{Sat}\label{s:umkehr}[Differentiation der Umkehrfunktion]
+  Sei $g$ die Umkehrfunktion einer streng monotonen Funktion $f:I\to\mb{R}$. 
+Falls $f$ in $x_0$ differenzierbar ist und $f'(x_0)\neq 0$, 
+dann ist $g$ in $y_0 = f(x_0)$ differenzierbar und
   \[g'(y_0)=\frac{1}{f(x_0)}\left( =\frac{1}{f'(g(y_0))} \right)\]
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   \[f(x)-f(x_0)=\phi(x)(x-x_0)\]
   wobei
   \begin{itemize}
@@ -15,7 +17,7 @@
   \end{eqnarray*}
   $\implies$
   \[y-y_0=\phi(g(y))(g(y)-g(y_0))\]
-  \[g(y)-g(y_0)=\frac{1}{\phi(g(y))}(g(y)-g(y_0))\]
+  \[g(y)-g(y_0)=\frac{1}{\phi(g(y))}( y - y_0) \quad \mbox{falls $\phi (g(y))\neq 0$.}\]
   Aber:
   \[\phi(g(y_0))=\phi(x_0)=f'(x_0)\neq 0\]
   $\phi$ ist stetig in $x_0$ und $g$ ist stetig in $y_0$ $\implies$ $\phi(g)$ ist stetig in $y_0$
@@ -26,28 +28,33 @@
     \frac{g(y)-g(y_0)}{y-y_0}&\abs{y-y_0}>\varepsilon
   \end{cases}\]
   \[\implies g(y)-g(y_0)=\psi(y)(y-y_0)\]
-  und $\psi$ iste stetig an der Stelle $y_0$. $g$ ist differenzierbar in $y_0$ und deswegen
+  und $\psi$ ist stetig an der Stelle $y_0$. $g$ ist differenzierbar in $y_0$ und deswegen
   \[\psi(y_0)=g'(y_0)\]
-  \[=\frac{1}{\phi(g(y_0))}=\frac{1}{\phi(x_0)}=\frac{1}{f(x_0)}=\frac{1}{f(g(y_0))}\]
-\end{Bew}
+  \[=\frac{1}{\phi(g(y_0))}=\frac{1}{\phi(x_0)}=\frac{1}{f'(x_0)}=\frac{1}{f'(g(y_0))}\]
+\end{proof}
 \begin{Bem}
-  $f:I\to\mb{R}$ $f$ ist streng monoton und stetig, $g$ die Umkehrfunktion von $f$ $g:J\to I$.
-  Kettenregel:
-  \[(f\circ g)'(x_0)=f'(g(x_0))g'(x_0)=1\]
-  wenn
-  \[f'(g(x_0))\neq 0\implies g'(x_0)=\frac{1}{f'(g(x_0))}\]
+  Sei $f:I\to\mb{R}$ streng monoton und stetig. Sei $g$ die Umkehrfunktion von $f$ $g:J\to I$.
+ Angenommen dass beide Funktionen differenzierbar sind, die Kettenregel impliziert
+  \[(f\circ g)'(x_0)=f'(g(x_0))g'(x_0)=1\, .\]
+Falls $f' (g(x_0))\neq 0$, wir schliessen $g'(x_0)=\frac{1}{f'(g(x_0))}$. Das ist
+aber kein Beweis vom Satz \ref{s:umkehr}, da die Differenzierbarkeit von $g$
+angenommen und nicht bewiesen wird.
 \end{Bem}
 \begin{Bsp}
   (Übung: arcsin', arccos')
   \[\tan'(y_0)=\frac{1}{\cos^2(y_0)}\neq 0\]
   \[(\arctan)'(x_0)=\frac{1}{\tan'(\arctan(x_0))}=\frac{1}{\frac{1}{\cos^2(\arctan(x_0))}}\]
   \[=\cos^2(\arctan(x_0))\]
-  \[\cos^2=\frac{1}{\tan^2}\left( =\frac{1}{1+\frac{\sin^2}{\cos^2}}=\frac{1}{\frac{\cos^2+\sin^2}{\cos^2}}=\cos^2 \right)\]
+  \[\cos^2=\frac{1}{1+\tan^2}\left( =\frac{1}{1+\frac{\sin^2}{\cos^2}}=\frac{1}{\frac{\cos^2+\sin^2}{\cos^2}}=\cos^2 \right)\]
   \[\cos^2(\arctan(x_0))=\frac{1}{1+(\tan(\arctan(x_0)))^2}=\frac{1}{1+x_0^2}\]
   \[\implies \arctan'(x)=\frac{1}{1+x^2}\]
 \end{Bsp}
+
+\subsection{Die S\"atze von Rolle und Lagrange}
+
 \begin{Sat}
-  Sei $f:I\to\mb{R}$ eine überall differenzierbare Funktion. Sei $x_0\in I$ ein Maximum (bzw. ein Minium)
+  Sei $f:I\to\mb{R}$ eine überall differenzierbare Funktion. 
+Sei $x_0\in I$ ein Maximum (bzw. ein Minium)
   \begin{itemize}
     \item $x_0$ im Inneren $\implies$ $f'(x_0)=0$
     \item $x_0$ ist das rechte Extremum von $I$ $\implies$
@@ -60,24 +67,29 @@
       \[f'(x_0)\geq 0\]
   \end{itemize}
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   $x_0$ im Innern.
-  \[f'(x_0(0\Lim{x}{x_0}\underbrace{\frac{f(x)-f(x_0)}{x-x_0}}_{=0}\]
   \[\begin{cases}
     \lim_{x\downarrow x_0} \frac{\overbrace{f(x)-f(x_0)}^{\leq 0}}{\underbrace{x-x_0}_{\geq 0}}\leq 0\\
     \lim_{x\uparrow x_0} \frac{\overbrace{f(x)-f(x_0)}^{\leq 0}}{\underbrace{x-x_0}_{\leq 0}}\geq 0
   \end{cases}\]
-  $x_0$ ist das linke Extremum:
-  \[f'(x_0)=\lim_{x\downarrow x_0}\frac{f(x)-f(x_0)}{x-x_0}\leq 0\]
-\end{Bew}
-\begin{Sat}{Mittelwertsatz, Lagrange}\label{s:lagrange}
+Deswegen $f'(x_0)=0$.
+  $x_0$ ist das linke Extremum und eine Maximumstelle:
+  \[f'(x_0)=\lim_{x\downarrow x_0}\frac{f(x)-f(x_0)}{x-x_0}\leq 0\, .\]
+Die anderen F\"alle sind \"ahnlich.
+\end{proof}
+\begin{Sat}[Mittelwertsatz, Lagrange]\label{s:lagrange}
   Sei $f[a,b]\to\mb{R}$ stetig (überall) und differenzierbar in $]a,b[$. Dann $\exists \xi\in ]a,b[$ mit
   \[f'(\xi)=\frac{f(b)-f(a)}{b-a}\]
 \end{Sat}
-\begin{Sat}{Rolle}\label{s:rolle}
-  Sei $f$ wie oben mit $f(b)=f(a)$. Dann $\exists\underbrace{\xi}_{\in ]a,b[}:f'(\xi)=0$
+\begin{Sat}[Rolle]\label{s:rolle}
+  Sei $f$ wie oben mit $f(b)=f(a)$. Dann $\exists\underbrace{\xi}_{\in ]a,b[}:f'(\xi)=0$.
 \end{Sat}
-\begin{Bew}{Rolle}
+
+Der Satz von Rolle ist ein Fall des Satzes von Lagrange. Aber wir werden
+zuerst den Satz von Rolle beweisen und dann den von Lagrange daraus schliessen.
+
+\begin{proof}[Beweis vom Satz \ref{s:rolle}]
   \[f(b)=f(a)\implies \begin{cases}
     \exists x\in ]a,b[\s\text{mit}\s f(x)<f(b)\\
     \exists x\in ]a,b[\s\text{mit}\s f(x)>f(b)\\
@@ -86,20 +98,18 @@
   Dritte Möglichkeit $\implies$ $f$ ist Konstant!
   \[f'(\xi)=0\s\forall \xi\in ]a,b[ \]
   Erste Möglichkeit $\implies$ Sei $x_0$ eine Maximumstelle von $f$ in $[a,b]$
-  \[\implies x_0\in ]a,b[ \implies f'(x_0)=0\]
+  \[\implies x_0\in ]a,b[ \mbox{ (weil $f (x_0) > f(a) = f(b)$) } \implies f'(x_0)=0\]
   Zweite Möglichkeit: Sei $x_0$ eine Maximumstelle:
   \[x_0\in ]a,b[\implies f'(x_0)=0\]
-\end{Bew}
-\begin{Bew}{Lagrange}
+\end{proof}
+\begin{proof}[Beweis vom Satz \ref{s:lagrange}]
   Sei
   \[g(x)=f(a)+\frac{x-a}{b-a}(f(b)-f(a))\]
-\end{Bew}
-\begin{Bem}
   $g(b)=f(b)$ und $g(a)=f(a)$ $\implies$ Sei $h:=f-g$. $h(a)=0$, $h(b)=0$. 
-  \[\stackrel{\text{Satz von Rolle}}{\implies}\exists \xi\in ]a,b[\s\text{mit}\s f'(\xi)=0\]
-  \[\implies f'(\xi)-g'(\xi)=\frac{f(b)-f(a)}{a-b}\]
-\end{Bem}
-\begin{Kor}
+  \[\stackrel{\text{Satz von Rolle}}{\implies}\exists \xi\in ]a,b[\s\text{mit}\s h'(\xi)=0\]
+  \[\implies f'(\xi)-g'(\xi)=\frac{f(b)-f(a)}{a-b}\, .\]
+\end{proof}
+\begin{Kor}\label{k:monot}
   Sei $f:[a,b]\to\mb{R}$ eine differenzierbare Funktion.
   \begin{itemize}
     \item $f'\geq 0$ $\implies$ $f$ ist wachsend.
@@ -108,12 +118,12 @@
     \item $f'< 0$ $\implies$ $f$ ist fallend, streng monoton.
   \end{itemize}
 \end{Kor}
-\begin{Bew}
+\begin{proof}[Beweis]
   Seien $c<d\in [a,b]$
-  \[\stackrel{\text{Mittel}}{\implies}\exists \xi\in ]c,d[\s\text{mit}\]
-  \[f(d)-f(c)=f'(\xi\underbrace{(d-c)}_{>0}\]
-  $\geq 0$ im ersten Fall, $>0$ im zweiten Fall usw.
-\end{Bew}
+  \[\stackrel{\text{Mittelwertsatz}}{\implies}\exists \xi\in ]c,d[\s\text{mit}\]
+  \[f(d)-f(c)= f'(\xi)\underbrace{(d-c)}_{>0}\]
+  $\geq 0$ im ersten Fall, $>0$ im zweiten Fall, usw.
+\end{proof}
 \begin{Kor}
   Sei $f:]a,b[\to\mb{R}$ differenzierbar. Falls:
   \begin{itemize}
@@ -123,36 +133,50 @@
   dann ist $x_0$ das Maximum von $f$ auf $]a,b[$.
 \end{Kor}
 \begin{Kor}
-  Sei $f]a,b[$ differenzierbar mit $f'=0$. Dann $f=\text{konst}$.
+  Sei $f: ]a,b[\to \mb{R}$ differenzierbar mit $f'\equiv 0$. Dann $f=\text{konst}$.
 \end{Kor}
-\begin{Bsp}
-  $\tan$ ist streng monoton auf $]-\frac{\pi}{2},\frac{\pi}{2}[$.
-  \[\tan'=1\frac{1}{\cos^2}>0\]
-  (nicht streng monoton auf $\mb{R}\setminus\left\{ \frac{\pi}{2}+k\pi:k\in\mb{Z} \right\}$)
+\begin{Bsp}\label{b:tan_in}
+  $\tan$ ist streng monoton auf $]-\frac{\pi}{2},\frac{\pi}{2}[$:
+  \[\tan'=\frac{1}{\cos^2}>0\]
+NB: $\tan$ ist nicht monoton auf 
+$\mb{R}\setminus\left\{ \frac{\pi}{2}+k\pi:k\in\mb{Z} \right\}$,
+weil (z.B.) $-1 = \tan -\frac{\pi}{4} < 1= \tan \frac{\pi}{4}
+> -1 = \tan{3\pi}{4}$. In diesem Fall ist Korollar \ref{k:monot}
+nicht anwendbar, weil $\{\frac{\pi}{2}+k\pi:k\in\mb{Z}\}$ kein Intervall ist.
 \end{Bsp}
-\subsection{Schrankensatz und De L'Hôpitalsche Regel}
-\begin{Sat}{Schrankensatz}
+\subsection{Anwendugen des Mittelwertsatzes: Schrankensatz und De L'Hôpitalsche Regel}
+\begin{Sat}[Schrankensatz]
   Sei $f:[a,b]\to\mb{R}$ stetig (überall) und differenzierbar in $]a,b[$ mit
-  \[\abs{f'(\xi)}\leq M\s\forall \xi\in ]a,b[\]
+  \[\abs{f'(\xi)}\leq M\qquad\forall \xi\in ]a,b[\, .\]
   Dann ist $f$ Lipschitzstetig und
-  \[\abs{f(y)-f(x)}\leq M\abs{x-y}\s\forall x,y\in [a,b]\]
+  \[\abs{f(y)-f(x)}\leq M\abs{x-y}\qquad\forall x,y\in [a,b]\, .\]
 \end{Sat}
-\begin{Bew}
+\begin{proof}[Beweis]
   $\forall y\neq x$ (OBdA: $y>x$)
   \[\exists \xi\in ]x,y[\subset ]a,b[: f(y)-f(x)=f(\xi)(y-x)\]
-  \[\implies \abs{f(y)-f(x)}=\abs{f'(\xi)}\abs{y-x}\leq M\abs{y-x}\]
-\end{Bew}
-\begin{Sat}{Cauchy}
+  \[\implies \abs{f(y)-f(x)}=\abs{f'(\xi)}\abs{y-x}\leq M\abs{y-x}.\]
+\end{proof}
+
+Die bekannte Funktionen die wir schon gesehen haben sind alle
+Differenzierbar mit stetigen Ableitungen. Deswegen, wenn eingeschr\"ankt auf
+einem geschlossenen Intervall, ist die Ableitung beschr\"ankt. Der Schrankensatz
+impliziert dann die Lipschitzstetigkeit.
+
+\begin{Sat}[Cauchy]
   Seien $f,g:[a,b]\to\mb{R}$ überall stetig und differenzierbar in $]a,b[$. Ausserdem $g'(x)\neq 0$ $\forall x\in ]a,b[$. Dann
-  \[\exists \underbrace{\xi}_{\in ]a,b[}:\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}\]
+  \[\exists \underbrace{\xi}_{\in ]a,b[}:\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}\, .\]
 \end{Sat}
-\begin{Bem}
-  Mittelwertsatz: $x_0\in ]a,b[$
-  \[g(b)-g(a)=\overbrace{g'(x_0)}^{\neq 0}\overbrace{(b-a)}^{\neq 0}\]
-  \[g(b)-g(a)\neq 0\]
+\begin{Bem} Der Mittelwertsatz ist ein Fall des Satzes von Cauchy: setzen wir
+$g(x)=x$. Dann $g' (x)=1$ $\forall x$ und deswegen:
+\[
+\frac{f(b)-f(a)}{b-a} = \frac{f(b)-f(a)}{g(b)-g(a)}
+= \frac{f'(\xi)}{g'(\xi)} = \frac{f'(\xi)}{1} = f'(\xi)\, .
+\]
 \end{Bem}
-\begin{Bew}
-  Sei 
+\begin{proof}[Beweis] Wie der Satz von Lagrange auch der 
+Satz von Cauchy kann man auf dem Satz von Rolle herleiten. 
+Wie setzten: 
   \[F(x)=f(x)-\frac{f(b)-f(a)}{g(b)-g(a)}(g(x)-g(a))\]
-  \[F(a)=f(a)=F(b)\implies \exists \xi: F'(\xi)=0\implies f'(\xi)\frac{f(b)-f(a)}{g(b)-g(a)}g'(\xi)\]
-\end{Bew}
+  \[F(a)=f(a)=F(b)\stackrel{Rolle}{\implies} 
+\exists \xi: F'(\xi)=0\implies f'(\xi) = \frac{f(b)-f(a)}{g(b)-g(a)}g'(\xi)\, .\]
+\end{proof}
