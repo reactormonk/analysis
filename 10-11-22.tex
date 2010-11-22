@@ -1,0 +1,122 @@
+\begin{Sat}{De L'Hospitalsche Regel}
+  $f,g:]a,b[\to\mb{R}$ überall differenzierbar und mit $g(x), g'(x)\neq 0$ $\forall x\in ]a,b[$. In jeder dieser Situationen:
+  \begin{enumerate}
+    \item $f(x)\to 0, g(x)\to 0$ für $x\downarrow a$
+    \item $f(x), g(x) \to +\infty$ (bzw. $-\infty$) für $x\downarrow a$
+  \end{enumerate}
+  Falls $\lim_{x\downarrow a}\frac{f'(x)}{g'(x)}$ existiert (oder $\pm \infty$ ist), dann
+  \[\lim_{x\downarrow a}\frac{f(x)}{g(x)}=\lim_{x\downarrow a}\frac{f'(x)}{g'(x)}\]
+  $\abs{x-a}$ klein:
+  \begin{eqnarray*}
+    f(x)&=f'(a)(x-a)+\cdots\\
+    g(x)&=g'(a)(x-a)+\cdots
+  \end{eqnarray*}
+  \[\frac{f(x)}{g(x)}\sim\frac{f'(a)}{g'(a)}\sim\frac{f'(x)}{g'(x)}\]
+\end{Sat}
+\begin{Bew}
+  \begin{enumerate}
+    \item 
+      OBdA $f(a)=0$, $g(a)=0$ $\implies$ $f$ und $g$ sind stetig auf $[a,b[$. Verallgemeinerter Mittelwertsatz:
+      \[\forall x\in ]a,b[\s\exists \xi\in ]a,x[:\]
+      \[\frac{f(x)}{g(x)}=\frac{f(x)-f(a)}{g(x)-g(a)}=\frac{f'(\xi)}{g'(\xi)}\]
+      \[x\to a\implies \xi\to a\]
+      \[\lim_{x\downarrow a} \frac{f(x)}{g(x)}=\lim_{x\downarrow a} \frac{f'(\xi)}{g'(\xi)}\]
+    \item
+      (mit $\frac{f'(\xi)}{g'(\xi)}\in\mb{R}$). Sei $A:=\frac{f'(\xi)}{g'(\xi)}\in\mb{R}$. Wir schätzen $\abs{\frac{f(x)}{g(x)}-A}$ ab für $x$ in der Nähe von $a$.
+      \[\abs{\frac{f(x)}{g(x)}-A}\leq \abs{\frac{f(x)}{g(x)}-\frac{f'(\xi)}{g'(\xi)}}-\abs{\frac{f'(\xi)}{g'(\xi)}-A}\]
+      Sei $x\in ]a,b[$, $y>x$.
+      \[\frac{f(x)}{g(x)}=\frac{f(x)-f(y)}{g(x)-g(y)}\frac{1-\frac{g(y)}{g(x)}}{1-\frac{f(y)}{f(x)}}\]
+      Sei $\varepsilon$ eine gegebene positive Zahl. Wählen wir ein $\delta>0$ so dass
+      \[\abs{\frac{f'(\xi)}{f'(\xi)}-A}<\varepsilon\s\forall \xi\in ]a,a+\delta[\]
+      \[\abs{\frac{f(x)}{g(x)}-A}\leq \underbrace{\abs{\frac{f(x)}{g(x)}-\frac{f(x)-f(a+\delta)}{g(x)-g(a+\delta)}}}_{=B}+\underbrace{\abs{\frac{f(x)-f(a+\delta)}{g(x)-g(a+\delta)}}}_{=C}\]
+      \[C=\abs{\frac{f'(\xi)}{g'(\xi)}-A}<\varepsilon\]
+      \[B=\abs{\frac{f(x)-f(a+\delta)}{g(x)-g(a+\delta}\left( \frac{1-\frac{g(a+\delta)}{g(x)}}{1-\frac{f(a+\delta)}{f(x)}} \right)-\frac{f(x)-f(a+\delta)}{g(x)-f(a+\delta)}}\]
+      \[=\underbrace{\abs{\frac{f(x)-f(a+\delta)}{g(x)-g(a+\delta)}}}_{\leq \abs{A}+\varepsilon}\underbrace{\abs{\frac{1-\frac{g(a+\delta)}{g(x)}}{1-\frac{f(a+\delta)}{f(x)}}-1}}_{\to 0\s\text{für}\s x\downarrow a}\]
+      $\implies$ $\exists \delta*$ so dass für $\abs{x-a}<\delta*$, $B<\varepsilon$. $x-a<\min\left\{ \delta,\delta* \right\}$.
+      \[\abs{\frac{f(x)}{g(x)}-A}<2\varepsilon\]
+  \end{enumerate}
+  Um den Beweis zu beenden, es bleibt zu tun:
+  \begin{itemize}
+    \item $x\downarrow a$:
+      \[\lim_{x\downarrow a}\frac{f'(x)}{g'(x)}=+\infty (-\infty)\]
+    \item $x\uparrow a$ trivial
+  \end{itemize}
+  Für den Fall $x\to +\infty$
+  \[F(y=f\left( \frac{1}{y} \right)\]
+  \[G(y=g\left( \frac{1}{y} \right)\]
+  \[\Limi{x}\frac{f(x)}{g(x)}=\lim_{y\downarrow \underbrace{0}_{=a}}\frac{F(y)}{G(y)}\]
+  \[=\lim_{x\downarrow 0}\frac{F'(y)}{G'(y)}\]
+  \[\frac{F'(y)}{G'(y)}=\frac{f'\left(\frac{1}{y}\right)\left( -\frac{1}{y^2} \right)}{g'\left( \frac{1}{y} \right)\left( -\frac{1}{y^2} \right)}\]
+  \[=\lim_{y\downarrow 0}\frac{F'(y)}{G'(y)}=\lim_{y\downarrow 0}\frac{f'\left( \frac{1}{y} \right)}{g'\left( \frac{1}{y} \right)}=\Limi{x}\frac{f'(x)}{g'(x)}\]
+\end{Bew}
+\begin{Bsp}
+  \[\Limi{x}\frac{e^x}{x}=\Limi{x}\frac{e^x}{1}=+\infty\]
+\end{Bsp}
+\begin{Bsp}
+  \[\Limi{x}\frac{e^x}{x^n}=\Limi{x}\frac{e^x}{nx^{n-1}}=\Limi{x}\frac{e^x}{n(n-1)x^{n-2}}=\cdots=\Limi{x}\frac{e^x}{n!}=+\infty\]
+\end{Bsp}
+\begin{Bsp}
+  \[\Limo{x}\left( \frac{1}{x}-\frac{1}{\sin x} \right)=\Limo{x}\frac{\sin x-x}{x\sin x}=\Limo{x}\frac{\cos x-1}{\sin x + x\cos x}\]
+  \[=\Limo{x}\frac{\overbrace{-\sin x-0}^{\to 1}}{\underbrace{\cos x-x\sin x}_{\to 1}}=0\]
+\end{Bsp}
+\subsection{Differentation einer Potenzreihe}
+\[P(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_0\]
+\[P'(x)=na_nx^{n-1}+(n-1)a_{n-1}x^{n-2}+\cdots+a_1\]
+\[f(x)=\sum^\infty_{n=0}a_nx^n\]
+\[f(x)\stackrel{?}{=}\sum\subset_{n=0}na_nx^{n-1}\]
+\begin{Sat}
+  Sei $\sum\infty_{n=0}a_nx^n=f(x)$ eine Potenzreihe mit Konvergenzradius $R$ ($\geq 0$, auch $R=+\infty$). Falls $\abs{x_0}<R$, dannist $f$ in $x_0$ differenzierbar und
+  \[f'(x_0)=\sum\infty_{n=0}na_nx^{n-1}\]
+  ($R=+\infty$, $f$ ist überall differenzierbar, auf $\mb{R}$!)
+\end{Sat}
+\begin{Bem}
+  \[R=\frac{1}{\Limi{n}\sqrt[n]{a_n}}\]
+  $\sum\infty_{n=1}n a_n x^{n-1}$ konvergiert für $x=0$ und für $x\neq 0$ $\iff$ $\sum^\infty_{n=0} na_nx^n$ konvergiert. Konvergenzradius der zweiten Reihe:
+  \[R'=\frac{1}{\Limi{n}\sqrt[n]{na_n}\to\underbrace{\sqrt[n]{n}}_{\to 1}\sqrt[n]{a_n}}=R\]
+\end{Bem}
+\begin{Lem}
+  Falls $\sum b_nx^n_0$ für $x_0$ konvergiert, dann konvergiert die absolut $\forall \abs{x}<\abs{x_0}$. (d.h. $\sum\abs{a_n}\abs{x}^n<\infty$ $\forall x$ mit $\abs{x}<\abs{x_0}$
+\end{Lem}
+\begin{Bew}
+  $\sum a_nx_0^n$ konvergiert $\implies$ $a_nx_0^n\to 0$ $\exists M:\abs{a_nx_0^n}\leq M$ $\forall n$ $\abs{a_nx_0^n}$ ist beschränkt.
+  \[\sum \abs{a_n}\abs{x}^n\leq\sum\abs{a_n}\abs{x_0}^n\abs{\frac{x}{x_0}^n}\leq\sum M\left( \frac{\abs{x}}{\abs{x_0}} \right)^n\]
+  \[\implies \abs{x}<\abs{x_0}\implies 0\leq \gamma=\frac{\abs{x}}{\abs{x_0}}<1\]
+  \[\implies \sum M\gamma^1<\infty\]
+\end{Bew}
+\begin{Kor}\label{k:1011224}
+  Sei $\sum a_nx^n$ eine Potenzreihe mit Konvergenzradius $R$. Sei $\rho<R$ und 
+  \[\Norm{a_nx^n}_{C^\circ\left( \overline{B_\rho} \right)}=\max_{\abs{x}\leq \rho}\abs{a_n}\abs{x^n}\]
+  \[\implies \sum \Norm{a_nx^n}<\infty\]
+  Sei $f:K\to\mb{R}$, $K$ eine kompakte Menge.
+  \[\Norm{C^\circ(K)}:=\max_{x\in K}\abs{f(x)}\]
+  $f$ stetig
+  \[f(x)=\sum a_nx^n=\sum f_n(x)\]
+  \[f=\sum_{n=0}\infty f_n\]
+\end{Kor}
+\begin{Def}
+  $\sum f_n$ heisst ``normal konvergent auf $K$'' wenn $\sum\Norm{f_n}_{C^\circ(K)}<+\infty$ (d.h. $\sum\max_{K}\abs{f_n}<+\infty$)
+\end{Def}
+\begin{Kor} Neue Formulierung von Korollar \ref{k:1011224}. Sei $\sum a_nx^n=\sum f_n$ eine Potenzreihe mit Konvergenzradius $R$. Dann ist die Reihe normal konvergent auf jedem Kreis $\left( \ol{B_\rho}:=\left\{ x:\abs{x}\leq \rho \right\} \right)$ mit $\rho < R$
+\end{Kor}
+\begin{Bew}
+  $\rho <R$ Sei $x_0$ mit $\abs{x_0}=\frac{\rho+R}{2}$, $\abs{x_0}>\rho$, $\abs{x_0}<R$
+  \[\sum\abs{a_n}\abs{x_0}^n\s\text{konvergiert}\]
+  \[\implies \abs{a_n}\abs{x_0}^n\leq M\]
+  \[\abs{\max{0\leq\abs{x}}\leq \rho}\abs{a_n}\abs{x}^n=\abs{a_n}\rho^n\leq M\left( \frac{\abs{\rho}}{\abs{x_0}} \right)^n\]
+  \[\Norm{f_n}_{C^\circ\left( \ol{B_\rho} \right)}=\max_{0\leq\abs{x}\leq \rho}\abs{a_n}\abs{x^n}\leq M\left( \frac{2\rho}{\rho+R} \right)^n\]
+  Deswegen
+  \[\sum\Norm{f_n}_{C^\circ\left( \ol{B_\rho} \right)}\leq M\sum \underbrace{\left( \frac{2\rho}{\rho+R} \right)^n\left( \frac{2\rho}{\rho+R} \right)^n}_{\gamma}=\sum M\gamma^n<+\infty\]
+  Sei $\sum a_nx^n=\sum f_n$:
+  \begin{enumerate}
+    \item $\forall f_n$ ist differenzierbar
+    \item $\sum f_n'$ ist normal konvergent auf $\ol{B_\rho}$ mit $\rho < R$
+  \end{enumerate}
+\end{Bew}
+\begin{theorem}
+  Sei $f=\sum f_n$ auf $\ol{B_\rho}$ Falls:
+  \begin{enumerate}
+    \item $\sum f_n$ normal konvergent ist
+    \item $\sum f_n'$ normal konvergent ist
+  \end{enumerate}
+  dann ist $f$ überall differenzierbar mit $f'=\sum f_n'$
+\end{theorem}
