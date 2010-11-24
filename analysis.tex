@@ -148,7 +148,7 @@
 \def\thechapter{\Roman{chapter}}
 \def\thesection{\arabic{section}}
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{Bew}[theorem]{Beweis}
+\newenvironment{Bew}{\begin{proof}[Beweis]}{\end{proof}}
 \newtheorem{Axi}[theorem]{Axiom}
 \newtheorem{Lem}[theorem]{Lemma}
 \newtheorem{Kor}[theorem]{Korollar}
@@ -227,6 +227,7 @@ Simon Hafner}\vspace{5mm}\\ %30mm
 \input{10-11-15}
 \input{10-11-17}
 \input{10-11-22}
+\input{10-11-24}
 
 \newpage
 
