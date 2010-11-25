@@ -1,65 +1,82 @@
-\subsection{Differentation einer Potenzreihe}
-\begin{Sat}
-  Sei $f(x)=\sum^\infty_{n=0}a_nx^n$ mit Konvergenz $R$. Dann ist $f$ differenzierbar auf $]-R,R[$ und
-  \[f'(x)=\sum^\infty_{n=1}n a_n x^{n-1}\]
-\end{Sat}
-\begin{Bem}
-  $f_n(x)=a_nx^n$, $\rho < R$. Dann:
-  \[\sum f_n, \sum f_n'\s\text{konvergieren normal auf}\s\overbrace{\left[ \rho, -\rho \right]}^{I:=}\]
-  d.h.
-  \[\sum\Norm{f_n}_{C^\circ(I)}<+\infty\]
-  \[\sum\Norm{f_n'}_{C^\circ(I)}<+\infty\]
-  wobei
-  \[\Norm{f_n'}_{C^\circ(K)}:=\max \abs{f}\]
-\end{Bem}
-\begin{Sat}
-  Falls $\sum f_n$ und $\sum f_n'$ normal konvergieren auf $[a,b]$, dann ist $f=\sum f_n$ auf $I$ und $f'(x)=\sum f_n'(x)$ $\forall x\in I$ differenzierbar (überall!).
-\end{Sat}
+
 \begin{Bew}
-  Sei $x\in I$. Die Ableitung an der Stelle $x$:
-  \[\Limi{h}\abs{\frac{f(x+h)-f(x)}{h}-f'(x)}=0\]
-  d.h.
-  \[\Limi{h}\abs{\sum^\infty_{h=0}\left( \frac{f_n(x+h)-f_n(x)}{h}-f_n'(x) \right)}=0\]
-  \[\sum^\infty_{h=0}\left( \frac{f_n(x+h)-f(x)}{h}-f_n'(x) \right)\]
-  \[\leq \underbrace{\abs{\sum_{n=0}^N\frac{f_n(x+h)-f_n(x)}{h}-f_n(x)}}_{A} + \underbrace{\abs{\sum_{n=N+1}^\infty\frac{f_n(x+h)-f_n(x)}{h}-f_n(x)}}_{B}\]
-  $\forall \varepsilon>0$ wählen wir $N$ und $\bar h$ für $\abs{h} < \bar h$.
-  $A<\frac{\varepsilon}{2}$ und $B<\frac{\varepsilon}{2}$, fertig
-  \[B\leq \sum\infty_{n=N+1}\left\{ \abs{\frac{f_n(x+h)-f_n(x)}{h}}+\abs{f_n'(x)} \right\}\]
-  \[\leq \sum^\infty_{n=N+1}\left\{ \Norm{f_n'}_{C^\circ(I)}+\Norm{f_n'}_{C^\circ(I)} \right\}\]
-  \[\sum^\infty_{n=N+1}2\Norm{f_n'}_{C^\circ(I)}=2\left\{\overbrace{\sum^\infty_{n=0} \Norm{f_n'}_{C^\circ(I)}}^{b} - \overbrace{\sum^N_{n=0}\Norm{f_n'}_{C^\circ(I)}}^{b_n\to b}\right\}\]
-  \[<\frac{\varepsilon}{2}\s\text{für $N$ gross genug}\]
-  \[A=\abs{\sum_{n=0}^N\underbrace{\left( \frac{f_n(x+h)-f_n(x)}{h}-f_n'(x) \right)}_{\rightarrow 0}}\]
-  \[<\frac{\varepsilon}{2}\s\text{für}\s\abs{h}<\bar h\]
+  Sei $x\in I$. Die Differenzierbarkeit an dieser Stelle bedeutet:
+  \[\Limo{h}\left|\frac{f(x+h)-f(x)}{h}-f'(x)\right|=0\, .\]
+Deswegen m\"ussen wir beweisen dass
+  \[\Limo{h}\underbrace{\left|\sum^\infty_{h=0}\left( \frac{f_n(x+h)-f_n(x)}{h}-f_n'(x) \right)
+\right|}=0\, .\]
+F\"ur jede $N\in \mb{N}$ und jede $h$ mit $x+h\in I$ gilt:
+  
+\[D\leq \underbrace{\left|\sum_{n=0}^N\left(\frac{f_n(x+h)-f_n(x)}{h}-f'_n(x)\right)\right|}_{A} + 
+\underbrace{\left|\sum_{n=N+1}^\infty\left(\frac{f_n(x+h)-f_n(x)}{h}-f_n(x)\right)\right|}_{B}\]
+Sei $\varepsilon>0$ gegeben. Wir zeigen dass $\exists N\in \mb{N}$ und 
+$\exists \bar h > 0$ s.d.
+\[
+A<\frac{\varepsilon}{2} \qquad \mbox{und}\qquad  
+B<\frac{\varepsilon}{2} \qquad \forall h \mbox{ mit $|h|< \bar{h}$}.
+\] 
+Zuerst w\"ahlen wir $N$. 
+\[B\leq \sum^\infty_{n=N+1}\left\{ \left|\frac{f_n(x+h)-f_n(x)}{h}\right|+\abs{f_n'(x)} \right\}\]
+\[\stackrel{Schrankensatz}{\leq} 
+\sum^\infty_{n=N+1}\left\{ \Norm{f_n'}_{C^0 (I)}+\Norm{f_n'}_{C^0} \right\}\]
+\[= \sum^\infty_{n=N+1}2\Norm{f_n'}_{C^\circ(I)}=
+2\left\{\overbrace{\sum^\infty_{n=0} \Norm{f_n'}_{C^\circ(I)}}^{b} - 
+\overbrace{\sum^N_{n=0}\Norm{f_n'}_{C^\circ(I)}}^{b_N\to b}\right\}\]
+  \[<\frac{\varepsilon}{2}\s\text{für $N$ gross genug\, .}\]
+Eigentlich, diese Wahl von $N$ garantiert dass $A<\eps/2$ f\"ur {\em jede} $h$.
+
+Nun w\"ahlen wir $\bar{h}$.
+\[A=\left|\sum_{n=0}^N\underbrace{\left( \frac{f_n(x+h)-f_n(x)}{h}-f_n'(x) \right)}_{\rightarrow 0}\right|
+\to 0 \qquad \mbox{f\"ur $h\to 0$}\]
+Deswegen, $\exists \bar{h}>0$ s.d. $A< \eps/2$ wenn $|h|< \bar{h}$.
 \end{Bew}
+\subsection{Ableitungen h\"oherer Ordnung und Taylorreihe}
+
 \begin{Def}
-  Eine Funktion $f$ ist 2 mal differenzierbar wenn an einer Stelle $x\in I$:
+  Eine Funktion $f$ ist 2 mal differenzierbar an einer Stelle $x\in I$ wenn:
   \begin{itemize}
-    \item $f'$ existiert $\forall y\in J$ wobei $x\in J$ ($x\in ]a,b[$ $\leftrightarrow$ Im Innern), ($J=[x,\tilde c[$ $\leftrightarrow$ $I=[x,c[$)
-    \item $f'$ differenzierbar in $x$.
+    \item $f'$ existiert $\forall y\in J$, wobei $x\in ]a,b[$ $\leftrightarrow$ $x \in$ Innern von
+J, $J=[x,\tilde b[$ falls $I=[x,b[$ und $J= ]\tilde a, x]$ falls $I=]a, x]$)
+    \item $f'$ ifferenzierbar in $x$ ist.
   \end{itemize}
-  \[(f')'=:f''(x)\s\text{Ableitung zweiter Ordnung}\]
+  \[(f')' (x)=:f''(x)\qquad s\text{ist die Ableitung zweiter Ordnung}\]
   Induktiv: $f$ $n$-mal differenzierbar in $x$ falls:
   \begin{itemize}
-    \item die ($n-1$) Ableitung von $f$ in einer Umgebung von $x$ existiert
-    \item $f^{(n-1)}$ differenzierbar in $x$, $f^{(n)}(x):=\left( f^{(n-1)} \right)'(x)$
+    \item $f^{(n-1)}$ (d.h. die Ableitung $n-1$-ter Ordnung von $f$) 
+in einer Umgebung von $x$ existiert
+    \item $f^{(n-1)}$ differenzierbar in $x$ ist. 
   \end{itemize}
+\[f^{(n)}(x):=\left( f^{(n-1)} \right)'(x) \qquad \mbox{ist die Ableitung $n$-ter Ordnung}.
+ \]
+Eine Funktion heisst belieb mal differenzierbar auf $I$ falls die Ableitung
+aller Ordnungen auf jeder Stelle existieren.
 \end{Def}
-\begin{Bem}
-  $f(x)=\sum^\infty_{n=0}a_nx^n$ dann ist $f$ $k$-mal differezierbar $\forall k$.
-  \[f(0)=a_0\]
-  \[f'(0)=a_1\]
-  \[f^{(k)}(0)=k!a_k\]
+\begin{Bem}\label{b:Taylor}
+  $f(x)=\sum^\infty_{n=0}a_nx^n$ mit Konvergenzradius $R$.
+Dann ist $f$ beliebig mal differezierbar auf $]-R,R[$. Ausserdem, k\"onnten wir
+$f^{(k)} (x)$ wie folgt bestimmen:
   \[f^{(k)}(x)=\sum^\infty_{n=k}n(n-1)(n-2)\cdots(n-k+1)a_nx^{n-k}\]
+Es folgt dass 
+\[f(0)=a_0\]
+\[f'(0)=a_1\]
+\[f^{(k)}(0)=k!a_k\]
 \end{Bem}
 \begin{Def}
-  Eine Funktion $f$ heisst analytisch an einer Stelle $x_0$, falls auf einem Intervall $]x_0-\rho, x_0+\rho[$ gilt
-  \[f(x)=\sum a_n(x-x_0)^n\]
+  Eine Funktion $f$ heisst analytisch an einer Stelle $x_0$, falls auf einem Intervall 
+$]x_0-\rho, x_0+\rho[$ gilt
+\[f(x)=\sum a_n(x-x_0)^n\]
 \end{Def}
-\begin{Kor}
-  Sei $f$ analytischin $x_0$, dann ist $f$ beliebig differenzierbar und
-  \[f(x)=\sum\infty_{n=0}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n\]
-  Beliebig mal differenzierbar $\not\implies$ analytisch!
+Die Bemerkung \ref{b:Taylor} hat deswegen die folgende Konsequenz:
+\begin{Kor}\label{k:Taylor}
+  Sei $f$ analytisch in $x_0$. Dann $\exists \rho>0$ s.d.:
+\begin{itemize}
+ \item $f$ beliebig mal differenzierbar auf $I=]x-\rho, x+\rho[$ ist
+  \item $f(x)=\sum\infty_{n=0}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n$ $\forall x\in I$.
+\end{itemize}
 \end{Kor}
+
+Aber Vorsicht:  {\em Beliebig mal differenzierbar $\not\implies$ analytisch!}
+
 \begin{Bsp}
   \[x_0=0\]
   \[f(x)=e^x=f'(x)=f''(x)=\cdots\implies f^{(k)}(x)=e^x\]
@@ -75,12 +92,13 @@
   \end{equation}
   \begin{tabular}{l|c|l}
     streng konvex & $<$\\
-    konkav & $\geq$& in \ref{e:kk}\\
-    streng konkav & $=$\\
+    konkav & $\geq$& in \eqref{e:kk}\\
+    streng konkav & $>$\\
   \end{tabular}
 \end{Def}
 \begin{Bem}
-  konvex $\not\implies$ differenzierbar
+Allgemein, die Konvexit|'at impliziert nicht die Differenzierbarkeit.
+Nehmen Sie z.B. $f(x)= |x|$ auf $\mb{R}$. 
 \end{Bem}
 \begin{Sat}\label{s:1011242}
   Sei $f:I\to\mb{R}$ stetig und differenzierbar im Inneren
@@ -93,36 +111,48 @@
   \[f\s\text{streng konvex}\Leftarrow f''> 0\]
 \end{Kor}
 \begin{Bsp}
-  $f(x)=x^4$ $f$ ist stetig konvex $f''(x)=12x^2$ $(f''(0)=0)$
+Sei  $f(x)=x^4$. $f$ ist streng konvex und $f''(x)=12x^2$. Deswegen $f''(0)=0$
 \end{Bsp}
 \begin{Bem}
-  Sei $f$ differenzierbar überall und 2 mal differenzierbar ain einer Stelle $x_0$ mit $f'(x_0)=0$. Falls 
+  Sei $f$ differenzierbar überall und 2 mal differenzierbar ain einer Stelle $x_0$ mit $f'(x_0)=0$. 
+Falls 
   \begin{itemize}
     \item $f''(x_0)>0$ $\implies$ $x_0$ ist ein lokales Minimum
     \item $f''(x_0)<0$ $\implies$ $x_0$ ist ein lokales Maximum
   \end{itemize}
-\end{Bem}
-\begin{Bsp}
-  $f'(x_0)=0$, $f''(x_0)>0$. $\exists \varepsilon$ so dass
+Nehmen z.B. dass $f'(x_0)=0$, $f''(x_0)>0$. Dann $\exists \varepsilon$ so dass
   \[f'(x)>0\s\forall x\in ]x_0-\varepsilon,x_0[\]
+und
   \[f'(x)<0\s\forall x\in ]x_0,x_0+\varepsilon[\]
-  \[\Lim{x}{x_0}\frac{f'(x)-f'(x_0)}{x-x_0}=f''(x_0)\implies\Lim{x}{x_0}=f''(x_0)>0\]
-  \[\implies\exists\varepsilon:\frac{f(x)-\overbrace{f(x_0)}^{=0}}{x-x_0}>0\s\forall x\in]x_0-\varepsilon,x_0+\varepsilon[\setminus\left\{ x_0 \right\}\]
-  \[\implies'(x)>0\s\forall x\in ]x_0,x_0+\varepsilon[\]
-  \[\implies'(x)<0\s\forall x\in ]x_0-\varepsilon,x_0[\]
-\end{Bsp}
+In der Tat,
+  \[\lim_{x\to x_0}\frac{f'(x)-f'(x_0)}{x-x_0}=f''(x_0)\implies\lim_{x\to x_0}
+\frac{f`(x)}{x-x_0} =f''(x_0)>0\]
+  \[\implies\exists\varepsilon:\frac{f'(x)}{x-x_0}>0\s\forall x
+\in]x_0-\varepsilon,x_0+\varepsilon[\setminus\left\{ x_0 \right\}\]
+  \[\implies f'(x)>0\s\forall x\in ]x_0,x_0+\varepsilon[\]
+  \[\implies f'(x)<0\s\forall x\in ]x_0-\varepsilon,x_0[ .\]
+\end{Bem}
 \begin{Lem}
-  \[\ref{e:kk}\iff f(\lambda x_1+(1-\lambda)x_2)\leq\lambda f(x_1)+(1-\lambda)f(x_2)\s\forall x_1 < x_2\s\forall \lambda\in ]0,1[\]
+  \[\eqref{e:kk}\iff f(\lambda x_1+(1-\lambda)x_2)\leq\lambda f(x_1)+(1-\lambda)f(x_2)\s\forall x_1 < x_2\s\forall \lambda\in ]0,1[\]
 \end{Lem}
 \begin{Bew}
   $x_1<x_2$
-  \[f(x)=\frac{x_2-x}{x_2-x_1}f(x_1)+\frac{x-x_1}{x_2-x_1}f(x_2)\s\forall x\in ]x_1,x_2[\]
-  Wir setzen $\lambda\frac{x_2-x}{x_2-x_1}$
+\begin{equation}\label{e:X3}
+f(x)=\frac{x_2-x}{x_2-x_1}f(x_1)+\frac{x-x_1}{x_2-x_1}f(x_2)\s
+\forall x\in ]x_1,x_2[
+\end{equation}
+Wir setzen $\lambda = \frac{x_2-x}{x_2-x_1}$
   \[\forall x\in ]x_1,x_2[\implies \lambda=\frac{x_2-x}{x_2-x_1}\in ]0,1[\]
   \[\forall \lambda\in ]0,1[\implies x=\lambda x_1+(1-\lambda)x_2\in ]x_1,x_2[\]
   \[\lambda=\frac{x_2-x}{x_2-x_1}\iff \lambda(x_2-x_1)=x_2-x\iff x=\lambda x_1+(1-\lambda)x_2\]
+Wir schliessen dass die Abbildung
   \[ ]0,1[\ni\lambda\mapsto \lambda x_1+(1-\lambda x_2)\in  ]x_1,x_2[\]
-  \[\lambda=\frac{x_2-x}{x_2-x_1}\iff 1-\lambda=1-\frac{x_2-x}{x_2-x_1}=\frac{\not x_2-x_1-\not x_2+x}{x_2-x_1}=\frac{x-x_1}{x_2-x_1}\]
+bijektiv ist. Deswegen wir k\"onnen $\lambda$ statt $x$ in der Identit\"at \eqref{e:X3}
+nutzen.
+Aber 
+\[\lambda=\frac{x_2-x}{x_2-x_1}\iff 1-\lambda=1-\frac{x_2-x}{x_2-x_1}
+=\frac{\not x_2-x_1-\not x_2+x}{x_2-x_1}=\frac{x-x_1}{x_2-x_1}\]
+Deswegen ist \eqref{e:X3} equivalent zu
   \[f(\lambda x_1+(1-\lambda)x_2)\leq \lambda f(x_1)+(1-\lambda)f(x_2)\]
 \end{Bew}
 \begin{Lem}
@@ -131,8 +161,8 @@
 \end{Lem}
 \begin{Bew}
   \[\frac{f(x)-f(x_1)}{x-x_1}\leq \frac{f(x_2)-f(x)}{x_2-x}\]
-  \[f(x)\left( \frac{1}{x-x_1}+\frac{1}{x_2-x} \right)\leq \frac{f(x_1)}{x-x_1}+\frac{f(x_2)}{x_2-x}\]
-  \[f(x)\frac{x_2-x+x-x_1}{(x-x_1)(x_2-x)}\left( \frac{(x_2-x)(x-x_1)}{x_2-x_1} \right)\]
-  \[\leq f(x_1)\frac{x_2-x}{x_2-x_1}+f(x_2)\frac{x-x_1}{x_2-x_1}\]
-  \[f(x)\leq f(x_1)\frac{x_2-x}{x_2-x_1}+f(x_2)\frac{x-x_1}{x_2-x_1}\]
+  \[\iff f(x)\left( \frac{1}{x-x_1}+\frac{1}{x_2-x} \right)\leq \frac{f(x_1)}{x-x_1}+\frac{f(x_2)}{x_2-x}\]
+  \[\iff f(x)\frac{x_2-x+x-x_1}{(x-x_1)(x_2-x)}\left( \frac{(x_2-x)(x-x_1)}{x_2-x_1} \right)\]
+  \[ \leq f(x_1)\frac{x_2-x}{x_2-x_1}+f(x_2)\frac{x-x_1}{x_2-x_1}\]
+  \[\iff f(x)\leq f(x_1)\frac{x_2-x}{x_2-x_1}+f(x_2)\frac{x-x_1}{x_2-x_1}\]
 \end{Bew}
