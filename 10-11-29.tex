@@ -1,0 +1,105 @@
+\begin{Sat}\label{s:1011291}
+  Sei $f:[a,b]\to\mb{R}$ eine stetige Funktion in $]a,b[$ differenzierbar. $f$ ist genau dann konvex, wenn $f'$ monoton wächst (ausserdem $f$ streng konvex $\iff$ $f'$ streng wachsend)
+\end{Sat}
+\begin{Kor}
+  $f:[a,b]\to\mb{R}$ stetig, 2 mal differenzierbar in $]a,b[$.
+  \begin{itemize}
+    \item Konvexität $\iff$ $f''≥0$
+    \item streng konvex $\iff$ $f''>0$
+  \end{itemize}
+\end{Kor}
+\begin{Lem}\label{l:1011293}
+  $f:I\to\mb{R}$ ist genau dann konvex, wenn $\forall x_1<x<x_2\in I$ die Folgende Ungleichung gilt:
+  \[\frac{f(x)-f(x_1)}{x-x_1}≤\frac{f(x_2)-f(x)}{x_2-x}\]
+\end{Lem}
+\begin{Bew} von Satz \ref{s:1011291}
+  Konvexität $\implies$ $f'$ ist wachsend.
+  \[f'(x)=\lim_{h\downarrow 0}\frac{f(x+h)-f(x)}{(x+h)-x}\]
+  \[f'(y)=\lim_{h\downarrow 0}\frac{f(y+h)-f(y)}{(y+h)-y}\]
+  $h$ klein $\implies$ $x<x+h<y<y+h$
+  Lemma \ref{l:1011293}:
+  % TODO relativ lange Formel.
+  Konvexität $\Leftarrow$ $f'$ wachsend. Sei $x_1<x<x_2$: Der Satz von Lagrange $\implies$ $\exists \xi_1\in]x_1,x[$ mit
+  \[\frac{f(x)-f(x_1)}{x-x_1}=f'(\xi_1)\]
+  $\exists \xi_2\in]x_1,x[$ mit
+  \[\frac{f(x_2)-f(x)}{x_2-x}=f'(\xi_2)\]
+  NB: $\xi_2>\xi_1$. Weil $(f(\xi_2)≥f(\xi_1))$, gilt das Lemma \ref{l:1011293} und Lemma $\implies$ Konvexität.
+\end{Bew}
+\subsection{Die Lagrange Fehlerabschätzung}
+\begin{Def}
+  Sei $f$ $n$-mal differenzierbar. Das Taylorpolynom mit Ordnung $n$ an der Stelle $x_0$ ist:
+  \[T_{x_0}=\sum^n_{T=0}\frac{f^{(i)}(x_0)}{i!}(x-x_0)^i\]
+\end{Def}
+\begin{Sat}
+  Sei $f$ $(n+1)$-mal differenzierbar in $I$. Sei $x_0\in$: $\forall x\in I$ $\exists\xi$ zwischen $x_0$ und $x$:
+  \begin{equation}\label{e:1011292}
+    \underbrace{f(x)-T^n_{x_0}(x)}_{R_n(x)}=\frac{f^{(n+1)}(\xi)}{n+1!}(x-x_0)^{(n+1)}
+  \end{equation}
+\end{Sat}
+\begin{Bem}
+  Für $n=0$ \ref{e:1011292} ist:
+  \[f(x)-\underbrace{f(x_0)}_{T^0_{x_0}(x)}=f'(\xi)(x-x_0)\]
+  \[\iff\frac{f(x)-f(x_0)}{x-x_0}=f'(\xi)\]
+\end{Bem}
+\begin{Bew}
+  \[\frac{g(x)}{h(x)}\frac{R_n(x)}{(x-x_0)^{n+1}}=\frac{h(x)-h(x_0)}{g(x)-g(x_0)}\]
+  \[\stackrel{\text{Mittelwertsatz}}{=}\frac{h'(\xi_1)}{g'(\xi_1)}=\frac{h'(\xi_1)-h'(x_0)}{g'(\xi_1)-g'(x_0)}=\frac{h''(\xi_2)}{g''(\xi_2)}\]
+  \[=\cdots=\frac{h^{(n+1)}(\xi_{n+1}}{g^{(n+1)}(\xi_{n+1})}=\frac{f^{(n+1)}(\xi)}{(n+1)!}\s \xi:=\xi_{n+1}\]
+  \[h(x)=R_n(x)=f(x)-T^n_{x_0}(x)\]
+  \[g(x)=(x-x_0)^{n+1}\]
+  \[g^{(n+1)}(x)=(n+1)!\]
+  \[h^{(n+1)}(\xi)=f^{(n+1)}(\xi)-0=f^{(n+1)}(\xi)\]
+\end{Bew}
+\begin{Bsp}
+  \[e^x=\sum^\infty_{j=0}\frac{x^j}{j!}\s\forall x\in\mb{R}\]
+  \[T_0^n(x)=\sum^\infty_{j=0}\frac{x^j}{j!}\s\forall x\in\mb{R}\]
+  $x\in\mb{R}$ fixiert.
+  \[\abs{\overbrace{e^x-\sum_{j=0}^{n}\frac{x^0}{j!}}^{R_{n+1}(x)}}=\abs{\frac{e^{\xi_n}x^{n+1}}{(n+1)!}}\]
+  \[\abs{\xi_n}≤\abs{x}\]
+  \[\abs{e^x-\sum_{j=0}^{n}\frac{x^0}{j!}}≤e^{\abs{x}}\frac{\abs{x}^{n+1}}{(n+1)!}\]
+  \[\Limi{x}\cdots=0\]
+  weil
+  \[\Limi{n}\frac{\abs{x}^{n+1}}{(n+1)!}=0\]
+  $\exists N: N≥ 2\abs{x}$
+  \[\frac{\abs{x}^{n+1}}{(n+1)!}≤\frac{\abs{x}^N}{N!}\frac{\abs{x}}{(n+1)}\frac{\abs{x}}{n}\cdots\frac{\abs{x}}{N+1}≤\frac{\abs{x}^N}{N!}\left( \frac{1}{2} \right)^{n+1-N}\to N\]
+\end{Bsp}
+\begin{Bsp}
+  \[f(x)=\ln(x+1)\]
+  (Bem: die Taylorreihe in 0 von $f$ ist die Taylorreihe von $\ln x$ an der Stelle 1
+  \[T^n_0(x)=\sum^n_{j=0}\frac{f^{(j)}(0)}{j!}x^j=\sum^n_{j=0}\frac{(-1)^{j-1}}{j}x^j=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots\]
+  \[\ln(x+1)=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots ? \]
+  \[\abs{\overbrace{\ln(x+1)-T_0^n(x)}^{R_{n+1}(x)}}=\frac{\abs{f^{(n+1)}(\xi_n)}}{(n+1)!}\abs{x}^{n+1}=\frac{\frac{n!}{\left( 1+\xi \right)^{n+1}}}{(n+1)!}\abs{x}^{n+1}\]
+  $\xi_n$ zwischen 0 und $x$. $\xi_n> -1$
+  % TODO unsichere Reihenfolge
+  \[≤\frac{1}{(n+1)}\frac{\abs{x}^{n+1}}{(1-\abs{x})^{n+1}}\]
+  falls $\abs{x}≤\frac{1}{2}$ $\implies \frac{\abs{x}}{1-\abs{x}}≤1$
+  \[≤\frac{1}{n+1}\]
+  \[\implies \Limi{x}\abs{f(x)-T_0^n(x)}=0\]
+  Folgerung: $\forall x\in ]-\frac{1}{2}, \frac{1}{2}[$
+  \[f(x)=\sum^\infty_{j=1}(-1)^{j-1}\frac{x^j}{j}=x-\frac{x^2}{2}+\frac{x^3}{3}+\cdots\]
+\end{Bsp}
+\begin{Bem}
+  Die Reihe $\sum_{j=1}^\infty\frac{x^j}{j}(-1)^j$ hat Konvergenzradius $R=1$ und konvergent für $x=1$, divergent für $x=-1$
+\end{Bem}
+\begin{Ueb}
+  Mit der Lagrange-Fehlerabschätzung beweisen dass
+  \[\ln(x+1)=\sum^\infty_{j=1}(-1)^{j-1}\frac{x^j}{j}\s\forall x\in]0,1]\]
+\end{Ueb}
+\begin{Ueb}
+  Die Reihendarstellung gilt auf $]-1,1]$.
+\end{Ueb}
+\section{Integralrechnung}
+$f$ stetig
+\[G=\left\{ (x,y): x_0≤x≤x_1; 0≤y≤f(x) \right\}\]
+Inhalt ovn $G$?
+\[G=\int^{x_1}_{x_0}f(x)\md x\]
+\subsection{Treppenfunktion}
+\begin{Def}
+  Eine $\phi:[a,b]\to\mb{R}$ heisst Treppenfunktion wenn $\exists a=x_0<x_1<\cdots<x_n=b$ so dass $\phi$ in jedem Intervall $]x_{k-1},x_k[$ konstant ist.
+\end{Def}
+\begin{Def}
+  \[\int^b_af(x)\md x:=\sum^n_k=1(x_k-x_{k-1})c_k\]
+\end{Def}
+\begin{Bem}
+  Diese Zahl $(\int^b_af(x)\md x)$ ist unabhängig von der Verteilung.
+\end{Bem}
