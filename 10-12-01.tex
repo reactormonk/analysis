@@ -1,0 +1,142 @@
+\begin{Lem}
+  Für Treppenfunktionen $\phi, \psi$ und Zahlen $\alpha, \beta\in\mb{R}$ gilt:
+  \begin{enumerate}
+    \item
+      \[\int^b_a(\alpha\phi, \beta\psi)\md x=\alpha\int_a^b\psi\md x+\beta\int^b_a\psi\md x\]
+    \item
+      \[\abs{\int_a^b\psi\md x}\leq \int_a^b\abs{\psi}\md x\leq (b-a)\max \phi(x)\s x\in[a,b]\]
+    \item Falls $\phi\leq\psi$ (d.h. $\phi(x)\leq \psi(x)\forall x\in [a,b]$), dann
+      \[\int_a^b\phi\md x\leq\int_a^b\psi\md x\]
+  \end{enumerate}
+\end{Lem}
+\begin{Bew}
+  \begin{enumerate}
+    \item $\exists 0\leq x_0<x_1<\cdots<x_n=b$ so dass $\phi|_{]x_k, x_{k+1}}\equiv$konst, \item $\exists 0\leq y_0<y_1<\cdots<y_n=b$ so dass $\phi|_{]y_k, y_{k+1}}\equiv$konst
+      \[\left\{ x_0,\cdots,x_n,y_0,\cdots y_m \right\}=\left\{ z_0<z_1<\cdots<z_N \right\}\]
+      Dann: $\forall k:$
+      \[\phi|_{]z_{k-1},z_k[}\equiv c_k\in\mb{R}\s k\geq 1\]
+      \[\psi|_{]z_{k-1},z_k[}\equiv d_k\in\mb{R}\s\]
+      F: $\alpha\phi+\beta\psi$
+      \[F|_{]z_{k-1},z_n[}=\alpha c_k\beta d_k\]
+      \[\int_a^b\phi=\sum_{k=1}^N(z_k-z_{k-1})c_k\]
+      \[\int_a^b\psi=\sum_{k=1}^N(z_k-z_{k-1})d_k\]
+      \[\int_a^bF=\sum^N_{k=1}(z_k-z_{k-1})(\alpha c_k+\beta d_k)\]
+      \[=\alpha\sum_{k=1}^N(z_k-z_{k-1})c_k+\beta\sum_{k=1}^N(z_k-z_{k-1})c_k\]
+      \[=\alpha\int_a^b\phi+\beta\int_a^b\psi\]
+    \item
+      Seien $a=x_0<x_1<\cdots<x_n=b$ mit
+      \[\phi|_{]x_{k-1},x_k}=c_k\in\mb{R}\]
+      \[\abs{\phi}|_{]x_{k-1},x_k}=\abs{c_k}\in\mb{R}\]
+      \begin{equation}\label{e:101201A}
+        \abs{\int_a^b\phi}=\abs{\sum^n_{k=1}(x_k-x_{k-1})c_n}
+      \end{equation}
+      \begin{equation}\label{e:101201B}
+        \int_a^b\abs{\phi}=\sum^n_{k=1}(x_k-x_{k-1})\abs{c_n}=\sum^n_{k=1}\abs{(x_k-x_{k-1})c_k}
+      \end{equation}
+      $\ref{e:101201A}\leq\ref{e:101201B}$ wegen Dreiecksungleichung
+    \item
+      Die beiden oberen Prinzipien $\implies$ Beweis
+  \end{enumerate}
+\end{Bew}
+\subsection{Regelfunktion}
+\begin{Def}\label{d:1012011}
+  Eine Abbildung $f:[a,b]\to\mb{R}$ heisst Regelfunktion falls $\exists f_x:[a,b]\to\mb{R}$ (Folge von Funktionen), so dass:
+  \begin{itemize}
+    \item Jede $f_n$ eine Treppenfunktion ist
+    \item
+      \[\Limi{k}\underbrace{\left( \sup_{x\in[a,b]}\abs{f_k-f} \right)}_{:=\Norm{f_k-f}}=0\]
+  \end{itemize}
+\end{Def}
+\begin{Sat}
+  Sei $f$ eine Regelfunktion. Seien $\left\{ f_n \right\}$ und $\left\{ g_n \right\}$ zwei Folgen von Treppenfunktionen, welche die zweite Bedinung in \ref{d:1012011} erfüllen. Dann:
+  \[\Limi{k}\int_a^bf_k=\Limi{k}\int_a^bg_k\s(\in\mb{R})\]
+\end{Sat}
+\begin{Def}
+  Sei $f$ eine Regelfunktion und $\left\{ f_k \right\}$ eine Folge $f_k:[a,b]\to\mb{R}$. Dann
+  \[\int_a^nf(x)\md x=\Limi{k}\int_a^bf_k(x)\md x\]
+\end{Def}
+\begin{Bem}
+  \[ \begin{cases}
+    \int_a^bf\geq 0& f\geq 0\\
+    \int_a^bf\leq 0& f\leq 0
+  \end{cases}\]
+\end{Bem}
+\begin{Bew}
+  $\forall \varepsilon, \exists N$ so dass:
+  \[\abs{\int_a^bf_k-\int_a^bf_i}=\abs{\int_a^b(f_k-f_i)}\leq\]
+  \[\sup_{x\in[a,b]}\abs{f_k-f_i}(x)\leq \sup_{x\in[a,b]}\left\{ \abs{f_n-f}(x)+\abs{f-f_i}(x) \right\}\]
+  \[\leq \sup_{x\in[a,b]}\abs{f_k-f}(x)+\sup_{x\in[a,b]}\abs{f-f_i}(x)\]
+  \[=\Norm{f_k-f}+\Norm{f-f_i}<2\varepsilon\s\text{wenn}\s k,j\geq N\]
+  $\implies (a_k)=\left( \int_a^bf_k \right)$ ist eine Cauchyfolge (d.h. $\forall \varepsilon\exists N$ mit $\abs{a_j-a_k}<2\varepsilon$ $\forall k,j\geq N$) $\implies$ $\exists \Limi{k}\int_a^bf_k\in\mb{R}$
+  \[\Norm{f+g}\leq \Norm{f}+\Norm{g}\]
+  \[\abs{\sup_xf(x)+g(x)}\leq \sup_x\abs{f(x)}+\abs{g(x)}\leq\sup_x\abs{f(x)}+\sup_x\abs{g(x)}\]
+  \[\abs{\Limi{k}\int_a^bf_k-\Limi{k}\int_a^bg_k}\]
+  \[=\abs{\Limi{k}\left( \int_a^bf_k-\int_a^bg_k \right)}\]
+  \[=\Limi{k}\int_a^b(f_k-g_k)\]
+  \[\leq \Limi{k}\abs{\int_a^b(f_k-g_k)}\]
+  \[\leq\Limi{k}\Norm{f_n-g_k}\]
+  \[\leq\Limi{k}\left\{ \underbrace{\Norm{f_k-f}}_{\to 0}+\underbrace{\Norm{g_k-f}}_{\to 0} \right\}=0\]
+  \[\implies \Limi{k}\int_a^bf_k=\Limi{k}\int_a^bg_k\]
+\end{Bew}
+\begin{Sat}
+  Eine stetige Funktion $f:[a,b]\to\mb{R}$ ist eine Regelfunktion.
+\end{Sat}
+\begin{Bew}
+  Sei $k\in\mb{N}\setminus\left\{ 0 \right\}$, $f$ stetig, $[a,b]$ kompakt. $f$ ist gleichmässig stetig. $\varepsilon=\frac{1}{k}$ in der Definition der gleichmässigen Stetigkeit.
+  \[\implies\exists\delta>0\s\abs{x-y}<\delta\implies\abs{f(x)-f(y)}<\frac{1}{k}\]
+  Sei $a=x_0$, $a+\delta=x_1$, $a+2\delta=x_2$, \ldots, $a+N\delta=x_n<b$, $a+(N+1)\delta\geq b$, $N=\max\left\{ k,a+k\delta<b \right\}$ $\forall j\in\left\{ 1,\cdots,N+1 \right\}$. Sei $y_j=\frac{x_{j-1}+x_j}{2}$ (der Mittelpunkt von $I=[x_{j-1},x_j]$).
+  \[ f_k(x)= \begin{cases}
+    f_k(x)=f(y_j)& x\in [x_{j-1},x_j[\\
+    f_k(x)=f(y_{N+1})&x=b
+  \end{cases}\]
+  \[\Norm{f-f_k}=\sup_{x\in I}\abs{f_k(x)-f(x)}<\frac{1}{k}\]
+  $x\in [x_{j-1},x_j[$ oder $x\in [x_N,x_{N+1}]$, $\abs{x-y_j}\leq \frac{\delta}{2}$ oder $\abs{x-y_{N+1}}\leq \frac{\delta}{2}$.
+  \[\implies\]
+  \[\abs{f(x)-f_k(x)}=\abs{f(x)-f(y_j)}<\frac{1}{k}\]
+  \[\text{oder}\s\abs{f(x)-f_k(x)}=\abs{f(x)-f(y_{N+1})}<\frac{1}{k}\]
+  $\forall k$ ist $f_k$ eine Treppenfunktion $\Norm{f_k-f}\to 0$ für $k\to+\infty$
+\end{Bew}
+\begin{Bem}
+  \[\int_a^bf_k=\sum_{j=1}^{N+1}(x_j-x_{j-1})f(y_i)\]
+\end{Bem}
+\begin{Kor}
+  Eine ``stückweise stetige'' Funktion auf $[a,b]$ ist auch eine Regelfunktion. D.h. $\exists a=x_0<x_1<\cdots<x_n=b$ mit
+  \begin{itemize}
+    \item $f$ ist stetig überall auf $]x_{j-1}, x_j[$
+    \item $\forall j\geq 1, j\leq n$, $\forall j\in \left\{ 0,\cdots,n \right\}$
+      \[\lim_{x\downarrow x_j}f(x)\in\mb{R}\]
+      \[\lim_{x\uparrow x_j}f(x)\in\mb{R}\]
+  \end{itemize}
+\end{Kor}
+\begin{theorem}
+  Seien $f,g:[a,b]\to\mb{R}$ Regelfunktionen und $\alpha,\beta\in\mb{R}$
+  \begin{enumerate}
+    \item[Linearität]
+      \[\int_a^b(\alpha + \beta g)=\alpha\int_a^bf+\beta\int_a^bg\]
+    \item[Abschätzung]
+      \[\abs{\int_a^bf}\leq\abs{b-a}\Norm{f}\]
+    \item[Monotonie]
+      \[\int_a^bf\leq\int_a^bg\s\text{falls}\s f\leq g\]
+    \item
+      \[\int_a^bf=\int_a^cf+\int_c^bf\s\forall x\in ]a,b[\]
+    \item[Mittelwertsatz]
+      falls $f$ stetig $\implies$ $\exists\xi ]a,b[$ so dass
+      \[\int_a^bf=f(\xi)(b-a)\]
+  \end{enumerate}
+\end{theorem}
+\begin{Bew}
+  \begin{enumerate}
+    \item $f_k, g_k$ Treppenfunktion mit $\Norm{f_k} \to 0$, $\Norm{g-g_k}\to 0$. $\alpha f_k+\beta g_k$ ist auch eine Treppenfunktion.
+      \[\Norm{(\alpha f+\beta g)-(\alpha f_k-\beta g_k)}\leq\abs{\alpha}\Norm{f-f_k}+\abs{\beta}\Norm{g-g_k}\to 0\]
+      \[\int_a^b(\alpha f+\beta g)=\Limi{k}\int_a^b(\alpha f_k+\beta g_k)=\Limi{k}(\alpha \int_a^bf_k+\beta\int_a^b g_k)\]
+      \[=\Limi{k}\alpha\int_a^b f_k+\Limi{k}\beta\int_a^b g_n=\alpha\Limi{k}\int_a^b f_k+\beta\Limi{k}\int_a^bg_k\]
+      \[=\alpha\int_a^b f+\beta^a_b g\]
+    \item sehe oben
+    \item sehe oben
+    \item $\tilde{f_k}=f_k+\Norm{f-f_k}$ $\implies$ $\tilde{f_k}\geq f$, $\tilde{g_k}=g_k+\Norm{g-g_k}$, $\implies$ $g\geq\tilde{g_k}$ $\implies$ $\tilde{f_k}\geq f \geq g \geq \tilde{g_k}$
+    \[\int_a^bf=\Limi{k}\int_a^b\tilde{f_k}\geq\Limi{k}\int_a^b\tilde{g_k}=\int_a^bg\]
+     \item
+       \[(b-a)\min f\leq \underbrace{\int_a^b f}_{(b-a)}\leq(b-a)\max f\]
+       Zwischenwertsatz $\implies$ $\exists\xi\in ]a,b[$ mit $f(\xi)=\frac{\int_a^bf}{b-a}$
+  \end{enumerate}
+\end{Bew}
