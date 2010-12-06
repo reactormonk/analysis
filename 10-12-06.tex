@@ -1,0 +1,131 @@
+\subsection{Der Hauptsatz der Differential- und Integralrechnung}
+\begin{Sat}Das Integral ist eine Art ``Umkehrung'' der Ableitung.
+  Sei $f:I\to\mb{R}$ (stetig). Sei $a\in I$, $\forall x>a$. Sei $F(x)=\int_a^xf(y)\md y$.
+\end{Sat}
+\begin{theorem}
+  $F$ ist differenzierbar und $F'(x)=f(x)$ (d.h. $F$ ist \ul{eine} Stammfunktion von $f$)
+\end{theorem}
+\begin{Bem}
+  $F$ Stammfunktion von $f$ $\implies$ $F+c_0$ ist auch eine Stammfunktion von $f$.
+\end{Bem}
+\begin{Bew}
+  \[\Limo{h}\frac{F(x+h)-F(x)}{h}\]
+  Falls $h>0$
+  \[\frac{F(x+h)-F(x)}{h}=\frac{1}{h}\left( \int_a^{x+h}f(y)\md y-\int_a^xf(y)\md y \right)\]
+  \[=\frac{1}{h}\int_x^{x+h}f(y)\md y\]
+  \[\lim_{h\downarrow 0\abs{}\frac{F(x+h)-F(x)}{h}-f(x)}=\lim_{h\downarrow 0}\frac{1}{h}\abs{\int_x^{x+h}(f(y)-\overbrace{f(x)}^{+\frac{1}{h}\int_x^{x+h}f(x)\md y=\frac{f(x)h}{h}=f(x)})\md y}\]
+  \[\leq\lim_{h\downarrow 0}\frac{1}{h}\int_x^{x+h}\abs{f(y)-f(x)}\md y\]
+  Sei $\varepsilon>0$: $\exists \delta>0$ so dass $\abs{y-x}<\delta\implies\abs{f(y)-f(x)}<\varepsilon$. Für $h<\delta$:
+  \[\frac{1}{h}\int_x^{x+h}\abs{f(y)-f(x)}\md y\leq \frac{1}{h}\int_x^{X+h}\varepsilon\md y=\frac{\varepsilon\not h}{\not h}\]
+  \[\implies \lim_{h\downarrow 0}\frac{1}{h}\int_x^{x+h}\abs{f(y)-f(x)}\md y=0\]
+  $h<0$, $h=-k$ ($k>0$)
+  \[\frac{1}{h}(F(x+h)-F(x))=\frac{1}{-k}(F(x-k)-F(x))=\frac{F(x)-F(x-k)}{k}\]
+  \[=\frac{1}{k}\left\{ \int_a^xf(y)\md y-\int_a^{x-k}f(y)\md y \right\}=\frac{1}{k}\int_{x-k}^xf(y)\md y\]
+  Gleiche Idee wie oben
+  \[\implies \lim_{k\downarrow 0}\frac{1}{k}\int_{x-k}^xf(y)\md y=f(x)\]
+\end{Bew}
+\begin{Bem}
+  Sei $f$ eine Funktion $f:[a,b]\to\mb{R}$. Seien $F,G:[a,b]\mb{R}$ zwei Stammfunktionen von $f$.
+  \[(F-G)'=F'-G'=f-f=0\]
+  \[\implies F-G=\text{konstant}\]
+\end{Bem}
+\begin{Kor}
+  Sei $f:[a,b]\to\mb{R}$ eine stetige Funktion. Se $G:[a,b]\to\mb{R}$ eine Stammfunktion. Dann:
+  \[\int_a^bf(x)\md x=G(b)-G(a)\left( =:G|_a^b \right)\]
+\end{Kor}
+\begin{Bew}
+  $F(x)=\int_a^xf(y)\md y$, $x>a$
+  \[F'(x)=f(x)\s\forall x>a\]
+  \[\lim_{x\downarrow a}F(x)=0 \abs{\int_a^xf(y)\md y}\leq \int_a^x\abs{f(y)}\md y\leq M(x-a)\]
+  Deswegen $F(a):=0$. ( $\int_a^af(x)\md x:= 0$ und $\int_a^xf(y)\md y=-\int_x^af(y)\md y$ )
+\end{Bew}
+\paragraph{Zusammenfassung}
+\begin{itemize}
+  \item $F-G$ ist stetig auf $[a,b]$
+  \item $F-G$ ist differenzierbar auf $]a,b[$
+  \item $(F-G)'=f-f=0$
+\end{itemize}
+\[\implies F(x)=G(x)+c\]
+\[\int_a^bf(y)\md y=F(b)-F(a)=(F(b)-c)-(F(a)-c)=G(b)-G(a)\]
+\begin{Bsp}
+  $f(x)=x^2$
+  Inhalt von $A$ = $2-\underbrace{\text{Inhalt von }B}_{ \abs{ B } }$
+  \[f(x)=x^2\]
+  \[G(x)=\frac{x^3}{3}\]
+  \[G'(x)=x^2=f(x)\]
+  \[\abs{B}=\int_{-1}^1f(x)\md x=\frac{x^3}{3}|_{-1}^1=\frac{1}{3}-\left( -\frac{1}{3} \right)=\frac{2}{3}\]
+\end{Bsp}
+\begin{Bsp}
+  $f(x)=\sqrt{1-x^2}$
+  \[A=\int_0^1\sqrt{1-x^2}\md x\]
+  \[\arcsin'(x)=\frac{1}{\sqrt{1-x^2}}\]
+\end{Bsp}
+\subsection{Integrationsmethoden}
+\begin{itemize}
+  \item Partielle Integration
+  \item Substitutionsregel
+\end{itemize}
+\begin{Sat}
+  Seien $f,g:[a,b]\to\mb{R}$ stetig und $F,G$ entsprechende Stammfunktionen.
+  \begin{equation}\label{e:1012061}
+    \int_a^bF(x)g(x)\md x=FG|_a^b-\int_a^bf(x)G(x)\md x
+  \end{equation}
+\end{Sat}
+\begin{Bew}
+  \begin{equation}\label{e:1012062}
+    \ref{e:1012061}\iff\int_a^b(\underbrace{F(x)g(x)+f(x)G(x)}_{h(x)})\md x = FG|_a^b
+  \end{equation}
+  \[(FG)(x)=F(x)G'(x)+F'(x)G(x)=F(x)g(x) + f(x)G(x)\]
+  $FG(x)$ ist eine Stammfunktion von $h$. $h$ ist stetig!
+  Hauptsatz $\implies$ \ref{e:1012062}
+\end{Bew}
+\begin{Bsp}
+  \[\int_0^1\sqrt{1-x^2}\md x=\int_0^1\underbrace{\sqrt{1-x^2}}_{F(x)}\underbrace{g(x)}_1\md x\]
+  \[\arcsin'(x)=\frac{1}{\sqrt{1-x^2}}\]
+  \[F(x)=\sqrt{1-x^2}\]
+  \[f(x)=F'(x)=\frac{-\not 2 x}{\not 2\sqrt{1-x^2}}=-\frac{x}{\sqrt{1-x^2}}\]
+  \[g(x)=1\]
+  \[G(x)=x\]
+  Funktioniert leider nicht: ($f(x)$ nicht definiert in $x=1$)
+  \[\cdots=\left( \sqrt{1-x^2}x \right)|_0^1-\int_0^1-\frac{x}{\sqrt{1-x^2}}xmd x\]
+  Deswegen:
+  \[\lim_{\varepsilon\downarrow 0}\int_0^{1-\varepsilon}\sqrt{1-x^2}\md x\]
+  \[=\lim_{\varepsilon\downarrow 0}\left[ \sqrt{1-x^2}x|_0^{1-\varepsilon}+\int_0^{1-\varepsilon}\frac{x^2}{\sqrt{1-x^2}}\md x \right]\]
+  \[=\underbrace{\sqrt{1-x^2}x|_0^1}_{=0}\lim_{\varepsilon\downarrow 0}\int_0^{1-\varepsilon}\frac{x^2}{\sqrt{1-x^2}}\md x\]
+  \[\lim_{\varepsilon\downarrow 0}\int_0^{1-\varepsilon}\left( \left( \frac{x^2-1}{\sqrt{x^2-1}}+\frac{1}{\sqrt{x^2}-1} \right) \right)\md x\]
+  \[\lim_{\varepsilon\downarrow 0}\int_0^{1-\varepsilon}-\sqrt{1-x^2}\md x+\lim_{\varepsilon\downarrow 0}\int_0^{1-\varepsilon}\frac{\md x}{\sqrt{1-x^2}}\]
+  \[=-\int_0^1\sqrt{1-x^2}+\lim_{\varepsilon\downarrow 0}\arcsin|_0^{1-\varepsilon}\]
+  \[=-\int_0^1\sqrt{1-x^2}+\arcsin|_0^{1}\]
+  \[=-\int_0^1\sqrt{1-x^2}+\left( \frac{\pi}{2}-0 \right)\]
+  \[=-\int_0^1\sqrt{1-x^2}+\frac{\pi}{2}\]
+  \[\int_0^1\sqrt{1-x^2}\md x=-\int_0^1\sqrt{1-x^2}\md x+\frac{\pi}{2}\]
+  \[\implies\not 2\int_0^1\sqrt{1-x^2}\md x=\frac{\pi}{2}\frac{1}{2}\]
+\end{Bsp}
+\begin{Sat}
+  Seien $f[a,b]\to\mb{R}$, $g:\underbrace{f([a,b])}_{[m,M]}\to\mb{R}$ stetig ($m=\min_{[a,b]}f$, $M=\max_{[a,b]}f$). Falls $f$ differenzierbar mit $f'$ stetig:
+  \[\int_a^bg(f(x))f'(x)\md x=\int_{f(a)}^{f(b)}g(y)\md y\]
+\end{Sat}
+\begin{Bew}
+  Sei $G$ eine Stammfunktion von $g$. (Später: warum gibt es eine solche Stammfunktion?)
+  \[\int_a^bG'(f(x)f'(x)\md x=\int_a^b(G(f(x)))'\md x=G\circ f|_a^b\]
+  \[\implies \int_A^bg(f(x))f'(x)\md x=G(f(b))-G(f(a))\]
+  \[=G|_{f(a)}^{f(b)}=\int_{f(a)}^{f(b)}g(y)\md y\]
+\end{Bew}
+\begin{Bem}
+  Der Hauptsatz envgarantiert die Existenz der Lösungen dieser Differentialgleichung:
+  \[\underbrace{F'}_{\text{Die Unbekannte}}=\underbrace{f}_{\text{bekannt}}\]
+\end{Bem}
+\subsection{Uneigentliche Integrale}
+\begin{Def}
+  Sei $I=]a,b[$ ($-\infty\leq a<b\leq +\infty$). $I=]-\infty,\infty[=\mb{R}$. Sei $f:I\to\mb{R}$ so dass
+  \[\forall a<\alpha<\beta<b\s f|_{[\alpha,\beta]}\s\text{eine Regelfunktion ist}\]
+  Falls $c\in I$ und
+  \[\lim_{\beta\uparrow b}\int_c^\beta\in\mb{R}\]
+  \[\lim_{\alpha\downarrow \alpha}\int_c^\alpha\in\mb{R}\]
+  dann
+  \[\int_a^bf=\lim_{\beta\uparrow b}\int_c^\beta f+\lim_{a\downarrow 0}\int_\alpha^cf\]
+  \[\lim_{\beta\uparrow b}\int_{\tilde c}^bf\]
+  \[=\lim_{\beta\uparrow b}\left( \int_c^\beta f-\int_c^{\tilde c}f \right)\]
+  \[=\lim_{\beta\uparrow b}\int_c^\beta f-\int_c^{\tilde c}f\]
+  \[=\lim_{\alpha\uparrow a}\int_c^{\tilde c}f=\lim_{\alpha\downarrow a}\int_\alpha^cf+\int_c^{\tilde c}f\]
+\end{Def}
