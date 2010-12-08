@@ -1,0 +1,157 @@
+\subsection{Uneigentliche Integrale}
+\begin{Def}{(Absolute Integrierbarkeit)}
+  Eine Abbildung $f:I\to\mb{R}$ ($I=]a,b[$, $-\infty\leq a < b \leq \infty$ (z.B. $I=\mb{R}$ auch möglich)). $f$ ist absolut integierbar falls
+  \begin{itemize}
+    \item $f|_{[\alpha,\beta]}$ eine Regelfunktion ist $\forall a<\alpha<\beta<b$
+    \item 
+      \[\int_a^b\abs{f}\infty \left( =\lim_{\alpha\downarrow a, \beta\uparrow b}\right)\int_\alpha^\beta\abs{f}\]
+  \end{itemize}
+\end{Def}
+\begin{Bem}
+  $f$ Regelfunktion auf $[\alpha,\beta]$ $\implies$ $\abs{f}$ Regelfunktion auf $[\alpha,\beta]$. $f$ Regelfunktion: $\forall \varepsilon>0$ $\exists g$ Treppenfunktion mit $\Norm{f-g}<\varepsilon$. $\abs{g}$ ist eine Treppenfunktion $\Norm{\abs{f}-\abs{g}}<\varepsilon$.
+  \[\left( \abs{\abs{f}(x)-\abs{g}(x)}\leq\abs{f(x)-g(x)}\implies \Norm{\abs{f}-\abs{g}}\leq\Norm{f-g} \right)\]
+\end{Bem}
+\begin{Sat}
+  Absolute Integrierbarkeit $\implies$ $\int_a^b f$ existiert.
+\end{Sat}
+\begin{Bew}
+  $\int_a^b\abs{f}$ existiert $\implies$ $\forall x_0\in I$
+  \begin{equation}\label{e:1012081}
+    \Limd{\alpha}{a}\int_\alpha^{x_0}\abs{f}\in\mb{R}\implies\Limd{\alpha}{a}\int_\alpha^{x_0}f\s\text{existiert}
+  \end{equation}
+  \begin{equation}\label{e:1012082}
+    \Limu{\beta}{b}\int_\beta^{x_0}\abs{f}\in\mb{R}\implies\Limu{\beta}{b}\int_\beta^{x_0}f\s\text{existiert}
+  \end{equation}
+\end{Bew}
+\begin{Bew}{von \ref{e:1012081}} $F(\alpha):=\int_a\alpha^{x_0}\abs{f}$ $\Limd{\alpha}{a} F(\alpha)$ existiert $\implies$ Cauchy Eigenschaft gilt:
+  \[\forall \varepsilon>0\s\exists\delta\s\text{so dass, wenn}\s\tilde a,\bar a\in]a,a+\delta[\s\text{dann}\s\abs{F(\tilde a)-F(\bar a)} < a\varepsilon\]
+  \[= \abs{\int_{\tilde{a}}^{x_0}\abs{f}-\int_{\bar{a}}^{x_0} \abs{f} } \]
+  %\[=\int_{\tilde{a}}^{\bar{a}}\abs{f}<\varepsilon\]
+  \[\implies G(\alpha)=\int_\alpha^{x_0}f\s a<\tilde{a}\leq \bar{a}<a\delta\]
+  %\[\stackrel{\text{Cauchy Bedingung}}{\implies} \abs{G(\tilde a)-G(\bar a)}=\abs{\int_{\tilde{a}}^{\bar{a}}f}\leq \int_{\tilde{a}}^{\bar{a}}\abs{f}<\varepsilon\]
+  \[\implies \Limd{\alpha}{a}G(\alpha)\in\mb{R}\]
+\end{Bew}
+\begin{Bem}
+  Es gibt $f$ mit $\int_a^bf < +\infty$ die aber nicht absolut integrierbar sind.
+\end{Bem}
+\begin{Bsp}
+  $f(x)=(-1)^nn$ für $x\in\left( \frac{1}{n+1},\frac{1}{n} \right]$ $(n\in\mb{N}\setminus\left\{ 0 \right\}$. $f:]0,1]\to\mb{R}$ und $\forall \alpha>0$ ist $f|_{[\alpha,1}$ offenbar eine Regelfunktion ($f$ ist sozusagen Treppenfunktion). Sei nun $\alpha\in\left] \frac{1}{N+2},\frac{1}{N+1} \right]$. Dann gilt:
+  \[\int_\alpha^1f(x)\md x=\sum^N_{n=1}\left( \frac{1}{n}-\frac{1}{n+1} \right)n(-1)^n+(N+1)\left( \frac{1}{N+1}-\alpha \right)(-1)^{N+1}\]
+  Beachte, dass:
+  \begin{itemize}
+    \item 
+      \[\sum^N_{n=1}\left( \frac{1}{n}-\frac{1}{n+1} \right)n(-1)^n=\sum^N_{n=1}\frac{1}{n+1}(-1)^n\]
+    \item $\sum^\infty_{n=1}\frac{(-)^n}{n+1}$ konvergiert
+    \item 
+      \[0\leq (N+1)\left( \frac{1}{N+1}-\alpha \right)\leq(N+1)\left( \frac{1}{N+1}-\frac{1}{N+2} \right)=\frac{1}{N+2}\stackrel{N\to\infty}{\rightarrow}0\]
+  \end{itemize}
+  Somit existiert $\Limd{\alpha}{0}\int_\alpha^1f$. ABER:
+  \[\int_\alpha^1\abs{f(x)}\md x\geq \sum^N_{n=1}\left( \frac{1}{n}-\frac{1}{n+1} \right)n=\sum_{n=1}^N\frac{1}{n+1}\]
+  und $\sum\frac{1}{n+1}$ divergiert! (Harmonische Reihe). Also ist $f$ integrierbar aber nicht absolut integrierbar.
+\end{Bsp}
+\begin{Kor}{(Majorantenkriterium)}\label{k:1012085}
+  Sei $f:I\to\mb{R}$ so dass
+  \begin{itemize}
+    \item $f|_{[\alpha,\beta]}$ ist eine Regelfunktion $\forall \alpha<\beta\in I$
+    \item $\abs{f}\leq g$ und $g$ ist integrierbar auf $I$. Dann ist $f$ auch absolut integrierbar
+  \end{itemize}
+\end{Kor}
+\begin{Bem}\ref{k:1012085} ist sehr nützlich, um die Integrierbarkeit einer Funktion zu berweisen.
+\end{Bem}
+\begin{Bsp}
+  \[\int_{-\infty}^\infty e^{-x^2}\md x\in\mb{R}\]
+  Tatsächlich ist auf $[1,+\infty[$: $e^{-x^2}\leq xe^{-x^2}$ und
+  \[\int_1^{-\infty}xe^{-x^2}\md x\]
+  \[=\Limi{R}\int_1^Rxe^{-x^2}\md x\]
+  \[=\Limi{R}\left[ -\frac{1}{2}e^{-x^2} \right]_{x=1}^R\]
+  \[=\Limi{R}\left( \frac{1}{2}e^{-1}-\frac{1}{2}\underbrace{e^{-R}}_{\to 0} \right)\]
+  \[=\frac{1}{2e}\]
+  Analog benutzt man nun $e^{-x^2}\leq -xe^{-x^2}$ für $x\in]-\infty,-1]$.
+\end{Bsp}
+\begin{Bem}\ref{k:1012085} kann auch benutzt werden, um die Konvergent von Reihen zu beweisen.
+\end{Bem}
+\begin{Kor}{(``Integralkriterium'')}\label{k:1012088} Sei $\sum^\infty_{n=0} a_n$ eine Reihe. Definiere $f:[0,+\infty]$ durch $f(x)=a_n$, falls $x\in[n,n+1[$ $(n\in \mb{N})$. Dann gilt:
+  \[\int_0^{+\infty}f\infty\iff \sum_{n=0}^\infty a_n\infty\]
+  und so:
+  \[\int_0^{+\infty}\abs{f}\infty\iff \sum_{n=0}^\infty a_n\s\text{konvergier absolut}\]
+\end{Kor}
+\begin{Bew}
+  ``$\Leftarrow$''
+  \[\int_0^Rf=\int_0^Nf+\int_N^Rf\s(N=\Floor{R})\]
+  und
+  \[\int_0^N f=\sum_{n=0}^{N-1}a_n\rightarrow\sum^\infty_{n=0}a_n<\infty\]
+  Ausserdem, da $\sum a_n$ konvergiert, ist $a_n$ eine Nullfolge. Und so
+  \[\abs{\int_N^Rf}=\abs{(R-N)a_N}\leq\abs{a_N}\rightarrow 0\s\text{für}\s R\to +\infty\]
+  ``$\implies$'' $\int_0^{N+1}f=\sum^\infty_{n=0}a_n$, und da $\Limi{N}\int_0^{N+1}f$ existiert, folgern wir die Konvergenz von $\sum a_n$.
+\end{Bew}
+\begin{Bsp}
+  \[\sum_{n\geq 2}\frac{1}{n(\ln n)^2}<\infty\]
+  Wir werden \ref{k:1012088} zwischen 3 und $\infty$ statt $0$ und $\infty$ anwenden. Seien $f(x)=\frac{1}{n(\ln n)^2}$ falls $x[n,n+11[$ $(n\geq 3)$ und $g(x)=\frac{1}{x(\ln x)^2}$. Beachte: $\ln x>0 \forall x>1$. Somit, falls $x\in[n,n+1[$ mit $n\geq 3$ gilt $n>x-1$,
+  \[\ln n>\ln(x-1)\geq \ln(n-1)\geq\ln 2>0\]
+  \[\implies f(x)=\frac{1}{n(\ln n)^2}<\frac{1}{(x-1)(\ln(x-1))^2}=g(x-1)\]
+  Aber:
+  \[\int_3^{+\infty}g(x-1)\md x=\int_2^{+\infty}g(x)\md x\]
+  \[=\int_2^{+\infty}\frac{1}{x(\ln x)^2}\md x=\Limi{R}\int_2^R\frac{1}{x(\ln x)^2}\md x\]
+  \[=\Limi{R}\left[ -\frac{1}{\ln x} \right]^R_{x=2}=\frac{1}{\ln 2}-\underbrace{\Limi{R}\frac{1}{\ln R}}_{=0}\]
+  \[=\frac{1}{\ln 2}< +\infty\]
+  und so:
+  \[\sum_{n\geq 2}\frac{1}{n(\ln n)^2}=\frac{1}{2(\ln 2)^2}+\sum_{n\geq 3}\frac{1}{n(\ln n)^2}\]
+  \[\leq\frac{1}{2(\ln 2)^2}+\frac{1}{\ln 2}< +\infty\]
+\end{Bsp}
+\subsection{Integration einer Potenzreihe}
+\begin{Sat}\label{s:1012080}
+  Zur Erinnerung: Ist $\sum f_n=\sum a_nx^n$ eine Potenzreihe mit Konvergenzradius $R$, so konvergiert $\sum f_n$ normal auf jedem Intevall $[-\rho, \rho]$ mit $0<\rho<R$
+\end{Sat}
+\begin{Sat}\label{s:1012081}
+  Ist $f=\sum f_n$ eine Reihe von Regelfunktionen auf $[a,b]$, welche auf $[a,b]$ normal konvergiert, so ist $f$ selber eine Regelfunktion auf $[a,b]$ und es gilt:
+  \[\int_a^bf=\sum\int_a^bf_n\]
+\end{Sat}
+\begin{Bew}
+  Sei $\varepsilon>0$. Wähle $N$ so dass
+  \[\sum^{+\infty}_{n=N+1}\Norm{f_n}<\frac{\varepsilon}{2}\]
+  sowie Treppenfunktion $g_n$ mit
+  \[\Norm{f_n-g_n}<\frac{\varepsilon}{2^{n+1}}\s\forall n\in\left\{ 0,\dots,N \right\}\]
+  Dann ist $g:=\sum_{n=0}^Ng_n$ eine Treppenfunktion und es gilt:
+  \[\abs{f(x)-g(x)}=\Limi{n}\abs{\sum_{k=0}^nf_k(x)-\sum^N_{k=0}g_k(x)}\]
+  \[\leq\sum_{k=0}^N\abs{f_k(x)-g_k(x)}+\Limi{n}\sum^n_{k=N+1}\abs{f_k(x)}\]
+  \[\leq\sum^N_{n=0}\Norm{f_k-g_k}+\sum^{+\infty}_{k=N+1}\Norm{f_k}\]
+  \[<\sum_{k=0}^N\varepsilon 2^{-k-1}+\frac{\varepsilon}{2}<\sum^{+\infty}_{k=0}2^{-k-1}+\frac{\varepsilon}{2}=\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon\]
+  $\implies$ $f$ iste eine Regelfunktion. Es golt damit auch:
+  \[\abs{\int_a^bf-\sum^N_{n=0}\int_a^bf_n}\]
+  \[\leq\abs{\int_a^b(f-g)}+\abs{\sum_{n=0}^N\int_a^b(f_n-g_n)}\]
+  \[<(b-a)\varepsilon+(b-a)\frac{\varepsilon}{2}\]
+  aber auch:
+  \[\abs{\sum_{n=0}^\infty\int_a^bf_n-\sum_{n=0}^N\int_a^bf_n}\]
+  \[=\Limi{k}\abs{\sum_{n=N+1}^k\int_a^bf_n}\]
+  \[\leq\sum^k_{n=N+1}(b-1)\Norm{f_n}\]
+  \[<(b-a)\frac{\varepsilon}{2}\]
+  Folglich:
+  \[\abs{\int_a^bf-\sum_{n=0}^\infty\int_a^bf_n}<2\varepsilon(b-a)\]
+  Da $\varepsilon$ beliebig war, folgt die Behauptung.
+\end{Bew}
+\begin{Kor}
+  Sei $f(x)=\sum_{n=0}^{+\infty}a_nx^n$ eine analytische Funktion mit Konvergenzradius $R$. Dann ist $F(x)=\int_0^xf(y)\md y$ ebenfalls analytisch. Ihre Potenzreihe ist gegeben durch
+  \begin{equation}\label{e:1012083}
+    F(x)=\sum^{+\infty}_{n=0}\frac{a_n}{n+1}x^{n+1}
+  \end{equation}
+  und der Konvergenzradius ist $R$.
+\end{Kor}
+\begin{Bew}
+  Gleichung \ref{e:1012083} für $\abs{x}<R$ ist auch ein Korollar von \ref{s:1012080} und \ref{s:1012081}. Der Konvergenzradius ist
+  \[R'=\frac{1}{\limsup_{n\rightarrow+\infty}\sqrt[n]{\frac{a_n}{n+1}}}\]
+  \[=\frac{1}{\limsup_{n\rightarrow+\infty}\sqrt[n]{a_n}}=R\]
+\end{Bew}
+\begin{Bsp}
+  \[\ln(1+x)=\int_0^x\frac{\md y}{1+y}\]
+  aber für $\abs{x}<1$
+  \[\frac{1}{1+x}=\sum_{n=0}^{+\infty}(-1)^nx^n\]
+  und so:
+  \[\ln(1+x)=\sum^{+\infty}_{n=0}\frac{(-1)^n}{n+1}x^{n+1}\]
+\end{Bsp}
+\begin{Bsp}
+  \[\arctan x=\int_0^x\frac{1}{1+y^2}\md y\]
+  und für $\abs{x}<1$
+  \[\frac{1}{1+x^2}=\sum_{n=0}^{+\infty}(-1)^nx^{2n}\]
+  und so
+  \[\arctan x=\sum^{+\infty}_{n=0}\frac{(-1)^n}{2n+1}x^{2n+1}\]
+\end{Bsp}
