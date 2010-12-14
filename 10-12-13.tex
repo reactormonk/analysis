@@ -1,0 +1,100 @@
+\section{Gewöhnliche Differentialgleichung}
+Die Unbekannte ist eine Funktion $y:[a,b]\to\mb{R}$ (oder mehrere Funktionen $y_1,y_2,\cdots,y_m:[a,b]\to\mb{R}$). Die gewöhnliche hat die Gestalt:
+\begin{equation}
+  \label{e:1012131}
+  F(t,y(t),y'(t),\cdots,y^{(h)}(t))=0\s\forall t\in[a,b]
+\end{equation}
+\begin{Bsp}
+  Sei $g:[a,b]\to\mb{R}$
+  \begin{equation}
+    \label{e:1012132}
+    y'(t)-g(t)=0\s\forall t\in [a,b]
+  \end{equation}
+  (d.h. $y$ ist eine Stammfunktion von $g$). Wenn $g$ eine Funktion ist, dann ist
+  \[y(t):=\int_a^tg(s)\md s\]
+  eine Lösung von \ref{e:1012131}. (in der Tat, $\forall c_0\in\mb{R}$ $y(t)=c_0+\int_a^tg(s)\md s$ ist auch eine Lösung). Dann $\tilde y(t)=y(t)-\int_a^tg(s)\md s$ ist differenzierbar auf $[a,b]$ und $\tilde y'=0$ 
+  \[\implies \tilde y= \s\text{Konstante}\s c_0 \implies y_0(t)=c_0+\int_a^tg(s)\md s\]
+\end{Bsp}
+\begin{Sat}
+  Sei $g$ eine stetige Funktion:
+  \[y \s\text{löst \ref{e:1012132}} \iff \exists \varepsilon\s\text{mit}\s y(t)=c_0+\int_a^tg(s)\md s\forall t\in [a,b]\]
+\end{Sat}
+\begin{Bsp}
+  Sei $p$ ein Teilchen. $y(t):=$ die Position von $p$ zum Zeitpunkt $z$
+  \[y(t)=(y_1(t), y_2(t), y_3(t))\]
+  in unserem Modell: $y(t)=y_1(t)$
+  \[ma=F\]
+  \[my''(t)=F\]
+\end{Bsp}
+\begin{Bsp}
+  $A(t)$ Anzahl Tiere
+  \[A'(t)=K_0A(t)-K_1\left( \frac{1}{\bar A - A(t)} \right)\]
+  In der Literatur: Voltena Gleichungen
+\end{Bsp}
+\subsection{lineare DGL}
+\begin{Def}
+  Inhomogene DGL: $g,h$ bekannt: $[a,b]\to\mb{R}$, $y$ unbekannt
+  \begin{equation}
+    \label{e:1012134}
+    y'(t)=g(t)y(t)+h(t)
+  \end{equation}
+  für $h(t)=0$ ist das eine homogene DGL.
+  \begin{equation}
+    \label{e:1012133}
+    y'(t)=g(t)y(t)
+  \end{equation}
+\end{Def}
+\begin{Bem}
+  Falls $y_1,y_2:[a,b]\to\mb{R}$ \ref{e:1012133} löst, dann ist das auch eine Lösung von \ref{e:1012133} $\forall \alpha_1,\alpha_2\in\mb{R}$ $\alpha_1y_1+\alpha_2y_2$ $\implies$ lineare DGL. Falls $y$ und $z$ zwei Lösungen von \ref{e:1012134} sind, dann löst $z-y$ \ref{e:1012133}
+  \[(z-y)'(t)=z'(t)-y'(t)=g(t)z(t)+h(t)-\left( g(t)y(t)+h(t) \right)\]
+  \[=g(t)\underbrace{\left( z(t)-y(t) \right)}_{\omega(t)}\]
+  \[\implies \omega'(t)=y(t)\omega(t)\]
+\end{Bem}
+\begin{Sat} % TODO: Satz?
+  Sei $V:=\{$ die Lösung von \ref{e:1012133} $\}$ $\implies$ $V$ ist ein Vekorraum, eine Basis von $V$ liefert us die allgemeine Lösung von \ref{e:1012133}. Für \ref{e:1012134} gibt die Formel $y=z+\alpha_1v_1+\cdots+\alpha_nv_n$, ($z=$ fixierte Lösung, spezielle Lösung) eine Basis von $V=\{$ Lösung von \ref{e:1012133}$\}$.
+\end{Sat}
+\begin{Bem}
+  inhomogene Lösung = Lösung homogene Gleichung + spezielle Lösung
+\end{Bem}
+\[y'(t)=y(t)g(t)\]
+Angenommen dass $y>0$:
+\[\frac{y'(t)}{y(t)}=g(t)\]
+\[\left( \ln(y(t)) \right)'=g(t)\]
+\[z(t):=\ln(y(t))\]
+\[\implies z'(t)=g(t)\]
+Falls $g$ stetig ist:
+\[z(t)=c_0+\int_a^tg(s)\md s\]
+\[y(t)=e^{z(t)}=e^{c_0}e^{\int_a^tg(s)\md s}=Ce^{\int_a^tg(s)\md s}\]
+\begin{Bem}
+  $\forall C\in\mb{R}$, $y(t)Ce^{\int_a^tg(s)\md s}$ löst \ref{e:1012133}
+  \[y'(t)=Ce^{\int_a^tg(s)\md s}\left( \int_a^tg(s)\md s \right)'\]
+  \[=\left\{ Ce^{\int_a^tg(s)\md s} \right\}g(t)\]
+\end{Bem}
+\begin{Bem}
+  \[y'(t)=g(t)y(t)\]
+  \[y(a)=y_0\]
+  \[y(a+\Delta t)\simeq y_0+\Delta ty'(a)\]
+  \[=y_0+\Delta tg(a)y(a)\]
+\end{Bem}
+\begin{theorem}
+  Sei $g$ stetig. $y$ löst \ref{e:1012133} auf einem ``Intervall'' $I$ $( \mb{R},]-\infty,b[,[a,b])$ $\iff$ $\exists C\in\mb{R}$ mit $y(t)=Ce^{\int_a^tg(s)\md s}$
+\end{theorem}
+\begin{Bew}
+  $\implies$ Sei $y(t)$ eine Lösung von \ref{e:1012133}. Sei
+  \[z(t)=e^{-\int_a^ty(s)\md s}y(t)\]
+  \[z'(t)=-g(y)e^{-\int_a^tg(s)\md s}y(t)+e^{-\int_a^t\md s}\overbrace{g(t)}^{g(t)y(t)}=0\]
+\end{Bew}
+\begin{Bsp}
+  \[y'(t)=g(t)y(t)+h(t)\]
+  \[\bar y(t)=e^{-\int_a^tg(s)\md s}y(t)\]
+  \[\bar y'(t)=-g(t)e^{-\int_a^t g(s)\md s}y(t)+e^{-\int_a^tg(s)\md s}\left( g(t)y(t) \right)+h(t)\]
+  \[=e^{-\int_a^tg(s)\md s}h(t)\]
+  \[\bar y(t)=\int_0^te^{-\int_a^\tau g(s)\md s}h(\tau)\md \tau\]
+  \[y(t)=e^{\int_a^t(s)\md s}\int_a^te^{-\int_a^\tau g(s)\md s}h(\tau)\md \tau\]
+  $y$ ist eine ``spezielle'' Lösung von \ref{e:1012134}
+\end{Bsp}
+\begin{theorem}
+  Seien $g$ und $h$ stetig. $\exists C\in\mb{R}$ so dass
+  \[y\s\text{eine Lösung von}\s \ref{e:1012134}\]
+  \[\iff y(t)=e^{\int_a^tg(s)\md s}\int_0^te^{-\int_a^t g(s)\md s}h(\tau)\md \tau+C^{\int_a^tg(s)\md s}\]
+\end{theorem}
