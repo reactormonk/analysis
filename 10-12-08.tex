@@ -1,10 +1,10 @@
-\subsection{Uneigentliche Integrale}
 \begin{Def}{(Absolute Integrierbarkeit)}
-  Eine Abbildung $f:I\to\mb{R}$ ($I=]a,b[$, $-\infty\leq a < b \leq \infty$ (z.B. $I=\mb{R}$ auch möglich)). $f$ ist absolut integierbar falls
+Sei $I$ wie oben. Eine Abbildung $f:I\to\mb{R}$  ist absolut integriebar falls
   \begin{itemize}
     \item $f|_{[\alpha,\beta]}$ eine Regelfunktion ist $\forall a<\alpha<\beta<b$
     \item 
-      \[\int_a^b\abs{f}\infty \left( =\lim_{\alpha\downarrow a, \beta\uparrow b}\right)\int_\alpha^\beta\abs{f}\]
+      \[\int_a^b\abs{f}\infty =\lim_{\alpha\downarrow a, \beta\uparrow b} \int_\alpha^\beta\abs{f}
+<\infty\]
   \end{itemize}
 \end{Def}
 \begin{Bem}
@@ -17,25 +17,43 @@
 \begin{Bew}
   $\int_a^b\abs{f}$ existiert $\implies$ $\forall x_0\in I$
   \begin{equation}\label{e:1012081}
-    \Limd{\alpha}{a}\int_\alpha^{x_0}\abs{f}\in\mb{R}\implies\Limd{\alpha}{a}\int_\alpha^{x_0}f\s\text{existiert}
+    \Limd{\alpha}{a}\int_\alpha^{x_0}\abs{f}\in\mb{R}\implies\Limd{\alpha}{a}
+\int_\alpha^{x_0}f\s\text{existiert}
   \end{equation}
   \begin{equation}\label{e:1012082}
     \Limu{\beta}{b}\int_\beta^{x_0}\abs{f}\in\mb{R}\implies\Limu{\beta}{b}\int_\beta^{x_0}f\s\text{existiert}
   \end{equation}
+
+\medskip
+
+{\bf Beweis von \eqref{e:1012081}} Sei $F(\alpha):=\int_alpha^{x_0}\abs{f}$. Die
+Existenz von $\Limd{\alpha}{a} F(\alpha)$ $\implies$ die Cauchy Eigenschaft:
+  \[\forall \varepsilon>0\s\exists\delta\s\text{so dass, wenn}\s\tilde a,\bar a\in]a,a+\delta[\s\text{dann}\s\abs{F(\tilde a)-F(\bar a)} < \varepsilon\]
+Aber
+  \[|F(\tilde a) - F(\bar a)| = \left|\int_{\tilde{a}}^{x_0}\abs{f}-\int_{\bar{a}}^{x_0} \abs{f}\right|
+=\int_{\tilde{a}}^{\bar{a}}\abs{f}<\varepsilon\]
+Sei nun $G(\alpha):=\int_\alpha^{x_0}f$. F\"ur  $a<\tilde{a}\leq \bar{a}<a+\delta$:
+\[
+|G(\tilde a)- G (\bar a)|= \left|\int_{\tilde a}^{\bar a} f\right|
+\leq \int_{\tilde a}^{\bar a} |f| <\eps\, .
+\]
+\[\implies \text{$G$ erf\"ullt die Cauchy Bedingung}
+\implies \Limd{\alpha}{a}G(\alpha)\in\mb{R}\]
+
+\medskip
+
+\eqref{e:1012082} folgt aus der gleichen Idee.
 \end{Bew}
-\begin{Bew}{von \ref{e:1012081}} $F(\alpha):=\int_a\alpha^{x_0}\abs{f}$ $\Limd{\alpha}{a} F(\alpha)$ existiert $\implies$ Cauchy Eigenschaft gilt:
-  \[\forall \varepsilon>0\s\exists\delta\s\text{so dass, wenn}\s\tilde a,\bar a\in]a,a+\delta[\s\text{dann}\s\abs{F(\tilde a)-F(\bar a)} < a\varepsilon\]
-  \[= \abs{\int_{\tilde{a}}^{x_0}\abs{f}-\int_{\bar{a}}^{x_0} \abs{f} } \]
-  \[=\int_{\tilde{a}}^{\bar{a}}\abs{f}<\varepsilon\]
-  \[\implies G(\alpha)=\int_\alpha^{x_0}f\s a<\tilde{a}\leq \bar{a}<a\delta\]
-  \[\stackrel{\text{Cauchy Bedingung}}{\implies} \abs{G(\tilde a)-G(\bar a)}=\abs{\int_{\tilde{a}}^{\bar{a}}f}\leq \int_{\tilde{a}}^{\bar{a}}\abs{f}<\varepsilon\]
-  \[\implies \Limd{\alpha}{a}G(\alpha)\in\mb{R}\]
-\end{Bew}
-\begin{Bem}
-  Es gibt $f$ mit $\int_a^bf < +\infty$ die aber nicht absolut integrierbar sind.
-\end{Bem}
-\begin{Bsp}
-  $f(x)=(-1)^nn$ für $x\in\left( \frac{1}{n+1},\frac{1}{n} \right]$ $(n\in\mb{N}\setminus\left\{ 0 \right\}$. $f:]0,1]\to\mb{R}$ und $\forall \alpha>0$ ist $f|_{[\alpha,1}$ offenbar eine Regelfunktion ($f$ ist sozusagen Treppenfunktion). Sei nun $\alpha\in\left] \frac{1}{N+2},\frac{1}{N+1} \right]$. Dann gilt:
+
+\begin{Bsp} Es gibt $f$ mit $\int_a^bf < +\infty$ die aber nicht absolut integrierbar sind.
+ 
+\[f(x)=(-1)^nn
+\qquad
+\mbox{für } x\in\left( \frac{1}{n+1},\frac{1}{n} \right] \qquad (n\in\mb{N}\setminus\left\{ 0 \right\})
+\]
+$f:]0,1]\to\mb{R}$ und $\forall \alpha>0$ ist $f|_{[\alpha,1]}$ offenbar 
+eine Regelfunktion ($f|_{[\alpha, 1]}$ ist in der Tat eine Treppenfunktion!). 
+Sei nun $\alpha\in\left] \frac{1}{N+2},\frac{1}{N+1} \right]$. Dann gilt:
   \[\int_\alpha^1f(x)\md x=\sum^N_{n=1}\left( \frac{1}{n}-\frac{1}{n+1} \right)n(-1)^n+(N+1)\left( \frac{1}{N+1}-\alpha \right)(-1)^{N+1}\]
   Beachte, dass:
   \begin{itemize}
@@ -68,12 +86,13 @@
   \[=\frac{1}{2e}\]
   Analog benutzt man nun $e^{-x^2}\leq -xe^{-x^2}$ für $x\in]-\infty,-1]$.
 \end{Bsp}
-\begin{Bem}\ref{k:1012085} kann auch benutzt werden, um die Konvergent von Reihen zu beweisen.
+\begin{Bem} Korollar \ref{k:1012085} kann auch benutzt werden, um die Konvergenz von Reihen zu beweisen.
 \end{Bem}
-\begin{Kor}{(``Integralkriterium'')}\label{k:1012088} Sei $\sum^\infty_{n=0} a_n$ eine Reihe. Definiere $f:[0,+\infty]$ durch $f(x)=a_n$, falls $x\in[n,n+1[$ $(n\in \mb{N})$. Dann gilt:
-  \[\int_0^{+\infty}f\infty\iff \sum_{n=0}^\infty a_n\infty\]
+\begin{Kor}[``Integralkriterium'' f\"ur Reigen]\label{k:1012088} 
+Sei $\sum^\infty_{n=0} a_n$ eine Reihe. Definiere $f:[0,+\infty]$ durch $f(x)=a_n$, falls $x\in[n,n+1[$ $(n\in \mb{N})$. Dann gilt:
+  \[\int_0^{+\infty}f \mbox{ existiert} \iff \sum_{n=0}^\infty a_n \mbox{ konvergiert}\]
   und so:
-  \[\int_0^{+\infty}\abs{f}\infty\iff \sum_{n=0}^\infty a_n\s\text{konvergier absolut}\]
+  \[f \mbox{ ist absolut integrierbar} \iff \sum_{n=0}^\infty a_n\s\text{konvergiert absolut}\]
 \end{Kor}
 \begin{Bew}
   ``$\Leftarrow$''
@@ -81,12 +100,13 @@
   und
   \[\int_0^N f=\sum_{n=0}^{N-1}a_n\rightarrow\sum^\infty_{n=0}a_n<\infty\]
   Ausserdem, da $\sum a_n$ konvergiert, ist $a_n$ eine Nullfolge. Und so
-  \[\abs{\int_N^Rf}=\abs{(R-N)a_N}\leq\abs{a_N}\rightarrow 0\s\text{für}\s R\to +\infty\]
+  \[\left|\int_N^Rf\right|=\left|(R-N)a_N\right|\leq\abs{a_N}\rightarrow 0\s\text{für}\s R\to +\infty\]
   ``$\implies$'' $\int_0^{N+1}f=\sum^\infty_{n=0}a_n$, und da $\Limi{N}\int_0^{N+1}f$ existiert, folgern wir die Konvergenz von $\sum a_n$.
 \end{Bew}
 \begin{Bsp}
   \[\sum_{n\geq 2}\frac{1}{n(\ln n)^2}<\infty\]
-  Wir werden \ref{k:1012088} zwischen 3 und $\infty$ statt $0$ und $\infty$ anwenden. Seien $f(x)=\frac{1}{n(\ln n)^2}$ falls $x[n,n+11[$ $(n\geq 3)$ und $g(x)=\frac{1}{x(\ln x)^2}$. Beachte: $\ln x>0 \forall x>1$. Somit, falls $x\in[n,n+1[$ mit $n\geq 3$ gilt $n>x-1$,
+  Wir werden Korollar \ref{k:1012088} zwischen 3 und $\infty$ statt $0$ und $\infty$ anwenden. Seien $f(x)=\frac{1}{n(\ln n)^2}$ falls $x[n,n+1[$ $(n\geq 3)$ und $g(x)=\frac{1}{x(\ln x)^2}$. Beachte: $\ln x>0$
+$\forall x>1$. Somit, falls $x\in[n,n+1[$ mit $n\geq 3$ gilt $n>x-1$,
   \[\ln n>\ln(x-1)\geq \ln(n-1)\geq\ln 2>0\]
   \[\implies f(x)=\frac{1}{n(\ln n)^2}<\frac{1}{(x-1)(\ln(x-1))^2}=g(x-1)\]
   Aber:
@@ -99,12 +119,22 @@
   \[\leq\frac{1}{2(\ln 2)^2}+\frac{1}{\ln 2}< +\infty\]
 \end{Bsp}
 \subsection{Integration einer Potenzreihe}
+  
+Zur Erinnerung:
+
 \begin{Sat}\label{s:1012080}
-  Zur Erinnerung: Ist $\sum f_n=\sum a_nx^n$ eine Potenzreihe mit Konvergenzradius $R$, so konvergiert $\sum f_n$ normal auf jedem Intevall $[-\rho, \rho]$ mit $0<\rho<R$
+ Ist $\sum f_n=\sum a_nx^n$ eine Potenzreihe mit Konvergenzradius $R$, so konvergiert $\sum f_n$ normal auf jedem Intevall $[-\rho, \rho]$ mit $0<\rho<R$
 \end{Sat}
+
+Zun\``achst beweisen wir den folgenden Satz. Als Korollar erhalten wir eine
+entsprechende Potenzreihedarstellung f\"ur das Integral einer Potenzreihe.
+
 \begin{Sat}\label{s:1012081}
   Ist $f=\sum f_n$ eine Reihe von Regelfunktionen auf $[a,b]$, welche auf $[a,b]$ normal konvergiert, so ist $f$ selber eine Regelfunktion auf $[a,b]$ und es gilt:
-  \[\int_a^bf=\sum\int_a^bf_n\]
+\begin{equation}\label{e:gliederweise}
+\int_a^bf=\sum\int_a^bf_n
+ \end{equation}
+
 \end{Sat}
 \begin{Bew}
   Sei $\varepsilon>0$. Wähle $N$ so dass
@@ -112,22 +142,21 @@
   sowie Treppenfunktion $g_n$ mit
   \[\Norm{f_n-g_n}<\frac{\varepsilon}{2^{n+1}}\s\forall n\in\left\{ 0,\dots,N \right\}\]
   Dann ist $g:=\sum_{n=0}^Ng_n$ eine Treppenfunktion und es gilt:
-  \[\abs{f(x)-g(x)}=\Limi{n}\abs{\sum_{k=0}^nf_k(x)-\sum^N_{k=0}g_k(x)}\]
+  \[\abs{f(x)-g(x)}=\Limi{n}\left|\sum_{k=0}^nf_k(x)-\sum^N_{k=0}g_k(x)\right|\]
   \[\leq\sum_{k=0}^N\abs{f_k(x)-g_k(x)}+\Limi{n}\sum^n_{k=N+1}\abs{f_k(x)}\]
   \[\leq\sum^N_{n=0}\Norm{f_k-g_k}+\sum^{+\infty}_{k=N+1}\Norm{f_k}\]
   \[<\sum_{k=0}^N\varepsilon 2^{-k-1}+\frac{\varepsilon}{2}<\sum^{+\infty}_{k=0}2^{-k-1}+\frac{\varepsilon}{2}=\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon\]
-  $\implies$ $f$ iste eine Regelfunktion. Es golt damit auch:
-  \[\abs{\int_a^bf-\sum^N_{n=0}\int_a^bf_n}\]
-  \[\leq\abs{\int_a^b(f-g)}+\abs{\sum_{n=0}^N\int_a^b(f_n-g_n)}\]
-  \[<(b-a)\varepsilon+(b-a)\frac{\varepsilon}{2}\]
+  $\implies$ $f$ iste eine Regelfunktion. Es gilt damit auch:
+  \[\left|\int_a^bf-\sum^N_{n=0}\int_a^bf_n\right|
+ \leq\left|\int_a^b(f-g)\right|+\left|\sum_{n=0}^N\int_a^b(f_n-g_n)\right|
+ <(b-a)\varepsilon+(b-a)\frac{\varepsilon}{2}\]
   aber auch:
-  \[\abs{\sum_{n=0}^\infty\int_a^bf_n-\sum_{n=0}^N\int_a^bf_n}\]
-  \[=\Limi{k}\abs{\sum_{n=N+1}^k\int_a^bf_n}\]
-  \[\leq\sum^k_{n=N+1}(b-1)\Norm{f_n}\]
-  \[<(b-a)\frac{\varepsilon}{2}\]
+  \[\left|\sum_{n=0}^\infty\int_a^bf_n-\sum_{n=0}^N\int_a^bf_n\right|
+  =\Limi{k}\abs{\sum_{n=N+1}^k\int_a^bf_n}\]
+  \[\leq\sum^k_{n=N+1}(b-1)\Norm{f_n} <(b-a)\frac{\varepsilon}{2}\]
   Folglich:
-  \[\abs{\int_a^bf-\sum_{n=0}^\infty\int_a^bf_n}<2\varepsilon(b-a)\]
-  Da $\varepsilon$ beliebig war, folgt die Behauptung.
+  \[\left|\int_a^bf-\sum_{n=0}^\infty\int_a^bf_n\right|<2\varepsilon(b-a)\]
+  Da $\varepsilon$ beliebig war, folgt \eqref{e:gliederweise}.
 \end{Bew}
 \begin{Kor}
   Sei $f(x)=\sum_{n=0}^{+\infty}a_nx^n$ eine analytische Funktion mit Konvergenzradius $R$. Dann ist $F(x)=\int_0^xf(y)\md y$ ebenfalls analytisch. Ihre Potenzreihe ist gegeben durch
@@ -137,7 +166,8 @@
   und der Konvergenzradius ist $R$.
 \end{Kor}
 \begin{Bew}
-  Gleichung \ref{e:1012083} für $\abs{x}<R$ ist auch ein Korollar von \ref{s:1012080} und \ref{s:1012081}. Der Konvergenzradius ist
+  Gleichung \eqref{e:1012083} für $\abs{x}<R$ ist ein Korollar von Satz \ref{s:1012080} und 
+Satz \ref{s:1012081}. Der Konvergenzradius ist
   \[R'=\frac{1}{\limsup_{n\rightarrow+\infty}\sqrt[n]{\frac{a_n}{n+1}}}\]
   \[=\frac{1}{\limsup_{n\rightarrow+\infty}\sqrt[n]{a_n}}=R\]
 \end{Bew}

@@ -1,105 +1,161 @@
-\begin{Sat}\label{s:1011291}
-  Sei $f:[a,b]\to\mb{R}$ eine stetige Funktion in $]a,b[$ differenzierbar. $f$ ist genau dann konvex, wenn $f'$ monoton wächst (ausserdem $f$ streng konvex $\iff$ $f'$ streng wachsend)
-\end{Sat}
-\begin{Kor}
-  $f:[a,b]\to\mb{R}$ stetig, 2 mal differenzierbar in $]a,b[$.
-  \begin{itemize}
-    \item Konvexität $\iff$ $f''≥0$
-    \item streng konvex $\iff$ $f''>0$
-  \end{itemize}
-\end{Kor}
-\begin{Lem}\label{l:1011293}
-  $f:I\to\mb{R}$ ist genau dann konvex, wenn $\forall x_1<x<x_2\in I$ die Folgende Ungleichung gilt:
-  \[\frac{f(x)-f(x_1)}{x-x_1}≤\frac{f(x_2)-f(x)}{x_2-x}\]
-\end{Lem}
-\begin{Bew} von Satz \ref{s:1011291}
-  Konvexität $\implies$ $f'$ ist wachsend.
+\begin{proof}[Beweis vom Satz \ref{s:1011242}]
+  {\bf Konvexität $\implies$ $f'$ ist wachsend.}
   \[f'(x)=\lim_{h\downarrow 0}\frac{f(x+h)-f(x)}{(x+h)-x}\]
   \[f'(y)=\lim_{h\downarrow 0}\frac{f(y+h)-f(y)}{(y+h)-y}\]
-  $h$ klein $\implies$ $x<x+h<y<y+h$
-  Lemma \ref{l:1011293}:
-  % TODO relativ lange Formel.
-  Konvexität $\Leftarrow$ $f'$ wachsend. Sei $x_1<x<x_2$: Der Satz von Lagrange $\implies$ $\exists \xi_1\in]x_1,x[$ mit
+  $h$ klein $\implies$ $x<x+h<y<y+h$.
+In diesem Fall impliziert Lemma \ref{l:1011293} die Ungleichungen:
+\[ 
+ \frac{f(x+h)-f(x)}{(x+h)-x}\leq \frac{f(y)-f(x+h)}{y-(x+h)}
+\leq \frac{f(y+h)-f(y)}{(y+h)-y}
+\]
+Deswegen
+\[
+f' (x) = \lim_{h\downarrow 0}\frac{f(x+h)-f(x)}{(x+h)-x}\leq
+\lim_{h\downarrow 0}\frac{f(y+h)-f(y)}{(y+h)-y} = f'(y)
+\]
+{\bf Konvexität $\Leftarrow$ $f'$ wachsend.} 
+Sei $x_1<x<x_2$: Der Satz von Lagrange $\implies$ $\exists \xi_1\in]x_1,x[$ mit
   \[\frac{f(x)-f(x_1)}{x-x_1}=f'(\xi_1)\]
   $\exists \xi_2\in]x_1,x[$ mit
   \[\frac{f(x_2)-f(x)}{x_2-x}=f'(\xi_2)\]
-  NB: $\xi_2>\xi_1$. Weil $(f(\xi_2)≥f(\xi_1))$, gilt das Lemma \ref{l:1011293} und Lemma $\implies$ Konvexität.
-\end{Bew}
+  NB: $\xi_2>\xi_1$. Weil $f'(\xi_2)\geq f'(\xi_2)$, gilt das Lemma 
+\ref{l:1011293} und Lemma $\implies$ Konvexität.
+
+Der Beweis der zweiten Behauptung des Satzes ist analog.
+\end{proof}
 \subsection{Die Lagrange Fehlerabschätzung}
 \begin{Def}
   Sei $f$ $n$-mal differenzierbar. Das Taylorpolynom mit Ordnung $n$ an der Stelle $x_0$ ist:
-  \[T_{x_0}=\sum^n_{T=0}\frac{f^{(i)}(x_0)}{i!}(x-x_0)^i\]
+  \[T^n_{x_0}=\sum^n_{T=0}\frac{f^{(i)}(x_0)}{i!}(x-x_0)^i\]
 \end{Def}
-\begin{Sat}
-  Sei $f$ $(n+1)$-mal differenzierbar in $I$. Sei $x_0\in$: $\forall x\in I$ $\exists\xi$ zwischen $x_0$ und $x$:
+\begin{Sat}[Lagrange Fehlerabsch\"atzung]
+  Sei $f$ $(n+1)$-mal differenzierbar in $I$ und $x_0\in$. $\forall x\in I$ 
+$\exists\xi$ zwischen $x_0$ und $x$ so dass
   \begin{equation}\label{e:1011292}
-    \underbrace{f(x)-T^n_{x_0}(x)}_{R_n(x)}=\frac{f^{(n+1)}(\xi)}{n+1!}(x-x_0)^{(n+1)}
+    \underbrace{f(x)-T^n_{x_0}(x)}_{R_{x_0}^n (x)}=\frac{f^{(n+1)}(\xi)}{n+1!}(x-x_0)^{n+1}
   \end{equation}
 \end{Sat}
 \begin{Bem}
-  Für $n=0$ \ref{e:1011292} ist:
+  Für $n=0$ \eqref{e:1011292} ist:
   \[f(x)-\underbrace{f(x_0)}_{T^0_{x_0}(x)}=f'(\xi)(x-x_0)\]
   \[\iff\frac{f(x)-f(x_0)}{x-x_0}=f'(\xi)\]
+Deswegen die Lagrange Fehlerabsch\"atzung ist eine Verallgemeinerung
+des Satzes von Lagrange.
 \end{Bem}
-\begin{Bew}
-  \[\frac{g(x)}{h(x)}\frac{R_n(x)}{(x-x_0)^{n+1}}=\frac{h(x)-h(x_0)}{g(x)-g(x_0)}\]
-  \[\stackrel{\text{Mittelwertsatz}}{=}\frac{h'(\xi_1)}{g'(\xi_1)}=\frac{h'(\xi_1)-h'(x_0)}{g'(\xi_1)-g'(x_0)}=\frac{h''(\xi_2)}{g''(\xi_2)}\]
-  \[=\cdots=\frac{h^{(n+1)}(\xi_{n+1}}{g^{(n+1)}(\xi_{n+1})}=\frac{f^{(n+1)}(\xi)}{(n+1)!}\s \xi:=\xi_{n+1}\]
-  \[h(x)=R_n(x)=f(x)-T^n_{x_0}(x)\]
-  \[g(x)=(x-x_0)^{n+1}\]
-  \[g^{(n+1)}(x)=(n+1)!\]
-  \[h^{(n+1)}(\xi)=f^{(n+1)}(\xi)-0=f^{(n+1)}(\xi)\]
+\begin{Bew} Seien
+\[
+h (x) = R^n_{x_0} (x) \qquad \mbox{und} \qquad g(x) = (x-x_0)^{n+1}\, .
+\]
+Es ist leicht zu sehen dass
+\[
+g (x_0) = g' (x_0) = \ldots = g^{(n)} (x_0) = 0
+\]
+\[
+h(x_0) = h'(x_0) = \ldots = h^{(n)} (x_0) = 0
+\]
+und 
+\[
+h^{(n+1)} (x) = f^{(n+1)} (x) \quad\forall x\, .
+\]
+Deswegen, wir wenden $n+1$ Mal den verallgemeinerten Mittelwertsatz (Satz von Cauchy)
+und schliessen: 
+  \[\frac{h(x)}{g(x)} = \frac{h(x)-h(x_0)}{g(x)-g(x_0)}
+\stackrel{\text{Cauchy}}{=}\frac{h'(\xi_1)}{g'(\xi_1)}=
+\frac{h'(\xi_1)-h'(x_0)}{g'(\xi_1)-g'(x_0)}\stackrel{\text{Cauchy}}{=}
+\frac{h''(\xi_2)}{g''(\xi_2)}\]
+\[=\cdots\stackrel{\text{Cauchy}}{=}
+\frac{h^{(n+1)}(\xi_{n+1})}{g^{(n+1)}(\xi_{n+1})}=\frac{f^{(n+1)}(\xi_{n+1})}{(n+1)!}\, ,\]
+wobei: $\xi_1$ eine Stelle zwischen $x$ und $x_0$ ist; $\xi_2$ eine Stelle zwischen $\xi_1$
+und $x_0$ ist; \ldots $\xi_{n+1}$ eine Stelle zwischen $\xi_n$ und $x_0$ ist.
+
+Wenn wir $\xi:=\xi_{n+1}$ setzen, dann
+\[f(x)-T^n_{x_0}(x) = R^n_{x_0} (x) = h (x)=
+\frac{f^{(n+1)} (\xi)}{(n+1)!} g (x) =
+\frac{f^{(n+1)}(\xi)}{(n+1)!} (x-x_0)^{n+1}\, .\]
 \end{Bew}
-\begin{Bsp}
-  \[e^x=\sum^\infty_{j=0}\frac{x^j}{j!}\s\forall x\in\mb{R}\]
-  \[T_0^n(x)=\sum^\infty_{j=0}\frac{x^j}{j!}\s\forall x\in\mb{R}\]
-  $x\in\mb{R}$ fixiert.
-  \[\abs{\overbrace{e^x-\sum_{j=0}^{n}\frac{x^0}{j!}}^{R_{n+1}(x)}}=\abs{\frac{e^{\xi_n}x^{n+1}}{(n+1)!}}\]
-  \[\abs{\xi_n}≤\abs{x}\]
-  \[\abs{e^x-\sum_{j=0}^{n}\frac{x^0}{j!}}≤e^{\abs{x}}\frac{\abs{x}^{n+1}}{(n+1)!}\]
-  \[\Limi{x}\cdots=0\]
-  weil
-  \[\Limi{n}\frac{\abs{x}^{n+1}}{(n+1)!}=0\]
-  $\exists N: N≥ 2\abs{x}$
-  \[\frac{\abs{x}^{n+1}}{(n+1)!}≤\frac{\abs{x}^N}{N!}\frac{\abs{x}}{(n+1)}\frac{\abs{x}}{n}\cdots\frac{\abs{x}}{N+1}≤\frac{\abs{x}^N}{N!}\left( \frac{1}{2} \right)^{n+1-N}\to N\]
+\begin{Bsp} Wir wissen schon dass
+  \[e^x=\sum^\infty_{j=0}\frac{x^j}{j!}\qquad\forall x\in\mb{R}\, .\]
+Diese Identit\"at kann man auch aus der Lagrange Fehlerabsch\"atzung
+schliessen. Das Taylor Polynom mit Ordnung $n$ in $0$ ist 
+\[T_0^n(x)=\sum^n_{j=0}\frac{x^j}{j!}\, .\]
+Sei $x\in\mb{R}$ fixiert. 
+  \[\Bigg|\overbrace{e^x-\sum_{j=0}^{n}\frac{x^j}{j!}}^{R^{n+1}_0 (x)}\Bigg|=
+\left|\frac{e^{\xi_n}x^{n+1}}{(n+1)!}\right|,\]
+wobei $\xi_n$ eine Stelle zwischen $x$ und $0$ ist. 
+Deswegen, $\abs{\xi_n}\leq \abs{x}$ und
+\begin{equation}\label{e:101129-1}
+\left|e^x-\sum_{j=0}^{n}\frac{x^0}{j!}\right|\leq e^{|x|}\frac{\abs{x}^{n+1}}{(n+1)!}
+\end{equation}
+Wir wissen schon dass
+\begin{equation}\label{e:101129-2}
+\Limi{n}\frac{\abs{x}^{n+1}}{(n+1)!}=0\, .
+\end{equation}
+(In der Tat, sei $N$ so dass $N\geq 2\abs{x}$. Dann
+ \[\left.\frac{\abs{x}^{n+1}}{(n+1)!} = \frac{\abs{x}^N}{N!}
+\frac{\abs{x}}{N+1}\frac{\abs{x}}{N+2}\cdots\frac{\abs{x}}{n+1}
+\leq \frac{\abs{x}^N}{N!}\left(\frac{1}{2} \right)^{n+1-N}\, .\right)\]
+\eqref{e:101129-1} und \eqref{e:101129-2} implizieren dass
+\[
+0 \leq \left|f(x) - \sum_{j=0}^\infty \frac{x^j}{j!}\right|
+= \left|f (x) - \lim_{n\to\infty} T^n_0 (x)\right| 
+\]
+\[
+= \left|\lim_{n\to\infty} R^n_0 (x)\right|
+= \lim_{n\to \infty} |R^n_0 (x)| \leq \lim_{n\to\infty}
+ e^{|x|}\frac{\abs{x}^{n+1}}{(n+1)!} = 0\, .
+\]
 \end{Bsp}
-\begin{Bsp}
+\begin{Bsp} Sei
   \[f(x)=\ln(x+1)\]
-  (Bem: die Taylorreihe in 0 von $f$ ist die Taylorreihe von $\ln x$ an der Stelle 1
-  \[T^n_0(x)=\sum^n_{j=0}\frac{f^{(j)}(0)}{j!}x^j=\sum^n_{j=0}\frac{(-1)^{j-1}}{j}x^j=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots\]
-  \[\ln(x+1)=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots ? \]
-  \[\abs{\overbrace{\ln(x+1)-T_0^n(x)}^{R_{n+1}(x)}}=\frac{\abs{f^{(n+1)}(\xi_n)}}{(n+1)!}\abs{x}^{n+1}=\frac{\frac{n!}{\left( 1+\xi \right)^{n+1}}}{(n+1)!}\abs{x}^{n+1}\]
-  $\xi_n$ zwischen 0 und $x$. $\xi_n> -1$
+  (Bem: das Taylorpolynom (bzw. die Taylorreihe) in 0 von $f$ ist 
+das Taylorpolynom (bzw. die Taylorreihe) von $\ln x$ an der Stelle 1.)
+Dann
+  \[T^n_0(x)=\sum^n_{j=0}\frac{f^{(j)}(0)}{j!}x^j=
+\sum^n_{j=1}\frac{(-1)^{j-1}}{j}x^j=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots
++ (-1)^{n-1} \frac{x^n}{n}\]
+Wir wollen zeigen dass
+\begin{equation}\label{e:logreihe}
+\ln(x+1)= \sum_{j=1}^n (-1)^{n-1} \frac{x^j}{j}
+\quad \left( = x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots\right)
+\end{equation}
+in einer Umgebung von $0$.
+
+Sei $x> -1$. Die Lagrange Fehlerabsch\"atzung impliziert: 
+\[\big|\overbrace{f (x) -T_0^n(x)}^{R^n_0 (x)}\big|=
+\frac{\abs{f^{(n+1)}(\xi_n)}}{(n+1)!}\abs{x}^{n+1}=
+\frac{\frac{n!}{\left( 1+\xi_n \right)^{n+1}}}{(n+1)!}\abs{x}^{n+1}\]
+wobei $\xi_n$ zwischen 0 und $x$ liegt. Deswegen $\xi_n> -1$
+und $1+\xi_n \geq 1-|\xi_n|\geq 1-|\xi|$.
   % TODO unsichere Reihenfolge
-  \[≤\frac{1}{(n+1)}\frac{\abs{x}^{n+1}}{(1-\abs{x})^{n+1}}\]
-  falls $\abs{x}≤\frac{1}{2}$ $\implies \frac{\abs{x}}{1-\abs{x}}≤1$
-  \[≤\frac{1}{n+1}\]
-  \[\implies \Limi{x}\abs{f(x)-T_0^n(x)}=0\]
-  Folgerung: $\forall x\in ]-\frac{1}{2}, \frac{1}{2}[$
-  \[f(x)=\sum^\infty_{j=1}(-1)^{j-1}\frac{x^j}{j}=x-\frac{x^2}{2}+\frac{x^3}{3}+\cdots\]
+Wir schliessen
+\[|R^n_0 (x)|\leq \frac{1}{(n+1)}\frac{\abs{x}^{n+1}}{(1-\abs{x})^{n+1}}\, .\]
+Aber $\abs{x}\leq \frac{1}{2}$ $\implies \frac{\abs{x}}{1-\abs{x}}\leq 1$
+und
+\[\Lim_{n\to\infty} \abs{R^n_0 (x)}\leq\lim_{n\to\infty} \frac{1}{n+1} = 0
+\qquad \forall x\in \left[\frac{1}{2}, \frac{1}{2} \right]\]
+
+Falls $x\in ]0,1]$, dann $\xi_n>0$ und
+\[|R^n_0 (x)| \leq \frac{|x|^{n+1}}{n+1} \leq \frac{1}{n+1}\, .\]
+Deswegen gilt die Gleichung \eqref{e:logreihe} auch f\"ur $x\in ]1/2, 1]$.
+In der Tat, gilt diese Gleichung auch f\"ur $x\in ]-1, -1/2[$, aber diesen
+Fall ist keine einfache Folgerung der Lagrange Fehlerabsc\"atzung.
+
+Ausserdem, die Reihe $\sum_{j=1}^\infty\frac{x^j}{j}(-1)^j$ 
+hat Konvergenzradius $R=1$. Deswegen ist die Gleichung \eqref{e:logreihe}
+falsch wenn $x>1$.
 \end{Bsp}
-\begin{Bem}
-  Die Reihe $\sum_{j=1}^\infty\frac{x^j}{j}(-1)^j$ hat Konvergenzradius $R=1$ und konvergent für $x=1$, divergent für $x=-1$
-\end{Bem}
-\begin{Ueb}
-  Mit der Lagrange-Fehlerabschätzung beweisen dass
-  \[\ln(x+1)=\sum^\infty_{j=1}(-1)^{j-1}\frac{x^j}{j}\s\forall x\in]0,1]\]
-\end{Ueb}
-\begin{Ueb}
-  Die Reihendarstellung gilt auf $]-1,1]$.
-\end{Ueb}
 \section{Integralrechnung}
-$f$ stetig
-\[G=\left\{ (x,y): x_0≤x≤x_1; 0≤y≤f(x) \right\}\]
-Inhalt ovn $G$?
-\[G=\int^{x_1}_{x_0}f(x)\md x\]
+Sei $f: [x_0, x_1]= I \to \mb{R}$ eine stetig nichtnegative Funktion.
+Das Ziel der Integralrechnung ist den Inhalt der folgenden Fl\"ache zu finden: 
+\[G=\left\{ (x,y): x\in I \;\;\mbox{und}\;\; 0\leq y \leq f(x) \right\}\]
 \subsection{Treppenfunktion}
 \begin{Def}
   Eine $\phi:[a,b]\to\mb{R}$ heisst Treppenfunktion wenn $\exists a=x_0<x_1<\cdots<x_n=b$ so dass $\phi$ in jedem Intervall $]x_{k-1},x_k[$ konstant ist.
 \end{Def}
-\begin{Def}
-  \[\int^b_af(x)\md x:=\sum^n_k=1(x_k-x_{k-1})c_k\]
+\begin{Def} Sei $\phi$ eine Treppenfunktion und $x_0<x_1< \ldots < x_n$ wie oben.
+Falls $c_k$ der Wert von $\phi$ in $]x_{k-1}, x_k[$ ist, dann
+\[\int^b_af(x)\md x:=\sum^n_{k=1} (x_k-x_{k-1})c_k\, .\]
 \end{Def}
-\begin{Bem}
-  Diese Zahl $(\int^b_af(x)\md x)$ ist unabhängig von der Verteilung.
+\begin{Bem} Es ist leicht zu sehen dass
+die Zahl $\int^b_af(x)\md x$ unabhängig von der Verteilung ist.
 \end{Bem}

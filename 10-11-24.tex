@@ -155,9 +155,13 @@ Aber
 Deswegen ist \eqref{e:X3} equivalent zu
   \[f(\lambda x_1+(1-\lambda)x_2)\leq \lambda f(x_1)+(1-\lambda)f(x_2)\]
 \end{Bew}
-\begin{Lem}
-  $f:I\to \mb{R}$ ist genau dan konvex wenn für jedes Tripel $x_1<x<x_2\in I$ die folgende Ungleichung gilt:
-  \[\frac{f(x)-f(x_1)}{x-x_1}\leq \frac{f(x_2)-f(x)}{x_2-x}\]
+\begin{Lem}\label{l:1011293}
+  $f:I\to \mb{R}$ ist genau dann konvex wenn für jedes Tripel $x_1<x<x_2\in I$ die folgende Ungleichung gilt:
+\begin{equation}\label{e:konv}
+\frac{f(x)-f(x_1)}{x-x_1}\leq \frac{f(x_2)-f(x)}{x_2-x}
+\end{equation}
+$f$ ist genau dann streng konvex wenn f\"ur jedes Tripel $x_1<x<x_2$ die echte Ungleichung
+in \eqref{e:konv} gilt.
 \end{Lem}
 \begin{Bew}
   \[\frac{f(x)-f(x_1)}{x-x_1}\leq \frac{f(x_2)-f(x)}{x_2-x}\]
