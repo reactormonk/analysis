@@ -1,0 +1,166 @@
+\subsection{Differentialgleichung mit getrennten Variablen}
+\begin{Bem}
+  $f'(x)=g(x)$
+  \paragraph{Lösung}
+  \[f(x)=C+\int_{x_0}^xg(\xi)\md \xi\]
+\end{Bem}
+\begin{Bem}
+  $f'(x)=g(x)f(x)$
+  \[f(x)=Ce^{\int_{x_0}g(\xi)\md \xi}\]
+\end{Bem}
+\begin{Def}
+  Ein Anfangswertproblem für die GDG:
+  \[y'(t)=F(t,y(t))\]
+  enthält die zusätzliche Bedingung:
+  \[y(t_0)=y_0\]
+  Für eine GDG $n$-ter Ordnung:
+  \[g^{(n)}(t)=F(t,y(t),y'(t),\cdots,y^{(n-1)}(t))\]
+  Das Anfangswertproblem:
+  \[y(t_0)=y_0\]
+  \[y'(t_0)=y_1\]
+  \[\cdots\]
+  \[y^{(n-1)}(t_0)=y_{n-1}\]
+  Eine GDG erster Ordnung mit getrennten Variablen:
+  \begin{equation}
+    \label{e:1012201}
+    \begin{cases}
+      y'(t)=g(t)F(y(t))\\
+      y(t_0)=y_0
+    \end{cases}
+  \end{equation}
+  Fälle:
+  \begin{enumerate}
+    \item $F(y_0)=0$ $y(t)\equiv y_0$ ist eine Lösung von \ref{e:1012201} weil
+      \[F(y(t))g(t)=F(y_0)g(t)=0\s\forall t\]
+      \[y'(t)0\s\forall t\]
+    \item $F(y_0)\neq 0$
+      Falls $y:]a,b[\to\mb{R}$ eine Lösung von \ref{e:1012201} ist und $F$ stetig ist:
+      \[\exists \delta>0\s\text{so dass} F(y(t))\neq 0\s\text{wenn}\s t\in]t_0-\delta,t_0+\delta[\]
+      Dann
+      \[\frac{y'(t)}{F(y(t))}=g(t)\s\forall t\in ]t_0-\delta,t_0+\delta[\]
+      Falls $g$ stetig ist:
+      \[\int_{t_0}^t\frac{y'(t)}{F(y(t))}=\int_{t_0}^tg(t)\md t\]
+      \[\implies \int_{y(t_0)}^{y(t)}\frac{\md \sigma}{F(\sigma)}=\int_{t_0}^tg(t)\md t\]
+      Sei $H$ eine Stammfunktion von $\frac{1}{F}$: (und $G$ eine Stammfunktion von $g$)
+      \[H(y(t))-H(y(t_0))=G(t)-G(t_0)\]
+      \begin{equation}
+        \label{e:1012202}
+        H(y(t))=\underbrace{G(t)-G(t_0)+H(y_0)}_{\text{$G$ ist stetig, für $t\sim t_0$ ist $G(t)-G(t_0)+H(y_0)\sim H(y_0)$}}
+      \end{equation}
+      Ist $H$ umkehrbar?
+      \[H'(y_0)=\frac{1}{F(y_0)}\neq 0\]
+      z.B. $>0$
+      \[F\s\text{stetig}\implies \exists \varepsilon: H'>0\s\text{auf}\s ]y_0-\varepsilon,y_0+\varepsilon\]
+      \[\implies H:]y_0-\varepsilon,y_0+\varepsilon [\to\underbrace{ ]H(y_0-\varepsilon),H(y_0+\varepsilon) [ }_{\text{enthält $H(y_0)$}}\]
+      ist umkehrbar.
+      Für $\abs{t-t_0}$ klein genug:
+      \begin{equation}
+        \label{e:1012203}
+        y(t)=\underbrace{H^{-1}}_{\text{Umkehrfunktion von $H$}}(G(t)-G(t_0)+y_0)
+      \end{equation}
+  \end{enumerate}
+  \begin{Bem}
+    In der Tat, wenn $g$ und $F$ stetig sind und $y_0$ eine Stelle so dass $F(y_0)\neq 0$ ist die Funktion in \ref{e:1012203} ist eine Lösung von \ref{e:1012201} in einer Umgebung von $t_0$.
+  \end{Bem}
+  \[y'(t)=g(t)y(t)+\not{h(t)}\]
+  \[y'(t)=g(t)y(t)\]
+  \[F(y)=y, g(t)=g(t)\]
+  \begin{equation}
+    \label{e:1012204}
+    \begin{cases}
+      \implies y'(t)=(t)F(y(t))
+      y(0)=y_0
+    \end{cases}
+  \end{equation}
+  Die Formel für \ref{e:1012204}:
+  \[y(t)=Ce^{\int_0^tg(t)\md t}=y_0e^{\int_0^tg(t)\md t}\]
+  \[y_0=y(0)=Ce^{\int_0^tg(t)\md t}=C\]
+  Aus \ref{e:1012203}:
+  \[y(t)=H^{-1}\left( G(t)-G(0)+H(y_0) \right)\]
+  \[H^{-1}\left( \int_0^t g(t)\md t+H(y_0) \right)\]
+  $H(\sigma)$ Stammfunktion von $\frac{1}{F(\sigma)=\frac{1}{\sigma}}$ auf einem Intervall dass $y_0$ enthält (falls $F(y_0)\neq 0$). 
+  \begin{enumerate}
+    \item Fall:
+      \[y_0\implies y(t)\equiv y_0\equiv 0\]
+    \item Fall:
+      \[F(y_0)\neq 0: F(y_0)=y_0>0\]
+  \end{enumerate}
+  $\implies$ Wählen wir $H(\sigma)=\ln \sigma$. ($H:]0,+\infty [\to\mb{R}$, $]0,+\infty [$ enthält $y_0$ wenn $y_0$) (Im Fall $y_0<0\implies H(\sigma)=-\ln(-\sigma)$)
+  \[H^{-1}(\xi)=e^{\xi}\]
+  \[y(t)=e^{(\int_0^tg(t)\md t+\ln(y_0))}=e^{\ln y_0}e^{\int_0^tg(t)\md t}=y_0e^{\int_0^tg(t)\md t}\]
+  $G$ ist eine Stammfunktion von $g$ auf $I$ mit $t_0\in I$. $H$ ist eine Stammfunktion von $\frac{1}{F}$ auf $J\ni y_0$
+\end{Def}
+\begin{Bsp}
+  \[\begin{cases}
+    y'(t)=\overbrace{\alpha(t)[y(t)]^\alpha}^{\text{Bernoullische DG}}\s \alpha>0, \alpha\neq 1\\
+    y(0)=y_0
+  \end{cases}\]
+  Vorsicht: die GDG macht nur Sinn wenn $y(t)>0$
+  \[y'(t)=a(t)F(y(t))\]
+  \[F(\sigma)=\sigma^\alpha\]
+  \[F(y_0)=y^\alpha>0\]
+  Wir brauchen $H$, Stammfunktion von $\frac{1}{F}$ die $y_0$ im Definitionsbereich enthält.
+  \[\frac{1}{F(\sigma)}=\sigma^{-\alpha}H(\sigma)\frac{1}{(1-\alpha)}\sigma^{1-\alpha}\s(\text{weil}\s \alpha\neq 1)\]
+  $H:]0,+\infty [\to\mb{R}$
+  \[y(t)=H^{-1}\left( \int_0^ta(t)\md t+H(y_0) \right)\]
+  \[\frac{1}{F(\sigma)}=\sigma^{-\alpha}\]
+  \[H(\sigma)\frac{1}{(1-\alpha)}\sigma^{1-\alpha}\s(\text{weil}\s \alpha\neq 1)\]
+  \[H(\sigma)\frac{1}{(1-\alpha)}\sigma^{1-\alpha}=\eta\]
+  \[\sigma=\left( (1-\alpha) \eta\right)^{\frac{1}{1-\alpha}}\]
+  \[y(t)=\left[ (1-\alpha)\left( \int_0^ta(t)\md t +\frac{1}{1-\alpha}y_0\right) \right]^{\frac{1}{1-\alpha}}\]
+  \[=\left[ y_0+(1-\alpha)\int_0^ta(t)\md t \right]^{\frac{1}{1-\alpha}}\]
+  Wohldefiniert wenn $y_0+(1-\alpha)\int_0^ta(t)\md t\geq 0$ Garantiert falls $\abs{t}<\delta$
+\end{Bsp}
+\subsection{Lineare Differentialgleichung mit konstanten Koeffizienten}
+\begin{equation}
+  \label{e:1012205}
+  g^{(n)}(t)+a_{n-1}y^{(n-1)}(t)+\cdots+a_1y'(t)+a_0y(t)=q(t)
+\end{equation}
+Mit $q\neq 0$ inhomogen, sonst homogen.
+\begin{Lem}
+  Sei $I$ ein Intervall
+  \[V:=\left\{ y:I\to\mb{R}(\mb{C}), \text{die \ref{e:1012205} mit $q=0$ löst.} \right\}\]
+  ist ein reller Vektorraum (bzw. ein komplexer). Mit $q\neq 0$ brauch wir nur eine einzige Lösung zu finden, wenn wir schon die ganzen Lösungen für $q=0$ gefunden haben.
+\end{Lem}
+\paragraph{Ziel} $I=\mb{R}$ $\forall y_0,y_1,\cdots,y_{n-1}\in\mb{R}$ ($\mb{C}$) $\exists$ eine eindeutige Lösung des Anfangswertproblems:
+\begin{equation}
+  \label{e:1012206}
+  \begin{cases}
+    y^{(n)}+a_{n+1}y^{(n-1)}+\cdots+a_1y'+y=0\\
+    y(0)=y_0\\
+    y'(0)=y_1\\
+    \cdots\\
+    y^{(n-1)}(0)=y_{n-1}
+  \end{cases}
+\end{equation}
+mit Formel. Folgerung: $\dim V=n$
+\begin{Lem} \label{l:1012201}
+  $\dim(V)\leq n$ (wobei ein beliebiges Intervall $I$ mit $0\in I$ ist) $\forall y_0,\cdots,y_{n-1}$ gibt es höchstens eine Lösung von \ref{e:1012206} auf $I$.
+\end{Lem}
+\begin{Bew}
+  Sei $L:V\to\mb{C}^n(\mb{R}^n)$
+  \[y\in V:L(y)=\left( y(0),y'(0),\cdots,y^{(n-1)} \right)\]
+  $L$ ist linear \ref{l:1012201} $\iff$ $L$ ist injektiv $\implies$ $\dim(V)\leq \dim(\mb{C}^n)$
+  \begin{Lem} \label{l:1012202}
+    $L$ injektiv $\iff$ die einzige Lösung mit $y(0)=0=y'(0)=\cdots=y^{(n-1)}(0)$ ist die triviale Lösung $\equiv 0$ (Wenn $y\neq z$ zwei verschiedene Lösungen mit
+    \[y(0)=z(0)\]
+    \[y'(0)=z'(0)\cdots y^{(n-1)}(0)=z^{(n-1)}(0)\]
+    sind, dann ist $z-y\neq 0$ eine Lösung mit
+    \[w(0)=w'(0)=\cdots=w^{(n-1)}(0)=0\]
+  \end{Lem}
+  \begin{Bew}
+    von \ref{l:1012202}:
+    \[Y(t)=\left( y(t) \right)^2+\left( y'(t) \right)^2+\cdots+\left( y^{(n-1)}(t) \right)^2\]
+    \[Y'(t)=\overbrace{2y(t)y'(t)+2y'(t)y''(t)+\cdots+y^{(n-2)}(t)y^{(n-1)}}^{\leq\sqrt{Y(t)}\sqrt{Y(t)}\leq 2(n-1)Y(t)}\]
+    \[+\underbrace{2y^{(n-1)}(t)\left( -a_{n-1}y^{(n-1)}(t)+\cdots+a_0y(t) \right)}_{2\sqrt{Y(t)}\left( \abs{a_{n-1}}+\cdots+\abs{a_0} \right)\sqrt{Y(t)}\leq C Y(t)}\]
+    \begin{Lem}{von Grauwall}
+      Sei $Y:I\to [0,+\infty[$ eine differenzierbare Funktion mit:
+      \begin{itemize}
+        \item $0\in I$, $Y(0)=0$
+        \item $Y'(t)\leq C Y(t)$ $\forall t\in I$, wobei $C$ unabhängig von $t$ ist.
+      \end{itemize}
+      Dann $Y\equiv 0$
+    \end{Lem}
+    $\implies Y\equiv 0$, $\implies y\equiv 0$
+  \end{Bew}
+\end{Bew}
