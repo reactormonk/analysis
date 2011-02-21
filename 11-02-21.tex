@@ -1,0 +1,140 @@
+\section{Metrik und Topologie des euklidischen Raumes}
+$\mb{R}^n=\left\{ \left( x_1,\cdots,x_n \right), x\in\mb{R} \right\}$
+In $\mb{R}^n$:
+\begin{itemize}
+  \item Norm (Euklidische)
+  \item Abstand (Euklidische)
+  \item Topologie
+\end{itemize}
+``Abstrakte Theore''
+\begin{itemize}
+  \item Normierte Vektorräume
+  \item Metrische Räume
+  \item Topologische Räume
+\end{itemize}
+\begin{Def}
+  Sei $x\in\mb{R}^n$ ($x=(x_1,\cdots,x_n)$, $x_i\in\mb{R}$)
+  \[\Norm{x}=\sqrt{x_1^2+\cdots+x_n^2}=\sqrt{\sum_{i=1}^nx_i^2}\]
+  Intuitiv: $\Norm{x}=$``der Abstand zwischen $x$ und 0
+\end{Def}
+\begin{Lem}
+  $\Norm{\dot}$ erfüllt die Regeln
+  \begin{enumerate}
+    \item $\Norm{x}\geq 0$ und $\Norm{x}=0\iff x=0$
+    \item $\Norm{\lambda x}=\abs{\lambda}\Norm{x}$ $\forall \lambda\in\mb{R}$, $\forall x\in\mb{R}$
+    \item $\Norm{x+y}\leq\Norm{x}+\Norm{y}$ $\forall x,y\in\mb{R}$
+  \end{enumerate}
+\end{Lem}
+\begin{Bew}
+  \begin{enumerate}
+    \item $\geq 0$ trivial
+      \[x=0\implies \sum x_i^2=0\implies \Norm{x}=0\]
+      \[x=0\Leftarrow x_i=0 \forall i\Leftarrow \sum x_i^2=0\Leftarrow \Norm{x}=0\]
+    \item \[\Norm{\lambda x}=\sqrt{\sum^n_{i=1}(\lambda x_i)^2}\sqrt{\lambda^2(\sum x^2)}=\abs{\lambda}\sqrt{\sum x^2}=\abs{\lambda}\Norm{x}\]
+      \[\abs{\lambda}=\frac{\Norm{x}\abs{\lambda}}{\Norm{x}}\]
+    \item
+      \[\iff \underbrace{\Norm{x+y}^2}_=\leq \Norm{x}^2+\Norm{y}^2+2\Norm{x}\Norm{y}\]
+      \[\sum_{i=1}^n(x_i+y_i)^2=\sum_{i=1}^n\left( x_i^2+y_i^2+2x_iy_i \right)=\Norm{x}^2+\Norm{y}^2\overbrace{2\sum x_iy_i}^{Skalarprodukt}\]
+      \[\iff \left< x,y\right>\leq \Norm{x}\Norm{y}\]
+  \end{enumerate}
+\end{Bew}
+\begin{Sat}{Cauchy-Schwartzsche Ungleichung}
+  \[\sum^n_{i=1}x_iy_i\leq\sqrt{\sum_{i=1}^nx_i^2}\sqrt{\sum_{i=1}^ny_i^2}\]
+\end{Sat}
+\begin{Bew}
+  OBdA $y\neq 0$ ($y=0$ trivial)
+  \[t\to g(t)=\sum_{i=1}^n(x_i+ty_i)^2\]
+  \[=\left( \sum x_i^2 \right)+2t\sum x_iy_i+t^2\sum y_i^2\]
+  \[=\Norm{x}^2+2t\seq{x,y>+\Norm{y}^2t^2\]
+  Sei $t_0=\frac{\seq{x,y}}{\Norm{y}^2}$, dann $g(t_0)\geq 0$
+  \[0\leq g(t_0)\]
+  \[=\Norm{x}^2-2\frac{\seq{x,y}^2}{\Norm{y}^2}+\Norm{y}^2\frac{\seq{x,y}^2}{\Norm{y}^2}\]
+  \[=\Norm{x}^2-\frac{\seq{x,y}^2}{\Norm{y}^2}\]
+  \[\implies \seq{x,y}\leq\Norm{x}^2\Norm{y}^2\]
+  \[\implies \abs{\seq{x,y}}\leq\Norm{x}\Norm{y}\]
+\end{Bew}
+\begin{Def}
+  Ein normierter Vektorrraum ist ein reeller Vektorraum $V$ mit einer Abbildung $\Norm\dot:V\to\mb R$ so dass:
+  \begin{enumerate}
+    \item $\Norm x\geq 0$ und $\Norm x=0\iff x=0$ (Nullvektor)
+    \item $\Norm{\lambda x}=\abs\lambda\Norm x$ $\forall \lambda\in\mb R$, $\forall x\in V$
+    \item $\Norm{x+y}\leq\Norm{x}+\Norm{y}$ $\forall x,y\in V$
+  \end{enumerate}
+\end{Def}
+\begin{Bsp}
+  $V=\mb{R}^n$
+  \[\Norm{x}_p=\left(\sum\abs{x_i}^p\right)^{\frac{1}{p}}\s p\geq 1\]
+  $p=2$ euklidische Norm
+\end{Bsp}
+\begin{Def}
+  Seien $x,y\in\mb{R}^n$. Die euklidische Metrik $d(x,y)=\Norm{x-y}$
+\end{Def}
+\begin{Lem}
+  \begin{enumerate}
+    \item $d(x,y)\geq 0$ und $d(x,y)=0\iff x=y$
+    \item $d(x,y)=d(y,x)$
+    \item $d(x,z)\leq d(x,y)+d(y,z)$ (Dreiecksungleichung)
+  \end{enumerate}
+\end{Lem}
+\begin{Bew}
+  \[\Norm{x-z}\leq\underbrace{\Norm{x-y}}_v+\underbrace{\Norm{y-z}}_w\s v+w=x-z\]
+  \[\Norm{v+w}\leq\Norm v+\Norm w\]
+\end{Bew}
+\begin{Def}
+  Ein metrischer Raum ist eine Menge $X$ mit einer Abbildung
+  \[d:X\cross X\to\mb{R}\s (x,y)\mapsto d(x,y)\in\mb{R}\]
+  \begin{enumerate}
+    \item $d(x,y)\geq 0$ und $d(x,y)=0\iff x=y$ $\forall x,y\in X$
+    \item $d(x,y)=d(y,x)$ $\forall x,y\in X$
+    \item $d(x,z)=d(x,y)+d(y,z)$ $\forall x,y,z\in X$
+  \end{enumerate}
+\end{Def}
+\begin{Lem}
+  Sei ($V$, $\Norm\dot$) ein normierter Vektorraum. Dann sind $V$ und $d(x,y)=\Norm{x-y}$ ein metrischer Raum.
+\end{Lem}
+\begin{Def}
+  Die offene Kugel mit Radius $r>0$ und Mittelpunkt $x\in\mb{R}^n$ ist die Menge
+  \[K_r(x)=\left\{ y\in\mb{R}^n, d(x,y)<r \right\}\]
+\end{Def}
+\begin{Def}
+  Eine Menge heisst ''Umgebung`` von $x$, wenn $V$ eine offene Kugel mit Mittelpunkt $x$ enthält.
+\end{Def}
+\begin{Def}
+  Eine Menge $U\in\mb{R}^n$ heisst offen falls $\forall x\in U$ ist $U$ eine Umgebung von $x$
+  \[\forall x\in U\s\exists \s\text{eine Kugel}\s K_r(x)\in U\]
+\end{Def}
+\begin{Bem}
+  Eine offene Kugel ist offen.
+\end{Bem}
+\begin{Sat}
+  \begin{enumerate}
+    \item $\varempty$ und $\mb{R}^n$ sind offen
+    \item Der Schnitt \ul{endlich vieler} offener Menge ist auch offen.
+    \item Die Vereinigung einer \ul{beliebigen} Familie offener Mengen ist auch offen.
+  \end{enumerate}
+\end{Sat}
+\begin{Bew}
+  \begin{enumerate}
+    \item $\mb{R}^n$ trivialerweise offen, auch $\varempty$
+    \item Sei $x\in U\cap\dots\cap U_N$
+      \[\forall i\subset\left\{ 1,\dots,N \right\}\s K_r(x)\in U_i\]
+      Sei $r=\min\left\{ r_i,\dots,r_N \right\}$
+      \[\implies K_r(x)\subset U_i\forall i\implies K_r(x)\subset U_1\cap\dots\cap U_N\]
+    \item $\left\{ U_\lambda \right\}_{\lambda\in \Lambda}$. Sei $U=\bigcap_{\lambda\in\Lambda}U_\lambda$
+      \[x\in U\implies x\in U_\lambda\s\text{für ein}\s\lambda\in\Lambda\]
+      \[\implies \exists K_r(x)\subset U_\lambda\subset U\]
+  \end{enumerate}
+\end{Bew}
+\begin{Def}
+  Ein topologischer Raum ist eine Menge $X$ und eine Menge $O$ von Teilmengen von $X$ so dass:
+  \begin{enumerate}
+    \item $\varempty, X\in O$
+    \item $U_1\cap\dots\cap_N\in O$ falls $U_i\in O$
+    \item $\bigcap_{\lambda\in\Lambda}U_\lambda\in O$ falls $U_i\in O$
+  \end{enumerate}
+\end{Def}
+\begin{Sat}
+  Sei $(X,d)$ ein metrischer Raum
+  \[K_r(x)=\left\{ y=X: d(x,y)<r \right\}\]
+  Umgebungen und offene Mengen sind wie im euklidischen Fall. $O=\left\{ \text{offene Menge} \right\}$ definiert eine Topologie.
+\end{Sat}
