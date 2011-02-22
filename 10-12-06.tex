@@ -51,14 +51,14 @@ Im Fall $h<0$, wir setzen $h=-k$ ($k>0$) und schliessen
   \[\implies F-G=\text{konstant}\]
 \end{Bem}
 \begin{Kor}
-  Sei $f:[a,b]\to\mb{R}$ eine stetige Funktion. Se $G:[a,b]\to\mb{R}$ eine Stammfunktion. Dann:
+  Sei $f:[a,b]\to\mb{R}$ eine stetige Funktion. Sei $G:[a,b]\to\mb{R}$ eine Stammfunktion. Dann:
   \[\int_a^bf(x)\md x=G(b)-G(a)\left( =:G|_a^b \right)\]
 \end{Kor}
 \begin{Bew} $F(x)=\int_a^xf(y)\md y$, $x>a$. 
 \[F'(x)=f(x)\s\forall x>a\]
 (NB: Der Beweis oben impliziert die Differenzierbarkeit auch an der Stelle $a$, 
 wobei (wegen unserer Konvention) $F(a)=0$. Ausserdem, die Stetigkeit an dieser Stelle
-kann man wir folgt sehen  
+kann man wie folgt sehen  
   \[\abs{\int_a^xf(y)\md y}\leq \int_a^x\abs{f(y)}\md y\leq M(x-a)\]
   Deswegen $F(a):=0$. ( $\int_a^af(x)\md x:= 0$ und $\int_a^xf(y)\md y=-\int_x^af(y)\md y$ )
 \paragraph{Zusammenfassung}
@@ -70,8 +70,8 @@ kann man wir folgt sehen
 \[\implies \int_a^bf(y)\md y=F(b)-F(a)=(F(b)-c)-(F(a)-c)=G(b)-G(a)\]
 \end{Bew}
 \begin{Bsp}
-  $f(x)=x^2$. $A:= \{(x,y): |x|leq 1, x^2\leq y\leq 1\}$ 
-und $B:= \{(x,y): |x|leq 1, 0\leq y \leq x^2\}$.
+  $f(x)=x^2$. $A:= \{(x,y): |x|\leq 1, x^2\leq y\leq 1\}$ 
+und $B:= \{(x,y): |x|\leq 1, 0\leq y \leq x^2\}$.
   Inhalt von $A$ = $2-\underbrace{\text{Inhalt von }B}_{ \abs{ B } }$
   \[f(x)=x^2\]
   \[G(x)=\frac{x^3}{3}\]
@@ -160,9 +160,9 @@ M\"oglichkeit). Sei $f:I\to\mb{R}$ so dass
   \[\forall a<\alpha<\beta<b\s f|_{[\alpha,\beta]}\s\text{eine Regelfunktion ist}\]
   Falls $c\in I$ und
   \[\lim_{\beta\uparrow b}\int_c^\beta\in\mb{R}\qquad \mbox{und}\qquad
-\lim_{\alpha\downarrow \alpha}\int_c^\alpha\in\mb{R}\]
+\lim_{\alpha\downarrow a}\int_c^\alpha\in\mb{R}\]
   dann definieren wir
-  \[\int_a^bf:=\lim_{\beta\uparrow b}\int_c^\beta f+\lim_{a\downarrow 0}\int_\alpha^cf\]
+  \[\int_a^bf:=\lim_{\beta\uparrow b}\int_c^\beta f+\lim_{\alpha\downarrow a}\int_\alpha^cf\]
 \end{Def}
 \begin{Bem} $\int_a^b f$ h\"angt nicht von $c$ ab! In der Tat, sei $\tilde{c}$ eine andere
  Stelle in $I$. Dann:

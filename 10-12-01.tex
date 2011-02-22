@@ -10,8 +10,8 @@
   \end{enumerate}
 \end{Lem}
 \begin{Bew} {\bf 1}
-$\exists a = x_0<x_1<\cdots<x_n=b$ so dass $\phi|_{]x_k, x_{k+1}}\equiv \mbox{konst}$ 
-und $\exists a = y_0<y_1<\cdots<y_n=b$ so dass $\phi|_{]y_k, y_{k+1}}\equiv \mbox{konst}$
+$\exists a = x_0<x_1<\cdots<x_n=b$ so dass $\phi|_{]x_k, x_{k+1}[}\equiv \mbox{konst}$ 
+und $\exists a = y_0<y_1<\cdots<y_n=b$ so dass $\phi|_{]y_k, y_{k+1}[}\equiv \mbox{konst}$
 Seien $a= z_0< z_1 < \ldots < z_N= b$ so dass
 \[\left\{ x_0,\cdots,x_n,y_0,\cdots y_m \right\}=\left\{ z_0<z_1<\cdots<z_N \right\}\]
 Dann: $\forall k\in \{1, \ldots, N\}$
@@ -30,12 +30,12 @@ und
 \medskip
 
 {\bf 2} Seien $a=x_0<x_1<\cdots<x_n=b$ mit
-\[\phi|_{]x_{k-1},x_k}=c_k\in\mb{R}\]
+\[\phi|_{]x_{k-1},x_k[}=c_k\in\mb{R}\]
 Dann
-\[\abs{\phi}|_{]x_{k-1},x_k}=\abs{c_k}\in\mb{R}\, .\]
-$|\phi$ ist eine Treppenfunktion und
+\[\abs{\phi}|_{]x_{k-1},x_k[}=\abs{c_k}\in\mb{R}\, .\]
+$\abs{\phi}$ ist eine Treppenfunktion und
 \[
-\abs{\int_a^b\phi}=\left|\sum^n_{k=1}(x_k-x_{k-1})c_n\right|
+\abs{\int_a^b\phi}=\left|\sum^n_{k=1}(x_k-x_{k-1})c_k\right|
 \leq \sum^n_{k=1}(x_k-x_{k-1})\abs{c_k}= \int_a^b |\phi|\, .
 \]
 
@@ -53,14 +53,13 @@ $\exists f_n:[a,b]\to\mb{R}$ (Folge von Funktionen), so dass:
   \end{itemize}
 \end{Def}
 \begin{Sat}\label{s:unab}
-  Sei $f$ eine Regelfunktion. Seien $\left\{ f_n \right\}$ und $\left\{ g_n \right\}$ zwei Folgen von Treppenfunktionen, welche die zwei Bedingungen in efinition \ref{d:1012011} erfüllen. Dann:
+  Sei $f$ eine Regelfunktion. Seien $\left\{ f_n \right\}$ und $\left\{ g_n \right\}$ zwei Folgen von Treppenfunktionen, welche die zwei Bedingungen in Definition \ref{d:1012011} erfüllen. Dann:
   \[\Limi{k}\int_a^bf_k=\Limi{k}\int_a^bg_k\s(\in\mb{R})\]
 \end{Sat}
 \begin{Def}
   Sei $f$ eine Regelfunktion und $\left\{ f_k \right\}$ eine Folge welche die 
 zwei Bedinungen in Definition \ref{d:1012011} erf\"ullen. Dann existieren die Grenzwerte
-\[\int_a^b f(x)\md x \qquad \mbox{und} \qquad \Limi{k}\int_a^bf_k(x)\md x\, .\]
-existieren. Ausserdem, sie sind gleich und geh\"oren zu $\mb{R}$.
+\[\int_a^b f(x)\md x \qquad \mbox{und} \qquad \Limi{k}\int_a^bf_k(x)\md x\, .\] Ausserdem, sie sind gleich und geh\"oren zu $\mb{R}$.
 \end{Def}
 
 Der Satz \ref{s:unab} garantiert dass $\int_a^b f$ wohldefiniert ist!
@@ -70,7 +69,7 @@ Der Satz \ref{s:unab} garantiert dass $\int_a^b f$ wohldefiniert ist!
     \int_a^bf\geq 0&  \mbox{falls }f\geq 0\\
     \int_a^bf = -\int_a^b (-f) \leq 0& \mbox{falls } f\leq 0
   \end{cases}\]
-Deswegen, wenn $f\leq 0$, der Inhalt von $G:=\{(x,y): x\in \in I \mbox{ und } f(x) \leq y \leq 0\}$
+Deswegen, wenn $f\leq 0$, der Inhalt von $G:=\{(x,y): x\in I \mbox{ und } f(x) \leq y \leq 0\}$
 ist $- \int_a^b f$.
 \end{Bem}
 \begin{proof}[Beweis vom Satz \ref{s:unab}] Zuerst bemerken wir dass, $\forall k, i$,
@@ -173,7 +172,7 @@ In diesem Fall heisst die Summe in \eqref{e:Riem} eine {\em Riemannsche Summe}.
       \[\int_a^bf=f(\xi)(b-a)\]
   \end{itemize}
 \end{theorem}
-\begin{Bew} {\bf Linearit\"at}. Seien $f_k, g_k$ Treppenfunktionen mit $\Norm{f_k} \to 0$, $\Norm{g-g_k}\to 0$. $\alpha f_k+\beta g_k$ ist auch eine Treppenfunktion und
+\begin{Bew} {\bf Linearit\"at}. Seien $f_k, g_k$ Treppenfunktionen mit $\Norm{f-f_k} \to 0$, $\Norm{g-g_k}\to 0$. $\alpha f_k+\beta g_k$ ist auch eine Treppenfunktion und
       \[\Norm{(\alpha f+\beta g)-(\alpha f_k-\beta g_k)}\leq\abs{\alpha}\Norm{f-f_k}+\abs{\beta}\Norm{g-g_k}\to 0\]
       \[\int_a^b(\alpha f+\beta g)=\Limi{k}\int_a^b(\alpha f_k+\beta g_k)=\Limi{k}(\alpha \int_a^bf_k+\beta\int_a^b g_k)\]
       \[=\Limi{k}\alpha\int_a^b f_k+\Limi{k}\beta\int_a^b g_n=\alpha\Limi{k}\int_a^b f_k+\beta\Limi{k}\int_a^bg_k\]
@@ -191,13 +190,13 @@ In diesem Fall heisst die Summe in \eqref{e:Riem} eine {\em Riemannsche Summe}.
 \medskip
 
 {\bf Monotonie} Seien $f_k$ und $g_k$ wie oben. Wir definieren $\tilde{f_k}:=f_k+\Norm{f-f_k}$ 
-(deswegen $\tilde{f_k}\geq f$) und $\tilde{g_k}:=g_k+\Norm{g-g_k}$ (deswegen $g\geq\tilde{g_k}$). 
+(deswegen $\tilde{f_k}\geq f$) und $\tilde{g_k}:=g_k-\Norm{g-g_k}$ (deswegen $g\geq\tilde{g_k}$). 
 Dann, $\tilde{f_k}\geq f \geq g \geq \tilde{g_k}$ und
     \[\int_a^bf=\Limi{k}\int_a^b\tilde{f_k}\geq\Limi{k}\int_a^b\tilde{g_k}=\int_a^bg\]
 
 \medskip
 
-{\bf \eqref{e:c}} Sei $f_k$ wie oben. Die Identit\"at folgt aus der entsprechenden Identit\"aten
+{\bf \eqref{e:c}} Sei $f_k$ wie oben. Die Identit\"at folgt aus den entsprechenden Identit\"aten
 f\"ur die Funktionen $f_k$.
 
 \medskip

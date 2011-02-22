@@ -1,5 +1,5 @@
 \begin{Def}{(Absolute Integrierbarkeit)}
-Sei $I$ wie oben. Eine Abbildung $f:I\to\mb{R}$  ist absolut integriebar falls
+Sei $I$ wie oben. Eine Abbildung $f:I\to\mb{R}$  ist absolut integrierbar falls
   \begin{itemize}
     \item $f|_{[\alpha,\beta]}$ eine Regelfunktion ist $\forall a<\alpha<\beta<b$
     \item 
@@ -26,7 +26,7 @@ Sei $I$ wie oben. Eine Abbildung $f:I\to\mb{R}$  ist absolut integriebar falls
 
 \medskip
 
-{\bf Beweis von \eqref{e:1012081}} Sei $F(\alpha):=\int_alpha^{x_0}\abs{f}$. Die
+{\bf Beweis von \eqref{e:1012081}} Sei $F(\alpha):=\int_\alpha^{x_0}\abs{f}$. Die
 Existenz von $\Limd{\alpha}{a} F(\alpha)$ $\implies$ die Cauchy Eigenschaft:
   \[\forall \varepsilon>0\s\exists\delta\s\text{so dass, wenn}\s\tilde a,\bar a\in]a,a+\delta[\s\text{dann}\s\abs{F(\tilde a)-F(\bar a)} < \varepsilon\]
 Aber
@@ -59,7 +59,7 @@ Sei nun $\alpha\in\left] \frac{1}{N+2},\frac{1}{N+1} \right]$. Dann gilt:
   \begin{itemize}
     \item 
       \[\sum^N_{n=1}\left( \frac{1}{n}-\frac{1}{n+1} \right)n(-1)^n=\sum^N_{n=1}\frac{1}{n+1}(-1)^n\]
-    \item $\sum^\infty_{n=1}\frac{(-)^n}{n+1}$ konvergiert
+    \item $\sum^\infty_{n=1}\frac{(-1)^n}{n+1}$ konvergiert
     \item 
       \[0\leq (N+1)\left( \frac{1}{N+1}-\alpha \right)\leq(N+1)\left( \frac{1}{N+1}-\frac{1}{N+2} \right)=\frac{1}{N+2}\stackrel{N\to\infty}{\rightarrow}0\]
   \end{itemize}
@@ -74,11 +74,11 @@ Sei nun $\alpha\in\left] \frac{1}{N+2},\frac{1}{N+1} \right]$. Dann gilt:
     \item $\abs{f}\leq g$ und $g$ ist integrierbar auf $I$. Dann ist $f$ auch absolut integrierbar
   \end{itemize}
 \end{Kor}
-\begin{Bem}\ref{k:1012085} ist sehr nützlich, um die Integrierbarkeit einer Funktion zu berweisen.
+\begin{Bem}\ref{k:1012085} ist sehr n\"utzlich, um die Integrierbarkeit einer Funktion zu beweisen.
 \end{Bem}
 \begin{Bsp}
   \[\int_{-\infty}^\infty e^{-x^2}\md x\in\mb{R}\]
-  Tatsächlich ist auf $[1,+\infty[$: $e^{-x^2}\leq xe^{-x^2}$ und
+  Tats\"achlich ist auf $[1,+\infty[$: $e^{-x^2}\leq xe^{-x^2}$ und
   \[\int_1^{-\infty}xe^{-x^2}\md x\]
   \[=\Limi{R}\int_1^Rxe^{-x^2}\md x\]
   \[=\Limi{R}\left[ -\frac{1}{2}e^{-x^2} \right]_{x=1}^R\]
@@ -88,7 +88,7 @@ Sei nun $\alpha\in\left] \frac{1}{N+2},\frac{1}{N+1} \right]$. Dann gilt:
 \end{Bsp}
 \begin{Bem} Korollar \ref{k:1012085} kann auch benutzt werden, um die Konvergenz von Reihen zu beweisen.
 \end{Bem}
-\begin{Kor}[``Integralkriterium'' f\"ur Reigen]\label{k:1012088} 
+\begin{Kor}[``Integralkriterium'' f\"ur Reihen]\label{k:1012088} 
 Sei $\sum^\infty_{n=0} a_n$ eine Reihe. Definiere $f:[0,+\infty]$ durch $f(x)=a_n$, falls $x\in[n,n+1[$ $(n\in \mb{N})$. Dann gilt:
   \[\int_0^{+\infty}f \mbox{ existiert} \iff \sum_{n=0}^\infty a_n \mbox{ konvergiert}\]
   und so:
@@ -126,8 +126,8 @@ Zur Erinnerung:
  Ist $\sum f_n=\sum a_nx^n$ eine Potenzreihe mit Konvergenzradius $R$, so konvergiert $\sum f_n$ normal auf jedem Intevall $[-\rho, \rho]$ mit $0<\rho<R$
 \end{Sat}
 
-Zun\``achst beweisen wir den folgenden Satz. Als Korollar erhalten wir eine
-entsprechende Potenzreihedarstellung f\"ur das Integral einer Potenzreihe.
+Zun\"achst beweisen wir den folgenden Satz. Als Korollar erhalten wir eine
+entsprechende Potenzreihendarstellung f\"ur das Integral einer Potenzreihe.
 
 \begin{Sat}\label{s:1012081}
   Ist $f=\sum f_n$ eine Reihe von Regelfunktionen auf $[a,b]$, welche auf $[a,b]$ normal konvergiert, so ist $f$ selber eine Regelfunktion auf $[a,b]$ und es gilt:
@@ -137,7 +137,7 @@ entsprechende Potenzreihedarstellung f\"ur das Integral einer Potenzreihe.
 
 \end{Sat}
 \begin{Bew}
-  Sei $\varepsilon>0$. Wähle $N$ so dass
+  Sei $\varepsilon>0$. W\"ahle $N$ so dass
   \[\sum^{+\infty}_{n=N+1}\Norm{f_n}<\frac{\varepsilon}{2}\]
   sowie Treppenfunktion $g_n$ mit
   \[\Norm{f_n-g_n}<\frac{\varepsilon}{2^{n+1}}\s\forall n\in\left\{ 0,\dots,N \right\}\]
@@ -145,8 +145,8 @@ entsprechende Potenzreihedarstellung f\"ur das Integral einer Potenzreihe.
   \[\abs{f(x)-g(x)}=\Limi{n}\left|\sum_{k=0}^nf_k(x)-\sum^N_{k=0}g_k(x)\right|\]
   \[\leq\sum_{k=0}^N\abs{f_k(x)-g_k(x)}+\Limi{n}\sum^n_{k=N+1}\abs{f_k(x)}\]
   \[\leq\sum^N_{n=0}\Norm{f_k-g_k}+\sum^{+\infty}_{k=N+1}\Norm{f_k}\]
-  \[<\sum_{k=0}^N\varepsilon 2^{-k-1}+\frac{\varepsilon}{2}<\sum^{+\infty}_{k=0}2^{-k-1}+\frac{\varepsilon}{2}=\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon\]
-  $\implies$ $f$ iste eine Regelfunktion. Es gilt damit auch:
+  \[<\sum_{k=0}^N\varepsilon 2^{-k-1}+\frac{\varepsilon}{2}<\sum^{+\infty}_{k=0}\varepsilon2^{-k-1}+\frac{\varepsilon}{2}=\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon\]
+  $\implies$ $f$ ist eine Regelfunktion. Es gilt damit auch:
   \[\left|\int_a^bf-\sum^N_{n=0}\int_a^bf_n\right|
  \leq\left|\int_a^b(f-g)\right|+\left|\sum_{n=0}^N\int_a^b(f_n-g_n)\right|
  <(b-a)\varepsilon+(b-a)\frac{\varepsilon}{2}\]
