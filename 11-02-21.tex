@@ -18,7 +18,7 @@ In $\mb{R}^n$:
   Intuitiv: $\Norm{x}=$``der Abstand zwischen $x$ und 0
 \end{Def}
 \begin{Lem}
-  $\Norm{\dot}$ erfüllt die Regeln
+  $\Norm{.}$ erfüllt die Regeln
   \begin{enumerate}
     \item $\Norm{x}\geq 0$ und $\Norm{x}=0\iff x=0$
     \item $\Norm{\lambda x}=\abs{\lambda}\Norm{x}$ $\forall \lambda\in\mb{R}$, $\forall x\in\mb{R}$
@@ -45,7 +45,7 @@ In $\mb{R}^n$:
   OBdA $y\neq 0$ ($y=0$ trivial)
   \[t\to g(t)=\sum_{i=1}^n(x_i+ty_i)^2\]
   \[=\left( \sum x_i^2 \right)+2t\sum x_iy_i+t^2\sum y_i^2\]
-  \[=\Norm{x}^2+2t\seq{x,y>+\Norm{y}^2t^2\]
+  \[=\Norm{x}^2+2t\seq{x,y}+\Norm{y}^2t^2\]
   Sei $t_0=\frac{\seq{x,y}}{\Norm{y}^2}$, dann $g(t_0)\geq 0$
   \[0\leq g(t_0)\]
   \[=\Norm{x}^2-2\frac{\seq{x,y}^2}{\Norm{y}^2}+\Norm{y}^2\frac{\seq{x,y}^2}{\Norm{y}^2}\]
@@ -54,7 +54,7 @@ In $\mb{R}^n$:
   \[\implies \abs{\seq{x,y}}\leq\Norm{x}\Norm{y}\]
 \end{Bew}
 \begin{Def}
-  Ein normierter Vektorrraum ist ein reeller Vektorraum $V$ mit einer Abbildung $\Norm\dot:V\to\mb R$ so dass:
+  Ein normierter Vektorrraum ist ein reeller Vektorraum $V$ mit einer Abbildung $\Norm . :V\to\mb R$ so dass:
   \begin{enumerate}
     \item $\Norm x\geq 0$ und $\Norm x=0\iff x=0$ (Nullvektor)
     \item $\Norm{\lambda x}=\abs\lambda\Norm x$ $\forall \lambda\in\mb R$, $\forall x\in V$
@@ -82,7 +82,7 @@ In $\mb{R}^n$:
 \end{Bew}
 \begin{Def}
   Ein metrischer Raum ist eine Menge $X$ mit einer Abbildung
-  \[d:X\cross X\to\mb{R}\s (x,y)\mapsto d(x,y)\in\mb{R}\]
+  \[d:X\times X\to\mb{R}\s (x,y)\mapsto d(x,y)\in\mb{R}\]
   \begin{enumerate}
     \item $d(x,y)\geq 0$ und $d(x,y)=0\iff x=y$ $\forall x,y\in X$
     \item $d(x,y)=d(y,x)$ $\forall x,y\in X$
@@ -90,7 +90,7 @@ In $\mb{R}^n$:
   \end{enumerate}
 \end{Def}
 \begin{Lem}
-  Sei ($V$, $\Norm\dot$) ein normierter Vektorraum. Dann sind $V$ und $d(x,y)=\Norm{x-y}$ ein metrischer Raum.
+  Sei ($V$, $\Norm .$) ein normierter Vektorraum. Dann sind $V$ und $d(x,y)=\Norm{x-y}$ ein metrischer Raum.
 \end{Lem}
 \begin{Def}
   Die offene Kugel mit Radius $r>0$ und Mittelpunkt $x\in\mb{R}^n$ ist die Menge
@@ -108,14 +108,14 @@ In $\mb{R}^n$:
 \end{Bem}
 \begin{Sat}
   \begin{enumerate}
-    \item $\varempty$ und $\mb{R}^n$ sind offen
+    \item $\varnothing$ und $\mb{R}^n$ sind offen
     \item Der Schnitt \ul{endlich vieler} offener Menge ist auch offen.
     \item Die Vereinigung einer \ul{beliebigen} Familie offener Mengen ist auch offen.
   \end{enumerate}
 \end{Sat}
 \begin{Bew}
   \begin{enumerate}
-    \item $\mb{R}^n$ trivialerweise offen, auch $\varempty$
+    \item $\mb{R}^n$ trivialerweise offen, auch $\varnothing$
     \item Sei $x\in U\cap\dots\cap U_N$
       \[\forall i\subset\left\{ 1,\dots,N \right\}\s K_r(x)\in U_i\]
       Sei $r=\min\left\{ r_i,\dots,r_N \right\}$
@@ -128,7 +128,7 @@ In $\mb{R}^n$:
 \begin{Def}
   Ein topologischer Raum ist eine Menge $X$ und eine Menge $O$ von Teilmengen von $X$ so dass:
   \begin{enumerate}
-    \item $\varempty, X\in O$
+    \item $\varnothing, X\in O$
     \item $U_1\cap\dots\cap_N\in O$ falls $U_i\in O$
     \item $\bigcap_{\lambda\in\Lambda}U_\lambda\in O$ falls $U_i\in O$
   \end{enumerate}
