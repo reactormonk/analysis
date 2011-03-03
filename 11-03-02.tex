@@ -1,0 +1,135 @@
+\begin{equation}
+  \label{e:1103021}
+  (V,\Norm{.})\s (W,\Norm{.})\s L:V\to W\s\Norm{L}_{L(V,W)}:=\sup_{\Norm{v}_V\leq 1}\Norm{L(v)}_W
+\end{equation}
+\begin{Sat}
+  Falls $\dim(V)$, $\dim(V)< +\infty$, $\Norm{L}_{L(V,W)}< + \infty$ Wahr ohne Beweis in $V$ und deswegen $L(V,W)$, $\Norm{.}_{L(V,W)}$ $\forall v\in V$, $\forall L\in L(V,W)$
+  \begin{equation}
+    \label{e:1103022}
+    \Norm{L(v)}_W\leq\Norm{L}_{L(V,W)}\Norm{v}_V
+  \end{equation}
+  Aus \ref{e:1103022} folgt dass $L$ stetig ist wenn $\Norm{L}_{L(V,W)}< +\infty$.
+\end{Sat}
+\begin{Bem}
+  $\Norm{L}_{L(V,W)}$ ist die optimale Konstante in \ref{e:1103022}.
+\end{Bem}
+\begin{Bew}
+  Falls $\Norm{v}_V=1$
+  \[\iff \Norm{L(v)}_W\leq \Norm{L}_{L(V,W)}=\sup_{\Norm{v}_V\leq 1}\Norm{L(v)}_W\]
+  Die Ungleichung ist eine direkte Folgerung von \ref{e:1103021}
+  \[\Norm{v}_V=0\implies L(v)=0\implies\Norm{L(v)}_W)=0\implies\ref{e:1103022}\]
+  $\Norm{v}_V>0$
+  \[\tilde v:=\frac{v}{\Norm{v}_V}\implies\Norm{\tilde v}_V)\frac{\Norm{v}_V}{\Norm{v}_V}=1\]
+  \[\Norm{L(\tilde v)}_W\leq \Norm{L}_{L(V,W)}\]
+  \[\Norm{\frac{1}{\Norm{v}_V}L(v)}_W=\frac{1}{\Norm{v}_V}\Norm{L(v)}_W\]
+  \[\implies\frac{\Norm{L(v)}_W}{\Norm{v}_V}\leq \Norm{L}_{L(V,W)}\]
+\end{Bew}
+\begin{Bew}
+  $\varepsilon-\delta$ Stetigkeit. $v,\varepsilon>0$. Suche $\delta>0$ mit
+  \[\Norm{v'-v}_V<\delta\implies\Norm{L(v')-L(v)}_W<\varepsilon\]
+  Linearität von $L$
+  \[\implies \Norm{L(v')-L(v)}_W=\Norm{L(v'-v)}_W\]
+  und aus \ref{1103022}
+  \[\Norm{L(v'-v)}\leq\underbrace{\Norm{L}_{L(V,W)}\overbrace{\Norm{v'-v}_V}^{<\delta}}_{<\varepsilon}\]
+  \[\implies \delta=\frac{\varepsilon}{\Norm{L}_{L(V,W)}}\]
+  $\implies$ Ungleichung erfüllt.
+\end{Bew}
+\begin{Bem}
+  $V=\mb{R}^n$, $\Norm{.}_V$ euklidische Norm. $W=\mb{R}^k$ mit euklidischer Norm.
+  \[\Norm{L}_{L(V,W)}\leq \Norm{L}_{\text{HS}}\]
+  \[L:\mb{R}^n\to\mb{R}^k\s\text{linear}\]
+  \[\Norm{L}_\text{HS}=\sqrt{\sum_{i,j}L_{ij}^2}\]
+  \[\Norm{L}_{L(V,W)}:=\sup_{\sum^n_{i=1}v_i^2\leq 1}\sqrt{\sum^k_{j=1}\left( \sum_{i=1}^nL_{jiv_i} \right)^2}\]
+\end{Bem}
+\subsection{Mehr über stetige Funktionen}
+\paragraph{Regeln} für stetige Funktionen
+\subparagraph{Regel 1}
+Seien $f:X\to Y$, $g:X\to Y$. $X$: topologischer Raum, metrischer Raum, normierter Vektorraum, $\mb{R}^n$ $V$ ist ein normierter Vektorraum ($\mb{R}^k$). Falls $f,g$ stetig sind, ist auch $f+g$ stetig. 
+  \begin{itemize}
+    \item[$V=\mb{R}$] $fg$, $\frac{f}{g}$ ($g\neq 0$) stetig
+    \item[$V=\mb{R}$] $fg(x)=\sum_{i=1}^nf_i(x)g_i(x)$
+  \end{itemize}
+\begin{Bew}
+  Im Fall $X$ Teilmenge von $\mb{R}^n$
+  \[\underbrace{\left\{ x^k \right\}}_{\subset X} x^k\to x\in X\]
+  Stetigkeit von $f$ und $g$: $g(x^k)\to g(x)$, $f(x^k)\to f(x)$.
+  \[g(x^k)=(g_1(x^k),\cdots,g_m(x^k))\]
+  \[g(x)=(g_1(x),\cdots,g_m(x))\]
+  \[f(x^k)=(f_1(x^k),\cdots,f_m(x^k))\]
+  \[f(x)=(f_1(x),\cdots,f_m(x))\]
+  \[(g+f)(x^k)=\left( g_1(x^k)+f_1(x^k),\cdots,g_m(x^k)+f_m(x^k) \right)\]
+  \[\to g_1(x)+f_1(x),\cdots,g_m(x)+f_m(x)=(g+f)(x)\]
+  \[x^k\to x\in X\implies (f+g)(x^k)\to (f+g)(x).\]
+\end{Bew}
+\subparagraph{Regel 2}
+Seien $X,Y,Z$ topologische Räume. Seien $f:X\to Y$ und $g:Y\to Z$ stetig
+\[g\circ f:\underbrace{X\to Z}_{x\mapsto g(f(x))}\]
+\begin{Bew}
+  Sei $U$ eine offene Menge in $Z$.
+  \[(g\circ f)^{-1}(U)=\underbrace{f^{-1}(\underbrace{g^{-1}(U)}_{\text{offen}})}_{\text{offen}}\]
+\end{Bew}
+\begin{Def}
+  Sei $f:X\to \mb{R}$.
+  \[\Norm{f}=\sup_{x\in X}\Norm{f(x)}\]
+  $f:X\to V$, $V,\Norm{.}_V$ normierter Vektorraum
+  \[\Norm{f}=\sup_{x\in X}\Norm{f(x)}_V\]
+\end{Def}
+\begin{Bem}
+  $X$ Menge, $V,\Norm{.}$ ein normierter Vektorraum.
+  \[F:=\left\{ f:X\to V\right\} \s\text{mit}\s\Norm{f}\]
+  Dann ist $F,\Norm{.}$ ist ein normierter Vektorraum.
+\end{Bem}
+\begin{Def}
+  Eine Folge von Funktionen
+  \[f^k:X\to V\]
+  konvergiert gleichmässig gegen $f$ falls
+  \[\Norm{f^k-f}\to 0\]
+\end{Def}
+\begin{Bem}
+  $x\in X$
+  \[\Norm{f^k(x)-f(x)}_V\leq \Norm{f^k-f}\]
+  Folgerung $f^k$ konvergiert gleichmässig
+  \[\implies f^k(x)\to f(x)\s\forall x\]
+\end{Bem}
+\begin{Sat}
+  Sei $X$ ein metrischer Raum und $f^k:X\to V$ eine Folge die gleichmässig gegen $f$ konvergiert. Dann ist $f$ stetig.
+\end{Sat}
+\begin{Bew}
+  Seien $x\in X$ und $\varepsilon>0$.
+  \paragraph{Ziel} $\exists \delta>0$ so dass
+  \[d(x,y)<\delta\implies\Norm{f(x)-f(y)}<\varepsilon\]
+  $\exists N$ so dass
+  \[\Norm{f-f^k}<\frac{\varepsilon}{3}\s\text{falls}\s k\geq N\]
+  $f^N$ ist stetig: $\exists \delta>0$:
+  \[d(x,y)<\delta\implies \Norm{f^N(x)-f^N(y)}<\frac{\varepsilon}{3}\]
+  \[d(x,y)<\delta\]
+  \[\Norm{f(x)-f(y)}=\Norm{(f(x)-f^N(x))+(f^N(x)-f^N(x))+(f^N(y)-f(y))}_V\]
+  \[\leq\Norm{f(x)-f^N(x)}_V+\Norm{f^N(x)-f^N(y)}_V+\Norm{f^N(y)-f(y)}_V\]
+  \[<\Norm{f^N-f}+\frac{\varepsilon}{3}+\Norm{f^N-f}\]
+  \[<\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon\]
+\end{Bew}
+\subsection{Kompakte Menge}
+\begin{Def}
+  Eine Menge $K\subset \mb{R}^n$ heisst kompakt falls $K$ abgeschlossen und beschränkt ($\iff \exists B_R(0):K\subset B_R(0)$) ist.
+\end{Def}
+\begin{Sat}
+  Sei $k\subset\mb{R}^n$.
+  \[K \s\text{kompakt}\s \iff\forall \left\{ x^j \right\}\subset K\s\exists x^{j_l}\]
+  $x^{j_l}$ ist eine Teilfolge, die gegen $x\in K$ konvergiert.\\
+  $K$ $\implies$ Sei $\left\{ x^j \right\}$ eine Folge
+  \[x^j\in K\subset B_R(0)\implies \Norm{x^j}<R\]
+  $\exists x^{j_l}\to x\in\mb{R}^n$, die abgeschlossenheit von $K$ $\implies$ $x\in K$. Folgenkriterium $\implies$ Abgeschlossenheit und Beschränktheit.
+  \[\text{nicht abgeschlossen}\implies \exists x^j\subset K\s\text{mit}\s x^j\to\not\in K\]
+  \[\text{Folgenkompaktheit}\implies \exists x^{j_l}\to y\in K\]
+  Widerspruch (weil $x$ und $y$ sind in derselben Menge)\\
+  Sei $K$ nicht beschränkt.
+  \[\forall j\in\mb{N}\s B_j(0)\not\supset K\]
+  \[\exists x^j\in K\setminus B_j(0)\implies \Norm{x^j}\geq j\]
+  Wenn $x^{j_l}\to x$
+  \[\Norm{x^{j_l}}\leq \Norm{x}+\Norm{x^{j_l}-x}\]
+  \[\Norm{x}\leq\Norm{x^{j_l}}+\Norm{x-x^{j_l}}\]
+  \[\abs{\Norm{x}-\Norm{x^{j_l}}}\leq\Norm{x-x^{j_l}}\]
+  \[\implies\Norm{x^{j_l}}\to\Norm{x}\]
+  \[\Norm{x^{j_l}}=j_l\to+\infty\]
+  $\implies$ Widerspruch
+\end{Sat}
