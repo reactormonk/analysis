@@ -1,0 +1,113 @@
+\begin{Sat}
+  $E\subset \mb{R}^n$
+  \[E\s\text{kompakt}\iff E\s\text{folgenkompakt}\]
+  d.h.
+  \[\forall \left\{ x_k \right\} \subset E\s\exists\s\text{Teilfolge}\s \left\{ x_{k_l} \right\}\s\text{die gegen $x\in E$ konvergiert}\]
+\end{Sat}
+\begin{Def}
+  (Überdeckungseigenschaft) Eine Teilmenge $E\subset\mb{R}^n$ besitzt die Überdeckungseigenschaft falls:
+  \begin{itemize}
+    \item $\forall$ Überdeckung $\left\{ U_\lambda \right\}_{\lambda\in\Lambda}$ von $E$ mit offenen Mengen $\exists$ endliche Teilüberdeckung.
+      \[\left\{ U_\lambda \right\}_{\lambda\in\Lambda}\s\text{Überdeckung}\iff \bigcup_{\lambda\in\Lambda} U_\lambda\supset E\]
+  \end{itemize}
+  Teilüberdeckung ist eine Teilfamilie von $\left\{ U_\lambda \right\}$ die noch eine Überdeckung von $E$ ist.
+\end{Def}
+\begin{Bsp}
+  Eine offene Kugel hat diese Eigenschaft nicht.
+  \[\forall x\in K_r(0)\s\text{sei}\s K_{\frac{r-\Norm{x}}{2}}(x)=U_x\]
+  \begin{enumerate}
+    \item $\left\{ U_x \right\}_{x\in K_r(0)}$ ist eine Überdeckung von $K_r(0)$.
+  \end{enumerate}
+  Einfach weil $x\in U_x$! Sei $U_{x_1},\cdots,U_{x_N}$ eine beliebige endliche Teilfamilie. Sei 
+  \[p:=\max_{i\in\left\{ 1,\cdots,N \right\}}\Norm{x_i}<r\]
+  $\implies$ falls $\Norm{y}\geq \frac{\Norm{x_i}+r}{2}$ dann $y\not\in U_{x_i}$. So, wenn $\Norm{y}\geq \frac{p+r}{2}$ dann
+  \[y\not\in U_{x_1}\cup\cdots\cup U_{x_N}\s\frac{p+r}{2}<r\]
+  falls $\Norm{y}=\frac{p+r}{2}$, dann $y\in K_r(0)$. Mit einer geschlossenen Kugel ist das anders.
+\end{Bsp}
+\begin{Sat}
+  Sei $E\subset\mb{R}^n$
+  \[E\s\text{kompakt}\iff E\s\text{hat die Überdeckungseigenschaft}\]
+\end{Sat}
+\begin{Bsp}
+  $E=\mb{R}^n$, $U_n=K_{n+1}(0)$.
+  \[E\subset \bigcup_{n\in\mb{N}} U_n\]
+  Aber $\forall N\in\mb{N}$
+  \[\mb{R}^n=E\not\subset \bigcup_{n=0} U_n\]
+\end{Bsp}
+\begin{Bew}
+  $\exists \left\{ x_i \right\}\subset E$ ohne konvergente Teilfolge in $E$ $\implies$ $E$ ist nicht kompakt $\implies$ Überdeckungseigenschaft gilt nicht. Zwei Möglichkeiten:
+  \begin{enumerate}
+    \item $\exists$ eine Teilfolge $\left\{ y_i \right\}\subset E$ $y_i\to y$ $y\not\in E$
+    \item $\exists$ eine Teilfolge $\left\{ y_i \right\}\subset E$ $y_i\to +\infty$
+  \end{enumerate}
+  Beim ersten ist die Menge offen. 
+  \[U_0:=\mb{R}^n\setminus \underbrace{\left( \left\{ y_1 \right\}\cup\left\{ y \right\} \right)}_{E\s\text{ist abgeschlossen}}\]
+  Beim zweiten gilt:
+  \[U_0=\mb{R}^n\setminus\underbrace{\left\{ x_i \right\}}_{F}\s\text{ist offen}\]
+  \[U_n=U_0\cup \left\{ y_1,\cdots,y_{n-1} \right\} \s n\geq 0\]
+  $U_n$ ist auch offen.
+  \[\bigcup_{n=0}^{\infty}U_n= \begin{cases}
+    \mb{R}^n\setminus \left\{ y \right\}& \text{im Fall 1}\\
+    \mb{R}^n\setminus & \text{im Fall 2}
+  \end{cases}\]
+  Aber jede endliche Familie
+  \[U_1\cup \cdots\cup U_n\not\supset E\]
+  in beiden Fällen lassen wir unendlich viele Punkte weg. $E$ kompakt $\implies$ Überdeckungseigenschaft. $E$ ist beschränkt und abgeschlossen und sei $\left\{ U_\lambda \right\}_{\lambda\in\Lambda}$ eine Familie von offenen Mengen mit $E\subset\left\{ U_\lambda \right\}_{\lambda\in\Lambda}$. Wir decken die Menge $U$ mit Würfel:
+  \[\left[k_1,k_1+1\right]\times \left[ k_2,k_2+1 \right]\times \cdots\times \left[ k_n,k_n+1 \right]\]
+  \[W_1\cup\cdots\cup W_M\]
+  Falls jedes $E\cap W_i$ mit einer endlischen Familie von $\left\{ U_\lambda \right\}$ überdeckt wird, dann finde ich eine endliche Überdeckung von $E$ wenn $N$ gross genug ist. So, angenommen dass die Überdeckungseigenschaft nicht gilt.
+  \[\exists E_i:= E\cap W_i:\]
+  \begin{enumerate}
+    \item $\left\{ U_\lambda \right\}_{\lambda\in\Lambda}$ eine Überdeckung von $E_1$
+    \item keine endliche Teilfamilie deckt $E_1$
+  \end{enumerate}
+  Teilen wir $W_i$ in $2^n$ Würfel mit Seite $\frac{1}{2}$
+  \[\tilde W_1,\cdots,\tilde W_2\]
+  \[\exists E_2:= E\cap \tilde W_i:\s\text{so dass die beiden Eigenschaften noch gelten}\]
+  Induktiv
+  \[E\supset E_1\supset E_2\supset\cdots\]
+  jede $E_i\subset W^i$ Würfel mit Seite $2^{-i+1}$ und die beiden Eigenschaften gelten mit $E_j$ statt $E_i$.\\
+  $\left\{ x_k \right\}\subset E$. $\left\{ x_k \right\}$ ist eine Cauchy-Folge. $j,k>i$, $x_k,x_j\in W$ mit Seite $w^{-i+1}$ $\Norm{x_j-x_k}\leq \sqrt{n}2^{-i+1}$
+  \[\implies x_j\to x\in E\to x\in U\in \left\{ U_\lambda \right\}_{\lambda\in\Lambda}\implies K_r(x)\supset U\]
+  \[x\in E, x\in E^i\s\forall i\implies x\in W^i\]
+  \[\implies W^i\subset B_r(x)\subset U\]
+  für $i$ gross genug
+  \[\implies E_i\subset U\]
+  $\implies$ wir haben eine endliche Teilüberdeckung $\left\{ U \right\}\subset\left\{ U_\lambda \right\}$ gefunden $\implies$ Widerspruch mit den beiden Eigenschaften.
+\end{Bew}
+\begin{Bem}
+  $f$ stetig $\implies$ $f^{-1}(U)$ offen falls $U$ offen.
+\end{Bem}
+\begin{Bew}
+  Sei $\left\{ U_\lambda \right\}$ eine Überdeckung (mit offenen Mengen) von $f(E)$, dann ist $\left\{ f^{-1}\left( U_\lambda \right) \right\}$ ein Überdeckung von $E$.
+  \[\exists f^{-1}(U_{\lambda_1}),\cdots,f^{-1}(U_{\lambda_N}\s\text{Teilüberdeckung von $E$}\]
+  $U_{\lambda_i},\cdots,U_{\lambda_N}$ ist eine Überdeckung von $f(E)$ $\implies$ $f(E)$ ist kompakt
+\end{Bew}
+\begin{Kor}
+  Wenn $F:E\to \mb{R}$ stetig ist und $E\subset\mb{R}^n$ kompakt ist, besitzt $f$ ein Maximum und ein Minimum.
+\end{Kor}
+\begin{Bew}
+  $f(E)\subset\mb{R}$ ist kompakt.
+  \[s=\sup f(E)<+\infty\]
+  \[\exists \left\{ x_k \right\}\subset f(E)\s\text{mit}\s x_k\to s\xRightarrow{\text{abgeschlossen}}s\in s\in f(E)\]
+  \[\left( s-\frac{1}{k}\implies \exists x_k\in f(E)\s\text{mit}\s x_k>s-\frac{1}{k},x_k\leq s \right)\]
+  $\implies$ $s$ ist ein Maximum.
+\end{Bew}
+\begin{Def}
+  Das Intervallschachtelungsprinzip in $\mb{R}$. Sei $I_j$ eine Intervallschachtelung:
+  \begin{enumerate}
+    \item \[I_j=\left[ a_j,b_j \right]\]
+    \item \[I_0\supset I_1\supset \cdots \supset I_j\supset_{j+1}\]
+    \item \[b_j-a_j\to 0\]
+  \end{enumerate}
+  \[\implies \bigcap^\infty_{j=0}E_j\neq\varnothing\]
+\end{Def}
+\begin{Sat}
+  Sei $E_j$ eine Folge von kompakten Mengen mit $E_j\supset E_{j+1}$ $\forall j$ ($E_0\subset\mb{R}^n$)
+  \[\bigcap_{j=1}^\infty E_j\neq\varnothing\s\text{falls}\s E_j\neq\varnothing \s\forall j\]
+\end{Sat}
+\begin{Bew}
+  Sei $E_j$ wie im Satz mit $E_j\neq\varnothing$, aber $\bigcap_{j=0}^\infty E_j=\varnothing$. Sei $U_j:=\mb{R}^n\setminus E_j\implies U_j$ ist offen. $\bigcup_{j=1}^\infty U_j=\mb{R}^n$ $\left\{ U_j \right\}$ ist eine Überdeckung von $E_0$. Aber $U_1\cup\cdots\cup U_N=U_N$ (weil $U_{j+1}\supset U_j$)
+  \[U_N\not\supset E_N\neq \varnothing\s E_N\subset E_0\]
+  Keine endliche Teilfamilie von $\left\{ U_j \right\}$ ist eine Überdeckung von $E_0$. Widerspruch wegen Kompaktheit von $E_0$.
+\end{Bew}
