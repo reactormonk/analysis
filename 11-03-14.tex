@@ -1,0 +1,117 @@
+\subsubsection{Das Differenzial}
+$f:\Omega\to\mb{R}$, $\Omega\subset\mb{R}^n$, Umgebung von $x$.
+\[f\s\text{diff in $x$}\iff \exists L:\mb{R}^n\to\mb{R}\s\text{linear s.d.}\]
+\begin{equation}
+  \label{e:1103141}
+  \lim_{h\downarrow 0}\frac{f(x+h)-f(x)-L(h)}{\Norm{h}}=0
+\end{equation}
+\[\lim_{h\downarrow 0}G(h)=0\iff \forall \varepsilon>0\exists \delta>0\s\Norm{h}<\delta\implies\abs{G(h)}<\varepsilon\]
+\[\iff \forall h_k=0\s G(h_k)\to 0\]
+Wenn $f$ differenzierbar ist und \ref{e:1103141} erfüllt, heisst $L$ das Differential von $f$.
+\[L=\md f\]
+\[\md f_x \s \text{das Differential an der Stelle $x$}\]
+\subsubsection{Richtungsableitung}
+$x\in\Omega$, $h\in\mb{R}^m$, $g(t)=f(x+th)$ (wohldefiniert für $\abs{t}$ klein)
+\[\partial_n f(x)=g'(0)=\Limo{t}\frac{f(x+th)-f(x)}{t}\]
+\subsubsection{Partielle Ableitung}
+$(x_1,\cdots,x_n)$ Kond. in $\mb{R}^n$ $y\in \Omega$ so dass $\Omega$ eine Umgebung von $y$ ist
+\[\dfrac{f}{x_i}(y)\left( =\partial_{x_i}f(y) \right)=\Limo{t}\frac{y_1,\dots,y_i+t,\dots,y_n-f(y)}{t}\]
+Falls $e_i=(0,\dots,0,\underbrace{1}_i,0,\dots,0)$
+\[=\Limo{t}\frac{f(y+te_i)-f(y)}{t}=\partial_{e_i}f(y)\]
+\begin{Sat}
+  (Hauptkriterium der Differenzierbarkeit) Sei $f:U\to \mb{R}$ und $U$ eine Umgebung von $y$. Falls $\dfrac{f}{x_1},\dots,\dfrac{f}{x_n}$ \ul{in $U$} existieren und stetig in \ul{in $y$} sind, dann ist $f$ in $y$ differenzierbar.
+\end{Sat}
+\begin{Bew}
+  $h=(h_1,\dots,h_n)\in\mb{R}^n$
+  \[L(h)=\sum^n_{i=1}\dfrac{f}{x_i}(y)h_i\]
+  \paragraph{Ziel} $L$ ist das Differential von $f$
+  \[Limo{h}\frac{f(x+h)-f(x)-L(h)}{\Norm{h}}=0\]
+  \[f(x+h)-f(x)=f(x+(h_1,\dots,h_n))-f(y+(h_1,\dots,h_{n-1},0)+f(y+(h_1,\dots,h_{n-1}, 0)-\dots\]
+  \[+\dots\s(\text{$i$te Zeile})\]
+  \begin{equation}
+    \label{e:1103143}
+    +f(y+(k,0,\dots,0))-f(y)
+  \end{equation}
+  $i\in\left\{ 1,\dots,n \right\}$
+  \[g(t))=f(y+(h_1,\dots,h_{i-1},th_i,0,\dots,0)\]
+  \[\text{$i$te Zeile}=g_i(1)-g_i(0)=g_i'(\xi_i)\s\xi\in \left[ 0,1 \right]\]
+  \[g_i'(t)=\Limo{\varepsilon}\frac{g_i(t+\varepsilon)-g_i(t)}{\varepsilon}\]
+  \[=h_i\Limo{\varepsilon}\frac{f(y_1+h_1,\dots,y_{i-1},y_i+(t+\varepsilon)h_i,y_{i+1}\dots,y_n)-f(y_1+h_1,\dots,y_i+th_i,\dots,y_n}{\varepsilon h_i}\]
+  \[=h_i\dfrac{f}{x_i}\left( y_1+h_i,\dots,y_i+th_1,y_{i+1},\dots,y_n \right)\]
+  \[\text{$i$te Zeile}=h_i\dfrac{f}{x_i}(y_1+h_1,\dots,y_{i-1}h_{i-1},y_i+\xi_ih_i,y_{i+1},\dots,y_n)\]
+  \[\zeta_i=\left( h_1,\dots,h_{i-1},\xi h_i,0,\dots,0 \right)\]
+  \begin{equation}
+    \label{e:1103144}
+    =h_i\dfrac{f}{x_i}(y+\zeta_i)
+  \end{equation}
+  \ref{e:1103144} in \ref{e:1103143}:
+  \begin{equation}
+    \label{e:1103145}
+    f(y+h)-f(y)=\sum_{i=1}^nh_i\dfrac{f}{x_i}(y+\zeta_i)
+  \end{equation}
+  \[f(x+h)-f(x)-L(h)\]
+  \begin{equation}
+    \label{e:1103146}
+    =\sum_{i=1}^nh_i\left( \dfrac{f}{x_i}(y+\zeta_i)-\dfrac{f}{x_i}(y) \right)
+  \end{equation}
+  \[\frac{\abs{f(x+h)-f(x)-L(h)}}{\Norm{h}}\]
+  \begin{equation}
+    \label{e:1103147}
+    \stackrel{\ref{e:1103146}}{\leq}\sum_{i=1}^n\frac{\abs{h_i}\abs{\dfrac{f}{x_i}(y+\zeta_i)-\dfrac{f}{x_i}(y)}}{\Norm{h}}
+  \end{equation}
+  Wenn $\Norm{h}\to 0$, $\Norm{\zeta}\to 0$. Die Stetigkeit von $\dfrac{f}{x_i}$ in $y$ impliziert
+  \[\dfrac{f}{x_i}(y+\zeta_i)\to\dfrac{f}{x_i}\]
+  Die rechte Seite von \ref{e:1103147} $\to 0$ wenn $h\to 0$ $\implies$ \ref{e:1103142}.
+\end{Bew}
+\begin{Def}
+  Der Gradient an der Stelle $x_0$ist der Vektor
+  \[\left( \dfrac{f}{x_1}(x_0),\dots,\dfrac{f}{x_i}(x_0) \right)=\nabla f(x_0)\]
+\end{Def}
+\begin{Bem}
+  \[df|_{x_0}(h)\left( \partial_nf(x_0) \right)=\sum_{i=1}^nh_i\dfrac{f}{x_i}(x_0)\]
+  \[\left(\seq{\nabla f(x_0), h}\right)=\nabla f(x_0)h\]
+  \[\abs{\partial_nf(x_0)}\stackrel{\text{Cauchy-Schwartz}}{\leq}\Norm{\nabla f(x_0)}\Norm{h}\]
+  Falls $\Norm{h}=1$, dann
+  \[\abs{\partial_nf(x_0)}\leq\Norm{\nabla f(x_0)}\]
+  Fall $\Norm{\nabla f(x_0)}\neq 0$, wenn wir 
+  \[K=\frac{\nabla f(x_0)}{\Norm{\nabla f(x_0)}}\]
+  bekommen wir $\Norm{K}=1$ und
+  \[\partial_Kf(x_0)=\Norm{\nabla f(x_0)}\]
+  Deswegen:
+  \[K=\frac{\nabla f(x_0)}{\Norm{\nabla f(x_0)}}\]
+  ist die Richtung der maximalen Steigung und
+  \[\Norm{\nabla f(x_0)}\]
+  ist die maximale Steigung.
+\end{Bem}
+\subsection{Rechenregeln}
+\begin{Sat}
+  Sei $U$ eine Umgebung von $x\in\mb{R}^n$ und $f,g:U\to\mb{R}$ in $x$ differenzierbar. Dann sind $f+g$ und $fg$ auch differenzierbar in $x$ und
+  \[\md (f+g)|_x=\md f|_x+\md g|x\]
+  \[\md(fg)=f(x)\md g|x+g(x)\md f|_x\]
+  Falls $f(x)\neq 0$ ist auch $\frac{1}{f}$ in $x$ differenzierbar
+  \[\md \left( \frac{1}{f} \right)|_x=-\frac{1}{(f(x))^2}\md f|_x\]
+\end{Sat}
+\begin{Kor}
+  $g(x)\neq 0$, dann
+  \[\md \left( \frac{f}{g} \right)|_x=\frac{1}{g(x)}\md f|_x-\frac{f(x)}{g(x)^2}\md g|_x\]
+  \[=\frac{g(x)\md f|_x-f(x)\md g|_x}{g(x)^2}\]
+\end{Kor}
+\begin{Bew}
+  Das Ziel ist eine lineare Abbildung $L$ zu finden so dass
+  \[\Limo{h}\frac{\frac{1}{f(x+h)-\frac{1}{f(x)}-L(h)}}{\Norm{h}}\]
+  \[L=-\frac{1}{f(x)^2}\md f|_x\]
+  \[\Limo{h}\frac{\overbrace{\frac{1}{f(x+h)-\frac{1}{f(x)}-\frac{1}{f(x)^2}(h)\md f|_x(h)}}^A}{\Norm{h}}=\frac{B+C}{\Norm{h}}\]
+  \[\frac{1}{f(x+h)}-\frac{1}{f(x)}=\frac{f(x)-f(x+h)}{f(x)f(x+h)}\]
+  $f(x+h)\neq 0$ falls $\Norm{h}$ klein genug
+  \[\frac{f(x+h)-f(x)-\md f|_x(h)}{\Norm{h}}\to 0\]
+  \[A=\left[ \frac{-(-f(x)+f(x+h))}{f(x)f(x+h)} \frac{\md f|_x(h)}{f(x)f(x+h)}\right]=C\]
+  \[+\frac{-\md f|_x(h)}{f(x)f(x+h)} + \frac{\md f|_x(h)}{f(x)^2}=B\]
+  \[\frac{B}{\Norm{h}}=-\frac{1}{f(x)f(x+h)}\underbrace{\frac{f(x+h)-f(x)-\md f|_x(h)}{\Norm{h}}}_{\to 0}\]
+  \[\Limo{h} f(x+h)=f(x)\neq 0\]
+  \[\Limo{h}\frac{B}{\Norm{h}}=0\]
+  Diff von $f$ für $\Norm{h}\to 0$
+  \[\frac{C}{\Norm{h}}=\underbrace{\frac{\md f|_x(h)}{\Norm{h}}}_{\text{ist beschränkt}}\frac{1}{f(x)}\underbrace{\left( \frac{1}{f(x)}-\frac{1}{f(x+h)} \right)}_{\to 0}\]
+  Sei $L=\md f|_x$ und $\Norm{L}_O$ ihre Operatornorm
+  \[\abs{\md f|_x(h)}=\abs{L(h)}\leq\Norm{K}_O\Norm{h}\]
+  \[\implies \frac{\abs{\md f|_x(h)}}{\Norm{h}}\leq\Norm{L}\]
+\end{Bew}

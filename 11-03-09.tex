@@ -1,0 +1,121 @@
+\subsection{Differenzierbare Funktionen}
+\paragraph{Erinnerung} $f:\mb{R}\to \mb{R}$ heisst differenzierbar in $a\in \mb{R}$ falls
+\[f'(a)=\Limo{h}\frac{f(a+h)-f(a)}{h}\]
+existiert. Was geschieht mit Funktionen von mehrere Variablen? Die ``Tangentensteigung'' hängt auch von der Richtung ab. D.h. Es gibt eine lineare Abbildung $L:\mb{R}^2\to\mb{R}$
+\begin{Def}
+  $f:U\to\mb{R}$, $U\subset\mb{R}^n$ offen, heisst differenzierbar in $a\in U$, falls
+  \begin{equation}
+    \label{e:1103091}
+    \Limo{0}\frac{f(a+h)-f(a)-Lh}{\Norm{h}}=0
+  \end{equation}
+  wobei $L:\mb{R}^n\to\mb{R}$ eine lineare Ableitung ist.
+\end{Def}
+\begin{Bem}
+  $n=1$: Es gilt $Lh = f'(a)h$
+\end{Bem}
+\begin{Bem}
+  Die lineare Abbilung $L$ in \ref{e:1103091} ist eindeutig definiert. Annahme $L'\neq L$ erfüllt die Bedungung. Sei $v\in\mb{R}^n$ mit $\Norm{v}=1$. Es gilt:
+  \[(L-L')(v)\stackrel{\text{linear und}\s \Norm{v}=1}{=}\lim_{t\downarrow 0}\frac{(L-L')(tv)}{\Norm{tv}}\stackrel{\ref{e:1103091}\s h=tv}{=}\implies L=L'\]
+\end{Bem}
+\begin{Bem}
+  Wir können \ref{e:1103091} auch anders beschreiben:
+  \[f(a+h)-f(a)=Lh+\underbrace{R(h)}_{\text{Restglied}}\]
+  Dann gilt
+  \begin{equation}
+    \label{e:1103092}
+    \ref{e:1103091} \iff \Limo{h}\frac{R(h)}{\Norm{h}}=0
+  \end{equation}
+\end{Bem}
+\begin{Def}
+  $L$ heisst Differential von $f$ in $a$. Man schreibt $\md f(a)$. Sei nun $\left\{ e_1,\cdots,e_n \right\}$ die Standardbasis $\mb{R}^n$, $h=(h_1,\cdots,h_n)\in\mb{R}^n$
+  \[\implies \md f(a)h=\md f(a)\left( \sum_{i=1}^kh_i-e_i \right)=\sum_{i=1}^nh_i\md f(a)e_i\]
+\end{Def}
+\begin{Def}
+  \[f'(a)=(\md f(a)e_1,\cdots,\md f(a)e_n)\]
+  heisst Ableitung
+\end{Def}
+\begin{Def}
+  \[Tf(x,a)=f(a)+f'(a)(x-a)\s\text{(Ebene (tangential))}\]
+  lineare Approximation
+\end{Def}
+\begin{Sat}
+  $f$ differentierbar in $a$ $\implies$ $f$ ist stetig in $a$
+\end{Sat}
+\begin{Bew}
+  \[\abs{f(a+b)-f(a)}=\abs{\md f(a)h+R(h)}\leq\abs{\md f(a)}+\underbrace{\abs{R(h)}}_{\to 0}\]
+\end{Bew}
+\begin{Bsp}
+  $f(x)=Ax+b$, $A\in M_a(1,n,\mb{R})$, $b\in\mb{R}$
+  \begin{Beh}
+    $Lh:=ah$ ist linear
+    \[\md f(a)h=Ah, \s f'(a)=A\]
+  \end{Beh}
+  \begin{Bew}
+    \[f(a+h)-f(a)-Lh=\not{R(h)}=0\]
+  \end{Bew}
+\end{Bsp}
+\begin{Bsp}
+  $f(x):=x^TAx$, $A=(a_{ij})\in\Sym(n,\mb{R})$
+  \[f(a+h)-f(a)-\underbrace{2a^TAh}_{\md f(a)h}+\underbrace{h^TAh}_{R(h)}\]
+  $Lh:=2a^TAh$ ist linear (in $h$), $R(h)=h^TAh$ ($=\sum h_ia_{ik}h_l$)
+  z.z.: $\abs{Rh}\leq\sum^h_{i,j=1}\abs{a_{ij}}\Norm{h}_{\infty}^2$, d.h. $\frac{R(h)}{\Norm{h}}\to 0$ (falls $\Norm{h}\to 0$)
+\end{Bsp}
+\paragraph{Ziel}
+Wir wollen $\md f(a)h$ berechnen. sei $t\in\mb{R}$
+\[f(a+th)=f(a)+\md f(a)th+R(th)\]
+\begin{equation}
+  \label{e:1103094}
+  \implies \md f(a)h=\Limo{t}\frac{f(a+th)-f(a)}{t}
+\end{equation}
+\begin{Def}
+  $f:U\to\mb{R}$, $a\in U$. Die Richtungsableitung von $f$ in Richtung $h\in\mb{R}^n$ ist der Grenzwert (falls er existiert)
+  \[\partial_nf(a):=\Limo{t}\frac{f(a+th)-f(a)}{t}\]
+  Die Ableitungen in Richtung $e_1,\cdots,e_n$ heissen partielle Ableitungen in $a$. Wir schreiben
+  \[\partial_{ei}f(a)=\partial_if(a)=\frac{\partial f}{\partial x_i}(a)=f_{xi}(a)\]
+\end{Def}
+\begin{Bem}
+  Wir haben \ul{nicht} vorausgesetzt, dass $f$ differenzierbar ist in $a$!
+\end{Bem}
+\begin{Sat}
+  Sei $f$ in $a$ differenzierbar. Dann existieren die Richtungsableitungen in jede Richtung. Insbesondere existieren die aprtiellen Ableitungen. Es gelten:
+  \begin{equation}
+    \label{e:1103095}
+    \md f(a)h=f'(a)h=\partial_nf(a)=\sum_{i=1}^n\partial_if(a)h_i
+  \end{equation}
+  und
+  \[f'(a)=\left( \partial_1f(a),\cdots,\partial_nf(a) \right)\]
+\end{Sat}
+\begin{Bew}
+  Existenz der Richtungsableitung oke (Herleitung von \ref{e:1103094})
+\end{Bew}
+\paragraph{Frage}
+Wie berechnet man die partielle Ableitung effizient? Es gilt:
+\[\partial_if(a)=\Limo{t}\frac{f(a+t_{ei})-f(a)}{t},\s a=(a_1,\cdots,a_n)\]
+\[g_i(x):=f(a_1,\cdots,a_{i-1},x,a_{i+1},\cdots,a_n)\]
+\[\partial_if(a)=\Limo{t}\frac{g(a_i+t)-f(a_i)}{t}=g'(a_i)\]
+\begin{Bsp}
+  \[f(x,y):=\sin(2x)e^{3y}\]
+  \[\partial_xf=2e^{3y}\cos(2x)\]
+  \[\partial_yf=\sin(2x)e^{3y}3\]
+\end{Bsp}
+\paragraph{Frage}
+Wann folgt aus der Existenz der partiellen Ableitung (Richtungsableitung) die Differenzierbarkeit?
+\begin{Bsp}
+  \[f(x,y)= \begin{cases}
+    \frac{x^2y}{x^2+y^2}&(x,y)\neq(0,0)\\
+    0&(x,y)=(0,0)
+  \end{cases}\]
+  Es gilt: $f(tx,ty)=tf(x,y)$, d.h. der Graph von $f$ besteht aus Geraden durch $0$, für $h=(h_1,h_2)\in\mb{R}^2$
+  \[\implies \partial_hf(0,0)=\Limo{t}\frac{f(th_1,th_2)-f(0,0)}{k}=\Limo{t}\frac{t}{t}f(h_1,h_2)=f(h_1,h_2)\]
+  \[\implies \partial f(0,0)=f(h_1,h_2)\]
+  \[\partial_{e_1}f(0,0)=f(1,0)=0\]
+  \[\partial_{e_2}f(0,0)=f(0,1)=0\]
+  \paragraph{Annahme}
+  $f$ ist in $(0,0)$ differenzierbar
+  \[\xRightarrow{\text{aus}\s\ref{e:1103095}}\underbrace{\partial_nf(0,0)}_{=\md f(a)h=0}=\underbrace{\partial_1f(a)}_{0}(h_1)+\underbrace{\partial_2f(a)}_0(h_2)=0\]
+  \[\implies \md f(a)=0\]
+  \paragraph{Test}
+  $L=0$
+  \[\frac{f(h_1,h_1)-\overbrace{f(a_0)-L(h_1,h_1)}}{\Norm{(h_1,h_1)}_\infty}=\frac{h_1^3}{2h_1^2\abs{h_1}}\to\pm\frac{1}{2}\]
+  $\implies$ $f$ ist in $(0,0)$ nicht differenzierbar.
+\end{Bsp}
