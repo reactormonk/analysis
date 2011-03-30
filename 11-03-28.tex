@@ -1,0 +1,66 @@
+%TODO
+Sei $a\in\Omega$ und $w\in\mb{R}$. Dann
+\[\md^{(k)}f(a)w^k=\sum^n_{i_1=1}\cdots\sum^n_{i_k=1}\frac{\partial^kf(a)}{\partial x_{i_1}\cdots\partial x_{i_k}}w_{i_1}\cdots w_{i_k}\]
+\[T^k_xf(z)=f(x)+\md f|_x(z-x)+\cdots+\frac{1}{k!}\md f^{(k)}|_x(z-x)^k\]
+\[R^k_xf(z)=\frac{1}{(k+1)!}\md f^{(k+1)}|_\zeta (z-x)^{k+1}\]
+Falls $f$ beliebig mal differenzierbar ist ($f\in C^{\infty}(\Omega)$ d.h. die ganze partielle Ableitung existieren und sind stetig) können wir die Taylorreihe schreiben.
+\[\sum_{k=0}^\infty\frac{1}{k!}\md f^{(k)}|_x(z-x)^k\]
+Konvention:
+\[\frac{1}{0!}\md f^{(0)}|_x(z-x)^0=f(x)\]
+\begin{Def}
+  Eine Funktion $f\in C^\infty(\Omega)$ heisst analytisch wenn $\forall x\in \Omega$ $\exists B_r(x)\subset\Omega$ mit der Eigenschaft dass:
+  \[T_x(z)=f(z)\s\forall z\in B_r(x)\]
+  \[(f\in C^\omega (\Omega))\]
+\end{Def}
+\subsection{Das Taylorpolynom zweiter Ordnung}
+\[f(z)=f(x)+\underbrace{\sum^n_{i=1}\dfrac{f}{x_i}(x)(z_i-x_i)}_{\seq{\nabla f(x), z-x}}\]
+\begin{equation}
+  \label{e:110328gelb}
+  +\frac{1}{2}\sum^n_{i=1}\sum^n_{j=1}\frac{\partial^2f}{\partial x_i\partial x_j}(x)(z_i-w_i)(z_j-w_j)
+\end{equation}
+\[+ \text{Fehler} = \sum\sum\sum\cdots(z_{i_1}-x_{j_1})(z_{i_2}-x_{i_2})(z_{i_3}-x_{i_3}\]
+Die Hessche Matrix
+\[Hf(x)=\left( \frac{\partial f}{\partial x_i\partial x_j}(x) \right)\]
+\[ \begin{pmatrix}
+  \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1\partial x_2} & \frac{\partial^2 f}{\partial x_1\partial x_3} \\
+  \frac{\partial^2 f}{\partial x_2\partial x_1} & \frac{\partial^2 f}{\partial x_2^2} & \frac{\partial^2 f}{\partial x_2\partial x_3} \\
+  \frac{\partial^2 f}{\partial x_3\partial x_1} & \frac{\partial^2 f}{\partial x_3\partial x_2}& \frac{\partial^2 f}{\partial x_3^2}
+\end{pmatrix}\]
+\begin{Bem}
+  Schwarz $\implies$ $Hf(x)$ ist symmetrisch wenn alle Ableitungen zweiter Ordnung stetig sind.
+  \[\underbrace{\sum_i\frac{\partial^2 f}{\partial x_1\partial x_j}(x)(z_i-x_i),\cdots,\sum_i\frac{\partial^2 f}{\partial x_n\partial x_i}(x)(z_i-x_i)}_{=Hf(x)(z-x)}\]
+  Deswegen
+  \[\sum^n_{j=1}(z_j-x_j)\sum^n_{i_1}\frac{\partial^2 f}{\partial x_j\partial x_i}(x)(z_j-x_j)=\ref{e:110328gelb}\]
+  \[=\seq{z-x, Hf(x)(z-x)}\]
+  \[=(z-x)^THf(x)(z-x)\]
+  $H$ $n\times n$ Matrix, die Abbildung
+  \[w\mapsto w^T A W (=\seq{w,Aw})\]
+  ist eine ``quadratische Form''.
+\end{Bem}
+Das Taylorpolynom zweiter Ordnung
+\[T^2_xf(z)=f(x)+\seq{\nabla f(x), z-x}+\frac{1}{2}(z-x)^T Hf(x)(z-x)\]
+\begin{Kor}
+  Falls $f\in C^3(\Omega)$ und $B_r(x)\subset\Omega$
+  \[f(z)=T^2_x+O(\Norm{x-z}^3)\]
+  d.h.
+  \[\abs{f(z)-T_x^2f(z)}\leq C\Norm{z-x}^3\]
+\end{Kor}
+\begin{Kor}
+  Falls $f\in C^2(\Omega)$ und $B_r(x)\subset\Omega$, dann
+  \[f(z)=T^2_xf(z)+o(\Norm{z-x}^2)\]
+  d.h.
+  \[\lim_{z\to x}\frac{f(z)-T_x^2f(z)}{\Norm{z-x}^2}=0\]
+\end{Kor}
+\begin{Bew}
+  Taylorapprozetamation mit Ordnung 1
+  \[f(z)=T^1_xf(z)+\frac{1}{2}(z-x)^THf(\zeta)(z-x)\]
+  \[f(z)-T_x^2f(z)=\frac{1}{2}(z-x)^THf(\zeta)(z-x)-\frac{1}{2}(z-x)^THf(x)(z-x)\]
+  \[=\frac{1}{2}(z-x)^T(Hf(\zeta)-Hf(x))(z-x)\]
+  \[\leq \frac{1}{2}\Norm{z-x}\Norm{Hf(\zeta)-Hf(x)(z-x)}\]
+  \[\leq \frac{1}{2}\Norm{z-x}\Norm{Hf(\zeta)-Hf(x)}_O\Norm{z-x}\]
+  \[= \frac{1}{2}\Norm{z-x}^2\Norm{Hf(\zeta)-Hf(x)}_O\]
+  \[\frac{\abs{f(z-)-T_x^2f(z)}}{\Norm{z-x}^2}\leq\frac{1}{2}\Norm{Hf(\zeta)-Hf(x)}_O\]
+  \[\Norm{\zeta-x}\leq\Norm{z-x}^x\]
+  Stetigkeit der Ableitungen 2. Ordnung
+  \[\implies \lim_{\zeta\to x}\Norm{Hf(\zeta)-Hf(x)}_O=0\]
+\end{Bew}
