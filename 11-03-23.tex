@@ -2,31 +2,31 @@
 Sei
 \[f:\Omega_{\subset\mb{R}}\to\mb{R}\]
 Die partiellen Ableitungen von $f$:
-\[\dfrac{f}{x_i}(x)=\Limo{\varepsilon}\frac{f(x+\varepsilon e_i)-f(x)}{\varepsilon}\]
+\[\Part{f}{x_i}(x)=\Limo{\varepsilon}\frac{f(x+\varepsilon e_i)-f(x)}{\varepsilon}\]
 \[e_i=(0,\cdots,i,\cdots,0)\]
-\[\dfrac{f}{x_i}:\Omega\to\mb{R}\]
-\[\dfrac{\left( \dfrac{f}{x_i} \right)}{x_j}(x)\left(=\frac{\partial^2f}{\partial x_j\partial x_i} \right)(x))\]
-\[=\lim_{\varepsilon\downarrow 0}\frac{\dfrac{f}{x_i}(x+\varepsilon e_j)-\dfrac{f}{x_i}(x)}{\varepsilon}\]
+\[\Part{f}{x_i}:\Omega\to\mb{R}\]
+\[\Part{\left( \Part{f}{x_i} \right)}{x_j}(x)\left(=\frac{\partial^2f}{\partial x_j\partial x_i} \right)(x))\]
+\[=\lim_{\varepsilon\downarrow 0}\frac{\Part{f}{x_i}(x+\varepsilon e_j)-\Part{f}{x_i}(x)}{\varepsilon}\]
 \[\frac{\partial^3f}{\partial x_k\partial x_j \partial x_i}(x)\]
 \[=\lim_{\varepsilon\downarrow 0}\frac{\frac{\partial^2f}{\partial x_i}(x+\varepsilon e_j)-\frac{\partial ^2f}{\partial x_j \partial x_i}(x)}{\varepsilon}\]
 \[\left( \frac{\partial f}{\partial x_i \partial x_i} \right)=\frac{\partial^2 f}{\partial x_i^2}\]
 \[\frac{\partial^3 f}{\partial x_i \partial x_i \partial x_i}=\frac{\partial^3 f}{\partial x_i^3}\]
 \begin{Sat}
-  (von Schwarz) Sei $f:\Omega\to\mb{R}$ eine Funktion die in einer Umgebung von $p\in\Omega$ die partielle Ableitungen $\dfrac{f}{x_i}$, $\dfrac{f}{x_j}$ und $\frac{\partial^2}{\partial x_i \partial x_j}$ besitzt. Falls $\frac{\partial^2 f}{\partial x_i \partial x_j}$ stetig in $p$ ist, dann existiert $\frac{\partial^2 f}{\partial x_j\partial x_i}(p)$ und
+  (von Schwarz) Sei $f:\Omega\to\mb{R}$ eine Funktion die in einer Umgebung von $p\in\Omega$ die partielle Ableitungen $\Part{f}{x_i}$, $\Part{f}{x_j}$ und $\frac{\partial^2}{\partial x_i \partial x_j}$ besitzt. Falls $\frac{\partial^2 f}{\partial x_i \partial x_j}$ stetig in $p$ ist, dann existiert $\frac{\partial^2 f}{\partial x_j\partial x_i}(p)$ und
   \[\frac{\partial^2 f}{\partial x_i\partial x_j}(p)=\frac{\partial^2 f}{\partial x_j\partial x_i}(p)\]
 \end{Sat}
 \begin{Bsp}
   \[f(x_1,x_2)=\sum_{i=1}^{N_1}\sum_{j=1}^{N_2}a_{ij}x_1^ix_2^j\]
-  \[\dfrac{f}{x_1}=\sum_{i=1}^{N_1}\sum_{j=1}^{N_2}ia_{ij}x_1^{i-1}x_2^j\]
+  \[\Part{f}{x_1}=\sum_{i=1}^{N_1}\sum_{j=1}^{N_2}ia_{ij}x_1^{i-1}x_2^j\]
   \[\frac{\partial^2 f}{\partial x_2\partial x_1}=\sum_{i=1}^{N_1}\sum_{j=1}^{N_2}ija_{ij}x_1^{i-1}x_2^{j-1}\]
-  \[\dfrac{f}{x_2}=\sum_{i=1}^{N_1}\sum_{j=1}^{N_2}ja_{ij}x_1^ix_2^{j-1}\]
+  \[\Part{f}{x_2}=\sum_{i=1}^{N_1}\sum_{j=1}^{N_2}ja_{ij}x_1^ix_2^{j-1}\]
   \[\frac{\partial^2 f}{\partial x_1\partial x_2}=\sum_{i=1}^{N_1}\sum_{j=1}^{N_2}ija_{ij}x_1^{i-1}x_2^{j-1}\]
 \end{Bsp}
 \begin{Bsp}
   Sei $V:\mb{R}\to\mb{R}$.
   \[v:\mb{R}^2\to\mb{R}\]
   \[v(x_1,x_2)=V(x_2)\]
-  \[\dfrac{f}{x_1}=0\]
+  \[\Part{f}{x_1}=0\]
   \[\frac{\partial^2f}{\partial x_2\partial x_+}=0\]
 \end{Bsp}
 \begin{Bew}
@@ -36,11 +36,11 @@ Die partiellen Ableitungen von $f$:
   \[p=(p_1,\cdots,p_i,\cdots,p_j,\cdots,p_n)\]
   \[g:U_{\subset\mb{R}}\to\mb{R}\]
   \[g(y,z)=g(p_1,\cdots,p_{i-1},y,p_{i+1},\cdots,p_{j-1},z,p_{j+1},\cdots,p_n\]
-  \[\dfrac{f}{x_i}(p)=\dfrac{g}{y}(p_i,p_j)\]
-  \[\dfrac{f}{x_j}(p)=\dfrac{g}{y}(p_i,p_j)\]
+  \[\Part{f}{x_i}(p)=\Part{g}{y}(p_i,p_j)\]
+  \[\Part{f}{x_j}(p)=\Part{g}{y}(p_i,p_j)\]
   \[\frac{\partial f}{\partial x_j\partial x_i}=\frac{\partial^2 g}{\partial z\partial y}(p_i,p_j)\]
-  \[\frac{\partial f}{\partial x_i\partial x_j}(p)=\lim_{\varepsilon\downarrow 0}\frac{\dfrac{f}{x_j}(p_1,\ldots,p_i+\varepsilon,\ldots,p_j,\ldots,p_n)-\dfrac{f}{x_j}(p)}{\varepsilon}\]
-  \[\dfrac{g}{z}(p)=\lim_{\varepsilon\downarrow 0}\frac{\dfrac{f}{x_j}(p_i+\varepsilon p_j)-\dfrac{g}{z}(p)}{\varepsilon}\]
+  \[\frac{\partial f}{\partial x_i\partial x_j}(p)=\lim_{\varepsilon\downarrow 0}\frac{\Part{f}{x_j}(p_1,\ldots,p_i+\varepsilon,\ldots,p_j,\ldots,p_n)-\Part{f}{x_j}(p)}{\varepsilon}\]
+  \[\Part{g}{z}(p)=\lim_{\varepsilon\downarrow 0}\frac{\Part{f}{x_j}(p_i+\varepsilon p_j)-\Part{g}{z}(p)}{\varepsilon}\]
   \[=\frac{\partial g}{\partial y \partial z}(p_i,p_j)\]
   Falls
   \[\frac{\partial g}{\partial y \partial z}(p_i,p_j)\]
@@ -50,16 +50,16 @@ Die partiellen Ableitungen von $f$:
   \paragraph{Deswegen}
   Nun, 
   \[f:\Omega_{\subset\mb{R}^2}\to\mb{R}\]
-  $\dfrac{f}{x_1}$, $\dfrac{f}{x_2}$ und $\frac{\partial^2 f}{\partial x_2\partial x_1}$ existieren in einer Umgebunv von $p=(a,b)$, dann ist $\frac{\partial^2 f}{\partial x_2\partial x_1}$ stetig auf $p$. Zu beweisen: $\frac{\partial^2 f}{\partial x_2\partial x_1}(p)$ existiert und
+  $\Part{f}{x_1}$, $\Part{f}{x_2}$ und $\frac{\partial^2 f}{\partial x_2\partial x_1}$ existieren in einer Umgebunv von $p=(a,b)$, dann ist $\frac{\partial^2 f}{\partial x_2\partial x_1}$ stetig auf $p$. Zu beweisen: $\frac{\partial^2 f}{\partial x_2\partial x_1}(p)$ existiert und
   \[\frac{\partial^2 f}{\partial x_2\partial x_1}(p)=\frac{\partial^2 f}{\partial x_2\partial x_1}(p)\]
   $p=(a,b)$, $h,k\in\mb{R}\setminus\left\{ 0 \right\}$, $Q=$ Rechteck mit Ecken $(a,b)$, $(a+h, b)$, $(a, b+k)$, $(a+h, b+k$.
   \[D_Qf=f(a+h,b+k)-f(a+h, b)-f(a,b+k)+f(a,b)\]
   \[\Limo{k} \Limo{h}\frac{D_Qf}{hk}\]
   \[=\Limo{k} \Limo{h}\frac{f(a+h,b+k)-f(a,b+k)}{hk}-\frac{f(a+h,b)-f(a,b)}{hk}\]
-  \[=\Limo{k}\frac{\dfrac{f}{x_1}(a,b+k)-\dfrac{f}{x_1}(a,b)}{k}\]
+  \[=\Limo{k}\frac{\Part{f}{x_1}(a,b+k)-\Part{f}{x_1}(a,b)}{k}\]
   \[=\frac{\partial^2f}{\partial x_2\partial x_1}(a,b)\]
   \[\Limo{h}\left( \Limo{k}\frac{D_Qf}{hk} \right)\]
-  \[=\Limo{h}\frac{\dfrac{f}{x_2}(a+h,b)-\dfrac{f}{x_2}(a,b)}{h}=?\]
+  \[=\Limo{h}\frac{\Part{f}{x_2}(a+h,b)-\Part{f}{x_2}(a,b)}{h}=?\]
   wenn der Limes existiert
   \[=\frac{\partial^2f}{\partial x_1\partial x_2}(a,b)\]
   \paragraph{Ziel}
@@ -74,10 +74,10 @@ Die partiellen Ableitungen von $f$:
   \[=\frac{1}{h}\left\{ g(a+h)-g(a) \right\}\stackrel{\text{Mittelwertsatz}}{=}g'(\xi)\]
   $x\in ]a,a+h[$, $\zeta\in]b,b+k[$ OBdA: $h,k>0$
   \[g(z)=\frac{f(z,b+k)-f(z,b)}{k}\]
-  \[g'(z)=\left( \dfrac{f}{x_1}(z,b+k)-\dfrac{f}{x_1}(z,b) \right)\frac{1}{k}\]
+  \[g'(z)=\left( \Part{f}{x_1}(z,b+k)-\Part{f}{x_1}(z,b) \right)\frac{1}{k}\]
   \ldots
-  \[=\frac{1}{k}\left( \dfrac{f}{x_1}(\xi,b+k)-\dfrac{f}{x_1}(\xi,b) \right)\]
-  \[=\dfrac{f}{x_2}\left( \dfrac{f}{x_1} \right)(\xi,\zeta)\]
+  \[=\frac{1}{k}\left( \Part{f}{x_1}(\xi,b+k)-\Part{f}{x_1}(\xi,b) \right)\]
+  \[=\Part{f}{x_2}\left( \Part{f}{x_1} \right)(\xi,\zeta)\]
   Womit wir beim zweiten Teil von \ref{e:1103231} wären.
   \[\frac{D_Qf}{hk}-\frac{\partial^2f}{\partial x_2\partial x_1}(a,b)=\frac{\partial^2f}{\partial x_2\partial x_1}(\xi,\zeta)-\frac{\partial^2f}{\partial x_2\partial x_1}(a,b)\]
   \[\Limo{h}\Limo{k}\left( \frac{D_Qf'}{hk}-\frac{\partial^2f}{\partial x_2\partial x_1}(a,b) \right)\]
@@ -99,8 +99,8 @@ Die partiellen Ableitungen von $f$:
   \[\left( =\Limo{k}\Limo{h}\frac{D_Qf}{hk} \right)\]
   \[\Limo{h}\Limo{k}\frac{1}{hk}\left\{ f(a+h,b+k)-f(a+h,b)-f(a,b+h)+f(a,b) \right\}\]
   \[=\Limo{h}\\frac{1}{h}\left\{ \Limo{k} \frac{f(a+h,b+k)-f(a+h,b)}{k}-\frac{f(a,b+h)+f(a,b)}{k} \right\}\]
-  \[\Limo{h}\frac{1}{h}\left\{ \dfrac{f}{x_2}(a+h,b)-\dfrac{f}{x_2}(a,b) \right\}\]
-  \[=\dfrac{}{x_1}\left( \dfrac{f}{x_2} \right)(a,b)\]
+  \[\Limo{h}\frac{1}{h}\left\{ \Part{f}{x_2}(a+h,b)-\Part{f}{x_2}(a,b) \right\}\]
+  \[=\Part{}{x_1}\left( \Part{f}{x_2} \right)(a,b)\]
   \begin{equation}
     \label{e:110323b}
     =\frac{\partial^2f}{\partial x_1\partial x_2}(a,b)

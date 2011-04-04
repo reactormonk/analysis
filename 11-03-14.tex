@@ -15,15 +15,15 @@ $x\in\Omega$, $h\in\mb{R}^m$, $g(t)=f(x+th)$ (wohldefiniert für $\abs{t}$ klein
 \[\partial_n f(x)=g'(0)=\Limo{t}\frac{f(x+th)-f(x)}{t}\]
 \subsubsection{Partielle Ableitung}
 $(x_1,\cdots,x_n)$ Kond. in $\mb{R}^n$ $y\in \Omega$ so dass $\Omega$ eine Umgebung von $y$ ist
-\[\dfrac{f}{x_i}(y)\left( =\partial_{x_i}f(y) \right)=\Limo{t}\frac{y_1,\dots,y_i+t,\dots,y_n-f(y)}{t}\]
+\[\Part{f}{x_i}(y)\left( =\partial_{x_i}f(y) \right)=\Limo{t}\frac{y_1,\dots,y_i+t,\dots,y_n-f(y)}{t}\]
 Falls $e_i=(0,\dots,0,\underbrace{1}_i,0,\dots,0)$
 \[=\Limo{t}\frac{f(y+te_i)-f(y)}{t}=\partial_{e_i}f(y)\]
 \begin{Sat}
-  (Hauptkriterium der Differenzierbarkeit) Sei $f:U\to \mb{R}$ und $U$ eine Umgebung von $y$. Falls $\dfrac{f}{x_1},\dots,\dfrac{f}{x_n}$ \ul{in $U$} existieren und stetig in \ul{in $y$} sind, dann ist $f$ in $y$ differenzierbar.
+  (Hauptkriterium der Differenzierbarkeit) Sei $f:U\to \mb{R}$ und $U$ eine Umgebung von $y$. Falls $\Part{f}{x_1},\dots,\Part{f}{x_n}$ \ul{in $U$} existieren und stetig in \ul{in $y$} sind, dann ist $f$ in $y$ differenzierbar.
 \end{Sat}
 \begin{Bew}
   $h=(h_1,\dots,h_n)\in\mb{R}^n$
-  \[L(h)=\sum^n_{i=1}\dfrac{f}{x_i}(y)h_i\]
+  \[L(h)=\sum^n_{i=1}\Part{f}{x_i}(y)h_i\]
   \paragraph{Ziel} $L$ ist das Differential von $f$
   \[\Limo{h}\frac{f(x+h)-f(x)-L(h)}{\Norm{h}}=0\]
   \[f(x+h)-f(x)=f(x+(h_1,\dots,h_n))-f(y+(h_1,\dots,h_{n-1},0)+f(y+(h_1,\dots,h_{n-1}, 0)-\dots\]
@@ -37,38 +37,38 @@ Falls $e_i=(0,\dots,0,\underbrace{1}_i,0,\dots,0)$
   \[\text{$i$te Zeile}=g_i(1)-g_i(0)=g_i'(\xi_i)\s\xi\in \left[ 0,1 \right]\]
   \[g_i'(t)=\Limo{\varepsilon}\frac{g_i(t+\varepsilon)-g_i(t)}{\varepsilon}\]
   \[=h_i\Limo{\varepsilon}\frac{f(y_1+h_1,\dots,y_{i-1},y_i+(t+\varepsilon)h_i,y_{i+1}\dots,y_n)-f(y_1+h_1,\dots,y_i+th_i,\dots,y_n}{\varepsilon h_i}\]
-  \[=h_i\dfrac{f}{x_i}\left( y_1+h_i,\dots,y_i+th_1,y_{i+1},\dots,y_n \right)\]
-  \[\text{$i$te Zeile}=h_i\dfrac{f}{x_i}(y_1+h_1,\dots,y_{i-1}h_{i-1},y_i+\xi_ih_i,y_{i+1},\dots,y_n)\]
+  \[=h_i\Part{f}{x_i}\left( y_1+h_i,\dots,y_i+th_1,y_{i+1},\dots,y_n \right)\]
+  \[\text{$i$te Zeile}=h_i\Part{f}{x_i}(y_1+h_1,\dots,y_{i-1}h_{i-1},y_i+\xi_ih_i,y_{i+1},\dots,y_n)\]
   \[\zeta_i=\left( h_1,\dots,h_{i-1},\xi h_i,0,\dots,0 \right)\]
   \begin{equation}
     \label{e:1103144}
-    =h_i\dfrac{f}{x_i}(y+\zeta_i)
+    =h_i\Part{f}{x_i}(y+\zeta_i)
   \end{equation}
   \ref{e:1103144} in \ref{e:1103143}:
   \begin{equation}
     \label{e:1103145}
-    f(y+h)-f(y)=\sum_{i=1}^nh_i\dfrac{f}{x_i}(y+\zeta_i)
+    f(y+h)-f(y)=\sum_{i=1}^nh_i\Part{f}{x_i}(y+\zeta_i)
   \end{equation}
   \[f(x+h)-f(x)-L(h)\]
   \begin{equation}
     \label{e:1103146}
-    =\sum_{i=1}^nh_i\left( \dfrac{f}{x_i}(y+\zeta_i)-\dfrac{f}{x_i}(y) \right)
+    =\sum_{i=1}^nh_i\left( \Part{f}{x_i}(y+\zeta_i)-\Part{f}{x_i}(y) \right)
   \end{equation}
   \[\frac{\abs{f(x+h)-f(x)-L(h)}}{\Norm{h}}\]
   \begin{equation}
     \label{e:1103147}
-    \stackrel{\ref{e:1103146}}{\leq}\sum_{i=1}^n\frac{\abs{h_i}\abs{\dfrac{f}{x_i}(y+\zeta_i)-\dfrac{f}{x_i}(y)}}{\Norm{h}}
+    \stackrel{\ref{e:1103146}}{\leq}\sum_{i=1}^n\frac{\abs{h_i}\abs{\Part{f}{x_i}(y+\zeta_i)-\Part{f}{x_i}(y)}}{\Norm{h}}
   \end{equation}
-  Wenn $\Norm{h}\to 0$, $\Norm{\zeta}\to 0$. Die Stetigkeit von $\dfrac{f}{x_i}$ in $y$ impliziert
-  \[\dfrac{f}{x_i}(y+\zeta_i)\to\dfrac{f}{x_i}\]
+  Wenn $\Norm{h}\to 0$, $\Norm{\zeta}\to 0$. Die Stetigkeit von $\Part{f}{x_i}$ in $y$ impliziert
+  \[\Part{f}{x_i}(y+\zeta_i)\to\Part{f}{x_i}\]
   Die rechte Seite von \ref{e:1103147} $\to 0$ wenn $h\to 0$ $\implies$ \ref{e:1103142}.
 \end{Bew}
 \begin{Def}
   Der Gradient an der Stelle $x_0$ist der Vektor
-  \[\left( \dfrac{f}{x_1}(x_0),\dots,\dfrac{f}{x_i}(x_0) \right)=\nabla f(x_0)\]
+  \[\left( \Part{f}{x_1}(x_0),\dots,\Part{f}{x_i}(x_0) \right)=\nabla f(x_0)\]
 \end{Def}
 \begin{Bem}
-  \[df|_{x_0}(h)\left( \partial_nf(x_0) \right)=\sum_{i=1}^nh_i\dfrac{f}{x_i}(x_0)\]
+  \[df|_{x_0}(h)\left( \partial_nf(x_0) \right)=\sum_{i=1}^nh_i\Part{f}{x_i}(x_0)\]
   \[\left(\seq{\nabla f(x_0), h}\right)=\nabla f(x_0)h\]
   \[\abs{\partial_nf(x_0)}\stackrel{\text{Cauchy-Schwartz}}{\leq}\Norm{\nabla f(x_0)}\Norm{h}\]
   Falls $\Norm{h}=1$, dann
