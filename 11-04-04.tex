@@ -1,0 +1,122 @@
+Sei $f:\underbrace{U}_{\subset \mb{R}}\times [a,b]\to\mb{R}$ stetig ($U$ offen) $\forall x\in U$ sei
+\[F(x)=\int_a^bf(x,t)\md t\]
+\begin{Sat}
+  (Differentationssatz) Falls
+  \begin{enumerate}
+    \item $\forall t\in \left[ x,b \right]$ ist $x\mapsto f(x,t)$ nach $x_i$ partiell differenzierbar
+      \[\exists\Part{f}{x_i}(x,t)\s\forall (x,t)\in U\times \left[ a,b \right]\]
+    \item und $\Part{f}{x_i}$ ist stetig
+  \end{enumerate}
+  dann $\exists$ auch $\Part{F}{x_i}(x)$ und
+  \[\Part{F}{x_i}(x)=\int_a^b\Part{f}{x_i}(x,t)\md t\]
+  \[\Part{}{x_i}\int_a^bf(x,t)\md t=\int_a^b\Part{}{x_i}f(x,t)\md t\]
+\end{Sat}
+\begin{Bew}
+  Sei $x\in U$ und $e_i=(0,\cdots,\underbrace{1}_{i\text{te Stelle}},\cdots,0)$
+  \[\Part{F}{x_i}=\Limo{\varepsilon}\frac{F(x+\varepsilon e_i)-F(x)}{\varepsilon}\]
+  \[=\Limo{\varepsilon}\frac{1}{\varepsilon}\left\{ \int_a^bf(x+\varepsilon e_i ,t)\md t-\int_a^bf(x,t)\md t \right\}\]
+  \[\Limo{\varepsilon}\int_a^b\frac{f(x+\varepsilon e_i,t)-f(x,t)}{\varepsilon}\md t\]
+  \[\Part{F}{x_i}(x,t)=\int_a^b\Part{f}{x_i}(x,t)\md t\iff\]
+  \[\iff \Limo{\varepsilon}\left\{ \int_a^b\frac{f(x+\varepsilon e_i,t)-f(x,t)}{\varepsilon}\md t-\int_a^b\Part{f}{x_i}(x,t)\md t \right\}=0\]
+  \[\iff \Limo{\varepsilon}\left\{ \int_a^b\left[ \frac{f(x+\varepsilon e_i,t)-f(x,t)}{\varepsilon}-\Part{f}{x_i}(x,t)\md t \right] \right\}=0\]
+  Wir behaupten mehr, d.h.
+  \[\int_a^b\abs{ \underbrace{\frac{f(x+\varepsilon e_i,t)-f(x,t)}{\varepsilon}}_{\Part{f}{x_i}(\xi_\varepsilon,t)}-\Part{f}{x_i}(x,t)}\md t\stackrel{\varepsilon\to 0}{\to}0\]
+  wobei $\xi_\varepsilon(t)\in \left[ x,x+\varepsilon e_i \right]$
+  \[\int_a^b\abs{\cdots}=\int_a^b\abs{\Part{f}{x_i}\left( \xi(t),t \right)-\Part{f}{x_i}(x,t)}\md t\]
+  \[\Limo{e}\xi_\varepsilon(t)=x\]
+  und (wegen der Stetigkeit von $\Part{f}{x_i}$)
+  \[\Part{f}{x_i}\left( \xi_\varepsilon(t),t \right)\to \Part{f}{x_i}(x,t)\]
+  \begin{Beh}
+    $\forall \varepsilon>0$ $\exists \varepsilon_0>0$ so dass
+    \[\abs{\varepsilon}\leq \varepsilon_0\implies \sup_{t\in [a,b]}\abs{\Part{f}{x_i}(\xi(t),t)-\Part{f}{x_i}(x,t)}<\delta\]
+  \end{Beh}
+  $\implies$
+  \[\limsup_{\varepsilon\to 0} A(\varepsilon)\leq \sup_{\abs{\varepsilon}<\varepsilon_0}A(\varepsilon)\]
+  \[\leq \int_a^b\delta\md t=\delta(b-a)\]
+  $\delta$ ist beliebig
+  \[\Limo{\varepsilon}A(\varepsilon)=0\]
+  \begin{Lem}
+    Sei $g:U\times [a,b]\to\mb{R}$ stetig (wobei $U\subset\mb{R}^n$ offen ist). Sei $x\in U$ Dann $\forall \delta >0$ $\exists \varepsilon>0$ mit
+    \[\sup_{y\in B_\varepsilon(x)}\abs{g(y,t)-g(x,t)}<\delta\s\forall t\in [a,b]\]
+    % TODO Zeichnung
+    Betrachte $x$ als ``Parameter'' $\forall y$ sei $t\mapsto g(y,t)=g_y(t)$. Dann $g_y\to g_x$ gleichmässig für $x\to x$.
+  \end{Lem}
+  \begin{Bem}
+    Das Lemma nutzt nur die Kompaktheit von $[a,b]$ (in der Behauptung können wir $[a,b]$ durch eine beliebige kompakte Menge $K\subset\mb{R}$ ersetzen)
+  \end{Bem}
+  \begin{Bew}
+    Sei $\varepsilon>0$ gegeben $\forall (x,t)$ $\exists \delta(x,t)>0$ so dass
+    \[\abs{g(\xi, \tau)-g(x,t)}<\frac{\varepsilon}{10}\s\forall (\xi, \tau)\]
+    mit
+    \[\Norm{\underbrace{(\xi,\tau)}_{\in \mb{R}^n}-\underbrace{(x,t)}_{\in \mb{R}^n}}<\delta(x,t)\]
+    \[\Norm{(\xi,\tau)-(x,t)}=\sqrt{\Norm{\xi-x}^2+(t-\tau)^2}\]
+    Nun $\forall t\in [a,b]$
+    \[\left\{ B_{\delta(x,t)}(x,t):t\in [a,b] \right\}\]
+    ist eine Überdeckung von
+    \[K = \left\{ (x,t):t\in [a,b] \right\}\]
+    kompakt weil
+    \[\left[ a,b \right]\ni t\mapsto(x,t)\]
+    stetig von $[a,b]$ nach $\mb{R}^n\times\mb{R}$. $K$ ist das Bild von $[a,b]$ durch diese Abbildung.
+  \end{Bew}
+  \begin{Bem}
+    $f$ stetig
+    \begin{tabular}{lcl}
+      $K$ kompakt & $\implies$ & $f(K)$ kompakt\\
+      $A$ abgechlossen & $\implies$ & $f^{-1}(A)$ abgeschlossen\\
+      $O$ offen & $\implies$ & $f^{-1}(A)$ offen
+    \end{tabular}
+    Alle anderen Implikationen stimmen NICHT.
+  \end{Bem}
+  $\forall (x,t)$ Sei
+  \[U_{x,t}=\underbrace{B_{\frac{\sqrt{2}}{2}\delta(x,t)}}_{\subset\mb{R}^n}(x)\times \left] t-\frac{\sqrt{2}}{2}\delta(x,t),t+\frac{\sqrt{2}}{2}\delta(x,t) \right[\]
+  $(y,\tau)\in U_{x,t}$
+  \[\implies \Norm{y-x}\leq\frac{\sqrt{2}}{2}\delta(x,t)\s\text{und}\s\abs{t-\tau}<\frac{\sqrt{2}}{2}\delta(x,t)\]
+  \[\Norm{(y,t)-(x,\tau)}<\sqrt{\frac{1}{2}\delta^2(x,t)+\frac{1}{2}\delta^2(x,t)}=\delta(x,t)\]
+  \[\implies (y,t)\in B_{\delta(x,t)}(x,t)\]
+  \[\implies U_{x,t}\subset B_{\delta(x,t)}(x,t)\]
+  $\left\{ U_x,t:t\in [a,b] \right\}$ ist eine offene Überdeckung von $K$. Kompaktheit $\implies$ $\exists \left\{ U_{x_i,t_i}:i\in \left\{ 1,\cdots,N \right\} \right\}$ Überdeckung von $K$. Sei 
+  \[\delta=\min\left\{ \frac{\sqrt{2}}{2}\delta(x_i,t_i):i\in\left\{ 1,\cdots,N \right\} \right\}>0\]
+  Sei $t\in [a,b]$, $(x,t)\in U_{x_i,t_i}$ für mindestens ein $i\in \left\{ i,\cdots,N \right\}$. Sei $y$ so dass $y-x<\delta$
+  \[(x,t),(y,t)\in U_{x_i,t_i}\subset B_{\delta(x_i,t_i}(x_i,t_i)\]
+  \[\implies \abs{g(y,t)-g(x_i,t_i)}<\frac{\varepsilon}{10}\]
+  und
+  \[\implies \abs{g(x,t)-g(x_i,t_i)}<\frac{\varepsilon}{10}\]
+  \[\implies \abs{g(x,t)-g(y,t)}<\frac{\varepsilon}{5}\]
+  \[\implies \sup_{y\in B_\delta(x)}\abs{g(x,t)-g(y-t)}\leq\frac{\varepsilon}{5}<\varepsilon\s\forall t\in [a,b]\]
+\end{Bew}
+\begin{Kor}
+  Sei $g:U\times [a,b]\to\mb{R}$ stetig. Dann
+  \[F(x)=\int_a^bg(x,t)\md t\]
+  ist eine stetige Funktion
+\end{Kor}
+\begin{Bew}
+  Seien $x\in U$ und $\varepsilon >0$. Das letzte Lemma $\implies$ $\exists \delta >0$ so dass
+  \[\abs{g(x,t)-g(y,t)}\frac{\varepsilon}{b-a}\]
+  $\forall t$ und $\forall y,x$ mit $\Norm{y-x}<\delta$. Deswegen für $\Norm{y-x}<\delta$
+  \[\abs{F(y)-F(x)}=\abs{\int_a^b(g(x,t)-g(y,t))\md t}\]
+  \[\leq\int_a^b\abs{g(x,t)-g(y,t)}\md t\]
+  \[<\int_a^b\frac{\varepsilon}{b-a}\md t=\varepsilon\]
+\end{Bew}
+\begin{Bem}
+  Im Differentiationssatz ist $\Part{f}{x_i}$ eine stetige Funktion. Da
+  \[\Part{f}{x_i}(x)=\int_a^b\Part{f}{x_i}(x,t)\md t\]
+  ist $\Part{F}{x_i}$ stetig.
+\end{Bem}
+\begin{Bem}
+  Eine sehr wichtige Konsequenz: Sei $f:\underbrace{U}_{\subset\mb{R}^2}\to \mb{R}$ eine stetige Funktion. Sei $\underbrace{[a,b]\times [c,d]}_R\subset U$
+  % TODO Zeichnung
+  \[s\mapsto F(s)=\int_a^b f(t,s)\md t\]
+  \[\int_c^dF(s)\md s=\int_c^d\left( \int_a^bf(t,s)\md s \right)\md t\]
+  \[\int_c^d\int_a^bf(t,s)\md t\md s\]
+  \[t\mapsto G(t)=\int_c^df(t,s)\md s\]
+  \[\int_a^bG(t)\md t=\int_a^b\int _c^df(t,s)\md s\md t\]
+\end{Bem}
+\begin{Sat}
+  $f$ stetig $\implies$
+  \[\int_a^b\int_c^df(s,t)\md s\md t=\int_c^d\int_a^b f(s,t)\md t\md s\]
+\end{Sat}
+\begin{Bew}
+  $(x,y)\in [a,b]\times [c,d]$
+  \[F(x,y)=\int_a^x\int_c^yf(s,t)\md s\md t\]
+  \[G(x,y)=\int_c^y\int_a^x f(t,s)\md t\md s\]
+\end{Bew}

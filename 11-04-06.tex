@@ -1,0 +1,213 @@
+\begin{Sat}
+  Sei $f:\underbrace{U}_{\mb{R}^2}\to\mb{R}$ eine stetige Funktion. Sei $R=[a,b]\times [c,d]\subset U$. Dann:
+  \[\int_a^b\int_c^d f(s,t)\md t\md s=\int_c^d\int_a^b f(s,t)\md s\md t\]
+\end{Sat}
+\begin{Bew}
+  Wir definieren
+  \[\Phi(x,y)=\int_a^x\int_c^yf(s,t)\md t\md s\]
+  \[\Psi(x,y)=\int_c^y\int_a^x f(s,t)\md s\md t\]
+  Konvention: $\int_\alpha^\beta = -\int_\beta^\alpha$ falls $\beta<\alpha$ und $\int_\alpha^\alpha=0$ \\
+  % TODO separate
+    $\Phi$ und $\Psi$ sind stetig differenzierbar und $\nabla \Phi = \nabla\Psi$ \\
+  % TODO separate
+    $\Phi=\Psi$ (Kein Problem mit Definition. Die FUnktion sind wohldefiniert fur $(x,y)\in ]a-\varepsilon,b+\varepsilon[\times ]c-\varepsilon,d+\varepsilon [$ wobei $\varepsilon>0$ klein genug ist)
+  % TODO end
+  Sei $y$ fixiert
+  \[\Part{\Phi}{x}(x,y) = ?\]
+  \[\phi(x)=\int_c^yf(x,t)\md t\]
+  $\phi$ stetig wegen der letzten Vorlesung. Fundamentalsatz der Int.:
+  \[\Part{\Phi}{x}(x,y)=\phi(x)=\int_c^y f(x,t)\md t\]
+  % TODO separate
+    $\Part{\Phi}{x}$ ist eine stetige Funktion.
+    Sei $(x_0,y_0)$, $\varepsilon>0$. Dann (aus der letzten Vorlesung stetig in $x$) $\exists \delta$
+    \[\abs{\Part{\Psi}{x}(x,y_0)-\Part{\Psi}{x}(x_0,y_0)}<\frac{\varepsilon}{2}\]
+  % TODO end
+  Sei $x$ fixiert:
+  \[\abs{\Part{\Psi}{x}(x,y_0)-\Part{Psi}{x}(x,y)}\]
+  \[=\abs{\int_c^yf(x,t)\md t-\int_c^{y_0}f(x,t)\md t}\]
+  \[=\abs{\int_{y_0}^yf(x,t)\md t}\]
+  \[\leq \int_{y_0}^y\abs{f(x,t)}\md\]
+  \[\leq M\abs{y-y_0}\]
+  Deswegen
+  für $\bar\delta \leq \frac{\varepsilon}{2H}$
+  \[\abs{y-y_0}<\bar\delta\]
+  \[\implies \abs{\Part{\Psi}{x}(x,y_0)-\Part{\Psi}{x}(x,y)}<\frac{\varepsilon}{2}\]
+  Wenn
+  \[\Norm{(x,y)-(x_0,y_0)}]<\min \left\{ \delta,\bar\delta \right\} \]
+  $\implies$ $\abs{x-x_0}<\delta$ und $\abs{y-y_0}<\bar\delta$
+  \[\abs{\Part{\Phi}{x}(x,y)-\Part{\Phi}{x}(x_0,y_0)}\]
+  \[\leq \abs{\Part{\Phi}{x}(x,y)-\Part{\Phi}{x}(x,y_0)}+\abs{\Part{\Phi}{x}(x,y_0)-\Part{\Phi}{x}(x_0,y_0)}<\frac{\varepsilon}{2}\]
+  Das gleiche Argument: $\Part{\Psi}{y}$ exisiert und ist stetig.
+  \[\psi(x,y):=\int_a^xf(s,y)\md s\]
+  \[\Part{\Psi}{x}=\Part{}{x}\int_c^y\psi(x,t)\md t\]
+  \[\stackrel{?}{=}\int_c^y\Part{\psi}{x}(x,t)\md t\]
+  Wir brauchen hier die Stetigkeit von $\psi$. Das haben wir mit dem letzten Argument!
+  \begin{equation}
+    \label{e:1104062}
+    \Part{\psi}{x}(x,t)=\Part{}{x}\int_a^xf(s,t)\md s\stackrel{\text{Fundamentalsatz}}{=}f(x,t)
+  \end{equation}
+  \[\Part{\Psi}{x}=\int_c^yf(x,t)\md t\stackrel{!}{=}\Part{\Phi}{x}\]
+  Das gleiche Argument $\Part{\Psi}{x}=\Part{\Phi}{x}$ sind stetig. Sei $\alpha:=\Phi-\psi$ $\implies$ $\alpha$ ist differenzierbar und $\md \alpha=0$
+  % TODO Zeichnung
+  \[=[a-\varepsilon, b+\varepsilon[\times ]c-\varepsilon,d+\varepsilon [\]
+  \[\abs{\alpha(x_0,y_0)-\alpha(x_1,y_1)}\leq\Norm{(x_1,y_1)-(x_0,y_0)}\max\Norm{\nabla\alpha}=0\]
+  Schrankensatz? da $[(x_0,y_0)(x_1,y_1)]$ ist im Definitionsbereich
+  \[\Phi-\Psi=\alpha=\text{konstant}=\Phi(a,c)-\Psi(a,c)=0-0=0\]
+  \[\implies \Phi(x,y)=\Psi(x,y) \s\forall (x,y)\in ]a-\varepsilon,b+\varepsilon [\times ]c-\varepsilon, d+\varepsilon [\]
+  $y=d,x=b$ $\implies$ den Satz.
+\end{Bew}
+\section{Differenzierbare Abbildungen}
+$f:\underbrace{\subset\mb{R}^n}\to\mb{R}^m$
+\begin{Def}
+  $f$ ist in $x_0$ differenzierbar falls $\exists L:\mb{R}^n\to\mb{R}^m$ lineare Abbildung:
+  \[\Limo{h}\frac{f(x_0+h)-f(x_0)-L(h)}{\Norm{h}}=0\]
+  d.h. wenn 
+  \[R(h):=f(x_0+h)-f(x_0)-L(h)\]
+  dann
+  \[\Limo{h}\frac{\Norm{R(h)}}{\Norm{h}}=0\]
+  \[\forall \varepsilon>0\s\exists\delta>0\s\text{so dass}\s0<\Norm{h}<\delta\implies \frac{\Norm{R(h)}}{\Norm{h}}<\varepsilon\]
+  oder auch ``$\Norm{R(h)}\to 0$ schneller als $\Norm(h)$'' (in ``klein-o-Notation'': $R(h)=o(\Norm{h})$) Deswegen
+  \begin{equation}
+    \label{e:1104063}
+    f\s\text{diff in }\s x_0\iff \exists L \lim\s\text{mit}\s f(x_0+h)-f(x_0)+L(h)+o(\Norm{h})
+  \end{equation}
+\end{Def}
+\begin{Bem}
+  $f$ differenzierbar in $x_0$ $\implies$ stetig in $x_0$\\
+  $f$ differenzierbar in $x_0$ $\implies$ $\exists !$ lineare Abbildung die \ref{e:1104063} erfüllt. Wir nennen $L$ das Differential von $f$. $\md f|_{x_0}$
+\end{Bem}
+\begin{Bem}
+  $f:U\to\mb{R}^m$
+  \[f(x)=\underbrace{(f(x),\cdots,f_m(x))}_{m\s\text{Funktionen}}\]
+  $\forall i \Part{f_i}{x_j}$ $n$ partielle Ableitungen
+  \[L:\mb{R}^n\to\mb{R}^m\]
+  \[L = \begin{pmatrix}
+    L_{11} & \cdots & L_{1n}\\
+    L_{21} & \cdots & L_{2n}\\
+    \vdots & & \vdots \\
+    L_{m1} & \cdots & L_{mn}
+  \end{pmatrix} = \begin{pmatrix}
+    L_1 \\ L_2 \\ \vdots \\ L_m
+  \end{pmatrix}\]
+  \[L(x) = \begin{pmatrix}
+    L_{11}+L_{12}+\cdots +L_{1n}x_n\\
+    L_{21}+\cdots +L_{2n}x_n\\
+    \vdots \\
+    L_{m1}+\cdots +L_{mn}x_n\\
+  \end{pmatrix} = \begin{pmatrix}
+    L_1 x\\ L_2 x\\ \vdots \\ L_m x
+  \end{pmatrix}\]
+  $\exists m$ lineare Abbildungen $\mb{L}:\mb{R}^n\to\mb{R}$
+  \[L(x)= \begin{pmatrix}
+    \mb{L}_1(x)\\
+    \mb{L}_2(x)\\
+    \vdots \\
+    \mb{L}_n(x)\\
+  \end{pmatrix}\]
+  \[\mb{L}_i(x)=L_i x\]
+\end{Bem}
+\begin{Bem}
+  Sei $f:U\to\mb{R}^m$ differenzierbar in $x_0$ und sei $L=\md f|_{x_0}$. Dann:
+  \begin{equation}
+    \label{e:1104064}
+    \frac{\overbrace{f(x_0+h)-f(x_0)-L(h)}^A}{\Norm{h}}\to 0
+  \end{equation}
+  \[A:= \begin{pmatrix}
+    f_1(x+h)\\ \vdots \\ f_m(x_0+h)
+  \end{pmatrix} - \begin{pmatrix}
+    f_1(x_0)\\ \vdots \\ f_m(x_0)
+  \end{pmatrix} - \begin{pmatrix}
+    \mb{L}_1(h) \\ \vdots \mb{L}_m(h)
+  \end{pmatrix}\]
+  \[ = \begin{pmatrix}
+    f_1(x_0+h)-f_1(x_0)-\mb{L}_1(h)\\
+    \vdots \\
+    f_m(x_0+h)-f_m(x_0)-\mb{L}_m(h)\\
+  \end{pmatrix} \]
+  \[\frac{A}{\Norm{h}}= \begin{pmatrix}
+    \frac{f_1(x_0+h)-f_1(x_0)-\mb{L}_1(h)}{\Norm{h}} \\
+    \vdots \\
+    \frac{f_m(x_0+h)-f_m(x_0)-\mb{L}_m(h)}{\Norm{h}} \\
+  \end{pmatrix}\]
+  Deswegen
+  \[\ref{e:1104064} \iff \Limo{h}\frac{f_i(x_0+h)-f_i(x_0)-\mb{L}_i(h)}{\Norm{h}} = 0\s\forall i\in \left\{ 1,\cdots,m \right\}\]
+  $\iff$ $f_i$ ist differenzierbar in $x_0$ und $\mb{L}_i=\md f_i|_{x_0}$
+\end{Bem}
+\begin{Sat}
+  Sei $f:\underbrace{U}_{\subset\mb{R}^n}\to\mb{R}^m$ mit $U$ offen und $f=(f_1,\cdots,f_m)$
+  \begin{enumerate}
+    \item $f$ ist differenzierbar in $x_0$ $\iff$ $f_i$ differenzierbar in $x_0$ $\forall i\in \left\{ 1,\cdots,m \right\}$
+    \item
+      \[\md f|_{x_0}(h)= \begin{pmatrix}
+        \md f_1|_{x_0}(h)\\
+        \vdots \\
+        \md f_m|_{x_0}
+      \end{pmatrix}\]
+    \item 
+      \[\md f|_{x_0}(h)= \begin{pmatrix}
+        \nabla f_1+(x_0)h
+        \vdots \\
+        \nabla f_n+(x_0)h
+      \end{pmatrix} = 
+      \begin{pmatrix}
+        \Part{f_1(x_0)}{x_1} & \Part{f_1}{x_2} & \cdots & \Part{f_1}{x_n} \\
+        \vdots & \ddots & \ddots & \vdots \\
+        \vdots & \ddots & \Part{f_i}{x_j} & \vdots \\
+        \Part{f_m}{x_1} & \cdots & \cdots & \Part{f_m}{x_n} \\
+      \end{pmatrix} \begin{pmatrix}
+        h_1 \\ & \vdots & h_n
+      \end{pmatrix}
+      \]
+      Das ist die Jacobi Matrix.
+  \end{enumerate}
+\end{Sat}
+\begin{Bem}
+  $f,g;U\to\mb{R}^m$ beide differenzierbar in $x_0$, dann
+  \[f+g\left( = \begin{pmatrix}
+    f_1+g_1\\
+    \vdots \\
+    f_m+g_m
+  \end{pmatrix} \right)\]
+  ist differenzierbar in $x_0$ und $\md f|_{x_0}+\md g|_{x_0}$
+\end{Bem}
+\begin{Bem}
+  $f:U\to\mb{R}^m$ und $g:U\to\mb{R}^m$ differenzierbar in $x_0$
+  \[(gf)(x)=g(x)f(x)= \begin{pmatrix}
+    g(x)f_1(x) \\
+    \vdots \\
+    g(x)f_m(x) \\
+  \end{pmatrix}\]
+  \[\frac{?}{\md (gf)}=\md \begin{pmatrix}
+    gf_1 \\ \vdots g f_m
+  \end{pmatrix} \Big|_{x_0}(h) = \begin{pmatrix}
+    \md (gf_1)|_{x_0}(h)\\
+    \vdots \\
+    \md (gf_m)|_{x_0}(h)\\
+  \end{pmatrix} \]
+  \[ = \begin{pmatrix}
+    \md g|_{x_0}(h)f_1(x_0)+g(x_0)\md f_1|_{x_0}(h)\\
+    \vdots \\
+    \md g|_{x_0}(h)f_m(x_0)+g(x_0)\md f_m|_{x_0}(h)\\
+  \end{pmatrix} \]
+  Jacobi-Matrix
+  \[ \begin{pmatrix}
+    \Part{g}{x_1}(x_0)f_1(x_0)+g(x_0)\Part{f_1}{x_1}(x_0) & \cdots & \Part{g}{x_n}(x_0)f_1(x_0)+g(x_0)\Part{f_1}{x_n}(x_0) \\
+    \vdots & \ddots & \vdots \\
+    \Part{g}{x_1}(x_0)f_m(x_0)+g(x_0)\Part{f_m}{x_1}(x_0) & \cdots & \Part{g}{x_n}(x_0)f_m(x_0)+g(x_0)\Part{f_m}{x_n}(x_0) \\
+  \end{pmatrix} \]
+  \[ = \begin{pmatrix}
+    \Part{g}{x_1}(x_0)f_1(x_0) & \cdots & \Part{g}{x_n}(x_0)f_1(x_0) \\
+    \vdots & \ddots & \vdots \\
+    \Part{g}{x_1}(x_0)f_m(x_0) & \cdots & \Part{g}{x_n}(x_0)f_m(x_0) \\
+  \end{pmatrix}\]
+  \[+ \begin{pmatrix}
+    g(x_0)\Part{f_1}{x_1}(x_0) & \cdots & g(x_0)\Part{f_1}{x_n}(x_0)\\
+    \vdots & \ddots & \vdots \\
+    g(x_0)\Part{f_m}{x_1}(x_0) & \cdots & g(x_0)\Part{f_m}{x_n}(x_0)\\
+  \end{pmatrix} \]
+  \[ \underbrace{\begin{pmatrix}
+    \Part{g}{x_j}(x_0) f_i(x_0)
+  \end{pmatrix}}_{ = f(x_0)\otimes \nabla g(x_0)} + \overbrace{\underbrace{g(x_0) \left( \Part{f_i}{x_j}(x_0) \right)}_{\text{Jacobi}}}^A\]
+  \[\md (gf)|_{x_0}=\underbrace{g(x_0)\md f|_{x_0}}_A+\overbrace{f(x_0)\otimes \md g|_{x_0}}^{\text{lineare Abbildung mit Rang 1}}\]
+  \[\md (gf)|_{x_0}(h)=g(x_0)\left[ \md f|_{x_0}(h) \right]+\left[ f(x_0) \right]\md g|_{x_0}(h)\]
+\end{Bem}
