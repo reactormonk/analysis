@@ -20,24 +20,24 @@ Sei $f:\underbrace{U}_{\subset \mb{R}}\times [a,b]\to\mb{R}$ stetig ($U$ offen) 
   \[\iff \Limo{\varepsilon}\left\{ \int_a^b\frac{f(x+\varepsilon e_i,t)-f(x,t)}{\varepsilon}\md t-\int_a^b\Part{f}{x_i}(x,t)\md t \right\}=0\]
   \[\iff \Limo{\varepsilon}\left\{ \int_a^b\left[ \frac{f(x+\varepsilon e_i,t)-f(x,t)}{\varepsilon}-\Part{f}{x_i}(x,t)\md t \right] \right\}=0\]
   Wir behaupten mehr, d.h.
-  \[\int_a^b\abs{ \underbrace{\frac{f(x+\varepsilon e_i,t)-f(x,t)}{\varepsilon}}_{\Part{f}{x_i}(\xi_\varepsilon,t)}-\Part{f}{x_i}(x,t)}\md t\stackrel{\varepsilon\to 0}{\to}0\]
+  \[\int_a^b\Abs{ \underbrace{\frac{f(x+\varepsilon e_i,t)-f(x,t)}{\varepsilon}}_{\Part{f}{x_i}(\xi_\varepsilon,t)}-\Part{f}{x_i}(x,t)}\md t\stackrel{\varepsilon\to 0}{\to}0\]
   wobei $\xi_\varepsilon(t)\in \left[ x,x+\varepsilon e_i \right]$
-  \[\int_a^b\abs{\cdots}=\int_a^b\abs{\Part{f}{x_i}\left( \xi(t),t \right)-\Part{f}{x_i}(x,t)}\md t\]
+  \[\int_a^b\Abs{\cdots}=\int_a^b\Abs{\Part{f}{x_i}\left( \xi(t),t \right)-\Part{f}{x_i}(x,t)}\md t\]
   \[\Limo{e}\xi_\varepsilon(t)=x\]
   und (wegen der Stetigkeit von $\Part{f}{x_i}$)
   \[\Part{f}{x_i}\left( \xi_\varepsilon(t),t \right)\to \Part{f}{x_i}(x,t)\]
   \begin{Beh}
     $\forall \varepsilon>0$ $\exists \varepsilon_0>0$ so dass
-    \[\abs{\varepsilon}\leq \varepsilon_0\implies \sup_{t\in [a,b]}\abs{\Part{f}{x_i}(\xi(t),t)-\Part{f}{x_i}(x,t)}<\delta\]
+    \[\Abs{\varepsilon}\leq \varepsilon_0\implies \sup_{t\in [a,b]}\Abs{\Part{f}{x_i}(\xi(t),t)-\Part{f}{x_i}(x,t)}<\delta\]
   \end{Beh}
   $\implies$
-  \[\limsup_{\varepsilon\to 0} A(\varepsilon)\leq \sup_{\abs{\varepsilon}<\varepsilon_0}A(\varepsilon)\]
+  \[\limsup_{\varepsilon\to 0} A(\varepsilon)\leq \sup_{\Abs{\varepsilon}<\varepsilon_0}A(\varepsilon)\]
   \[\leq \int_a^b\delta\md t=\delta(b-a)\]
   $\delta$ ist beliebig
   \[\Limo{\varepsilon}A(\varepsilon)=0\]
   \begin{Lem}
     Sei $g:U\times [a,b]\to\mb{R}$ stetig (wobei $U\subset\mb{R}^n$ offen ist). Sei $x\in U$ Dann $\forall \delta >0$ $\exists \varepsilon>0$ mit
-    \[\sup_{y\in B_\varepsilon(x)}\abs{g(y,t)-g(x,t)}<\delta\s\forall t\in [a,b]\]
+    \[\sup_{y\in B_\varepsilon(x)}\Abs{g(y,t)-g(x,t)}<\delta\s\forall t\in [a,b]\]
     % TODO Zeichnung
     Betrachte $x$ als ``Parameter'' $\forall y$ sei $t\mapsto g(y,t)=g_y(t)$. Dann $g_y\to g_x$ gleichmässig für $x\to x$.
   \end{Lem}
@@ -46,7 +46,7 @@ Sei $f:\underbrace{U}_{\subset \mb{R}}\times [a,b]\to\mb{R}$ stetig ($U$ offen) 
   \end{Bem}
   \begin{Bew}
     Sei $\varepsilon>0$ gegeben $\forall (x,t)$ $\exists \delta(x,t)>0$ so dass
-    \[\abs{g(\xi, \tau)-g(x,t)}<\frac{\varepsilon}{10}\s\forall (\xi, \tau)\]
+    \[\Abs{g(\xi, \tau)-g(x,t)}<\frac{\varepsilon}{10}\s\forall (\xi, \tau)\]
     mit
     \[\Norm{\underbrace{(\xi,\tau)}_{\in \mb{R}^n}-\underbrace{(x,t)}_{\in \mb{R}^n}}<\delta(x,t)\]
     \[\Norm{(\xi,\tau)-(x,t)}=\sqrt{\Norm{\xi-x}^2+(t-\tau)^2}\]
@@ -70,7 +70,7 @@ Sei $f:\underbrace{U}_{\subset \mb{R}}\times [a,b]\to\mb{R}$ stetig ($U$ offen) 
   $\forall (x,t)$ Sei
   \[U_{x,t}=\underbrace{B_{\frac{\sqrt{2}}{2}\delta(x,t)}}_{\subset\mb{R}^n}(x)\times \left] t-\frac{\sqrt{2}}{2}\delta(x,t),t+\frac{\sqrt{2}}{2}\delta(x,t) \right[\]
   $(y,\tau)\in U_{x,t}$
-  \[\implies \Norm{y-x}\leq\frac{\sqrt{2}}{2}\delta(x,t)\s\text{und}\s\abs{t-\tau}<\frac{\sqrt{2}}{2}\delta(x,t)\]
+  \[\implies \Norm{y-x}\leq\frac{\sqrt{2}}{2}\delta(x,t)\s\text{und}\s\Abs{t-\tau}<\frac{\sqrt{2}}{2}\delta(x,t)\]
   \[\Norm{(y,t)-(x,\tau)}<\sqrt{\frac{1}{2}\delta^2(x,t)+\frac{1}{2}\delta^2(x,t)}=\delta(x,t)\]
   \[\implies (y,t)\in B_{\delta(x,t)}(x,t)\]
   \[\implies U_{x,t}\subset B_{\delta(x,t)}(x,t)\]
@@ -78,11 +78,11 @@ Sei $f:\underbrace{U}_{\subset \mb{R}}\times [a,b]\to\mb{R}$ stetig ($U$ offen) 
   \[\delta=\min\left\{ \frac{\sqrt{2}}{2}\delta(x_i,t_i):i\in\left\{ 1,\cdots,N \right\} \right\}>0\]
   Sei $t\in [a,b]$, $(x,t)\in U_{x_i,t_i}$ für mindestens ein $i\in \left\{ i,\cdots,N \right\}$. Sei $y$ so dass $y-x<\delta$
   \[(x,t),(y,t)\in U_{x_i,t_i}\subset B_{\delta(x_i,t_i}(x_i,t_i)\]
-  \[\implies \abs{g(y,t)-g(x_i,t_i)}<\frac{\varepsilon}{10}\]
+  \[\implies \Abs{g(y,t)-g(x_i,t_i)}<\frac{\varepsilon}{10}\]
   und
-  \[\implies \abs{g(x,t)-g(x_i,t_i)}<\frac{\varepsilon}{10}\]
-  \[\implies \abs{g(x,t)-g(y,t)}<\frac{\varepsilon}{5}\]
-  \[\implies \sup_{y\in B_\delta(x)}\abs{g(x,t)-g(y-t)}\leq\frac{\varepsilon}{5}<\varepsilon\s\forall t\in [a,b]\]
+  \[\implies \Abs{g(x,t)-g(x_i,t_i)}<\frac{\varepsilon}{10}\]
+  \[\implies \Abs{g(x,t)-g(y,t)}<\frac{\varepsilon}{5}\]
+  \[\implies \sup_{y\in B_\delta(x)}\Abs{g(x,t)-g(y-t)}\leq\frac{\varepsilon}{5}<\varepsilon\s\forall t\in [a,b]\]
 \end{Bew}
 \begin{Kor}
   Sei $g:U\times [a,b]\to\mb{R}$ stetig. Dann
@@ -91,10 +91,10 @@ Sei $f:\underbrace{U}_{\subset \mb{R}}\times [a,b]\to\mb{R}$ stetig ($U$ offen) 
 \end{Kor}
 \begin{Bew}
   Seien $x\in U$ und $\varepsilon >0$. Das letzte Lemma $\implies$ $\exists \delta >0$ so dass
-  \[\abs{g(x,t)-g(y,t)}\frac{\varepsilon}{b-a}\]
+  \[\Abs{g(x,t)-g(y,t)}\frac{\varepsilon}{b-a}\]
   $\forall t$ und $\forall y,x$ mit $\Norm{y-x}<\delta$. Deswegen für $\Norm{y-x}<\delta$
-  \[\abs{F(y)-F(x)}=\abs{\int_a^b(g(x,t)-g(y,t))\md t}\]
-  \[\leq\int_a^b\abs{g(x,t)-g(y,t)}\md t\]
+  \[\Abs{F(y)-F(x)}=\Abs{\int_a^b(g(x,t)-g(y,t))\md t}\]
+  \[\leq\int_a^b\Abs{g(x,t)-g(y,t)}\md t\]
   \[<\int_a^b\frac{\varepsilon}{b-a}\md t=\varepsilon\]
 \end{Bew}
 \begin{Bem}

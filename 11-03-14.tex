@@ -5,13 +5,13 @@ $f:\Omega\to\mb{R}$, $\Omega\subset\mb{R}^n$, Umgebung von $x$.
   \label{e:1103141}
   \lim_{h\downarrow 0}\frac{f(x+h)-f(x)-L(h)}{\Norm{h}}=0
 \end{equation}
-\[\lim_{h\downarrow 0}G(h)=0\iff \forall \varepsilon>0\exists \delta>0\s\Norm{h}<\delta\implies\abs{G(h)}<\varepsilon\]
+\[\lim_{h\downarrow 0}G(h)=0\iff \forall \varepsilon>0\exists \delta>0\s\Norm{h}<\delta\implies\Abs{G(h)}<\varepsilon\]
 \[\iff \forall h_k=0\s G(h_k)\to 0\]
 Wenn $f$ differenzierbar ist und \ref{e:1103141} erfüllt, heisst $L$ das Differential von $f$.
 \[L=\md f\]
 \[\md f_x \s \text{das Differential an der Stelle $x$}\]
 \subsubsection{Richtungsableitung}
-$x\in\Omega$, $h\in\mb{R}^m$, $g(t)=f(x+th)$ (wohldefiniert für $\abs{t}$ klein)
+$x\in\Omega$, $h\in\mb{R}^m$, $g(t)=f(x+th)$ (wohldefiniert für $\Abs{t}$ klein)
 \[\partial_n f(x)=g'(0)=\Limo{t}\frac{f(x+th)-f(x)}{t}\]
 \subsubsection{Partielle Ableitung}
 $(x_1,\cdots,x_n)$ Kond. in $\mb{R}^n$ $y\in \Omega$ so dass $\Omega$ eine Umgebung von $y$ ist
@@ -54,10 +54,10 @@ Falls $e_i=(0,\dots,0,\underbrace{1}_i,0,\dots,0)$
     \label{e:1103146}
     =\sum_{i=1}^nh_i\left( \Part{f}{x_i}(y+\zeta_i)-\Part{f}{x_i}(y) \right)
   \end{equation}
-  \[\frac{\abs{f(x+h)-f(x)-L(h)}}{\Norm{h}}\]
+  \[\frac{\Abs{f(x+h)-f(x)-L(h)}}{\Norm{h}}\]
   \begin{equation}
     \label{e:1103147}
-    \stackrel{\ref{e:1103146}}{\leq}\sum_{i=1}^n\frac{\abs{h_i}\abs{\Part{f}{x_i}(y+\zeta_i)-\Part{f}{x_i}(y)}}{\Norm{h}}
+    \stackrel{\ref{e:1103146}}{\leq}\sum_{i=1}^n\frac{\Abs{h_i}\Abs{\Part{f}{x_i}(y+\zeta_i)-\Part{f}{x_i}(y)}}{\Norm{h}}
   \end{equation}
   Wenn $\Norm{h}\to 0$, $\Norm{\zeta}\to 0$. Die Stetigkeit von $\Part{f}{x_i}$ in $y$ impliziert
   \[\Part{f}{x_i}(y+\zeta_i)\to\Part{f}{x_i}\]
@@ -70,9 +70,9 @@ Falls $e_i=(0,\dots,0,\underbrace{1}_i,0,\dots,0)$
 \begin{Bem}
   \[df|_{x_0}(h)\left( \partial_nf(x_0) \right)=\sum_{i=1}^nh_i\Part{f}{x_i}(x_0)\]
   \[\left(\seq{\nabla f(x_0), h}\right)=\nabla f(x_0)h\]
-  \[\abs{\partial_nf(x_0)}\stackrel{\text{Cauchy-Schwartz}}{\leq}\Norm{\nabla f(x_0)}\Norm{h}\]
+  \[\Abs{\partial_nf(x_0)}\stackrel{\text{Cauchy-Schwartz}}{\leq}\Norm{\nabla f(x_0)}\Norm{h}\]
   Falls $\Norm{h}=1$, dann
-  \[\abs{\partial_nf(x_0)}\leq\Norm{\nabla f(x_0)}\]
+  \[\Abs{\partial_nf(x_0)}\leq\Norm{\nabla f(x_0)}\]
   Fall $\Norm{\nabla f(x_0)}\neq 0$, wenn wir 
   \[K=\frac{\nabla f(x_0)}{\Norm{\nabla f(x_0)}}\]
   bekommen wir $\Norm{K}=1$ und
@@ -112,6 +112,6 @@ Falls $e_i=(0,\dots,0,\underbrace{1}_i,0,\dots,0)$
   Diff von $f$ für $\Norm{h}\to 0$
   \[\frac{C}{\Norm{h}}=\underbrace{\frac{\md f|_x(h)}{\Norm{h}}}_{\text{ist beschränkt}}\frac{1}{f(x)}\underbrace{\left( \frac{1}{f(x)}-\frac{1}{f(x+h)} \right)}_{\to 0}\]
   Sei $L=\md f|_x$ und $\Norm{L}_O$ ihre Operatornorm
-  \[\abs{\md f|_x(h)}=\abs{L(h)}\leq\Norm{K}_O\Norm{h}\]
-  \[\implies \frac{\abs{\md f|_x(h)}}{\Norm{h}}\leq\Norm{L}\]
+  \[\Abs{\md f|_x(h)}=\Abs{L(h)}\leq\Norm{K}_O\Norm{h}\]
+  \[\implies \frac{\Abs{\md f|_x(h)}}{\Norm{h}}\leq\Norm{L}\]
 \end{Bew}

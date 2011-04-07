@@ -11,9 +11,9 @@ Sei $\left\{ x_k \right\}_{k\in\mb{N}}$ $x_k\in\mb{R}$ $x_k=\left( x_{k1}, \cdot
   \[x_k\to x_\infty\iff x_{ki}\to x_{\infty_i}\s\forall i\in\left\{ 1,\cdots,n \right\}\]
 \end{Sat}
 \begin{Bew}
-  \[\Norm{x_k - x_\infty}=\sqrt{\sum_{i=1}^n\left( x_{ki}-x_{\infty_i} \right)^2}\geq \abs{x_{ki}-x_{k\infty}}\geq 0\]
-  \[\implies 0\leq \Limi{k}\abs{x_{ki}-x_{k\infty}}\leq \lim\Norm{x_k-x_\infty}=0\]
-  \[\Norm{x_k-x_\infty}=\underbrace{\sqrt{\sum_{i=1}^n\underbrace{(x_{ki}-x_{\infty_i})^2}_{\to 0}}}_{\to 0}\leq \sum_{i=1}^n\abs{x_{ki}-x_{\infty_i}}\]
+  \[\Norm{x_k - x_\infty}=\sqrt{\sum_{i=1}^n\left( x_{ki}-x_{\infty_i} \right)^2}\geq \Abs{x_{ki}-x_{k\infty}}\geq 0\]
+  \[\implies 0\leq \Limi{k}\Abs{x_{ki}-x_{k\infty}}\leq \lim\Norm{x_k-x_\infty}=0\]
+  \[\Norm{x_k-x_\infty}=\underbrace{\sqrt{\sum_{i=1}^n\underbrace{(x_{ki}-x_{\infty_i})^2}_{\to 0}}}_{\to 0}\leq \sum_{i=1}^n\Abs{x_{ki}-x_{\infty_i}}\]
   \[\implies \Norm{x_k-x_\infty}\to 0\]
   Eine alternative Formulierung: $\Limi{k}x_k=\left( \Limi{k} x_{k1},\cdots,\Limi{k} x_{kn} \right)$
 \end{Bew}
@@ -30,7 +30,7 @@ Sei $\left\{ x_k \right\}_{k\in\mb{N}}$ $x_k\in\mb{R}$ $x_k=\left( x_{k1}, \cdot
 \end{Lem}
 \begin{Bew}
   $\left\{ x_k \right\}$ ist Cauchy $\implies$ $\left\{ x_{k_{\underbrace{i}_{\left\{ \text{fixiert} \right\}}}} \right\}$ Cauchy!
-  \[\abs{x_{ki}-x_{m_i}}\leq\Norm{x_k-x_m}\]
+  \[\Abs{x_{ki}-x_{m_i}}\leq\Norm{x_k-x_m}\]
   $\implies$ $\left\{ x_k \right\}$ ist eine Cauchyfolge $\stackrel{\text{Erstes Semester}}{\implies}$ $x_{ki}$ konvergiert $\stackrel{\text{Lemma 2}}{\implies}$ $x_k$ konvergiert. $x_k$ konvergiert $\implies$ Cauchyfolge
   \[x_\infty=\Limi{k} x_k\s\forall \varepsilon>0\s\exists N:\Norm{x_k-x_\infty}<\frac{\varepsilon}{2}\s\forall k\geq N\]
   \[k,m\geq N\s \Norm{x_k-x_m}\leq \Norm{x_k-x_\infty}+\Norm{x_\infty-x_m}\leq d(x_k,x_\infty)+(x_\infty,x_m)\]
@@ -118,7 +118,7 @@ Sei $\left\{ x_k \right\}_{k\in\mb{N}}$ $x_k\in\mb{R}$ $x_k=\left( x_{k1}, \cdot
   \[x\in M\setminus \partial M \implies x\in M\s\text{und}\s \exists K_r(x)\s\text{mit}\s K_r(x)\cap M^c=\varnothing\]
   \[\implies K_r(x)\subset M\]
   Sei $y\in K_r(x)$
-  \[\implies \abs{y-x}=\rho<r\]
+  \[\implies \Abs{y-x}=\rho<r\]
   \[\implies K_{r-\rho}(y)\subset K_r(x)\subset M\implies y\in M,y\not\in \partial M\]
   \[K_r(x)\subset M\setminus \partial M\]
   $x$ ist beliebig $\implies$ $M\setminus \partial M$ ist offen.\\

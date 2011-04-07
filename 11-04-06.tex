@@ -20,23 +20,23 @@
   % TODO separate
     $\Part{\Phi}{x}$ ist eine stetige Funktion.
     Sei $(x_0,y_0)$, $\varepsilon>0$. Dann (aus der letzten Vorlesung stetig in $x$) $\exists \delta$
-    \[\abs{\Part{\Psi}{x}(x,y_0)-\Part{\Psi}{x}(x_0,y_0)}<\frac{\varepsilon}{2}\]
+    \[\Abs{\Part{\Psi}{x}(x,y_0)-\Part{\Psi}{x}(x_0,y_0)}<\frac{\varepsilon}{2}\]
   % TODO end
   Sei $x$ fixiert:
-  \[\abs{\Part{\Psi}{x}(x,y_0)-\Part{Psi}{x}(x,y)}\]
-  \[=\abs{\int_c^yf(x,t)\md t-\int_c^{y_0}f(x,t)\md t}\]
-  \[=\abs{\int_{y_0}^yf(x,t)\md t}\]
-  \[\leq \int_{y_0}^y\abs{f(x,t)}\md\]
-  \[\leq M\abs{y-y_0}\]
+  \[\Abs{\Part{\Psi}{x}(x,y_0)-\Part{Psi}{x}(x,y)}\]
+  \[=\Abs{\int_c^yf(x,t)\md t-\int_c^{y_0}f(x,t)\md t}\]
+  \[=\Abs{\int_{y_0}^yf(x,t)\md t}\]
+  \[\leq \int_{y_0}^y\Abs{f(x,t)}\md\]
+  \[\leq M\Abs{y-y_0}\]
   Deswegen
   für $\bar\delta \leq \frac{\varepsilon}{2H}$
-  \[\abs{y-y_0}<\bar\delta\]
-  \[\implies \abs{\Part{\Psi}{x}(x,y_0)-\Part{\Psi}{x}(x,y)}<\frac{\varepsilon}{2}\]
+  \[\Abs{y-y_0}<\bar\delta\]
+  \[\implies \Abs{\Part{\Psi}{x}(x,y_0)-\Part{\Psi}{x}(x,y)}<\frac{\varepsilon}{2}\]
   Wenn
   \[\Norm{(x,y)-(x_0,y_0)}]<\min \left\{ \delta,\bar\delta \right\} \]
-  $\implies$ $\abs{x-x_0}<\delta$ und $\abs{y-y_0}<\bar\delta$
-  \[\abs{\Part{\Phi}{x}(x,y)-\Part{\Phi}{x}(x_0,y_0)}\]
-  \[\leq \abs{\Part{\Phi}{x}(x,y)-\Part{\Phi}{x}(x,y_0)}+\abs{\Part{\Phi}{x}(x,y_0)-\Part{\Phi}{x}(x_0,y_0)}<\frac{\varepsilon}{2}\]
+  $\implies$ $\Abs{x-x_0}<\delta$ und $\Abs{y-y_0}<\bar\delta$
+  \[\Abs{\Part{\Phi}{x}(x,y)-\Part{\Phi}{x}(x_0,y_0)}\]
+  \[\leq \Abs{\Part{\Phi}{x}(x,y)-\Part{\Phi}{x}(x,y_0)}+\Abs{\Part{\Phi}{x}(x,y_0)-\Part{\Phi}{x}(x_0,y_0)}<\frac{\varepsilon}{2}\]
   Das gleiche Argument: $\Part{\Psi}{y}$ exisiert und ist stetig.
   \[\psi(x,y):=\int_a^xf(s,y)\md s\]
   \[\Part{\Psi}{x}=\Part{}{x}\int_c^y\psi(x,t)\md t\]
@@ -50,7 +50,7 @@
   Das gleiche Argument $\Part{\Psi}{x}=\Part{\Phi}{x}$ sind stetig. Sei $\alpha:=\Phi-\psi$ $\implies$ $\alpha$ ist differenzierbar und $\md \alpha=0$
   % TODO Zeichnung
   \[=[a-\varepsilon, b+\varepsilon[\times ]c-\varepsilon,d+\varepsilon [\]
-  \[\abs{\alpha(x_0,y_0)-\alpha(x_1,y_1)}\leq\Norm{(x_1,y_1)-(x_0,y_0)}\max\Norm{\nabla\alpha}=0\]
+  \[\Abs{\alpha(x_0,y_0)-\alpha(x_1,y_1)}\leq\Norm{(x_1,y_1)-(x_0,y_0)}\max\Norm{\nabla\alpha}=0\]
   Schrankensatz? da $[(x_0,y_0)(x_1,y_1)]$ ist im Definitionsbereich
   \[\Phi-\Psi=\alpha=\text{konstant}=\Phi(a,c)-\Psi(a,c)=0-0=0\]
   \[\implies \Phi(x,y)=\Psi(x,y) \s\forall (x,y)\in ]a-\varepsilon,b+\varepsilon [\times ]c-\varepsilon, d+\varepsilon [\]

@@ -21,7 +21,7 @@ In $\mb{R}^n$:
   $\Norm{.}$ erf\"ullt die Regeln
   \begin{enumerate}
     \item $\Norm{x}\geq 0$ und $\Norm{x}=0\iff x=0$
-    \item $\Norm{\lambda x}=\abs{\lambda}\Norm{x}$ $\forall \lambda\in\mb{R}$, $\forall x\in\mb{R}$
+    \item $\Norm{\lambda x}=\Abs{\lambda}\Norm{x}$ $\forall \lambda\in\mb{R}$, $\forall x\in\mb{R}$
     \item $\Norm{x+y}\leq\Norm{x}+\Norm{y}$ $\forall x,y\in\mb{R}$
   \end{enumerate}
 \end{Lem}
@@ -30,8 +30,8 @@ In $\mb{R}^n$:
     \item $\geq 0$ trivial
       \[x=0\implies \sum x_i^2=0\implies \Norm{x}=0\]
       \[x=0\Leftarrow x_i=0 \forall i\Leftarrow \sum x_i^2=0\Leftarrow \Norm{x}=0\]
-    \item \[\Norm{\lambda x}=\sqrt{\sum^n_{i=1}(\lambda x_i)^2}\sqrt{\lambda^2(\sum x^2)}=\abs{\lambda}\sqrt{\sum x^2}=\abs{\lambda}\Norm{x}\]
-      \[\abs{\lambda}=\frac{\Norm{x}\abs{\lambda}}{\Norm{x}}\]
+    \item \[\Norm{\lambda x}=\sqrt{\sum^n_{i=1}(\lambda x_i)^2}\sqrt{\lambda^2(\sum x^2)}=\Abs{\lambda}\sqrt{\sum x^2}=\Abs{\lambda}\Norm{x}\]
+      \[\Abs{\lambda}=\frac{\Norm{x}\Abs{\lambda}}{\Norm{x}}\]
     \item
       \[\iff \underbrace{\Norm{x+y}^2}_=\leq \Norm{x}^2+\Norm{y}^2+2\Norm{x}\Norm{y}\]
       \[\sum_{i=1}^n(x_i+y_i)^2=\sum_{i=1}^n\left( x_i^2+y_i^2+2x_iy_i \right)=\Norm{x}^2+\Norm{y}^2\overbrace{2\sum x_iy_i}^{Skalarprodukt}\]
@@ -51,7 +51,7 @@ In $\mb{R}^n$:
   \[=\Norm{x}^2-2\frac{\seq{x,y}^2}{\Norm{y}^2}+\Norm{y}^2\frac{\seq{x,y}^2}{\Norm{y}^4}\]
   \[=\Norm{x}^2-\frac{\seq{x,y}^2}{\Norm{y}^2}\]
   \[\implies \seq{x,y}\leq\Norm{x}^2\Norm{y}^2\]
-  \[\implies \abs{\seq{x,y}}\leq\Norm{x}\Norm{y}\]
+  \[\implies \Abs{\seq{x,y}}\leq\Norm{x}\Norm{y}\]
 \end{Bew}
 \begin{Def}
   Ein normierter Vektorraum ist ein reeller Vektorraum $V$ mit einer Abbildung $\Norm . :V\to\mb R$ so dass:
@@ -63,7 +63,7 @@ In $\mb{R}^n$:
 \end{Def}
 \begin{Bsp}
   $V=\mb{R}^n$
-  \[\Norm{x}_p=\left(\sum\abs{x_i}^p\right)^{\frac{1}{p}}\s p\geq 1\]
+  \[\Norm{x}_p=\left(\sum\Abs{x_i}^p\right)^{\frac{1}{p}}\s p\geq 1\]
   $p=2$ euklidische Norm
 \end{Bsp}
 \begin{Def}

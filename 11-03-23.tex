@@ -85,11 +85,11 @@ Die partiellen Ableitungen von $f$:
   $\forall \varepsilon$ $\exists \delta$ so dass wenn $\sqrt{h^2+k^2}<\delta$
   \begin{equation}
     \label{e:1103233}
-    \implies \abs{\frac{\partial^2f}{\partial x_2\partial x_1}(\xi,\zeta)-\frac{\partial^2f}{\partial x_2\partial x_1}(a,b)}<\varepsilon
+    \implies \Abs{\frac{\partial^2f}{\partial x_2\partial x_1}(\xi,\zeta)-\frac{\partial^2f}{\partial x_2\partial x_1}(a,b)}<\varepsilon
   \end{equation}
-  \[\limsup_{h\to 0}\abs{\Limo{k}\frac{D_Qf}{hk}-\frac{\partial^2 f}{\partial x_2\partial x_1}(a,b)}\]
-  \[\leq \sup_{h\in ]0,\frac{\delta}{2}[}\abs{\Limo{k}\frac{D_Qf}{hk}-\frac{\partial f}{\partial x_2 \partial x_1}(a,b)}\]
-  \[\leq \sup_{h\in ]0,\frac{\delta}{2}[}\sup_{k\in ]0,\frac{\delta}{2}[}\abs{\frac{D_Qf}{hk}-\frac{\partial f}{\partial x_2 \partial x_1}(a,b)}\stackrel{\ref{e:1103233}}{\leq} \varepsilon\]
+  \[\limsup_{h\to 0}\Abs{\Limo{k}\frac{D_Qf}{hk}-\frac{\partial^2 f}{\partial x_2\partial x_1}(a,b)}\]
+  \[\leq \sup_{h\in ]0,\frac{\delta}{2}[}\Abs{\Limo{k}\frac{D_Qf}{hk}-\frac{\partial f}{\partial x_2 \partial x_1}(a,b)}\]
+  \[\leq \sup_{h\in ]0,\frac{\delta}{2}[}\sup_{k\in ]0,\frac{\delta}{2}[}\Abs{\frac{D_Qf}{hk}-\frac{\partial f}{\partial x_2 \partial x_1}(a,b)}\stackrel{\ref{e:1103233}}{\leq} \varepsilon\]
   \[\implies \limsup_{k\to 0}\cdots=\Limo{k}\cdots=0\]
   \[\implies\Limo{h}\Limo{k}\frac{D_+f}{hk}\]
   \begin{equation}

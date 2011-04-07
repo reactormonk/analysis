@@ -42,7 +42,7 @@ existiert. Was geschieht mit Funktionen von mehrere Variablen? Die ``Tangentenst
   $f$ differentierbar in $a$ $\implies$ $f$ ist stetig in $a$
 \end{Sat}
 \begin{Bew}
-  \[\abs{f(a+b)-f(a)}=\abs{\md f(a)h+R(h)}\leq\abs{\md f(a)}+\underbrace{\abs{R(h)}}_{\to 0}\]
+  \[\Abs{f(a+b)-f(a)}=\Abs{\md f(a)h+R(h)}\leq\Abs{\md f(a)}+\underbrace{\Abs{R(h)}}_{\to 0}\]
 \end{Bew}
 \begin{Bsp}
   $f(x)=Ax+b$, $A\in M_a(1,n,\mb{R})$, $b\in\mb{R}$
@@ -58,7 +58,7 @@ existiert. Was geschieht mit Funktionen von mehrere Variablen? Die ``Tangentenst
   $f(x):=x^TAx$, $A=(a_{ij})\in\Sym(n,\mb{R})$
   \[f(a+h)-f(a)-\underbrace{2a^TAh}_{\md f(a)h}+\underbrace{h^TAh}_{R(h)}\]
   $Lh:=2a^TAh$ ist linear (in $h$), $R(h)=h^TAh$ ($=\sum h_ia_{ik}h_l$)
-  z.z.: $\abs{Rh}\leq\sum^h_{i,j=1}\abs{a_{ij}}\Norm{h}_{\infty}^2$, d.h. $\frac{R(h)}{\Norm{h}}\to 0$ (falls $\Norm{h}\to 0$)
+  z.z.: $\Abs{Rh}\leq\sum^h_{i,j=1}\Abs{a_{ij}}\Norm{h}_{\infty}^2$, d.h. $\frac{R(h)}{\Norm{h}}\to 0$ (falls $\Norm{h}\to 0$)
 \end{Bsp}
 \paragraph{Ziel}
 Wir wollen $\md f(a)h$ berechnen. sei $t\in\mb{R}$
@@ -116,6 +116,6 @@ Wann folgt aus der Existenz der partiellen Ableitung (Richtungsableitung) die Di
   \[\implies \md f(a)=0\]
   \paragraph{Test}
   $L=0$
-  \[\frac{f(h_1,h_1)-\overbrace{f(a_0)-L(h_1,h_1)}}{\Norm{(h_1,h_1)}_\infty}=\frac{h_1^3}{2h_1^2\abs{h_1}}\to\pm\frac{1}{2}\]
+  \[\frac{f(h_1,h_1)-\overbrace{f(a_0)-L(h_1,h_1)}}{\Norm{(h_1,h_1)}_\infty}=\frac{h_1^3}{2h_1^2\Abs{h_1}}\to\pm\frac{1}{2}\]
   $\implies$ $f$ ist in $(0,0)$ nicht differenzierbar.
 \end{Bsp}
