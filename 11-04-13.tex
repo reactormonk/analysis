@@ -1,0 +1,200 @@
+\begin{Sat}
+  Sei $\Omega\subset\mb{R}^n$ eine offene Menge, $f:\Omega\to\mb{R}^k$ (eine differenzierbare Abbildung mit stetigen partiellen Ableitungen) eine $\mb{C}^1$ Funktion und $\gamma [a,b]\to\Omega$ eine $\mb{C}^1$ Kurve.
+\end{Sat}
+\begin{Def}
+  $f\in\mb{C}^k(U,\mb{R}^m)$ falls die partielle Ableitungen von $f_i$ mit Ordnung $\leq k$ existieren und stetig sind ($f=(f_1,\cdots,f_m)$). Dann:
+  \[\Norm{f(\gamma(b))-f(\gamma(a))}\leq \left[ \sup_{t\in [a,b]}\Norm{\md f|_{\gamma(t)}}_0 \right]\underbrace{\int_a^b\Norm{\dot \gamma(t)}\md t}_{\text{Länge der Kurve}}\]
+  $\gamma:[a,b]\to\Omega\subset\mb{R}^n$, $\gamma=(\gamma_1,\cdots,\gamma_n)$, $\dot\gamma=(\gamma_1',\cdots,\gamma_n')$
+\end{Def}
+\begin{Bew}
+  Sei $\phi:[a,b]\to\mb{R}^k$ die Funktion
+  \[\phi(t):=f(\gamma(t))=f\circ\gamma\]
+  Kettenregel
+  \begin{equation}
+    \label{e:1104131}
+    \md \phi|_t=\md f|_{\gamma(t)}\md \gamma|_t
+  \end{equation}
+  \[\phi:[a,b]\to\mb{R}^k\]
+  \[\md \phi|_t:\mb{R}\to\mb{R}^k\s\text{lineare Abbildung}\]
+  $\phi=(\phi_1,\cdots,\phi_k)$
+  \[ \begin{pmatrix}
+    \Part{\phi_1}{t} \\ \vdots \\ \Part{\phi_k}{t} 
+  \end{pmatrix} = \begin{pmatrix}
+    \phi_1' \\ \vdots \\ \phi_k'
+  \end{pmatrix} = \dot\phi \]
+  Sei $A$ die Jacobi-Matridx für $\md f$. Kettenregel:
+  \[\underbrace{\dot\phi(t)=A(\gamma(t))\cdot \dot\gamma(t)}_{\text{Matrix-Darstellung von \ref{e:1104131}}}\]
+  \[f(\gamma(b))-f(\gamma(a))=\phi(b)-\phi(a)= \begin{pmatrix}
+    \phi_1(b)-\phi_1(a) \\
+    \vdots \\
+    \phi_k(b)-\phi_k(a)
+  \end{pmatrix}\]
+  $\phi_i'$ ist eine stetige Funktion:
+  \begin{eqnarray*}
+    \phi_i'(t)=\sum_{j=1}^nA_{ij}(\gamma(t))\gamma_j'(t)\\
+    \sum_{j=1}^n\Part{f_i}{x_j}(\gamma(t))\gamma_j'(t)
+  \end{eqnarray*}
+  \[\phi(b)-\phi(a)= \begin{pmatrix}
+    \int_a^b\phi_1'(t)\md t\\
+    \vdots \\
+    \int_a^b\phi_k'(t)\md t
+  \end{pmatrix} \]
+  \begin{eqnarray*}
+    \Norm{f(\gamma(b))-f(\gamma(a))}^2 \\
+    = \Norm{\phi(b)-\phi(a)}^2\\
+    = \sum^k_{i=1}\left( \int_a^b\phi_i'(t)\md t \right)^2\\
+    \stackrel{\text{Dreiecksungleichung}}{\leq} \int_a^b
+  \end{eqnarray*}
+  \begin{Lem}\ul{Dreiecksungleichung} Seien $f,g:[a,b]\to\mb{R}$ zwei stetige Funktionen. Dann:
+    \[\Abs{\int_a^bfg\md t}^2\leq\int_a^bf^2\int_a^bg^2\]
+  \end{Lem}
+  \begin{Bew}
+    \begin{align*}
+      \int_a^b\left( tf-\frac{1}{t}g \right)^2\geq 0\s\forall t\in\mb{R}\setminus\left\{ 0 \right\}\\
+      \int_A^bt^2f^2+\int_A^b\frac{1}{t^2}g^2-\int_a^b2fg\geq 0\\
+      \int_A^bfg\leq\underbrace{\frac{t^2}{2}\int_a^bf^2+\frac{1}{2t^2}\int_A^bg^2}_{\Phi(t)=\frac{t^2}{2}\alpha+\frac[{\beta}{2t^2}}\s \alpha,\beta >0, \Phi''>0\\
+      \Phi'(t)=t\alpha-\frac{\beta}{t^3}\\
+      \Phi'(t)=0\iff t^4=\frac{\beta}{\alpha}\iff t^2=\sqrt{\frac{\beta}{\alpha}}\\
+    \end{align*}
+    Wähle
+    \[t^2=\sqrt{\frac{\beta}{\alpha}}=\frac{1}{2}\sqrt{\frac{\beta}{\alpha}}\alpha+\frac{\beta}{\sqrt{\frac{\beta}{\alpha}}}=\frac{1}{2}\sqrt{\beta\alpha}+\frac{1}{2}\sqrt{\beta\alpha}\]
+  \end{Bew}
+  \begin{equation}
+    \label{e:1104132}
+    \implies \int_a^bfg\leq\int_a^bf^2\int_a^bg^2 \s(=\sqrt{\beta\alpha})
+  \end{equation}
+  Zur Erinnerung: $\alpha,\beta>0$ $\implies$ \ref{e:1104132}
+  \begin{eqnarray*}
+    \alpha=0\implies \int_A^bf^2=0\implies f^2\equiv 0\\
+    \implies f\equiv 0\implies \ref{1104132}\s\text{ist trivial}\\
+    \implies \ref{e:1104132}\s\text{gilt ohne Einschränkung}
+  \end{eqnarray*}
+\end{Bew}
+\begin{Kor}
+  Wenn wir das gleiche Argument mit $-f$ und $g$ anwenden, dann:
+  \begin{equation}
+    \label{e:1104133}
+    \int_a^b(-f)g\leq\sqrt{\int_a^b(f)^2\int_a^bg^2}
+  \end{equation}
+  \begin{eqnarray*}
+    \xRightarrow{\ref{e:1104132} + \ref{e:1104133}}\Abs{\int_a^bfg}\leq\sqrt{\int_a^bf^2}\sqrt{\int_a^bg^2}\\
+    \implies(\int fg)^2\leq \int_a^bf^2\int_a^bg^2
+  \end{eqnarray*}
+\end{Kor}
+\begin{Lem}
+  \ul{Dreiecksungleichung (2te Version)} $f,g:[a,b]\to\mb{R}^k$ zwei stetige Funktionen. Dann:
+  \[\Abs{\sum_{i=1}^k\int_A^bf_ig_i}\leq\int_a^b\Norm{f}^2\int_a^b\Norm{g}^2\]
+\end{Lem}
+\begin{Bew}
+  Das Argument:
+  \[\int_a^b\Norm{tf-\frac{1}{t}g}^2\geq 0\]
+  \begin{eqnarray*}
+    \int_a^b\sum_{i=1}^k(tf_i-\frac{1}{t}g_i)^2\\
+    =\int_a^b(t^2\sum f_i^2+\frac{1}{t^2}\sum g_i^2-2\sum f_i g)\\
+    \implies \frac{t^2}{2}\int_a^b\Norm{f}^2+\frac{1}{2t^2}\int_a^b\Norm{g}^2\\
+    \geq \int_a^b\sum f_ig_i
+  \end{eqnarray*}
+  Optimierung von $t$ $\implies$ die Ungleichung
+  \[\int_a^b\sum f_ig_i\leq\sqrt{\int_a^b\Norm{f}^2\int_a^b\Norm{g}^2}\]
+\end{Bew}
+\begin{eqnarray*}
+  \Norm{f(\gamma(b))-f(\gamma(a))}\\
+  =\Norm{\phi(b)-\phi(a)}\\
+  =\sqrt{\sum\left( \int_a^b\phi'(s)\md s \right)}\\
+  \stackrel{\text{Dreiecksungleichung}}{\leq}\int_a^b\overbrace{\sqrt{\sum(\phi'(s))^2}}^{\Norm{\dot\phi}}\md s\\
+\end{eqnarray*}
+\begin{Lem}
+  Sei $g:[a,b]\to\mb{R}^k$ eine stetige Funktion.
+  \[\sqrt{\sum\left( \int_a^bg_i \right)^2}\leq\int_a^b\Norm{g}\]
+  \ul{Dreiecksungleichung}
+\end{Lem}
+\begin{Bew}
+  Sei $\varepsilon>0$ und Treppenfunktion $\alpha_i$ so dass $g_i-\varepsilon\leq\alpha_i\leq g_i+\varepsilon$, $\alpha_i-\varepsilon\leq g_i\leq \alpha_i+\varepsilon$.
+  \begin{eqnarray*}
+    \int_a\alpha_i-(b-a)\varepsilon\\
+    \leq\int_a^b g_i\\
+    \leq \int_a^b\alpha_i+(b-a)\varepsilon\\
+  \end{eqnarray*}
+  \[\Abs{\int_a^bg_i-f_a^b\alpha_i}\leq (b-a)\varepsilon\]
+  \begin{eqnarray*}
+    \Abs{\sqrt{\sum(\int g_i)^2}-\sqrt{\sum\int\alpha_i^2}}\\
+    \leq\sqrt{\sum(\int g_i-\int \alpha_i)^2}\\
+    \leq\sqrt{k(b-a)^2\varepsilon^2}\\
+    \leq \sqrt{k}(b-a)\varepsilon
+  \end{eqnarray*}
+  \begin{eqnarray*}
+    \Abs{\int_a^b\Norm{g}-\int_a^b\Norm{\alpha}}\\
+    \leq\int_a^b\Abs{\Norm{g}-\Norm{\alpha}}\\
+    \leq\int_a^b\Norm{g-\alpha}\\
+    \leq\int_a^b\sqrt{k}\varepsilon\\
+    =(b-a)\varepsilon
+  \end{eqnarray*}
+  \begin{Beh}
+    \begin{equation}
+      \label{e:1104134}
+      \sqrt{\sum(j_a^b\alpha_i)^2}\leq\leq\int_a^b\Norm{\alpha}
+    \end{equation}
+  \end{Beh}
+  \begin{eqnarray*}
+    \ref{e:1104134}\implies
+    \sqrt{\sum(\int_a^b g_i)^2}\leq\sqrt{\sum(\int_a^b\alpha_i)^2}+(b-a)\sqrt{k}\varepsilon \\
+    \stackrel{\ref{e:1104134}}{\leq}\int_a^b\Norm{\alpha}+(b-a)\sqrt{k}\varepsilon\\
+    \leq\int_a^b\Norm{g}+2(b-a)\sqrt{k}\varepsilon
+  \end{eqnarray*}
+  Wenn $\varepsilon\downarrow 0$:
+  \[\sqrt{\sum\left( \int_a^bg_i \right)^2}\leq\int_a^b\Norm{g}\]
+  Ohne Beschränkung der Allgemeinheit: $\exists$ eine Zerteilung von $[a,b]$ 
+  \[a=c_0<c_1<\cdots<c_N=b\]
+  jedes $\alpha_i$ ist konstant auf $[c_{j-1},c_j]=I_j$. Die Konstante ist $a_{i,j}$
+  \[\alpha = \begin{pmatrix}
+    \alpha_1\\ \vdots \\ \alpha_k
+  \end{pmatrix}\]
+  ist konstat auf $I_j$ mit Wert
+  \[a_j = \begin{pmatrix}
+    a_{1,j} \vdots \\ a_{k,j}
+  \end{pmatrix}\]
+  \[\sqrt{\sum_{i=1}^k\left( \int_a^b\alpha_i \right)^2}=\sqrt{\sum_{i=1}^k\left( \sum_{j=1}^N\abs{I_j}\alpha_{i,j} \right)^2}=\Norm{a}\]
+  \begin{eqnarray*}
+    a:=\sum_{j=1}^N\abs{I_j}a_j\\
+    = \begin{pmatrix}
+      \sum_{j=1}^N\abs{I_j}\alpha_{1,j}\\
+      \vdots \\
+      \sum_{j=1}^N\abs{I_j}\alpha_{1,j}\\
+    \end{pmatrix}\\
+    = \Norm{\sum_{j=1}^N\abs{I_j}a_j}\\
+    \stackrel{\text{Dreiecksungleichung}}{\leq}\sum_{j=1}^N\Norm{\abs{I_j}a_j}\\
+    =\sum_{j=1}^N\abs{I_j}\Norm{a_j}\\
+    =\int_a^b\Norm{\alpha}
+  \end{eqnarray*}
+  $\Norm{\alpha}$ hat den Wert $\sqrt{\sum_{i=1}^k\alpha_i^2}$ und desw3egen auf $I_j$ ist dieser Wert
+  \[\sqrt{\sum^k_{i=1}a_{i,j}^2}=\Norm{a_j}\equiv\Norm{\alpha}\]
+\end{Bew}
+\begin{Bew}
+  vom Schrankensatz. $\phi=f\circ \gamma$, $\phi(t)=f(\gamma(t))$
+  \begin{eqnarray*}
+    f(\gamma(b))-f(\gamma(a))\\
+    =\phi(b)-\phi(a)\\
+    = \begin{pmatrix}
+      \int_a^b\phi_1'(s)\md s\\
+      \vdots \\
+      \int_a^b\phi_k'(s)\md s\\
+    \end{pmatrix}\\
+    \xRightarrow{\text{Dreiecksungleichung}}\Norm{f(\gamma(b))-f(\gamma(a))}\\
+    \leq \int_a^b\Norm{\dot\phi(s)}\md s\\
+    \stackrel{\text{Kettenregel}}{=}\int_a^b\Norm{\md f|_{\gamma(\delta)}(\dot\gamma(s))}\md s\\
+    \leq \int_A^b\Norm{\md f|_{\gamma(s)}}_O\Norm{\dot\gamma(s)}\md s\\
+    \leq \max_{s\in [a,b]}\Norm{\md f|_{\gamma(s)}}_O\int_a^b\Norm{\dot\gamma(s)}\md s
+  \end{eqnarray*}
+  Vorsicht: $\Norm{\cdot}_O$ ist eine Norm, deswegen stetig!
+\end{Bew}
+\begin{Kor}
+  $f:\Omega\to\mb{R}^k$ $\mb{C}^1$ Funktion, $[p,q]\subset\Omega$. Dann:
+  \[\Norm{f(p)-f(q)}\leq\max_{z\in [p,q]}\Norm{\md f|_z}\Norm{p-q}\]
+\end{Kor}
+\begin{Bew}
+  Wenden den Satz an $f$ und $\gamma:[0,1]\to\Omega$ ist $\gamma(a)=(1-s)p+sq$, $\dot \gamma=q-p$
+  \begin{eqnarray*}
+    \Norm{f(p)-f(q)}\leq\\
+    \max_{s\in [p,q]}\Norm{\md f|_{\gamma(s)}}\underbrace{\int_0^1\Norm{\dot\gamma(s)}\md s}_{\Norm{p-q}}
+  \end{eqnarray*}
+\end{Bew}
