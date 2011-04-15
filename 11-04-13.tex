@@ -132,12 +132,12 @@
   \begin{Beh}
     \begin{equation}
       \label{e:1104134}
-      \sqrt{\sum(j_a^b\alpha_i)^2}\leq\leq\int_a^b\Norm{\alpha}
+      \sqrt{\sum\left(\int_a^b\alpha_i\right)^2}\leq\int_a^b\Norm{\alpha}
     \end{equation}
   \end{Beh}
   \begin{eqnarray*}
     \ref{e:1104134}\implies
-    \sqrt{\sum(\int_a^b g_i)^2}\leq\sqrt{\sum(\int_a^b\alpha_i)^2}+(b-a)\sqrt{k}\varepsilon \\
+    \sqrt{\sum\left(\int_a^b g_i\right)^2}\leq\sqrt{\sum\left(\int_a^b\alpha_i\right)^2}+(b-a)\sqrt{k}\varepsilon \\
     \stackrel{\ref{e:1104134}}{\leq}\int_a^b\Norm{\alpha}+(b-a)\sqrt{k}\varepsilon\\
     \leq\int_a^b\Norm{g}+2(b-a)\sqrt{k}\varepsilon
   \end{eqnarray*}
@@ -149,9 +149,9 @@
   \[\alpha = \begin{pmatrix}
     \alpha_1\\ \vdots \\ \alpha_k
   \end{pmatrix}\]
-  ist konstat auf $I_j$ mit Wert
+  ist konstant auf $I_j$ mit Wert
   \[a_j = \begin{pmatrix}
-    a_{1,j} \vdots \\ a_{k,j}
+    a_{1,j}\\ \vdots \\ a_{k,j}
   \end{pmatrix}\]
   \[\sqrt{\sum_{i=1}^k\left( \int_a^b\alpha_i \right)^2}=\sqrt{\sum_{i=1}^k\left( \sum_{j=1}^N\abs{I_j}\alpha_{i,j} \right)^2}=\Norm{a}\]
   \begin{eqnarray*}
