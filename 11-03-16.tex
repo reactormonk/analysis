@@ -1,99 +1,131 @@
+\subsection{Kettenregel}
 \begin{Def}
-  Eine Kurve ist eine Abbildung $\gamma:[a,b]\to\mb{R}^n$ (d.h. $\forall t\s\gamma(t)\in\mb{R}^n$ 
-  \[\gamma(t)=(\gamma_1(t),\cdots,\gamma_n(t))\]
-  deswegen $t\to\gamma_i(t)\in\mb{R}$. Die Kurve $\gamma$ heisst differenzierbar wenn jede $\gamma_i$ differenzierbar ist.
-  \[\gamma'=(\gamma'(t),\cdots,\gamma_n'(t))\]
+  Eine Kurve ist eine Abbildung $\gamma:[a,b]\to\mb{R}^n$.  
 \end{Def}
-\begin{Sat}(Kettenregel 1. Version) Sei $f:U\to\mb{R}$ mit $U$ Umgebung von $x$ und $f$ differenzierbar in $x$. Sei $\gamma:[a,b]\to U$ eine differenzierbare Kurve mit $\gamma(t_0)=x$. Sei $g=f\circ \gamma$
-  \[g(t)=f(\gamma(t))\]
-  Sei $g$ in $t_0$ differenzierbar. Dann
-  \[g'(t_0)=\md|_\gamma(t_0)(\dot\gamma(t_0))=\seq{\nabla f(\gamma(t_0)),\dot\gamma(t_0)}\]
-  % TODO
+Diese Definition bedeutet dass $\gamma(t)\in\mb{R}^n$ $\forall t$.
+Seien nun $\gamma_i (t)$ die Koordinaten des Vektors $\gamma (t)$:
+  \[\gamma(t)=(\gamma_1(t),\cdots,\gamma_n(t))\, .\]
+Jede $t\to\gamma_i(t)\in\mb{R}$ ist eine reelvertige Funktion einer Variabel.
+
+\begin{Def}
+Die Kurve $\gamma$ heisst differenzierbar wenn jede $\gamma_i$ differenzierbar ist.
+In diesem Fall definieren wir
+  \[\dot{\gamma} (t):=(\gamma'(t),\cdots,\gamma_n'(t))\]
+\end{Def}
+
+\begin{Sat}(Kettenregel 1. Version) Sei $f:U\to\mb{R}$ mit $U$ Umgebung von $x_0$ und $f$ differenzierbar in $x_0$. Sei $\gamma:[a,b]\to U$ eine differenzierbare Kurve mit $\gamma(t_0)=x_0$. Sei $g=f\circ \gamma$
+(i.e. $g(t)=f(\gamma(t))$). Dann ist $g$ in $t_0$ differenzierbar und
+  \[g'(t_0)=\md f|_{\gamma(t_0)}(\dot\gamma(t_0))=\seq{\nabla f(\gamma(t_0)),\dot\gamma(t_0)}\, .\]
 \end{Sat}
-\begin{Bew}
-  Das Ziel:
-  \[\Limo{h} \frac{g(t_0+h)-g(t_0)-h\left[ \md f|_{\gamma(t_0)}(\dot\gamma(t_0)) \right]}{h}=0\]
+\begin{Bew} Das Ziel:
+  \[\Limo{h} \frac{g(t_0+h)-g(t_0)-h\left[ \md f|_{\gamma(t_0)}(\dot\gamma(t_0)) \right]}{h}=0\, .\]
+Wir definieren
   \begin{equation}
     \label{e:1103161}
-    R(h)=g(t_0+h)-g(t_0)-g(t_0)-h\left[ \md f|_{\gamma(t_0)}(\dot\gamma(t_0)) \right]
+    R(h)=g(t_0+h)-g(t_0)-g(t_0)-h\left[ \md f|_{\gamma(t_0)}(\dot\gamma(t_0))\, . \right]
   \end{equation}
+Dann wollen wir die folgende Behauptung zeigen:
   \begin{equation}
     \label{e:1103162}
-    \Limo{h}\frac{R(h)}{h}=0
+    \Limo{h}\frac{R(h)}{|h|}=0
   \end{equation}
-  Neue Notation
-  \[\ref{e:1103162}\iff R(h)=o(h)\]
-  \[x_0=\gamma(t_0)\]
-  Annahmen: Differenzierbarkeit von $f$
-  \[\Limo{k}\frac{f(x_0+k)-f(x_0)-\md f|_{x_0}(k)}{\Norm{k}}\left( =\frac{r(k)}{\Norm{k}} \right)=0\]
-  \[\left( r(k)=o(\Norm{k}) \right)\]
-  Differenzierbarkeit von $\gamma$:
-  \[\Limo{k}\frac{\gamma(x_0+k)-\gamma(x_0)-\md h\gamma'|_{x_0}(k)}{h}\left( =\frac{p(k)}{\Norm{k}} \right)=0\]
-  \[p(h)=o(h)\]
-  \[\gamma(t_0+h)=\gamma(t_0)+k\left( =\gamma(t_0+h)-\underbrace{\gamma(t_0)}_{x_0} \right)\]
-  \[g(t_0+h)-g(t_0)=f(\gamma(t_0+h))-g(\overbrace{\gamma(t_0)}^{x_0})\]
-  \[=f(\gamma(t_0)-k)-f(\gamma(t_0))=\md f|_{\gamma(t_0)}(k)+r(k)\]
-  \[=\md f|_{\gamma(t_0)}(\gamma(t_0+h)-\gamma(t_0))+r(k)\]
-  \[=\md f|_{\gamma(t_0)}(h\dot\gamma(t_0)+p(h))+r(k)\]
-  \[\stackrel{\text{Linearität von $\md f$}}{=}h\md f|_{\gamma(t_0)}(\dot\gamma(t_0))+\md f|_{\gamma(t_0)}(p(h))+r(k)\]
-  \[g(t_0+h)-g(t_0)-h\md f|_{\gamma(t_0)}(\dot\gamma(t_0))\]
-  \[=f|_{\gamma(t_0)}(p(h))+r(\gamma(t_0+h)-\gamma(t_0))=R(h)\]
-  \[\Abs{R(h)}\leq \frac{\underbrace{\overbrace{\Abs{f|_{\gamma(t_0)}(p(h))}}^{L}+r(\gamma(t_0+h)-\gamma(t_0))}}{\Norm{h}}\]
-  \[\leq\Norm{L}\frac{p(h)}{\Norm{h}}+\frac{r(\gamma(t_0+h)-\gamma(t_0)}{\Norm{h}}\]
-  Ziel
-  \[\Limo{h}\frac{r(\gamma(t_0+h)-\gamma(t_0)}{\Abs{h}}\]
-  Falls 
-  \[r(\gamma(t_0+h)-\gamma(t_0)=0\]
-  dann $r(0)=0$. Wenn 
-  \[r(\gamma(t_0+h)-\gamma(t_0)\neq 0\]
-  \[=\frac{r(\gamma(t_0+h)-\gamma(t_0)}{\Norm{\gamma(t_0+h)-\gamma(t_0)}}\frac{\Norm{t_0+h)-\gamma(t_0)}}{\Abs{h}}\]
-  \[\frac{r(\gamma(t_0+h)-\gamma(t_0)}{\Norm{\gamma(t_0+h)-\gamma(t_0)}}=\frac{r(k)}{\Norm{k}}\to 0\]
-  \ldots wenn $\Norm{k}\to 0$ und $h\to 0$. Es fehlt die Beschränktheit von
-  \[\frac{\Norm{t_0+h)-\gamma(t_0)}}{\Abs{h}}\]
-  \[\frac{t_0+h)-\gamma(t_0)}{h}-\frac{\not h\dot \gamma(t_0)}{\not h}=\frac{p(h)}{h}\]
-  \[\frac{\gamma(t_0+h)-\gamma(t_0)}{h}=\underbrace{\dot\gamma(t_0)}_{\text{konstant}}+\underbrace{\frac{p(h)}{h}}_{\to 0}\]
+ Wir f\"uhren eine neue Notation ein:
+wir sagen dass $R(h) = o (|h|)$ falls \eqref{e:1103161} gilt.
+
+Aus der Differenzierbarkeit von $f$
+  \[\Limo{k}\frac{f(x_0+k)-f(x_0)-\md f|_{x_0}(k)}{\Norm{k}}\left( =: \frac{r(k)}{\Norm{k}} \right)=0\, ,\]
+d.h.
+  \[r(k)=o(\Norm{k})\]
+Die  Differenzierbarkeit von $\gamma$ impliziert
+  \[\Limo{k}\frac{\gamma(t_0+h)-\gamma(t_0) - \dot{\gamma} (t_0)}{h}
+\left( =:\frac{p(h)}{h} \right)=0\, ,\]
+d.h.
+\[p(h)=o(|h|)\]
+Wir setzten
+\[k = \gamma(t_0+h) - \gamma (t_0)
+\]
+und schreiben
+ \begin{eqnarray*}
+g(t_0+h)-g(t_0) &=& f(\gamma(t_0+h))-g(\overbrace{\gamma(t_0)}^{x_0})=
+f(\gamma(t_0)+k)-f(\gamma(t_0))\nonumber\\
+&=&\md f|_{\gamma(t_0)}(k)+r(k)\nonumber\\
+&=&\md f|_{\gamma(t_0)}(\gamma(t_0+h)-\gamma(t_0))+r(k)\nonumber\\
+&=&\md f|_{\gamma(t_0)}(h\dot\gamma(t_0)+p(h))+r(k)\nonumber\\
+&\stackrel{\text{Linearität von $\md f$}}{=}& h\md f|_{\gamma(t_0)}(\dot\gamma(t_0))+\md f|_{\gamma(t_0)}(p(h))+r(k)\, .
+\end{eqnarray*}
+Deswegen
+\[
+R(h) = g(t_0+h)-g(t_0)-h\md f|_{\gamma(t_0)}(\dot\gamma(t_0))
+=df|_{\gamma(t_0)}(p(h))+r(\gamma(t_0+h)-\gamma(t_0))\, .
+\]
+\begin{eqnarray*}
+\Abs{R(h)} &\leq& 
+|\underbrace{df|_{\gamma(t_0)}}_L (p(h))|+|r(\gamma(t_0+h)-\gamma(t_0))|\nonumber\\
+&\leq&\Norm{L}_O \|p(h)\|+\frac{r(\gamma(t_0+h)-\gamma(t_0)}{\Norm{h}}
+\end{eqnarray*}
+Aber $p(h)= o (|h|) \implies \Norm{L}_O \|p(h)\| = o(|h|)$. Nun beweisen wir auch
+  \[\Limo{h}\frac{r(\gamma(t_0+h)-\gamma(t_0)}{\Abs{h}} = 0\]
+Wir unterscheiden zwei F\"alle. Falls 
+  \[\gamma(t_0+h)-\gamma(t_0)=0,\]
+  dann $r (\gamma(t_0+h)-\gamma(t_0))= r(0)=0$. Wenn 
+  \[\gamma(t_0+h)-\gamma(t_0)\neq 0\]
+dan schreiben wir
+\[
+\frac{r (\gamma(t_0+h)-\gamma(t_0))}{|h|} =\frac{r(\gamma(t_0+h)-\gamma(t_0)}{\Norm{\gamma(t_0+h)-\gamma(t_0)}}\frac{\Norm{t_0+h)-\gamma(t_0)}}{\Abs{h}}
+\]
+Nun  \[\frac{r(\gamma(t_0+h)-\gamma(t_0)}{\Norm{\gamma(t_0+h)-\gamma(t_0)}}=\frac{r(k)}{\Norm{k}}\to 0\]
+(weil $k= \gamma(t_0+h)-\gamma(t_0)\to 0$ wenn $h\to 0$). 
+Ausserdem
+\[
+\frac{\gamma (t_0+h)-\gamma(t_0)}{h} = =\underbrace{\dot\gamma(t_0)}_{\text{konstant}}+\underbrace{\frac{p(h)}{h}}_{\to 0}
+\]
   Deswegen
   \[\Limo{h}\frac{\Norm{\gamma(t_0+h)-\gamma(t_0)}}{\Abs{h}}=\Norm{\dot\gamma(t_0)}\]
   \[\implies \frac{\Abs{R(h)}}{\Norm{h}}\to 0\]
   $\implies$ Differenzierbarkeit und Kettenregel!
 \end{Bew}
+
 \begin{Bem}
-  Der Gradient ist orthogonal zur Niveaumenge (Höhenlinien).
-\end{Bem}
-\begin{Def}
-  Sei $\gamma:[a,b]\to U$ eine differenzierbare Kurve, $U$ offen. Sei $f:U\to\mb{R}$ differenzierbar. Wenn $f(\gamma(t))=c_0$ ($c_0$ hängt nicht von $t$ ab). Dann
+Als Korollar der Kettenregel erhalten wir das folgene geometrische Korollar:
+der Gradient ist orthogonal zur Niveaumenge der Funktion (Höhenlinien, wenn der Definitionsbreich
+der Funktion $2$-dimensioniert ist).
+In der Tat, sei $\gamma:[a,b]\to U$ eine differenzierbare Kurve, $U$ offen. Sei $f:U\to\mb{R}$ differenzierbar. Wenn $f(\gamma(t))=c_0$ ($c_0$ hängt nicht von $t$ ab), dann
   \[\nabla f(\gamma(t))\bot \dot\gamma(t)\]
   d.h.
-  \[\seq{\nabla f(\gamma(t)), \dot\gamma(t) }=0\]
+  \[\seq{\nabla f(\gamma(t)), \dot\gamma(t) }=0,\]
+weil
   \[0=g'(t)=(f(\gamma(t)))'\stackrel{\text{Kettenregel}}{=}\seq{\nabla f(\gamma(t)), \dot\gamma(t)}\]
-\end{Def}
+\end{Bem}
 \subsection{Mittelwertsatz und Schrankensatz}
-  $f:[a,b]\to\mb{R}$, $\xi\in ]a,b[$
+ Sei $f:[a,b]\to\mb{R}$ eine differenzierbare Funktion. Dann $\exists \xi\in ]a,b[$ s.d.
   \[f(b)-f(a)=f'(\xi)(b-a)\]
   Sei nun:
   \[f:U\mapsto\mb{R}\s\text{differenzierbar auf $U$}\]
   \[x,y\in U\s\text{so dass das Segment}\s[x,y]\subset U\]
-  Was ist ein Segment? Gerade durch $x$ und $y$
-  \[\left\{ x+t(y-x)|t\in \mb{R} \right\}\]
-  \[\left[ [x,y] \right]=\left\{ x+t(y-x)|t\in \left[ 0,1 \right] \right\}\]
-  \[\gamma(t):= x+t(y-x)\]
-  \[f(y)-f(X)=\left( x_1+t(y_1-x_1),\cdots,x_n+t(y_n-x_n) \right)\]
-  $\gamma$ ist differenzierbar.
-  \[g=f\circ \gamma g(t)=f(\gamma(t))\]
-  \[g(1)-g(0)=g'(\tau)\s\text{für}\s \tau\in ]0,1[\]
-  \[f(y)-f(x)=\md f|_{\gamma(\tau)}(\dot\gamma(\tau))\]
-  \[\dot\gamma(\tau)=(\gamma_1'(\tau),\cdots,\gamma_n'(\tau))\]
-  \[=(y_1-x_1,\cdots,y_n-x_n)=y-x\]
-  \[\gamma(\tau)=\xi\]
+ Das Segment $[x,y]$ ist die Menge
+ \[\left[ [x,y] \right]=\left\{ x+t(y-x)|t\in \left[ 0,1 \right] \right\}\, .\]
+Wir definieren
+  \[\gamma(t):= x+t(y-x)  \qquad \mbox{und } \qquad g=f\circ \gamma \quad
+(\mbox{d.h. }g(t)=f(\gamma(t)))\, .\]
+Dann
+  \[f(y)-f(x)=g(1)-g(0) \, .\]
+Ausserdem, $\gamma$ ist differenzierbar und
+\[\dot\gamma(\tau)=(\gamma_1'(\tau),\cdots,\gamma_n'(\tau))
+=(y_1-x_1,\cdots,y_n-x_n)=y-x\]
+Aus dem Mittelwertsatz f\"ur reelwertige Funktionen einer Variabel $\exists \tau\in ]0,1[$ s.d.
+  \[f(y) - f(x) = g(1)-g(0)=g'(\tau)\stackrel{\text{Kettenregel}}{=} \md f|_{\gamma(\tau)}(\dot\gamma(\tau))
+= \md f|_{\gamma(\tau)} (y-x)\]
+  D.h. $\exists \xi\in [x,y]$ s.d.
   \begin{equation}
     \label{e:1103163}
     f(y)-f(x)=\md f|_\xi(y-x)=\partial_{y-x}f(\xi)
   \end{equation}
 \begin{Sat}
-  (Mittelwertsatz) $U$ offen, $[x,y]\subset U$ und $f:U\to\mb{R}$ differenzierbar. Dann $\exists \xi\in ]x,y[$ so das \ref{e:1103163} gilt.
+  (Mittelwertsatz) $U$ offen, $[x,y]\subset U$ und $f:U\to\mb{R}$ differenzierbar. Dann $\exists \xi\in ]x,y[$ so das \eqref{e:1103163} gilt.
 \end{Sat}
 \begin{Def}
-  $U$ sternförmig: wenn $0\in U$ und $[x,0]\subset U$ $\forall x\in U$. Sternförmig mit Zentrum $x_0$ wenn $x_0\in U$ $[x,x_0]\subset U$ $\forall x\in U$
+Sei $U\subset \mb{R}^n$ eine Menge. $U$ heisst sternförmig mit Zentrum $x_0\in U$: wenn $[x_0, x]\subset U
+\forall x\in U$
 \end{Def}
 \begin{Sat}
   (Schrankensatz) Sei $U$ eine offene Menge, die sternförmig ist und $f:U\to\mb{R}$ eine differenzierbare Funktion mit
@@ -104,8 +136,13 @@
   \[\Abs{f(x)-f(y)}\leq S\Norm{y-x}\]
 \end{Sat}
 \begin{Def}
-  $f:\underbrace{K}_{\in \mb{R}^n}\to\mb{R}$ heisst Lipschitz wenn $\exists L[0,+\infty[$ so dass
+  $f:\underbrace{K}_{\in \mb{R}^n}\to\mb{R}$ heisst Lipschitz wenn $\exists L\in [0,+\infty[$ so dass
   \[\Abs{f(y)-f(x)}\leq L\Norm{y-x}\s\forall x,y\in K\]
-  Wenn $f:(X,d)\to\mb{R}$ Lipschitz bedeutet die Existenz eines $L$ so dass
-  \[\Abs{f(y)-f(x)}\leq L d(y-x)\s\forall x,y\in K\]
+Sei $(X,d)$ ein metrischer Raum. $f:(X,d)\to\mb{R}$ heisst Lipschitz falls $\exists L<\infty$ so dass
+  \[\Abs{f(y)-f(x)}\leq L d(y, x)\s\forall x,y\in K\]
 \end{Def}
+
+\begin{Kor}
+Sei $U$ offen und konvex und $f:U\to \mb{R}$ eine differenzierbare Funktion mit beschr\"ankten
+partiellen Ableitungen. Dann ist $f$ Lipschitz.
+\end{Kor}

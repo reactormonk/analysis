@@ -1,102 +1,114 @@
-\subsection{Differenzierbare Funktionen}
+\section{Differenzierbare Funktionen}
 \paragraph{Erinnerung} $f:\mb{R}\to \mb{R}$ heisst differenzierbar in $a\in \mb{R}$ falls
 \[f'(a)=\Limo{h}\frac{f(a+h)-f(a)}{h}\]
 existiert. Was geschieht mit Funktionen von mehrere Variablen? Die ``Tangentensteigung'' hängt auch von der Richtung ab. D.h. Es gibt eine lineare Abbildung $L:\mb{R}^2\to\mb{R}$
 \begin{Def}
   $f:U\to\mb{R}$, $U\subset\mb{R}^n$ offen, heisst differenzierbar in $a\in U$, falls
-  \begin{equation}
+  es eine lineare Abbildung $L:\mb{R}^n\to\mb{R}$ gibt so dass
+\begin{equation}
     \label{e:1103091}
-    \Limo{h}\frac{f(a+h)-f(a)-Lh}{\Norm{h}}=0
+    \Limo{h}\frac{f(a+h)-f(a)-L (h)}{\Norm{h}}=0\, .
   \end{equation}
-  wobei $L:\mb{R}^n\to\mb{R}$ eine lineare Abbildung ist.
 \end{Def}
 \begin{Bem}
-  $n=1$: Es gilt $Lh = f'(a)h$
+  $n=1$: die Funktion ist differenzierbar genau dann, wenn die Ableitung existiert.
+In diesem fall gilt $L (h) = f'(a)h$.
 \end{Bem}
 \begin{Bem}
-  Die lineare Abbilung $L$ in \ref{e:1103091} ist eindeutig definiert. Annahme $L'\neq L$ erfüllt die Bedungung. Sei $v\in\mb{R}^n$ mit $\Norm{v}=1$. Es gilt:
-  \[(L-L')(v)\stackrel{\text{linear und}\s \Norm{v}=1}{=}\lim_{t\downarrow 0}\frac{(L-L')(tv)}{\Norm{tv}}\stackrel{\ref{e:1103091}\s h=tv}{=}\implies L=L'\]
+  Die lineare Abbilung $L$ in \eqref{e:1103091} ist eindeutig definiert. In der Tat seien $L'$ und $L$ 
+zwei lineare Abbildungen die \eqref{e:1103091} erfüllen. Sei $v\in\mb{R}^n$ mit $\Norm{v}=1$. Es gilt:
+  \[(L-L')(v)\stackrel{\text{linear und}\s \Norm{v}=1}{=}\lim_{t\downarrow 0}\frac{(L-L')(tv)}{\Norm{tv}}\stackrel{\eqref{e:1103091}\text{ mit }h=tv}{=} 0\, .\] 
+Deswegen $L=L'$.
 \end{Bem}
 \begin{Bem}
-  Wir können \ref{e:1103091} auch anders beschreiben:
+  Wir können \eqref{e:1103091} auch anders beschreiben:
   \[f(a+h)-f(a)=Lh+\underbrace{R(h)}_{\text{Restglied}}\]
   Dann gilt
   \begin{equation}
     \label{e:1103092}
-    \ref{e:1103091} \iff \Limo{h}\frac{R(h)}{\Norm{h}}=0
+    \eqref{e:1103091} \iff \Limo{h}\frac{R(h)}{\Norm{h}}=0
   \end{equation}
 \end{Bem}
 \begin{Def}
-  $L$ heisst Differential von $f$ in $a$. Man schreibt $\md f(a)$. Sei nun $\left\{ e_1,\cdots,e_n \right\}$ die Standardbasis $\mb{R}^n$, $h=(h_1,\cdots,h_n)\in\mb{R}^n$
-  \[\implies \md f(a)h=\md f(a)\left( \sum_{i=1}^kh_i-e_i \right)=\sum_{i=1}^nh_i\md f(a)e_i\]
+  $L$ heisst Differential von $f$ in $a$. Man schreibt $\md f|_a$. Sei nun $\left\{ e_1,\cdots,e_n \right\}$ die Standardbasis $\mb{R}^n$, $h=(h_1,\cdots,h_n)\in\mb{R}^n$
+  \[\implies \md f|_a (h)=\md f|a \left( \sum_{i=1}^kh_i-e_i \right)=\sum_{i=1}^nh_i\md f|_a (e_i)\]
 \end{Def}
 \begin{Def}
-  \[f'(a)=(\md f(a)e_1,\cdots,\md f(a)e_n)\]
-  heisst Ableitung
+  \[\nabla f (a)=(\md f(a)e_1,\cdots,\md f(a)e_n)\]
+  heisst Gradient von $f$.
 \end{Def}
-\begin{Def}
-  \[Tf(x,a)=f(a)+f'(a)(x-a)\s\text{(Ebene (tangential))}\]
-  lineare Approximation
-\end{Def}
+Die Affine Abbildung 
+  \[Tf(x,a)=f(a)+\nabla df|_a (x-a)\]
+ist die beste lineare Approximation der Funktion $f$ an der Stelle $a$. Der Graph von 
+$Tf$ ist eine (hyper)Ebene von $\mb{R}^{n+1}$: die heisst die tangentiale Ebene.
+
 \begin{Sat}
   $f$ differentierbar in $a$ $\implies$ $f$ ist stetig in $a$
 \end{Sat}
 \begin{Bew}
-  \[\Abs{f(a+b)-f(a)}=\Abs{\md f(a)h+R(h)}\leq\Abs{\md f(a)}+\underbrace{\Abs{R(h)}}_{\to 0}\]
+  \[\Abs{f(a+b)-f(a)}=\Abs{\md f|_a (b)+R(b)}\leq\|\md f|_a\|_O\|h\|+\underbrace{\Abs{R(h)}}_{\to 0}\]
 \end{Bew}
 \begin{Bsp}
-  $f(x)=Ax+b$, $A\in M_a(1,n,\mb{R})$, $b\in\mb{R}$
-  \begin{Beh}
-    $Lh:=ah$ ist linear
-    \[\md f(a)h=Ah, \s f'(a)=A\]
-  \end{Beh}
-  \begin{Bew}
-    \[f(a+h)-f(a)-Lh=\not{R(h)}=0\]
-  \end{Bew}
+  $f(x)=Ax+b$, $A\in M_a(1,n,\mb{R})$, $b\in\mb{R}$.
+Dann $f$ ist differenzierbar und $df|_a (h) =a\cdot h$.
+In der Tat die Abbildung $L (h) := a \cdot h$  ist linear und 
+\[f(a+h)-f(a)-L (h)=0 =: R(h)\, .\]
+$\frac{R(h)}{\|h\|}\to 0$ trivialerweise!
 \end{Bsp}
 \begin{Bsp}
-  $f(x):=x^TAx$, $A=(a_{ij})\in\Sym(n,\mb{R})$
-  \[f(a+h)-f(a)-\underbrace{2a^TAh}_{\md f(a)h}+\underbrace{h^TAh}_{R(h)}\]
-  $Lh:=2a^TAh$ ist linear (in $h$), $R(h)=h^TAh$ ($=\sum h_ia_{ik}h_l$)
-  z.z.: $\Abs{Rh}\leq\sum^h_{i,j=1}\Abs{a_{ij}}\Norm{h}_{\infty}^2$, d.h. $\frac{R(h)}{\Norm{h}}\to 0$ (falls $\Norm{h}\to 0$)
+  $f(x):=x^T\cdot A\cdot x$, $A=(a_{ij})\in\Sym(n,\mb{R})$
+  \[f(a+h)-f(a) = \underbrace{2a^TAh}_{\md|_a (h)}+\underbrace{h^TAh}_{R(h)}\, .\]
+  $L (h):=2a^TAh$ ist linear (in $h$), $R(h)=h^T\cdot A\cdot h$ ($=\sum h_ia_{ik}h_l$).
+Wir haben $\|A\cdot h\|\leq \|A\|_O \|h\|$ und 
+\[
+|h^T\cdot A\cdot h| = |\underbrace{h^T\cdot (A\cdot h)}_{\text{Skalarprodukt von $h$ und $A\cdot h$}}|
+\stackrel{\text{Cauchy-Schwartz}}{\leq} \|h\|\|A\cdot h\|\leq \|A\|_O \|h\|^2\, .
+\]
+Deswegen
+\[
+\frac{\Abs{Rh}}{\|h\|}\leq \|A\|_O \|h\| \to 0\, .
+\]
 \end{Bsp}
 \paragraph{Ziel}
-Wir wollen $\md f(a)h$ berechnen. sei $t\in\mb{R}$
+Wir wollen $\md f_a (h)$ berechnen. Sei $t\in\mb{R}$. Dann
 \[f(a+th)=f(a)+\md f(a)th+R(th)\]
 \begin{equation}
   \label{e:1103094}
-  \implies \md f(a)h=\Limo{t}\frac{f(a+th)-f(a)}{t}
+  \implies \md f|_a (h)=\Limo{t}\frac{f(a+th)-f(a)}{t}
 \end{equation}
 \begin{Def}
   $f:U\to\mb{R}$, $a\in U$. Die Richtungsableitung von $f$ in Richtung $h\in\mb{R}^n$ ist der Grenzwert (falls er existiert)
-  \[\partial_nf(a):=\Limo{t}\frac{f(a+th)-f(a)}{t}\]
+  \[\partial_hf(a):=\Limo{t}\frac{f(a+th)-f(a)}{t}\]
   Die Ableitungen in Richtung $e_1,\cdots,e_n$ heissen partielle Ableitungen in $a$. Wir schreiben
-  \[\partial_{ei}f(a)=\partial_if(a)=\frac{\partial f}{\partial x_i}(a)=f_{xi}(a)\]
+  \[\partial_{ei}f(a)=\partial_if(a)=\frac{\partial f}{\partial x_i}(a)=f_{x_i}(a)\]
 \end{Def}
 \begin{Bem}
   Wir haben \ul{nicht} vorausgesetzt, dass $f$ differenzierbar ist in $a$!
 \end{Bem}
 \begin{Sat}
-  Sei $f$ in $a$ differenzierbar. Dann existieren die Richtungsableitungen in jede Richtung. Insbesondere existieren die aprtiellen Ableitungen. Es gelten:
+  Sei $f$ in $a$ differenzierbar. Dann existieren die Richtungsableitungen in jede Richtung. Insbesondere existieren die partiellen Ableitungen. Es gelten:
   \begin{equation}
     \label{e:1103095}
-    \md f(a)h=f'(a)h=\partial_nf(a)=\sum_{i=1}^n\partial_if(a)h_i
+    \md f|_a (h)=\nabla f(a) \cdot h=\partial_nf(a)=\sum_{i=1}^n\partial_if(a)h_i
   \end{equation}
   und
-  \[f'(a)=\left( \partial_1f(a),\cdots,\partial_nf(a) \right)\]
+  \[\nabla f (a)=\left( \partial_1f(a),\cdots,\partial_nf(a) \right)\]
 \end{Sat}
 \begin{Bew}
-  Existenz der Richtungsableitung oke (Herleitung von \ref{e:1103094})
+  Die xistenz der Richtungsableitung  ist die Herleitung von \ref{e:1103094}. \eqref{e:1103095} ist
+eine triviale Konsequenz der Linearit\"at von $df|_a$.
 \end{Bew}
 \paragraph{Frage}
 Wie berechnet man die partielle Ableitung effizient? Es gilt:
-\[\partial_if(a)=\Limo{t}\frac{f(a+t_{ei})-f(a)}{t},\s a=(a_1,\cdots,a_n)\]
-\[g_i(x):=f(a_1,\cdots,a_{i-1},x,a_{i+1},\cdots,a_n)\]
-\[\partial_if(a)=\Limo{t}\frac{g(a_i+t)-f(a_i)}{t}=g'(a_i)\]
+\[\frac{\partial f}{\partial x_i} (a)=\Limo{t}\frac{f(a+t_{ei})-f(a)}{t},\s a=(a_1,\cdots,a_n)\, .\]
+Wenn wir definieren
+\[g_i(y):=f(a_1,\cdots,a_{i-1},y,a_{i+1},\cdots,a_n)\]
+dann gilt
+\[\frac{\partial f}{\partial x_i} (a)=\Limo{t}\frac{g(a_i+t)-f(a_i)}{t}=g'(a_i)\]
 \begin{Bsp}
   \[f(x,y):=\sin(2x)e^{3y}\]
-  \[\partial_xf=2e^{3y}\cos(2x)\]
-  \[\partial_yf=\sin(2x)e^{3y}3\]
+  \[\frac{\partial f}{\partial x} f (x,y) =2e^{3y}\cos(2x)\]
+  \[\frac{\partial f}{\partial y} f (x,y) =\sin(2x)e^{3y}3\]
 \end{Bsp}
 \paragraph{Frage}
 Wann folgt aus der Existenz der partiellen Ableitung (Richtungsableitung) die Differenzierbarkeit?
@@ -117,5 +129,8 @@ Wann folgt aus der Existenz der partiellen Ableitung (Richtungsableitung) die Di
   \paragraph{Test}
   $L=0$
   \[\frac{f(h_1,h_1)-\overbrace{f(a_0)-L(h_1,h_1)}}{\Norm{(h_1,h_1)}_\infty}=\frac{h_1^3}{2h_1^2\Abs{h_1}}\to\pm\frac{1}{2}\]
-  $\implies$ $f$ ist in $(0,0)$ nicht differenzierbar.
+  $\implies$ $f$ ist in $(0,0)$ {\sc nicht differenzierbar}.
 \end{Bsp}
+
+D.h. {\bf es kann sein dass die ganzen Richtungsableitungen existieren und die Funktion ist trotztdem
+nicht differenzierbar!}

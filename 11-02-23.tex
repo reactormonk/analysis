@@ -17,9 +17,14 @@ Sei $\left\{ x_k \right\}_{k\in\mb{N}}$ $x_k\in\mb{R}$ $x_k=\left( x_{k1}, \cdot
   \[\implies \Norm{x_k-x_\infty}\to 0\]
   Eine alternative Formulierung: $\Limi{k}x_k=\left( \Limi{k} x_{k1},\cdots,\Limi{k} x_{kn} \right)$
 \end{Bew}
-\begin{Bem}
-  \[\forall \varepsilon>0 \exists N: \Norm{x_k-x_\infty}<\varepsilon\s\text{falls}\s k\geq N\]
-  Für jede Umgebung $U$ von $x_\infty$ fast alle $x_k\in U$.
+\begin{Bem} Die Folge $\{x_k\}$ konvergiert gegene $x_\infty$ genau, dann wenn
+\begin{equation}\label{e:eps_N}
+\forall \varepsilon>0\quad \exists N: \Norm{x_k-x_\infty}<\varepsilon\s\text{falls}\s k\geq N\, .
+\end{equation}
+Eine \"aquivalente Formulierung von \eqref{e:eps_N} ist
+\begin{equation}\label{e:Konv_Umg}
+\mbox{f\"ur jede Umgebung $U$ von $x_\infty$ fast alle $x_k\in U$}.
+\end{equation}
 \end{Bem}
 \begin{Def}
   Eine Folge $\left\{ x_k \right\}\subset\mb{R}^n$ heisst Cauchy falls:
@@ -37,10 +42,10 @@ Sei $\left\{ x_k \right\}_{k\in\mb{N}}$ $x_k\in\mb{R}$ $x_k=\left( x_{k1}, \cdot
   \[<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon\]
 \end{Bew}
 \begin{Bem}
-  In einem metrischen Raum, Cauchy $\Leftarrow$ Konvergenz. Aber allgemein: Cauchy $\not\implies$ Konvergenz. Falls Cauchy $\implies$ Konvergenz, dann ist der metrische Raum vollständig.
+  In einem metrischen Raum, Cauchy $\Leftarrow$ Konvergenz. Aber allgemein: die Cauchy Bedingung impliziert nicht die Konvergenz. Falls Cauchy $\implies$ Konvergenz, dann ist der metrische Raum {\em vollständig}.
 \end{Bem}
 \begin{Def}
-  Eine Folge $\left\{ x_k \right\}\subset\mb{R}^n$ heisst beschränkt falls $\Norm{x_k}$ beschränkt ist.
+  Eine Folge $\left\{ x_k \right\}\subset\mb{R}^n$ heisst beschränkt falls die Folge reeller Zahlen $\{\Norm{x_k}\}$ beschränkt ist.
 \end{Def}
 \begin{Sat}
   \begin{enumerate}
@@ -48,13 +53,18 @@ Sei $\left\{ x_k \right\}_{k\in\mb{N}}$ $x_k\in\mb{R}$ $x_k=\left( x_{k1}, \cdot
     \item (Bolzano-Weierstrass) $\left\{ x_k \right\}$ beschränkt $\implies$ $\exists \left\{ x_{k_j} \right\}$ die konvergiert.
   \end{enumerate}
 \end{Sat}
-\begin{Bew}
+\begin{Bew} Die erste Aussage ist eine Triviale Folgerung der Dreiecksungleichung. In der Tat, wenn $x_k$ gegen 
+$x_\infty$ konvergiert, dann ist $\|x_k-x_\infty\|$ eine Nullfolge. Deswegen ist $\|x_k-x_\infty\|$ eine beschr\"ankte
+Folge. Aber $0\leq \|x_k\|\leq \|x_\infty\|+\|x_k-x_\infty\|$.
+
+Wir beweisen nun die zweite Aussage.
   \[\left\{ x_k \right\}\s\text{beschränkt}\implies \left\{ x_{k1} \right\}_{k\in\mb{N}}\s\text{beschränkt}\]
   \[\implies \exists x_{k_j}: x_{k_j1}\to x_1\]
-  Ich definiere $y_j=x_{k_j}$ $y_{j1}\to x_1$
+Wir definieren $y_j:=x_{k_j}$ $y_{j1}\to x_1$
   \[y_j\s\text{beschränkt}\implies\exists j_l: y_{j_l2}\to x_2\]
   \[z_l:=y_{j_l}\s\text{und}\s z_{l1}\to x_1, \s x_{l2}\to x_2\]
-  \ldots $(n-2)$ Schritte. $w_r$ Teilfolge von $x_k$ mit $w_{ri}\to x_i$
+Nach  \ldots $(n-2)$ Schritte finden wir eine Teilfolge $w_r$ von $x_k$ mit $w_{ri}\to x_i$. 
+Deswegen
   \[w_r\to(x_1,\cdots,x_n)\]
 \end{Bew}
 \subsection{Ein bisschen mehr Topologie}
@@ -72,19 +82,32 @@ Sei $\left\{ x_k \right\}_{k\in\mb{N}}$ $x_k\in\mb{R}$ $x_k=\left( x_{k1}, \cdot
     \item $\left\{ G_\lambda \right\}_{\lambda\in\Lambda}$ abgeschlossen $\implies$ $\bigcap_{\lambda\in\Lambda} G_\lambda$ abgeschlossen.
   \end{enumerate}
 \end{Sat}
-\begin{Sat}
-  $G\subset\mb{R}^n$ $G$ ist abgeschlossen $\iff$ $\forall$ jede konvergente $\left\{ x_k \right\}\subset G$ gehört der Grenzwert zu $G$ (gilt auch für metrische Räume).
+\begin{Bew}
+Diese Eigenschaften sind Folgerungen der entsprechenden Eigenschaften der offenen Mengen.
+\end{Bew}
+\begin{Sat} Sei
+  $G\subset\mb{R}^n$. Dann $G$ ist abgeschlossen genau dann, wenn
+ \begin{equation}\label{e:char_ges}
+\mbox{f\"ur jede konvergente $\left\{ x_k \right\}\subset G$ gehört der Grenzwert zu $G$.}
+\end{equation}
 \end{Sat}
+\begin{Bem}
+Es ist leicht zu sehen dass der folgende Beweis auch f\"ur metrische R\"aume gilt.
+\end{Bem}
 \begin{Bew}
   \begin{itemize}
-    \item[$\Leftarrow$] Die rechte Eigenschaft gilt. Ziel: $G^c$ ist offen. Sei $x\in G^c$: das Ziel ist eine Kugel $K_r(x)\in G^c$ zu finden. Widerspruchsbeweis: $K_{\frac{1}{j}}(x)\not\subset G^c$, $j\in\mb{N}\setminus\left\{ 0 \right\}$
+    \item[$\Leftarrow$] Wir nehmen an dass \eqref{e:char_ges} gilt. Ziel: $G^c$ ist offen. Sei $x\in G^c$: das Ziel ist eine Kugel $K_r(x)\in G^c$ zu finden. Widerspruchsbeweis: $K_{\frac{1}{j}}(x)\not\subset G^c$, $j\in\mb{N}\setminus\left\{ 0 \right\}$
       \[\implies \exists x_j\in K_{\frac{1}{j}}(x)\cap G\implies \left\{ x_j \right\}\subset G\s\text{und}\s x_j\to x \]
       \[\left\{ x_j \right\}\subset G\s x_j\to x\s x\not\in G\]
-      $\implies$ d.h. $G^c$ offen $\implies$ falls $\left\{ x_k \right\}\subset G$ und $x_k\to x$ dann $x\in G$
-      Widerspruch: $G^c$ offen, aber $\exists \left\{ x_k \right\}\subset G$ mit Grenzwert $x\not\in G$, d.h. $x\in G^c$. Offenheit von $G^c$.
-      \[\implies \exists K_r(x)\subset G^c\implies K_r(x)\cap=\varnothing\]
-      d.h. $\exists N$ mit
-      \[\Norm{x_N-x}<r\implies x_N\in K_r(x)\cap G\]
+Aber diese letzte Aussage widerspricht \eqref{e:char_ges}.
+Wir schliessen deswegen dass $G^c$ offen ist. 
+
+Wir beweisen nun die andere Aussage.  Widerspruchsbeweis: $G^c$ ist offen, aber $\exists \left\{ x_k \right\}\subset G$ mit Grenzwert $x\not\in G$, d.h. $x\in G^c$. Da $G^c$ offen ist,
+      \[\exists K_r(x)\subset G^c\implies K_r(x)\cap G=\varnothing\]
+Aber die Konvergenz gegen $x$ impliziert die Existenz von $N$ s.d. $\|x_k-x\|< r$ f\"ur $k\geq N$.
+Deswegen      
+\[\Norm{x_N-x}<r\implies x_N\in K_r(x)\cap G \implies K_r (x)\cap G\neq \emptyset \implies
+\mbox{Widerspruch.}\]
   \end{itemize}
 \end{Bew}
 \begin{Bsp}
@@ -93,10 +116,10 @@ Sei $\left\{ x_k \right\}_{k\in\mb{N}}$ $x_k\in\mb{R}$ $x_k=\left( x_{k1}, \cdot
   Sei $\left\{ y_k \right\}\in K_r(x)$, (d.h. $\Norm{y_k-x}<r$) mit $y_k\to y$ und $\Norm{y-x}=r$.
 \end{Bsp}
 \begin{Def}
-  Sei $\ol{K_r(x)}:=\left\{ y\in\mb{R}^n:\Norm{y-x}\leq r \right\}$.
+  Sei $\ol{K_r(x)}:=\left\{ y\in\mb{R}^n:\Norm{y-x}\leq r \right\}$ die {\em geschlossene} Kugel.
 \end{Def}
 \begin{Ueb}
-  $\ol{K_r(x)}$ ist abgeschlossen
+  $\ol{K_r(x)}$ ist abgeschlossen.
 \end{Ueb}
 \begin{Def}
   $x\in\mb{R}^n$ ist ein Randpunkt von $M$ falls
@@ -106,15 +129,18 @@ Sei $\left\{ x_k \right\}_{k\in\mb{N}}$ $x_k\in\mb{R}$ $x_k=\left( x_{k1}, \cdot
   Sei $M$ eine Menge in $\mb{R}^n$, dann ist der Rand von $M$
   \[\partial M=\left\{ x\in\mb{R}^n, \s\text{Randpunkt von}\s M \right\}\]
 \end{Def}
-\begin{Sat}
-  $\partial M^c=\partial M$
+\begin{Sat}Sei $M\subset \mb{R}^n$. Dann
+  $\partial M^c=\partial M$. Ausserdem,
   \begin{enumerate}
-    \item $M\setminus \partial M$ ist die grösste offene Menge die in $M$ enthalten ist.
-    \item $M\cup \partial \partial M$ ist die kleinste geschlossene Menge die $M$ enthält.
+    \item $M\setminus \partial M$ ist die grösste offene Menge die in $M$ enthalten ist;
+    \item $M\cup \partial M$ ist die kleinste geschlossene Menge die $M$ enthält.
   \end{enumerate}
 \end{Sat}
-\begin{Bew}
-  $M\setminus \partial M$ ist offen. 
+\begin{Bew} Die Aussage $\partial M = \partial M^c$ ist offen
+
+\medskip
+
+{\bf Beweis von 1.}  Zuerst zeigen wir dass $M\setminus \partial M$ offen ist. 
   \[x\in M\setminus \partial M \implies x\in M\s\text{und}\s \exists K_r(x)\s\text{mit}\s K_r(x)\cap M^c=\varnothing\]
   \[\implies K_r(x)\subset M\]
   Sei $y\in K_r(x)$
@@ -122,6 +148,14 @@ Sei $\left\{ x_k \right\}_{k\in\mb{N}}$ $x_k\in\mb{R}$ $x_k=\left( x_{k1}, \cdot
   \[\implies K_{r-\rho}(y)\subset K_r(x)\subset M\implies y\in M,y\not\in \partial M\]
   \[K_r(x)\subset M\setminus \partial M\]
   $x$ ist beliebig $\implies$ $M\setminus \partial M$ ist offen.\\
-  Sei $A\subset M$ eine offene Menge. Das Ziel ist $A\subset M\setminus\partial M$. Sei $x\in A$. Ziel:($x\in M\setminus\partial M$) $x\not\in \partial M$.
+  Sei nun $A\subset M$ eine offene Menge. Das Ziel ist $A\subset M\setminus\partial M$. Sei $x\in A$. Ziel:($x\in M\setminus\partial M$) $x\not\in \partial M$.
   \[A\s\text{offen}\implies \exists K_r(x)\subset A\subset M\implies x\not\in \partial M\implies A\subset M\setminus\partial M\]
+
+\medskip
+
+{\bf Beweis von 2.} Aus 1. folgt dass $M^c \setminus \partial M^c$ die gr\"osste offene
+Teilmenge von $M^c$ ist. Deswegen, $(M^c\setminus \partial M^c)^c$ die kleinste geschlossene
+Menge ist, die $M$ ent\"ahlt. Aber $(M^c\setminus \partial M^c)^c = (M^c)^c\setminus \partial M^c =
+M\setminus \partial M^c = M\setminus \partial M$.
+
 \end{Bew}

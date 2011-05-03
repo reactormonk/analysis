@@ -1,23 +1,30 @@
 \section{Metrik und Topologie des euklidischen Raumes}
-$\mb{R}^n=\left\{ \left( x_1,\cdots,x_n \right), x\in\mb{R} \right\}$
-In $\mb{R}^n$:
+$\mb{R}^n=\left\{ \left( x_1,\cdots,x_n \right), x\in\mb{R} \right\}$.
+Wir f\"uhren verschiedene neue Begriffe in $\mb{R}^n$ ein:
 \begin{itemize}
-  \item Norm (Euklidische)
-  \item Abstand (Euklidische)
-  \item Topologie
+  \item die Euklidische Norm
+  \item der Euklidische Abstand
+  \item die entsprechende Topologie.
 \end{itemize}
-``Abstrakte Theorie''
+Wir betrachten gleichzeitig die entsprechenden Verallgemeinerungen,
+d.h. die ``Abstrakte Theorien'' der
 \begin{itemize}
-  \item Normierte Vektorr\"aume
-  \item Metrische R\"aume
-  \item Topologische R\"aume
+  \item Normierten Vektorr\"aume
+  \item Metrischen R\"aume
+  \item Topologischen R\"aume.
 \end{itemize}
 \begin{Def}
-  Sei $x\in\mb{R}^n$ ($x=(x_1,\cdots,x_n)$, $x_i\in\mb{R}$)
-  \[\Norm{x}=\sqrt{x_1^2+\cdots+x_n^2}=\sqrt{\sum_{i=1}^nx_i^2}\]
-  Intuitiv: $\Norm{x}=$''der Abstand zwischen $x$ und 0``
+  Sei $x\in\mb{R}^n$ ($x=(x_1,\cdots,x_n)$, $x_i\in\mb{R}$). Die Euklidische Norm
+von $x$ ist 
+  \[\Norm{x}_e=\sqrt{x_1^2+\cdots+x_n^2}=\sqrt{\sum_{i=1}^nx_i^2}\]
+(wir schreiben oft $\|x\|$ anstatt $\|x\|_e$).
 \end{Def}
-\begin{Lem}
+
+Intuitiv: $\Norm{x}=$''der Abstand zwischen $x$ und 0``.  In der Tat, wenn $n=2$,
+das Pytaghoras Theorem zeigt dass $\|x\|_e$ die L\"ange des Segments mit Extrema
+$x$ and $0$ ist. 
+
+\begin{Lem}\label{l:norm}
   $\Norm{.}$ erf\"ullt die Regeln
   \begin{enumerate}
     \item $\Norm{x}\geq 0$ und $\Norm{x}=0\iff x=0$
@@ -29,13 +36,18 @@ In $\mb{R}^n$:
   \begin{enumerate}
     \item $\geq 0$ trivial
       \[x=0\implies \sum x_i^2=0\implies \Norm{x}=0\]
-      \[x=0\Leftarrow x_i=0 \forall i\Leftarrow \sum x_i^2=0\Leftarrow \Norm{x}=0\]
-    \item \[\Norm{\lambda x}=\sqrt{\sum^n_{i=1}(\lambda x_i)^2}\sqrt{\lambda^2(\sum x^2)}=\Abs{\lambda}\sqrt{\sum x^2}=\Abs{\lambda}\Norm{x}\]
-      \[\Abs{\lambda}=\frac{\Norm{x}\Abs{\lambda}}{\Norm{x}}\]
-    \item
-      \[\iff \underbrace{\Norm{x+y}^2}_=\leq \Norm{x}^2+\Norm{y}^2+2\Norm{x}\Norm{y}\]
-      \[\sum_{i=1}^n(x_i+y_i)^2=\sum_{i=1}^n\left( x_i^2+y_i^2+2x_iy_i \right)=\Norm{x}^2+\Norm{y}^2\overbrace{2\sum x_iy_i}^{Skalarprodukt}\]
-      \[\iff \left< x,y\right>\leq \Norm{x}\Norm{y}\]
+      \[x=0\Leftarrow x_i=0\;\; \forall i\Leftarrow \sum x_i^2=0\Leftarrow \Norm{x}=0\]
+    \item \[\Norm{\lambda x}=\sqrt{\sum^n_{i=1}(\lambda x_i)^2} = \sqrt{\lambda^2\sum x^2}=\Abs{\lambda}\sqrt{\sum x^2}=\Abs{\lambda}\Norm{x}\]
+%\[\Abs{\lambda}=\frac{\Norm{x}\Abs{\lambda}}{\Norm{x}}\]
+    \item Diese Aussage ist \"aquivalent zu
+      \[\iff \underbrace{\Norm{x+y}^2}\leq \Norm{x}^2+\Norm{y}^2+2\Norm{x}\Norm{y}\]
+Wir rechnen
+      \[\sum_{i=1}^n(x_i+y_i)^2=\sum_{i=1}^n\left( x_i^2+y_i^2+2x_iy_i \right)=\Norm{x}^2+\Norm{y}^2\overbrace{2\sum_i x_iy_i}^{Skalarprodukt}\]
+Wir definieren 
+\[\langle x,y\rangle := \sum_{i=1}^n  x_iy_i\]
+Wir brauchen dann die ber\"uhmte Cauchy-Schwartz Ungleichung, d.h.
+      \[\langle x,y\rangle\leq \Norm{x}\Norm{y}\, .\]
+Diese Ungleichung ist der Inhalt des n\"achsten Satzes.
   \end{enumerate}
 \end{Bew}
 \begin{Sat}{Cauchy-Schwartzsche Ungleichung}
@@ -43,15 +55,12 @@ In $\mb{R}^n$:
 \end{Sat}
 \begin{Bew}
   OBdA $y\neq 0$ ($y=0$ trivial)
-  \[t\to g(t)=\sum_{i=1}^n(x_i+ty_i)^2\]
-  \[=\left( \sum x_i^2 \right)+2t\sum x_iy_i+t^2\sum y_i^2\]
+  \[t\to g(t)=\sum_{i=1}^n(x_i+ty_i)^2=\left( \sum x_i^2 \right)+2t\sum x_iy_i+t^2\sum y_i^2\]
   \[=\Norm{x}^2+2t\seq{x,y}+\Norm{y}^2t^2\]
-  Sei $t_0=\frac{\seq{x,y}}{\Norm{y}^2}$, dann $g(t_0)\geq 0$
-  \[0\leq g(t_0)\]
-  \[=\Norm{x}^2-2\frac{\seq{x,y}^2}{\Norm{y}^2}+\Norm{y}^2\frac{\seq{x,y}^2}{\Norm{y}^4}\]
-  \[=\Norm{x}^2-\frac{\seq{x,y}^2}{\Norm{y}^2}\]
-  \[\implies \seq{x,y}\leq\Norm{x}^2\Norm{y}^2\]
-  \[\implies \Abs{\seq{x,y}}\leq\Norm{x}\Norm{y}\]
+  Sei $t_0=\frac{\seq{x,y}}{\Norm{y}^2}$, dann
+  \[0\leq g(t_0)=\Norm{x}^2-2\frac{\seq{x,y}^2}{\Norm{y}^2}+\Norm{y}^2\frac{\seq{x,y}^2}{\Norm{y}^4}
+ =\Norm{x}^2-\frac{\seq{x,y}^2}{\Norm{y}^2}\]
+  \[\implies \seq{x,y}^2\leq\Norm{x}^2\Norm{y}^2\implies \Abs{\seq{x,y}}\leq\Norm{x}\Norm{y}\]
 \end{Bew}
 \begin{Def}
   Ein normierter Vektorraum ist ein reeller Vektorraum $V$ mit einer Abbildung $\Norm . :V\to\mb R$ so dass:
@@ -63,22 +72,23 @@ In $\mb{R}^n$:
 \end{Def}
 \begin{Bsp}
   $V=\mb{R}^n$
-  \[\Norm{x}_p=\left(\sum\Abs{x_i}^p\right)^{\frac{1}{p}}\s p\geq 1\]
-  $p=2$ euklidische Norm
+  \[\Norm{x}_p=\left(\sum\Abs{x_i}^p\right)^{\frac{1}{p}}\s p\geq 1\, .\]
+$\|\cdot\|_2$ ist die Euklidische Norm.
 \end{Bsp}
 \begin{Def}
-  Seien $x,y\in\mb{R}^n$. Die euklidische Metrik $d(x,y)=\Norm{x-y}$
+  Seien $x,y\in\mb{R}^n$. Die Euklidische Metrik ist $d(x,y):=\Norm{x-y}$.
 \end{Def}
-\begin{Lem}
+\begin{Lem}\label{l:euk_met}
   \begin{enumerate}
     \item $d(x,y)\geq 0$ und $d(x,y)=0\iff x=y$
     \item $d(x,y)=d(y,x)$
     \item $d(x,z)\leq d(x,y)+d(y,z)$ (Dreiecksungleichung)
   \end{enumerate}
 \end{Lem}
-\begin{Bew}
-  \[\Norm{x-z}\leq\underbrace{\Norm{x-y}}_v+\underbrace{\Norm{y-z}}_w\s v+w=x-z\]
-  \[\Norm{v+w}\leq\Norm v+\Norm w\]
+\begin{Bew} Die erste Zwei Aussagen sind trivial. Um die letzte zu beweisen:
+  \[\Norm{x-z}\leq\|\underbrace{x-y}_{=:v}\|+\|\underbrace{\Norm{y-z}}_{=:w}\|\, .\]
+Aber $x-z=v+w$. Wir wenden die dritte Aussage von Lemma \ref{l:norm} an:
+  \[d (x,z) = \Norm{v+w}\leq\Norm v+\Norm w = d (x,y)+d(y,z)\, .\]
 \end{Bew}
 \begin{Def}
   Ein metrischer Raum ist eine Menge $X$ mit einer Abbildung
@@ -92,19 +102,25 @@ In $\mb{R}^n$:
 \begin{Lem}
   Sei ($V$, $\Norm .$) ein normierter Vektorraum. Dann sind $V$ und $d(x,y)=\Norm{x-y}$ ein metrischer Raum.
 \end{Lem}
+\begin{Bew} Wir nutzen das gleiche Argument vom Lemma \ref{l:euk_met}.
+\end{Bew}
 \begin{Def}
   Die offene Kugel mit Radius $r>0$ und Mittelpunkt $x\in\mb{R}^n$ ist die Menge
   \[K_r(x)=\left\{ y\in\mb{R}^n, d(x,y)<r \right\}\]
+(Wir werden auch oft $B_r (x)$ statta $K_r (x)$ nutzen.)
 \end{Def}
 \begin{Def}
   Eine Menge heisst ''Umgebung`` von $x$, wenn $V$ eine offene Kugel mit Mittelpunkt $x$ enth\"alt.
 \end{Def}
 \begin{Def}
-  Eine Menge $U\in\mb{R}^n$ heisst offen falls $\forall x\in U$ ist $U$ eine Umgebung von $x$
-  \[\forall x\in U\s\exists \s\text{eine Kugel}\s K_r(x)\in U\]
+  Eine Menge $U\subset\mb{R}^n$ heisst offen falls $\forall x\in U$ ist $U$ eine Umgebung von $x$, d.h.
+  \[\forall x\in U\s\exists \s\text{eine Kugel}\s K_r(x)\subset U\]
 \end{Def}
 \begin{Bem}
-  Eine offene Kugel ist offen.
+Die Dreiecksungleichung impliziert dass jede offene Kugel eine offene Menge ist. In der Tat,
+sei $y\in K_r (x)$. Dann $\rho:=d(x,y) < r$. Sei $\tau:= r-\rho>0$. Falls $z\in K_\tau (y)$,
+dann $d(x,z)\leq d(x,y) + d(y,z) = \rho + d (y,z) < \rho +\tau =r$. D.h., $K_\tau (y)\subset K_r (x)$.
+Das beweist dass $K_r (x)$ eine Ungebung ihrer ganzen Elementen ist, d.h. $K_r (x)$ ist offen. 
 \end{Bem}
 \begin{Sat}
   \begin{enumerate}
@@ -117,12 +133,12 @@ In $\mb{R}^n$:
   \begin{enumerate}
     \item $\mb{R}^n$ trivialerweise offen, auch $\varnothing$
     \item Sei $x\in U\cap\dots\cap U_N$
-      \[\forall i\in\left\{ 1,\dots,N \right\}\s K_r(x)\subset U_i\]
-      Sei $r=\min\left\{ r_i,\dots,r_N \right\}$
-      \[\implies K_r(x)\subset U_i\forall i\implies K_r(x)\subset U_1\cap\dots\cap U_N\]
+      \[\forall i\in\left\{ 1,\dots,N \right\}\s \quad \exists r_i>0 \;\;\mbox{so dass}\;\; K_{r_i}(x)\subset U_i\]
+      Sei $r=\min\left\{ r_i,\dots,r_N \right\} > 0$;
+      \[\implies K_r(x)\subset U_i\quad\forall i\implies K_r(x)\subset U_1\cap\dots\cap U_N\]
     \item $\left\{ U_\lambda \right\}_{\lambda\in \Lambda}$. Sei $U=\bigcup_{\lambda\in\Lambda}U_\lambda$
       \[x\in U\implies x\in U_\lambda\s\text{f\"ur ein}\s\lambda\in\Lambda\]
-      \[\implies \exists K_r(x)\subset U_\lambda\subset U\]
+      \[\implies \exists K_r(x)\subset U_\lambda\subset U.\]
   \end{enumerate}
 \end{Bew}
 \begin{Def}
@@ -132,9 +148,11 @@ In $\mb{R}^n$:
     \item $U_1\cap\dots\cap_N\in O$ falls $U_i\in O$
     \item $\bigcap_{\lambda\in\Lambda}U_\lambda\in O$ falls $U_i\in O$
   \end{enumerate}
+$O$ heisst die {\em Topologie}.
 \end{Def}
 \begin{Sat}
-  Sei $(X,d)$ ein metrischer Raum
+  Sei $(X,d)$ ein metrischer Raum. Wir definieren die entsprechende offene Kugel mit Mittelpunkt $x\in X$
+und Radius $r>0$:
   \[K_r(x)=\left\{ y=X: d(x,y)<r \right\}\]
-  Umgebungen und offene Mengen sind wie im euklidischen Fall. $O=\left\{ \text{offene Menge} \right\}$ definiert eine Topologie.
+  Umgebungen und offene Mengen sind wie im Euklidischen Fall definiert. $O=\left\{ \text{offene Menge} \right\}$ definiert eine Topologie.
 \end{Sat}

@@ -1,23 +1,46 @@
 \subsection{Stetigkeit}
-\begin{Def}
+\begin{Def}\label{d:stetig}
   Sei $f:\Omega_{\subset\mb{R}^n}\to\mb{R}^k$. $f$ ist stetig an der Stelle $x\in\Omega$ falls $\forall \left\{ x_k \right\}\subset\Omega$ mit $x_k\to x$.
   \[\Limi{k} f(x_k)=f(x)\]
 \end{Def}
+Falls $f: \Omega\to \mb{R}^k$, $x\in \Omega$ und $y\in \mb{R}^k$ erf\"ullen die Bedingung 
+\[
+f(x_k) \to y \qquad \forall \mbox{ Folge }\{x_k\}\subset \Omega\setminus \{x\} \mbox{ mit } x_k\to x\, ,
+\]
+dann schreiben wir
+\[
+\lim_{z\to x} f(z) = y\, .
+\]
+Deswegen,
+\[
+f \mbox{ stetig in } x \iff \lim_{z\to x} f(z) = f(x)\, .
+\]
 \begin{Lem}
   \label{l:1102282}
-  Eine equivalente Definition:
+  Eine \"aquivalente Definition der Stetigkeit an der Stelle $x$:
   \[\forall \varepsilon>0\s\exists \delta>0: f\left( K_\delta(x)\cap \Omega \right)\subset K_\varepsilon(f(x))\]
 \end{Lem}
+\begin{Bem}
+Aus diesem Lemma folgt:
+\[
+y = \lim_{z\to x} f(z) \iff  (\forall \varepsilon > 0\; \exists \delta : 0<\|z-x\|<\delta \implies \|f(z)-y\|<\varepsilon)\, .
+\]
+\end{Bem}
+
 \begin{Bew}
-  $\varepsilon$-$\delta$ $\implies$ Folgendefinition. Sei $x_k\to x$. Ziel: $f(x_k)\to f(x)$
-  \[\forall \varepsilon>0\s\exists \s\text{mit}\s \underbrace{\Norm{f(x_k)-f(x)}}_{\underbrace{d(f(x_k),f(x))}_{f(x_k)\in K_\varepsilon(f(x))}}<\varepsilon\s\forall k\geq N\]
-  \[\exists \delta>0\s \underbrace{f(K_\delta(x))\subset K_\varepsilon(f(x))}\]
-  \[\exists\s \Norm{x_k-x}<\delta\s k\geq N\]
+ {\bf $\varepsilon$-$\delta$ $\implies$ Folgendefinition.} Sei $x_k\to x$. Das Ziel ist $f(x_k)\to f(x)$ zu zeigen.
+D.h., $\forall \varepsilon>0$ eine $N$ zu finden s.d.
+  \[ \underbrace{\Norm{f(x_k)-f(x)}}_{\underbrace{d(f(x_k),f(x))}_{f(x_k)\in K_\varepsilon(f(x))}}<\varepsilon\s\forall k\geq N\]
+Sei $\varepsilon > 0$ gegegeben.  Dann
+\[\exists \delta>0\s \quad\mbox{mit}\quad f(K_\delta(x))\subset K_\varepsilon(f(x))\]
+Aber, da $x_k\to x$, $\exists N$ s.d.
+  \[\Norm{x_k-x}<\delta\s \forall k\geq N.\]
+F\"ur $k\geq N$ gilt
   \[x_k \in K_\delta(x)\implies f(x_k)\in K_\varepsilon(f(x))\]
-  Folgendefinition $\implies$ ($\varepsilon$-$\delta$)-Defintion. Widerspruchsannahme: 
+{\bf Folgendefinition $\implies$ ($\varepsilon$-$\delta$)-Defintion.} Widerspruchsannahme: 
   \[\exists \varepsilon>0: f(K_\delta(x)\cap \Omega)\not\subset K_\varepsilon(f(x))\s\forall \delta>0\]
   \[\implies\forall \delta>0\s\exists y_\delta\in K_\delta(x)\s\text{und}\s \Norm{f(y_\delta)-f(x)}\geq \varepsilon\]
-  Nehmen wir $\delta=\frac{1}{j}$ und $x_j=\frac{y_1}{j}$
+  Nehmen wir $\delta=\frac{1}{j}$ und $x_j=y_{\frac{1}{j}}$
   \[\Norm{x_j-x}<\frac{1}{j}\s(\text{weil}\s x_j\in K_{\frac{1}{j}}(x))\]
   \[\Norm{f(x_j)-f(x)}=\Norm{f(y_{\frac{1}{j}}-f(x))}\geq\varepsilon\]
   $x_j\to x$ aber $f(x_j)\not\to f(x)$
@@ -25,7 +48,7 @@
 \begin{Def}
   Die allgemeine Defintion der Stetigkeit für metrische Räume: Seien $(X,d)$ und $(Y,\ol d)$ zwei metrische Räume. Sei $f:X\to Y$. $f$ ist stetig an der Stelle $x$ falls:
   \[\forall \varepsilon>0\s\exists \delta>0\s\text{mit}\s d(y,x)<\delta\implies d(f(y),f(x))<\varepsilon\]
-  \[\iff f(K\delta(x))\subset K_\varepsilon(f(x))\]
+  \[\mbox{d.h.}\quad f(K\delta(x))\subset K_\varepsilon(f(x))\, .\]
 \end{Def}
 \begin{Def}
   Eine $f:X\to Y$ heisst stetig falls $f$ stetig an jeder Stelle $x\in X$ ist.
@@ -41,62 +64,80 @@
   \begin{enumerate}
     \item
       \begin{itemize}
-        \item Stetigkeit $\implies$ Umgebung.
-          $U$ Umgebung von $f(x)\implies \exists \delta>0$ mit $K_\delta(f(x))\subset U$
+        \item {\bf Stetigkeit $\implies$ Umgebung.}
+          Sei $U$ eine Umgebung von $f(x)\implies \exists \delta>0$ mit $K_\delta(f(x))\subset U$
           \[\implies \exists \varepsilon>0:f(K_\varepsilon(x))\subset K_\delta(f(x))\]
           \[\implies f^{-1}(U)\supset f^{-1}(K_\delta(f(x)))\supset K_\varepsilon(x)\implies f^{-1}(U)\s\text{Umgebung von}\s U\]
-        \item Umgebung $\implies$ Stetigkeit. Sei $\delta>0$ $U=K_\delta(f(x))$. $U$ Umgebung von $f(x)$. $f^{-1}(U)$ ist eine Umgebung von $x$.
-          \[\implies \exists\varepsilon>0:K_\varepsilon(X)\subset f^{-1}(U)\]
+        \item {\bf Umgebung $\implies$ Stetigkeit.} Sei $\delta>0$ und $U:=K_\delta(f(x))$. $U$ ist eine
+Umgebung von $f(x)$. $f^{-1}(U)$ ist eine Umgebung von $x$.
+          \[\implies \exists\varepsilon>0:K_\varepsilon(x)\subset f^{-1}(U)\]
           \[\implies f(K_\varepsilon(x))\subset U=K_\delta(f(x))\]
       \end{itemize}
     \item
       \begin{itemize}
-        \item 
-          Stetigkeit $\implies$ offen. Sei $U$ offen $\iff$ $\forall y\in U$ ist $U$ eine Umgebung von $y$
-          \[f^{-1}U\ni x\implies f(x)\in U\stackrel{\text{Stetigkeit in}\s x}{\implies} f^{-1}(U)\s\text{ist eine Umgebung von}\s x\]
+        \item {\bf Stetigkeit $\implies$ offen.} Sei $U$ offen $\iff$ $\forall y\in U$ ist $U$ eine Umgebung von $y$
+          \[f^{-1} (U)\ni x\implies f(x)\in U\stackrel{\text{Stetigkeit in}\s x}{\implies} f^{-1}(U)\s\text{ist eine Umgebung von}\s x\]
           \[\implies f^{-1}(U)\s\text{ist offen}\]
-        \item offen $\implies$ Stetigkeit an jedem $x\in X$. Sei $x\in X$, $\delta>0$, $K_\delta(f(x))$ ist offen
-          \[f^{-1}(K_\delta(f(x)))\s\text{ist offen}\implies x\in f^{-1}(K_\delta(f(x)))\]
+        \item {\bf offen $\implies$ Stetigkeit.} Sei $x\in X$, und $\delta>0$. $K_\delta(f(x))$ ist eine offene
+Menge.
+          \[f^{-1}(K_\delta(f(x)))\s\text{ist offen}\]
+Aber $x$ geh\"hort zu $f^{-1} (K_\delta (f(x)))$
           \[\implies \exists \varepsilon>0: K_\varepsilon(x)\subset f^{-1}(K_\delta(f(x)))\]
-          \[f(K_\varepsilon(x))\subset K_\delta(f(x))\]
+          \[\implies f(K_\varepsilon(x))\subset K_\delta(f(x)).\]
       \end{itemize}
   \end{enumerate}
 \end{Bew}
-\subsection{lineare Abbildungen}
+\subsection{Lineare Abbildungen}
 \begin{Def}
-  Eine Abbildung $L:V\to W$ ($V$, $W$ Vektoren) heisst linear, falls
+  Eine Abbildung $L:V\to W$ ($V$, $W$ Vektorr\"aume) heisst linear, falls
   \[L(\lambda_1v_1+\lambda_2v_2)=\lambda_1L(v_1)+\lambda_2L(v_2)\s\forall v_1,v_2\in V,\s\forall \lambda_1,\lambda_2\in\mb{R}\]
-  \[L:\mb{R}^n\to\mb{R}^k\iff \exists\s\text{eine Matrix}\s L_{ij}:\]
-  \[L(x)=\left( \sum^n_{j=1}L_{1j}x_j,\sum^n_{j=1}L_{2j}x_j,\cdots,\sum^n_{j=1}L_{kj}x_j \right)\]
 \end{Def}
+
+Falls $L, L':V\to W$ zwei lineare Abbildungen sind und $\lambda,\mu\in \mb{R}$, dann ist die Abbildung
+$v\mapsto \lambda L(v) + \mu L' (V)$ auch linear. Der Raum $\mathcal{L} (V, W) :=
+\{L:V\to W \mbox{ linear}\}$ ist
+ein Vektorraum.
+Falls $V= \mb{R}^m$ und $W= \mb{R}^k$, dann $\exists$ eine Matrix $(L_{ij})$ mit
+  \[L(x)=\left( \sum^n_{j=1}L_{1j}x_j,\sum^n_{j=1}L_{2j}x_j,\cdots,\sum^n_{j=1}L_{kj}x_j \right)\]
+$(L_{ij})$ is die {\em Matrixdarstellung} der linearen Abbildung $L$.
+
 \begin{Def}
   Sei $L_{ij}$ eine Matrix die die lineare Abbildung $L:\mb{R}^n\to\mb{R}^k$ darstellt. Die Hilbert-Schmidt Norm von $L$ ist
   \[\Norm{L}_{\text{HS}}=\sqrt{\sum^k_{i=1}\sum^n_{j=1}L_{ij}^2}\]
 \end{Def}
 \begin{Bem}
-  $\left\{ L:(L_{ij} n\times k\s\text{Matrixen} \right\}\sim \mb{R}^{nk}$ $\Norm{.}_{\text{HS}}$ ist die euklidische Norm.
+ $\mathcal{L} (V,W) \sim \left\{ L:(L_{ij})\; n\times k\s\text{Matrizen} \right\}\sim \mb{R}^{nk}$. D.h., der Raum der $n\times k$ Matrizen
+ist ein Vektorraum. $\Norm{.}_{\text{HS}}$ ist die Euklidische Norm.
 \end{Bem}
 \begin{Bem}
-  Sei $L:\mb{R}^n\to\mb{R}^k$ eine lineare Abbildung und $x\in\mb{R}^n$. Dann $\Norm{L(x)}\leq\Norm{x}\Norm{L}_\text{HS}$.
+  Sei $L:\mb{R}^n\to\mb{R}^k$ eine lineare Abbildung und $x\in\mb{R}^n$. Dann die
+Ungliechung 
+\begin{equation}\label{e:CS2}
+\Norm{L(x)}_e\leq\Norm{x}_e\Norm{L}_\text{HS}
+\end{equation} 
+ist eine einfache Folgerung der
+Cauchy-Schwartz Ungliechung.
 \end{Bem}
+\begin{Bew}
+  Beweis von \eqref{e:CS2}: $L(x)=y$
+  \[
+\Norm{L(x)}^2=\sum^k_{i=1}y_i^2\]
+  \[=\sum^k_{i=1}\left( \sum^n_{j=1}L_{ij}x_j \right)^2\stackrel{\text{Cauchy-Schwartz}}{\leq}\sum^k_{i=1}\left( \sum^n_{j=1}L_{ij}^2 \right)\left( \sum_{j=1}x_j \right)^2\]
+  \[=\sum^k_{i=1}\sum^n_{j=1}L_{ij}^2\Norm{x}^2=\Norm{x}^2\left( \sum^k_{i=1}\sum^n_{j=1}L_{ij}^2\right) = \Norm{x}^2\|L\|^2_{HS}\, .
+\]
+\end{Bew}
+
 \begin{Kor}
   Sei $L$ wie oben, dann ist $L$ stetig.
 \end{Kor}
 \begin{Bew}
   Sei $x_k\to x$. Ziel $L(x_k)\to L(x)$
   \[\Norm{L(x_k)-L(x)}=\Norm{L(x_k-x)}\leq\Norm{x_k-x}\Norm{L}_\text{HS}\to 0\]
-  \[\implies \Norm{L(x_k)-L(x)}\to 0\]
-  \[\implies \text{Stetigkeit}\]
+  \[\implies \Norm{L(x_k)-L(x)}\to 0\, .\]
 \end{Bew}
-\begin{Bew}
-  Beweis von \ref{l:1102282}: $L(x)=y$
-  \[\Norm{L(x)}^2=\sum^k_{i=1}y_i^2\]
-  \[=\sum^k_{i=1}\left( \sum^n_{j=1}L_{ij}x_j \right)^2\stackrel{\text{Cauchy-Schwartz}}{\leq}\sum^k_{i=1}\left( \sum^n_{j=1}L_{ij}^2 \right)\left( \sum_{j=1}x_j \right)^2\]
-  \[=\sum^k_{i=1}\sum^n_{j=1}L_{ij}^2\Norm{x}^2=\Norm{x}^2\left( \sum^k_{i=1}\sum^n_{j=1}L_{ij}^2 \right)\]
-  \[\Norm{x}^2\Norm{L}^2_\text{HS}\implies \Norm{L(x)}\leq\Norm{x}\Norm{L}_\text{HS}\]
-\end{Bew}
+
 \begin{Def}
-  Sei $L:V\to W$ eine lineare Abbildung wobei $(V,\Norm{.}_V)$ und $(W,\Norm{.}_W)$ zwei endlich-dimensionierte Vektorräume sind. Die Operatornorm von $L$ ist:
+  Sei $L:V\to W$ eine lineare Abbildung wobei $(V,\Norm{.}_V)$ und $(W,\Norm{.}_W)$ zwei endlich-dimensionierte normierte Vektorräume sind. Die Operatornorm von $L$ ist:
   \[\Norm{L}_{L(V,W)}:=\sup_{\Norm{v}_V\leq 1}\Norm{L(v)}_W\]
 \end{Def}
 \begin{Sat}
@@ -106,14 +147,18 @@
 \end{Sat}
 \begin{Bew}
   Der Kern ist die folgende Eigenschaft:
-  \[\Norm{L}_{L(V,W)}<+\infty\]
-  Wenn das gilt dann:
+  \begin{equation}\label{e:<infty}
+\Norm{L}_{L(V,W)}<+\infty\, 
+\end{equation}
+Das nehmen wir an ohne Beweis (f\"ur einen Beweis brauchen wir die Kompaktheit der geschlossenen
+Kugel , siehe \"Ubungen).
+  Wenn \eqref{e:<infty} gilt:
   \begin{enumerate}
     \item 
       \[\underbrace{\Norm{L}_{L(V,W)}}_\text{Kern}\s\text{und}\s\Norm{L}_{L(V,W)}=0\iff L=0\]
       $\Leftarrow$ einfach. Sei $\Norm{L}_{L(V,W)}=0$. Dann sei $v\in V$.
       \[v=0\implies L(v)=0\]
-      \[v\neq 0\s z\frac{v}{\Norm{v_V}}\implies \Norm{z}_V=1\]
+      \[v\neq 0\s z = \frac{v}{\Norm{v_V}}\implies \Norm{z}_V=1\]
       \[\Norm{L(z)}_W\leq\sup_{\Norm{y}_V\leq 1}\Norm{L(v)}_W=0\]
       \[\implies L(z)=0\implies L(v)=L\left( \Norm{v}_V z \right)=\Norm{v}_VL(z)=0\]
     \item
@@ -129,6 +174,5 @@
       \[\leq\sup_{\Norm{y}_V\leq 1}\left( \Norm{L(v)}_W+\Norm{L'(v)}_W\right)\]
       \[\leq\sup_{\Norm{y}_V\leq 1}\Norm{L(v)}_W+\sup_{\Norm{y}_V\leq 1}\Norm{L'(v)}_W\]
       \[=\Norm{L}_{L(V,W)}+\Norm{L'}_{L(V,W)}\]
-      Wenn $v_1,\cdots,v_n$ Basis für $V$, $w_1,\cdots,w_k$ Basis für $W$. Die lineare Abbildung $E_{ij}(v_i)=w_j$, $E_{ij}(v_l)=0$ falls $l\neq i$ ist eine Basis für $L(V,W)\implies L=\sum_{i,j}\lambda_{ij}E_{ij}$
-  \end{enumerate}
+        \end{enumerate}
 \end{Bew}

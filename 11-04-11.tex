@@ -1,36 +1,44 @@
-\begin{Sat}
-\[f:\underbrace{U}_{\subset \mb{R}^n}\to\underbrace{V}_{\subset \mb{R}^n}\]
-\[g:V\to\mb{R}^k\]
+\subsection{Kettenregel}
+\begin{Sat} Seien
+\[f:\underbrace{U}_{\subset \mb{R}^n}\to\underbrace{V}_{\subset \mb{R}^n}
+\quad \mbox{und}\quad g:V\to\mb{R}^k\, .\]
   Falls $f$ in $a$ differenzierbar ist und $g$ in $b=f(a)$ differenzierbar ist, dann ist $g\circ f$ in $a$ differenzierbar und
   \begin{equation}
     \label{e:1104111}
-    \md(g\circ f)|_{a}\stackrel{?}{=}\md g|_b\circ\md f|_a
+    \md(g\circ f)|_{a} = \md g|_b\circ\md f|_a
   \end{equation}
 \end{Sat}
 \begin{Bew}
-  Differential von $f$ in $a$ mit $\frac{R(h)}{\Norm{h}}\to 0$
+  Die Differenzierbarkeit von $f$ in $a$ bedeutet
   \[f(a+h)=f(a)+\md f|_a(h) +\overbrace{R(h)}^{o(\Norm{h})}\]
-  Differential von $g$ in $b$ mit $\frac{R(k)}{\Norm{k}}\to 0$
+  Die Differential von $g$ in $b$ bedeutet
   \[g(b+k)=g(b)+\md g|_b(k) +\underbrace{\bar R(k)}_{o(\Norm{k})}\]
   \[g(f(a+h))=g(\underbrace{f(a)}_b+k)=g(b)+\md g|_b (k)+\bar R(k)\]
-  Linearität von $\md g|_b$
   \[=g(b)+\md g|_b\left( \md f|_a(h)+R(h) \right)+\bar R(k)\]
+Linearität von $\md g|_b$
   \[=\underbrace{g(b)}_{g\circ f(a)}+\underbrace{\md g|_b(\md f|_a(h))}_{\text{ist linear in}\s h}+\underbrace{\md g|_b(R(h))+\bar R(k)}_{:=\rho(h)}\]
-  \[\rho(h)=o(\Norm{h})\]
-\end{Bew}
-\begin{Lem}
-  Linearität:
+Wir werden zeigen dass  
+\[\rho(h)=o(\Norm{h})\, .\]
+
+\medskip
+
+{\bf Schritt 1.  Linearität von $h\mapsto \md g|_b(\md f|_a(h))$.}
   \[\md g|_b\circ\md f|_a(\lambda_1h_1+\lambda_2h_2)\s\lambda_1,\lambda_2\in\mb{R}, h_1,h_2\in\mb{R}^n\]
   \[=\md g|_b\left( \md f|_a(\lambda_1h_+\lambda_2h_2 \right))\]
   \[=\md g|_b\left( \lambda_1\overbrace{\md f|_a(h_1)}^{\in\mb{R}^m}+\lambda_2\overbrace{\md f|_a(h_2)}^{\in\mb{R}^m} \right)\]
   \[=\lambda_1\md g|_b\left( \md f|_a(h_1) \right)+\lambda_2\md g|_b\left( \md f(h_2) \right)\left( \md f(h_2) \right)\]
   \[=\lambda_1\md g|_b\circ \md f|_a(h_1)+\lambda_2\md g|_b\circ \md f|_a(h_2)\]
-\end{Lem}
-\begin{Lem}
-  \[\frac{\rho(h)}{\Norm{h}}\leq\frac{\abs{\md g|_b (R(h))}}{\Norm{h}}+\frac{\abs{\bar R(j)}}{\Norm{h}}\]
-  \[\leq\frac{\Norm{\md g|_b}_0\Norm{R(h)}}{\Norm{h}}+\frac{\Norm{\bar R(h)}}{\Norm{h}}\]
-  \[\frac{\Norm{R(h)}}{\Norm{h}}\to 0\]
-  \[\frac{\Norm{\bar R(h)}}{\Norm{h}} = \begin{cases}
+
+\medskip
+{\bf Schritt 2: $\rho (h) = o (\|h\|)$}.
+ \[\frac{\rho(h)}{\Norm{h}}\leq\frac{\abs{\md g|_b (R(h))}}{\Norm{h}}+\frac{\abs{\bar R(k)}}{\Norm{h}}\]
+ \begin{equation}\label{e:absch}
+\leq\frac{\Norm{\md g|_b}_0\Norm{R(h)}}{\Norm{h}}+\frac{\Norm{\bar R(k)}}{\Norm{h}}
+\end{equation}
+Wir wissen dass   
+\[\frac{\Norm{R(h)}}{\Norm{h}}\to 0\]
+und deswegen konvergiert der erste Teil von \eqref{e:absch} zu null. Ausserdem
+  \[\frac{\Norm{\bar R(k)}}{\Norm{h}} = \begin{cases}
     0 & \text{falls}\s k=0\\
     \frac{\Norm{\bar R(k)}}{\Norm{k}}\frac{\Norm{k}}{\Norm{h}}
   \end{cases}\]
@@ -39,35 +47,34 @@
     \label{e:1104110}
     \leq \Norm{\md f|_a}_0\Norm{h}+\Norm{R(h)}
   \end{equation}
+Da
   \[\frac{\Norm{R(h)}}{\Norm{h}}\to 0\]
-  Sei $\varepsilon=1$, $\exists \delta>0$ so dass
+  $\exists \delta>0$ so dass
   \[\Norm{h}<\delta\implies \frac{\Norm{R(h)}}{\Norm{h}}\]
   Falls $\Norm{h}<\delta$
-  \[\ref{e:1104110}\leq (\Norm{\md f|_a}_0+1)\Norm{h}\]
+  \[\|k\|\leq (\Norm{\md f|_a}_0+1)\Norm{h}\]
   Deswegen: wenn $\Norm{h}\to 0$, dann $\Norm{k}\to 0$ und für $\Norm{h}<\delta$
   \[\frac{\Norm{\bar R(k)}}{\Norm{h}}\leq \underbrace{\frac{\Norm{\bar R(k)}}{\Norm{k}}}_{\to 0\s\text{für}\s\Norm{h}\to 0}(\Norm{\md f|_a}_0+1)\]
   Deswegen:
   \[0\leq \limsup_{\Norm{h}\to 0}\frac{\Norm{\rho(h)}}{\Norm{h}}\]
   \[\leq\Limo{\Norm{h}}\frac{\Norm{\bar R(k)}}{\Norm{h}}+\Limo{\Norm{h}}\frac{\Norm{\md g|_b(R(h))}}{\Norm{h}}=0+0=0\]
   \[\implies \Limo{\Norm{h}}\frac{\Norm{\rho(h)}}{\Norm{h}}=0\]
-\end{Lem}
-\begin{Bem}
-  $n=m=k=1$
-  \[f(a+h)=f(a)+\underbrace{\md f|_a}+o(\Norm{h})\]
-  $b=f(a)$
+\end{Bew}
+\begin{Bem} Sei $n=m=k=1$. $b=f(a)$
   \[\md f|_a(h)=f'(a)h\]
   \[\md g|_b(k)=g'(b)k\]
-  \[\md g|_b=\md f|_a(k)=\md g|_b(\md f|_a(h))=\md g|_b(f'(a)h)\]
+  \[\md g|_b\circ \md f|_a( h)=\md g|_b(\md f|_a(h))=\md g|_b(f'(a)h)\]
   \begin{equation}
     \label{e:1104112}
     =g'(b)f'(a)h=g'(f(a))f'(a)h
   \end{equation}
   $\phi=g\circ f$
   \[\md \phi|_a(h)=\phi'(a)h=(g\circ f)'(a)h\]
-  \ref{e:1104111} d.h. die allgemeine Kettenregel
+  \eqref{e:1104111} (d.h. die allgemeine Kettenregel) impliziert
   \begin{eqnarray*}
-    \md \phi|_a(h)=\md (g\circ f)|_a(h)\\
-    =\md g|_b\circ \md f|_a(h)\stackrel{\ref{e:1104112}}{=}g'(f(a))f'(a)h
+    \md \phi|_a(h)&=&\md (g\circ f)|_a(h)
+    =\md g|_b\circ \md f|_a(h)\\
+&\stackrel{\eqref{e:1104112}}{=}&g'(f(a))f'(a)h
   \end{eqnarray*}
   \begin{eqnarray*}
     \implies(g\circ f)'(a)\not h=g'(f(a))f'(a)\not h\\
@@ -75,7 +82,8 @@
   \end{eqnarray*}
 \end{Bem}
 \begin{Bem}
-  Kettenregel für die Jacobi-Matrizen: Formel \ref{e:1104111} $\iff$ Sei $M$ die Jacobi-Matrix für $\md g|_{b(=f(a)}$ und $N$ düe für $\md f_a$. Dann ist die Jacobi für $\md (g\circ f)|_a$ ist $MN$ \\
+  Kettenregel für die Jacobi-Matrizen. Sei $M$ die Jacobi-Matrix für $\md g|_{b(=f(a)}$ und $N$ düe für $\md f_a$.
+Die Jacobi für $\md (g\circ f)|_a$ ist $MN$ \\
   $\implies$ $g=(g_1,\cdots,g_k)$ $f=(f_1,\cdots,f_m)$ Es gibt eine Formel für $\Part{(g\circ f)_i}{x_j}$
   \[\md g_b\circ \md g|_a(w)=\md g|_b(\underbrace{\md f|_a(w)}_v)\]
   \begin{eqnarray*}
@@ -117,6 +125,6 @@
     \item $f$ differenzierbar in $a$ und $\phi$ differenzierbar in $b$
   \end{itemize}
   Dann ist $\phi\circ f$ differenzierbar in $a$ und
-  \[\Part{\phi\circ f}{x_j}(a)=\sum_{i=1}^m\Part{\phi}{y_i}(f(a))\Part{f_i}{x_j}(a)\]
+  \[\Part{(\phi\circ f)}{x_j}(a)=\sum_{i=1}^m\Part{\phi}{y_i}(f(a))\Part{f_i}{x_j}(a)\]
   Das ist die ``konkrete'' allgemeine Kettenregel.
 \end{Kor}

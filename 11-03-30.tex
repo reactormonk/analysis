@@ -1,62 +1,67 @@
 \begin{Def}
-  $X\subset \mb{R}^n$, $\exists:X\to \mb{R}$. $f$ hat in $a\in X$ ein lokales Minimum/Maximum 
-  \[\iff\exists a\in V\s\text{(Umgebung)}\s. f(a)\leq f(x) (\text{bzw.}\s \geq f(x)) \forall x\in V\]
+  $X\subset \mb{R}^n$, $f:X\to \mb{R}$. $f$ hat in $a\in X$ ein lokales Minimum/Maximum 
+  \[\iff\exists \mbox{ eine Umgebung $V$ von $a$ s.d.}\s f(a)\leq f(x) (\text{bzw.}\; \geq f(x))\quad\forall x\in V\]
   Man sagt das Minimum/Maximum ist \ul{strikt} (oder \ul{isoliert})
-  \[\iff f(a)<f(x)(\text{bzw.}\s>f(x))\forall x\in V\setminus \left\{ a \right\}\]
+  \[\iff f(a)<f(x)\;(\text{bzw.}\;>f(x))\quad\forall x\in V\setminus \left\{ a \right\}\]
 \end{Def}
 \begin{Sat}
-  (Notwendiges Kriteroium für lokale Extrema). Sei $U\subset\mb{R}^n$ offen, $f:U\to\mb{R}$ haben ein lokales Extremum in $a\in U$ und sei partiell differenzierbar. Dann gilt
+  (Notwendiges Kriterium für lokale Extrema). Sei $U\subset\mb{R}^n$ offen und $f:U\to\mb{R}$
+eine partiell differentierbare Funktion die ein Extremum in $a\in U$ hat.  Dann gilt
   \[\partial_1f(a)=\cdots=\partial_nf(a)=0\]
   D.h. wenn $f$ differenzierbar ist, dann gilt $\md f|_a=0$
 \end{Sat}
 \begin{Bew}
-  $F(t)=f(a+t_{e_i})$ (für $t$ sehr klein, so dass $a+t_{e_i}\in U$ $F$ hat lokale Extrema in 0, d.h. $F'(0)=\partial_1 f(a)=0$
+  $F(t)=f(a+t e_i)$ (für $t$ sehr klein, so dass $a+t e_i\in U$). $F$ hat ein lokales Extremum in 0, d.h. 
+$F'(0)=\partial_i f(a)=0$.
 \end{Bew}
 \begin{Def}
-  $f$ differenzierbar, dann heisst $a$ mit $\md f|_a=0$ \ul{kritischer Punkt}. Man sagt auch $f$ ist \ul{stationär} in $a$. 
+Sei  $f$ differenzierbar. Eine Stelle $a$ mit $\md f|_a=0$ heisst \ul{kritischer Punkt}. 
+Man sagt auch $f$ ist \ul{stationär} in $a$. 
 \end{Def}
 \begin{Bem}
-  lokale Extremum $\implies$ $\not\Leftarrow$ kritischer Punkt.
+  Lokale Extremum $\implies$ $\not\Leftarrow$ kritischer Punkt.
 \end{Bem}
 \begin{Sat}
-  (Hinreichendes Kriterium für lokale Extrema) $U\subset\mb{R}^n$ offen, $f\in C^2(U,\mb{R})$ it $\md f|_a=0$. Dann
+  (Hinreichendes Kriterium für lokale Extrema) $U\subset\mb{R}^n$ offen, $f\in C^2(U,\mb{R})$ mit $\md f|_a=0$. Dann
   \begin{eqnarray*}
-    H_f(a)>0\implies a\s\text{lokales Minimum}\\
-    H_f(a)<0\implies a\s\text{lokales Maximum}\\
-    H_f(a)\s\text{indefinit}\implies a\s\text{kein Extremum}
+    H f(a)>0\implies a\s\text{lokales Minimum}\\
+    H f(a)<0\implies a\s\text{lokales Maximum}\\
+    H f(a)\s\text{indefinit}\implies a\s\text{kein Extremum}
   \end{eqnarray*}
   Im indefiniten Fall gilt: $\exists$ Geraden $G_1$, $G_2$ durch $a$ so dass $f|_{G_1\cap U}$ in $a$ ein lokales Minimum und $f|_{G_2\cap U}$ in $a$ ein lokales Maximum hat, d.h. $a$ ist ein Sattelpunkt.
 \end{Sat}
 \begin{Bem}
   \begin{itemize}
-    \item 
-      $H_f(a)>0$ bedeutet $H_f(a)$ \ul{positiv definit}, d.h. 
-      \[v^TH_f(a)v>0\s\forall v\in\mb{R}\setminus\left\{ 0 \right\}\]
     \item
-      $H_f(a)$ indefinit, $\exists v,w\in\mb{R}^n\setminus\left\{ 0 \right\}$ mit
-      \[v^tH_f(a)v>0\]
-      \[w^tH_f(a)w<0\]
+      $H f(a)>0$ bedeutet $H_f(a)$ \ul{positiv definit}, d.h. 
+      \[v^TH f(a)v>0\s\forall v\in\mb{R}\setminus\left\{ 0 \right\}\]
+    \item
+      $H f(a)$ indefinit, $\exists v,w\in\mb{R}^n\setminus\left\{ 0 \right\}$ mit
+      \[v^tH f(a)v>0\]
+      \[w^tH f(a)w<0\]
   \end{itemize}
 \end{Bem}
-\begin{Bew}
+\begin{Bew}$\,$
+
   \begin{itemize}
     \item[$H_f(a)>0$]
       \[\md f|_a=0\xRightarrow{\text{Taylor}}f(a+h)=f(a)+\frac{1}{2}h^TH_f(a)h+R(h)\\\]
       mit
-      \[\frac{R(h)}{\Norm{h}^2}\to 0 \s(\Norm{H}\to 0)\]
+      \[\frac{R(h)}{\Norm{h}^2}\to 0 \quad \mbox{wenn $\|h\|\to 0$}.\]
       $f\in C^2$
       \begin{itemize}
-        \item $\implies$ $h\mapsto h^TH_f(a)h$ ist stetig
-        \item $\implies$ \ldots hat ein Minimum auf $\left\{ \Norm{h}=1 \right\}$ (kompakt), $m > 0$ (da $H_f(a)>0$).
-        \item $\implies$ $h^TH_f hh\geq m\Norm{h}^2$ (da $h=\Norm{h}\frac{h}{\Norm{h}}$, $h\neq 0$
+        \item $\implies$ $h\mapsto h^TH f(a)h$ ist stetig
+        \item $\implies$  $h\mapsto h^TH f(a)h$ hat ein Minimum $m$ auf $\left\{ \Norm{h}=1 \right\}$ (kompakt)
+ und $m > 0$ (da $H f(a)>0$).
+        \item $\implies$ $h^TH f (a) h\geq m\Norm{h}^2$ (da $h=\Norm{h}\frac{h}{\Norm{h}}$, $h\neq 0$
       \end{itemize}
-      Wähle $\varepsilon>0$ so klein, dass $B_\varepsilon(a)\subset U$
+      Wähle $\varepsilon>0$ so klein, dass $B_\varepsilon(a)\subset U$ und
       \[\Abs{R(h)}\leq \frac{m}{4}\Norm{h}^2\s\forall h\in B_\varepsilon(a)\]
       \[\implies f(a+h)\geq f(a)+\frac{m}{4}\Norm{h}^2>f(a)\s\forall h\in B_\varepsilon(a)\]
       d.h. $f$ hat in $a$ ein lokales Minimum
-    \item[$H_f(a)<0$]
+    \item[$H f(a)<0$]
        Betrachte $-f$ wie oben.
-    \item[$H_f(a)<>0$] % TODO
+    \item[$H f(a)<>0$] % TODO
       \[\exists v,w :\s v^T H_f(a) v>0, w^T H_f(a) w<0\]
       \[F_v(t):=f(a+tv), F_w(t)=f(a+tw)\]
       \[\implies F_v''(0)>0 \implies \text{lokales Maximum}\]
@@ -114,9 +119,9 @@
   (Konvexitätskriterium)
   Sei $f:U\to\mb{R}, C^2$ $U\subset\mb{R}^n$ offen, konvex. Es gilt:
   \begin{enumerate}
-    \item $f$ konvex $\iff$ $H_f(x)\geq 0$ $\forall x\in U$
+    \item $f$ konvex $\iff$ $H f(x)\geq 0$ $\forall x\in U$
       \label{i:1103301}
-    \item $H_f(x)>0$ $\forall x\in U$ $\implies$ $f$ streng konvex
+    \item $H f(x)>0$ $\forall x\in U$ $\implies$ $f$ streng konvex
       \label{i:1103302}
   \end{enumerate}
 \end{Sat}
@@ -127,7 +132,7 @@
   \begin{enumerate}
     \item $f$ konvex: $\forall x\in U$ wähle $r>0$: $B_r(x)\subset U$
       \[\implies F_{x,x+h}(t)\s\text{konvex}\s\forall h\in B_r(0)\]
-      \[\implies h^TH_f(x)h=F_{x,x+h}''(0)\underbrace{\geq}_{\text{Konvexität in 1-Dim}} 0\forall h\in B_r(0)\]
+      \[\implies h^TH_f(x)h=F_{x,x+h}''(0)\underbrace{\geq}_{\text{Konvexität in 1-Dim}} 0\qquad\forall h\in B_r(0)\]
       \[\xRightarrow{\text{homogenität}}h^TH_f(x)h\geq 0\s\forall h\in \mb{R}^n, \text{d.h.}\s H_f(x)\s\text{positiv semidefinit}\]
       $H_f(x)\geq 0$ $\forall x\in U$:
       \[a,b\in U\implies F_{a,b}''(t)=(b-a)^TH_f(a+t(b-a))(b-a)\geq 0\]
@@ -135,15 +140,15 @@
     \item Analog wie die zweite Richtung im Ersten.
   \end{enumerate}
 \end{Bew}
-\subsection{Differentation parameterabhängiger Integrale}
-$f:U\times [a,b]\to\mb{R}$, $U\subset\mb{R}^n$ offen. Sei $t\to f(x,t)$ stetig. $\forall x\in U$. Definiere
-\[F(X):=\int_a^bf(x)\md t\s x\in U\]
-\begin{Sat}
-  Sei $f$ wie oben und es gelte:
-  \begin{enumerate}
-    \item $\forall t\in [a,b]$: $x\mapsto f(x,t)$ nach $x_i$ partiell differenzierbar
-    \item $(x,t)\mapsto \partial_if(x,t)$ ist stetig auf $U\times [a,b]$
-  \end{enumerate}
-  $\implies$ $F$ ist nach $x_i$ stetig partiell differenzierbar, und es gilt:
-  \[\Part{F}{x_i}(x)=\int_a^b\Part{f}{x_i}(x,t)\md t\]
-\end{Sat}
+\section{Differentation parameterabhängiger Integrale}
+%$f:U\times [a,b]\to\mb{R}$, $U\subset\mb{R}^n$ offen. Sei $t\to f(x,t)$ stetig. $\forall x\in U$. Definiere
+%\[F(X):=\int_a^bf(x)\md t\s x\in U\]
+%\begin{Sat}
+ % Sei $f$ wie oben und es gelte:
+  %\begin{enumerate}
+   % \item $\forall t\in [a,b]$: $x\mapsto f(x,t)$ nach $x_i$ partiell differenzierbar
+   % \item $(x,t)\mapsto \partial_if(x,t)$ ist stetig auf $U\times [a,b]$
+  %\end{enumerate}
+  %$\implies$ $F$ ist nach $x_i$ stetig partiell differenzierbar, und es gilt:
+  %\[\Part{F}{x_i}(x)=\int_a^b\Part{f}{x_i}(x,t)\md t\]
+%\end{Sat}

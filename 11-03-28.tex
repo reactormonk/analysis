@@ -1,25 +1,99 @@
 %TODO
-Sei $a\in\Omega$ und $w\in\mb{R}$. Dann
-\[\md^{(k)}f(a)w^k=\sum^n_{i_1=1}\cdots\sum^n_{i_k=1}\frac{\partial^kf(a)}{\partial x_{i_1}\cdots\partial x_{i_k}}w_{i_1}\cdots w_{i_k}\]
+\section{Das Taylorpolynom}
+\begin{Def}
+Sei nun $a\in\Omega\subset \mb{R}^n$, $f:\Omega\to \mb{R}$ und $w\in\mb{R}^n$. 
+Falls die ganzen Ableitungen mit Ordnung $k$ in $a$ existieren, dann definieren wir 
+\[:=\sum^n_{i_1=1}\cdots\sum^n_{i_k=1}\frac{\partial^kf(a)}{\partial x_{i_1}\cdots\partial x_{i_k}}w_{i_1}\cdots w_{i_k}\]
+und das Taylor Polynom 
 \[T^k_xf(z)=f(x)+\md f|_x(z-x)+\cdots+\frac{1}{k!}\md f^{(k)}|_x(z-x)^k\]
-\[R^k_xf(z)=\frac{1}{(k+1)!}\md f^{(k+1)}|_\zeta (z-x)^{k+1}\]
-Falls $f$ beliebig mal differenzierbar ist ($f\in C^{\infty}(\Omega)$ d.h. die ganze partielle Ableitung existieren und sind stetig) können wir die Taylorreihe schreiben.
+\end{Def}
+
+\begin{Def}
+Eine Funktion $f:\Omega\to\mb{R}$ heisst $C^k$ falls die ganzen 
+partiellen Ableitungen mit Ordnung $\leq k$ \"uberall existieren und stetig  
+sind.\end{Def}
+
+\begin{Sat}[Verallgemeinerte Lagrange Fehlerabsch\"atzung]\label{s:Lag}
+Sei $f\in C^{k+1}$ und $K_r (a)\in \Omega$. Dann, $\forall x\in K_r (a)$ $\exists \xi\in [x,k]$ s.d.
+\begin{equation}\label{e:Lagrange}
+R^k_a f (x) := f(x) - T^k_x f (x) = \frac{1}{(k+1)!}\md f^{(k+1)}|_\xi (x-a)^{k+1}\, .
+\end{equation}
+Falls $f\in C^k$, dann $f(x) - T^k_x f(x) = o (\|x\|^k)$ .
+\end{Sat}
+\begin{Bew}
+{\bf Teil 1: Beweis von \eqref{e:Lagrange}} Sei $g (t) := f(tx + (1-t)a)$. Wir wenden die Kettenregel
+$k+1$ Mal und rechnen:
+\begin{eqnarray}
+g' (t) &=& df|_{tx + (1-t)a} (x-a)\nonumber\\
+g''(t) &=& d^2f|_{tx + (1-t)a} (x-a)^2\nonumber\\
+&\ldots&\label{e:formel}\\
+g^{(k+1)} (t) &=& d^{(k+1)} f|_{tx + (1-t)a} (x-a)^{k+1}\nonumber
+\end{eqnarray}
+Die Lagrange Fehlerabsch\"atzung f\"ur Funktionen einer Variable gibt
+die existenz einer Stelle $\tau\in ]0,1[$ s.d.
+\begin{equation}\label{e:Lag_1}
+g(1) = \sum_{i=0}^k \frac{1}{i!} g^{(i)} (0) + \frac{1}{(k+1)!} g^{(k+1)} (\tau)\, .
+\end{equation}
+(Zur Erinnerung: wir nutzen die Konvention Konvention $g^{(0)} (0) = g(0)$ und deswegen
+\[\frac{1}{0!}\md f^{(0)}|_x(z-x)^0=f(x)\, .\quad \Big)\]
+Die Stelle $\xi:= \tau x + (1-\tau) a$ liegt auf dem Segment $[a,x]$. Mit den Formeln
+\eqref{e:formel} schreiben wir \eqref{e:Lag_1} als
+\begin{eqnarray*}
+f(x) &=& g(1)=  \sum_{i=0}^i \frac{1}{i!} df^{(i)}|_a (x-a)^i + \frac{1}{(k+1)!} df^{(k+1)}|_\xi (a-x)^{k+1}\\
+&=& T^k_a f (x) +  \frac{1}{(k+1)!} df^{(k+1)}|_\xi (a-x)^{k+1}
+\end{eqnarray*}
+
+\medskip
+
+{\bf Teil 2} Sei nun $f\in C^k$. Wir nuzten \eqref{e:Lagrange} und (f\"ur $x\in K_r (a)$) schreiben
+\begin{equation}\label{e:Lag_2}
+f (x) = T^{k_1}_a f (x) + \frac{1}{k!} df^{(k)} |_\xi (a-x)^k\, .
+\end{equation}
+Deswegen
+\begin{eqnarray}
+&&\left|f(x) - T^k _a f (x)\right| = \left|\frac{1}{k!} df^{(k)} |_a (a-x)^k - \frac{1}{k!} df^{(k)} |_\xi (a-x)^k\right|\nonumber\\
+&=& \frac{1}{k!} \left| \sum_{i_1=1}^n \ldots \sum_{i_k=1}^n 
+\left(\frac{\partial^k f}{\partial x_{i_1} \ldots \partial x_{i_k}} (a) -
+\frac{\partial^k f}{\partial x_{i_1} \ldots \partial x_{i_k}} (\xi)\right) (x_{i_1}-a_{i_1}) \ldots (x_{i_k}-a_{i_k})\right|\nonumber\\
+&\leq& \frac{\|x-a\|^k}{k!}  \sum_{i_1=1}^n \ldots \sum_{i_k=1}^n 
+\left|\frac{\partial^k f}{\partial x_{i_1} \ldots \partial x_{i_k}} (a) -
+\frac{\partial^k f}{\partial x_{i_1} \ldots \partial x_{i_k}} (\xi)\right|\, .\label{e:Lag_3}
+\end{eqnarray}
+Die Stetigkeit der partiellen Ableitungen impliziert 
+\[
+\lim_{\xi\to 0} \left(\frac{\partial^k f}{\partial x_{i_1} \ldots \partial x_{i_k}} (a) -
+\frac{\partial^k f}{\partial x_{i_1} \ldots \partial x_{i_k}} (\xi)\right) = 0\, .
+\]
+$x\to a$ impliziert $\xi\to 0$ und aus \eqref{e:Lag_3} schliessen wir 
+\[
+\lim_{x\to a}\frac{\left|f(x) - T^k _a f (x)\right|}{\|x-a\|^k} = 0\, .
+\]
+\end{Bew}
+
+Falls $f$ beliebig mal differenzierbar ist (in diesem Fall schreiben wir $f\in C^{\infty}(\Omega)$; d.h. die ganzen partiellen Ableitungen existieren und sind stetig), können wir die Taylorreihe schreiben:
 \[\sum_{k=0}^\infty\frac{1}{k!}\md f^{(k)}|_x(z-x)^k\]
-Konvention:
-\[\frac{1}{0!}\md f^{(0)}|_x(z-x)^0=f(x)\]
+
 \begin{Def}
   Eine Funktion $f\in C^\infty(\Omega)$ heisst analytisch wenn $\forall x\in \Omega$ $\exists B_r(x)\subset\Omega$ mit der Eigenschaft dass:
-  \[T_x(z)=f(z)\s\forall z\in B_r(x)\]
-  \[(f\in C^\omega (\Omega))\]
+  \[T_x(z)=f(z)\s\forall z\in B_r(x)\, .\]
+In diesem Fall schreiben wir $f\in C^\omega (\Omega)$.
 \end{Def}
+
 \subsection{Das Taylorpolynom zweiter Ordnung}
+Wir schreiben noch ein Mal die Approximation mit dem Taylonrpolynom zweiter Ordnung
+f\"ur eine $C^2$ Funktion:
 \[f(z)=f(x)+\underbrace{\sum^n_{i=1}\Part{f}{x_i}(x)(z_i-x_i)}_{\seq{\nabla f(x), z-x}}\]
 \begin{equation}
   \label{e:110328gelb}
-  +\frac{1}{2}\sum^n_{i=1}\sum^n_{j=1}\frac{\partial^2f}{\partial x_i\partial x_j}(x)(z_i-w_i)(z_j-w_j)
+  +\frac{1}{2}\sum^n_{i=1}\sum^n_{j=1}\frac{\partial^2f}{\partial x_i\partial x_j}(x)(z_i-x_i)(z_j-x_j)
++ R (z)\, .
 \end{equation}
-\[+ \text{Fehler} = \sum\sum\sum\cdots(z_{i_1}-x_{j_1})(z_{i_2}-x_{i_2})(z_{i_3}-x_{i_3}\]
-Die Hessche Matrix
+Aus dem Satz \ref{s:Lag} wissen wir dass $R (z) = o (\|z-x\|^2)$. Falls $f\in C^3$ dann wissen wir noch
+mehr: $R(z) = O (\|z-x\|^3)$ (wir f\"uhren hier eine neue Notation ein: wenn $g$ eine nichtnegative Funktion
+ist, die Schreibung $R(z) = O(g(z))$ bedeutet die Existenz einer Umgebung $U$ von $x$ und einer
+Konstant $C$ s.d. $|R(z)|\leq Cg (z)$ $\forall z\in U$).
+
+Wir definieren die Hessche Matrix
 \[Hf(x)=\left( \frac{\partial f}{\partial x_i\partial x_j}(x) \right)\]
 \[ \begin{pmatrix}
   \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1\partial x_2} & \frac{\partial^2 f}{\partial x_1\partial x_3} \\
@@ -28,16 +102,19 @@ Die Hessche Matrix
 \end{pmatrix}\]
 \begin{Bem}
   Schwarz $\implies$ $Hf(x)$ ist symmetrisch wenn alle Ableitungen zweiter Ordnung stetig sind.
-  \[\underbrace{\sum_i\frac{\partial^2 f}{\partial x_1\partial x_j}(x)(z_i-x_i),\cdots,\sum_i\frac{\partial^2 f}{\partial x_n\partial x_i}(x)(z_i-x_i)}_{=Hf(x)(z-x)}\]
-  Deswegen
-  \[\sum^n_{j=1}(z_j-x_j)\sum^n_{i_1}\frac{\partial^2 f}{\partial x_j\partial x_i}(x)(z_j-x_j)=\ref{e:110328gelb}\]
-  \[=\seq{z-x, Hf(x)(z-x)}\]
-  \[=(z-x)^THf(x)(z-x)\]
-  $H$ $n\times n$ Matrix, die Abbildung
-  \[w\mapsto w^T A W (=\seq{w,Aw})\]
-  ist eine ``quadratische Form''.
 \end{Bem}
-Das Taylorpolynom zweiter Ordnung
+Wir rechnen
+ \[\underbrace{\sum_i\frac{\partial^2 f}{\partial x_1\partial x_j}(x)(z_i-x_i),\cdots,\sum_i\frac{\partial^2 f}{\partial x_n\partial x_i}(x)(z_i-x_i)}_{=Hf(x)(z-x)}\]
+und deswegen
+  \[\sum^n_{j=1}(z_j-x_j)\sum^n_{i_1}\frac{\partial^2 f}{\partial x_j\partial x_i}(x)(z_j-x_j)\]
+  \[=\seq{z-x, Hf(x)(z-x)}=(z-x)^THf(x)(z-x)\]
+  Wenn $A$ eine $n\times n$ Matrix, die Abbildung
+  \[w\mapsto w^T A w\qquad  (=\seq{w,Aw})\]
+  ist eine ``quadratische Form'' auf $\mb{R}^n$. $w^TAw$ ist das Matrix Produkt der:
+$1\times n$ Matrix $w^T$ (``eine Zeile''), $n\times n$ Matrix $A$ und $n\times 1$ Matrix
+$w$ (``eine Spalte'').
+
+Das Taylorpolynom zweiter Ordnung ist dann
 \[T^2_xf(z)=f(x)+\seq{\nabla f(x), z-x}+\frac{1}{2}(z-x)^T Hf(x)(z-x)\]
 \begin{Kor}
   Falls $f\in C^3(\Omega)$ und $B_r(x)\subset\Omega$
@@ -52,8 +129,9 @@ Das Taylorpolynom zweiter Ordnung
   \[\lim_{z\to x}\frac{f(z)-T_x^2f(z)}{\Norm{z-x}^2}=0\]
 \end{Kor}
 \begin{Bew}
-  Taylorapprozetamation mit Ordnung 1
+Die Taylorapproximation mit Ordnung 1:
   \[f(z)=T^1_xf(z)+\frac{1}{2}(z-x)^THf(\zeta)(z-x)\]
+Dann,
   \[f(z)-T_x^2f(z)=\frac{1}{2}(z-x)^THf(\zeta)(z-x)-\frac{1}{2}(z-x)^THf(x)(z-x)\]
   \[=\frac{1}{2}(z-x)^T(Hf(\zeta)-Hf(x))(z-x)\]
   \[\leq \frac{1}{2}\Norm{z-x}\Norm{Hf(\zeta)-Hf(x)(z-x)}\]
