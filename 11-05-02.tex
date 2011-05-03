@@ -1,0 +1,186 @@
+\subsection{Satz der lokalen Umkehrbarkeit}
+\begin{Sat}
+  Sei $\Phi:\underbrace{U}_{\subset\mb{R}^n}\to\mb{R}^n$ ($U$ offene Menge) eine $\mb{C}^1$-Abbildung und sei $a\in U$ so dass $\md \Phi|_a$ umkehrbar ist. Dann $\exists U_0$ offene Umgebung von $a$ so dass $V:=\Phi(U_0)$ eine offene Umgebung von $\Phi(a)$ und die Einschränkung
+  \[\Phi:U_0\to V\]
+  ein Diffeomorphismus ist.
+\end{Sat}
+\begin{Lem}(Banachscher Fixpunktsatz)
+  Sei $C\subset\mb{R}^n$ eine abgeschlossene Menge und sei $\phi:C\mapsto C$ eine Abbildung mit folgender Eigenschaft:
+  \begin{align*}
+    \Norm{\phi(x)-\phi(y)}\leq \lambda\Norm{x-y}& &\forall x,y\in C
+  \end{align*}
+  wobei $0\geq \lambda < 1$ (unabhängig von $x,y$).\\
+  Dann $\exists x\in C$ so dass $\phi(x)=x$ (d.h. $x$ ein Fixpunkt von $\phi$ ist.
+\end{Lem}
+\begin{Def}
+  Eine Abbildung
+  \[\phi:X\mapsto X\s(\text{mit $X$ metrischer Raum})\]
+  heisst Kontraktion falls $\exists \lambda <1$ so dass
+  \begin{align*}
+    \md (\phi(x),\phi(y))\leq\lambda\md(x,y)& &\forall x,y\in X
+  \end{align*}
+\end{Def}
+\subsubsection{Allgemeine Form des Fixpunktsatzes von Banach}
+\begin{Sat}
+  Jede Kontraktion auf einem \ul{vollständigen} metrischen Raum besitzt einen Fixpunkt.
+\end{Sat}
+\begin{Bew}
+  Sei $x_0\in X$ (bzw. in $C\subset\mb{R}^n$)
+  \[ \begin{pmatrix}
+    x_1=\phi(x_0)\\
+    x_2=\phi(x_1)\\
+    \vdots \\
+    x_k=\phi(x_{k-1})
+  \end{pmatrix}\]
+  Behauptungen:
+  \begin{enumerate}
+    \item $\left\{ x_k \right\}$ ist eine Cauchyfolge 
+      \[\xRightarrow{\text{Vollständigkeit von $X$}}\exists x\Limi{k}x_k\]
+    \item $\phi(x)=x$
+  \end{enumerate}
+  1 $\implies$ 2 weil
+  \[\phi(x)=\Limi{k}\phi(x_k)=\Limi{x_{k+1}}=x\]
+\end{Bew}
+\begin{Bew}
+    \[\md(x_0,x_1)=M\geq 0\]
+  \begin{eqnarray*}
+    \md(x_{k+1},x_k)=\md\left( \phi(x_k),\phi(x_{k-1}) \right)\\
+    \leq \lambda\md(x_k,x_{k-1})\leq \cdots \leq\lambda^2\md(x_{k-1},x_{k-2})\\
+    \cdots\leq \lambda^k\md(x_1,x_0)=\lambda^kM
+  \end{eqnarray*}
+  \begin{eqnarray*}
+    \md(x_{k+j}x_k)\\
+    \leq\md(x_{k+j},x_{k+j-1})+\md(x_{k+j-1},x_{k+j-2})+\cdots+\md(x_{k+1},x_{k})\\
+    \leq\lambda^{k+j-1}M+\lambda^{k+j-2}M+\cdots+M\lambda^k
+  \end{eqnarray*}
+  \begin{eqnarray*}
+    \md(x_{k+j},x_k)\leq M\lambda^k(1+\lambda+\cdots+\lambda^{j-1})\\
+    <M\lambda^k\sum^\infty_{i=0}\lambda^i\\
+    =\frac{M\lambda^k}{1-\lambda}
+  \end{eqnarray*}
+  Deswegen $\forall m>n\geq N$ ($\lambda^N\to$ für $N\to+\infty$
+  \[\md(x_m,x_n)\leq\frac{M}{1-\lambda}\lambda^N\]
+  $\forall \varepsilon>0$ $\exists N$ so dass
+  \[\frac{M\lambda^N}{1-\lambda}<\varepsilon\]
+  \begin{align*}
+    \implies\md(x_m,x_n)<\varepsilon& & \forall n>m\geq N
+  \end{align*}
+  Das ist die Cauchyeigenschaft $\implies$ $\left\{ x_k \right\}$ ist eine Cauchyfolge
+\end{Bew}
+\paragraph{Beweis des Satzes}
+\subparagraph{Schritt 1}
+Wir suchen eine Umgebung von $W$ von $\Phi(a)$, wo wir immer ein Urbild von $\in W$ finden. D.h. 
+\begin{equation}
+  \label{e:1105021}
+  \Phi(x)=y
+\end{equation}
+besitzt eine Lösung $x$.\\
+OBdA nehmen wir an $a=0$ und $\md\Phi|_a=\id$ % identität
+(In der Tat, nehmen wir an dass
+\[L=\md\Phi|_a\neq \id\]
+Sei 
+\[\Phi'=L^{-1}\circ \Phi\] und 
+\[\md\Phi'|_x=L^{-1}\circ \md\Phi|_x\]
+$\implies$ $\Phi'$ ist eine $\mb{C}^1$-Funktion.
+\[\md\Phi|_0=L^{-1}\circ\md\Phi|_0=L^{-1}\circ L=\id\]
+$\implies$ Satz an $\Phi'$ anwenden
+\[\Psi'(\Phi'(x))=x\implies \Psi'(L^{-1}(\Phi(x)))=x\]
+\[\implies\Psi:=\Phi'\circ L^{-1}\]
+die gesuchte Umkehrung von $\Phi$ ist $V:=(V')$)
+Wir wollen zeigen dass, wenn $\Norm{y-\Phi(0)}<\delta$, dann die Gleichung \ref{e:1105021} lösbar ist.
+\[\ref{e:1105021}\iff \underbrace{y+x-\Phi(x)}_{x\mapsto \phi_y(x)}=x\]
+$\phi_y:U\to\mb{R}^n$ $\exists \eta>0$ so dass
+\[\phi_y:\ol{B_\eta}(0)\mapsto \ol{B_\eta}(0)\]
+eine Kontraktion ist.
+\begin{enumerate}
+  \item $\phi_y$ bildet $\ol{B_y}(0)$ in $\ol{B_\eta}(0)$
+  \item $\Norm{\phi_y(z)-\phi_y(w)}\leq\frac{1}{2}\Norm{z-w}$
+\end{enumerate}
+Das zweite:
+\begin{eqnarray*}
+  \Norm{\phi_y(z)-\phi_y(w)}\\
+  =\Norm{y+z-\Phi(z)-y-w+\Phi(w)}\\
+  =\Norm{(\Phi(w)-\Phi(z))-(w-z)}\\
+  =\Norm{\underbrace{\Phi(w)-w}_{\Lambda(w)}-\underbrace{\Phi(z)-z}_{\Lambda(z)}}
+\end{eqnarray*}
+$\Lambda$ ist $\mb{C}^1$
+\[\md\Lambda|_0=\md\Phi|_0-\id=0\]
+\[\Norm{\md|_0}_{HS}=0\]
+$\implies$ $\exists \eta>0$ so dass
+\[B_{\leq \eta}(0)\ni x\implies\Norm{\md\Lambda|_x}_{HS}\leq\frac{1}{2}\]
+$z,w\in \ol{B_\eta}(0)$ und $\in B_\eta(0)$
+\begin{eqnarray*}
+  \Norm{\phi_y(z)-\phi_y(w)}=\Norm{\Lambda(z)-\Lambda(w)}\\
+  \stackrel{\text{Schrankensatz}}{\leq}\left( \max_{\ol{B_\eta}(0)}\Norm{\md\Lambda}_O \right)\Norm{z-w}\\
+  \frac{1}{2}\Norm{z-w}
+\end{eqnarray*}
+\[\phi_y(0)=y-\Phi(0)+0=y-\Phi(0)\]
+$\delta=\frac{\eta}{2}$, $\Norm{\phi_y(0)}\leq\frac{1}{2}$. Sei $z\in\ol{B_\eta}(0)$
+\begin{eqnarray*}
+  \Norm{\phi_y(z)}\Norm{\phi_y(z)-\phi_y(0)}+\Norm{\phi_y(0)}\\
+  <\Norm{\phi_y(z)-\phi_y(0)}+\frac{\eta}{2}\\
+  \leq\frac{1}{2}\Norm{z-0}+\frac{\eta}{2}\\
+  \leq \frac{1}{2}\eta+\frac{1}{2}\eta\\
+  =\eta\\
+  \implies\Norm{\phi_y(z)}<\eta
+\end{eqnarray*}
+So 
+\[\phi_y:\ol{B_\eta}(0)\mapsto B_\eta(0)\]
+Banach: $\forall y\in B_{\frac{\eta}{2}}(\Phi(0))$, $\exists x \in B_\eta(0)$ und $\in \ol{B_\eta}(0)$ mit
+\[\phi_y(x)=x\iff\Phi(x)=y\]
+Sei $V:=B_\delta(\Phi(0))$ (offen und Umgebung von $\Phi(0)$)
+\begin{align*}
+  \underbrace{B_\eta(0)\cap\Phi^{-1}(V)}_{\text{ist eine offene Menge}}=U_0 & & (\text{offen und Umgebung von 0})
+\end{align*}
+\[Phi:U_0\to V\]
+\begin{enumerate}
+  \item $\Phi$ ist surjektiv: $\forall y\in V$, $\exists x\in B_\eta(0)$ mit $\Phi(x)=y$
+    \[\implies x\in \Phi^{-1}(V)\cap B_\eta(0)=U_0\]
+  \item $\Phi$ ist injektiv
+    \begin{eqnarray*}
+      \Norm{\Phi(x)-\Phi(z)}=\Norm{(x+\Lambda(x))-(z+\Lambda(z))}\\
+      \implies\Norm{\Phi(x)-\Phi(z)}\\
+      \leq\Norm{x-z}-\Norm{\Lambda(x)-\Lambda(z)}\\
+      \leq\Norm{x-z}-\frac{1}{2}\Norm{x-z}\\
+      \leq\frac{1}{2}\Norm{x-z}\\
+    \end{eqnarray*}
+    $\implies$ $\Phi$ ist injektiv. (Alternativerweise wenn $\phi$ eine Kotraktion ist, der Fixpunkt ovn $\phi$ ist eindeutig: $\phi(p)=p$, $\phi(q)=q$
+    \begin{eqnarray*}
+      \md(p,q)=\md(\phi(p),\phi(q))\\
+      \leq\lambda\md(p,q)\\
+      (1-\lambda)\md(p-q)\leq 0\\
+      \xRightarrow{\lambda<1}\md(p,q)=0\\
+      \implies p=q
+    \end{eqnarray*}
+\end{enumerate}
+\subparagraph{Schritt 2}
+Sei $\Phi:V\mapsto U_0$ die Umkehrfunktion von $\Phi$. $\Psi$ ist stetig. Seien $\xi, \zeta\in V$, $x=\Phi(\xi), z=\Phi(\zeta)$ $\implies$ $\Phi(x)=\xi$, $\Phi(z)=\zeta$. Aber:
+\begin{eqnarray*}
+  \Norm{\Phi(x)-\Phi(z)}\leq\frac{1}{2}\Norm{x-z}\\
+  \implies \underbrace{2\Norm{\xi-\zeta}\geq \Norm{\Psi(\xi)-\Phi(\zeta)}}_\text{Lipschitz-Bedingung für $\Phi$: stetig}
+\end{eqnarray*}
+\subparagraph{Schritt 3}
+\begin{Bem}
+  $\Phi:U_0\to V$ ist differenzierbar und $\md\Phi|_x$ ist umkehbar $\forall x\in U_0$.
+  \[\Phi(x)=x-\Lambda(x)\]
+  \[\md\Phi|_x=\id-\md\Lambda|_x\]
+  Wir wissen, dass
+  \begin{align*}
+    \Norm{\md\Lambda|_x}_{HS}\leq\frac{1}{2}& &\forall x\in U_0\subset B_\eta(0)
+  \end{align*}
+  \[\md\Phi|_x(v)=v-\md\Lambda|_x(v)\]
+  \begin{eqnarray*}
+    \Norm{\md\Phi|_x(v)}\\
+    \geq \Norm{v}-\Norm{\md\Lambda|_x(v)}\\\
+    \geq\Norm{v}-\frac{1}{2}\Norm{v}\\
+    \geq\frac{1}{2}\Norm{v}
+  \end{eqnarray*}
+  $\implies$ $\Ker(\md\Phi|_x)=\left\{ 0 \right\}$ $\implies$ $\md\Phi|_x$ ist injektiv $\implies$ Surjektivität $\implies$ $\md\Phi|_x$ ist umkehrbar
+\end{Bem}
+\begin{Lem}
+  Falls $\Phi:U_0\to V$ eine $\mb{C}^1$ umkehrbare Abbildung so dass
+  \begin{itemize}
+    \item $\md\Phi|_x$ umkehrbar $\forall x\in U_0$ ist
+    \item die Umkehrfunktion $\Psi:V\to U_0$ stetig ist, dann ist auch $\Psi$ eine $\mb{C}^1$ Abbildung.
+  \end{itemize}
+\end{Lem}
