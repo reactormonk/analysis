@@ -1,0 +1,152 @@
+\begin{Sat}
+  \[\phi=(\phi_1,\cdots,\phi_j):\underbrace{\mb{R}^{j+k}}\to\mb{R}^k\]
+  ist eine $\mb{C}^1$-Abbildung.
+  \[E=\left\{ q:\phi(q)=0 \right\}\]
+  Sei $f:U\to\mb{R}$ ist eine $\mb{C}^1$-Funktion. Sei $p\in E$ so dass
+  \begin{align*}
+    f(p)\geq f(q)&&\forall q\in E
+  \end{align*}
+  $f(p)=\max_{q\in E}f$. Bzw. $f(p)\leq f(q)$ für Minimum. Falls der Rang $\md\phi|_p$ maximal ist (d.h. $=k$), dann $\exists \lambda_1,\cdots,\lambda_k\in\mb{R}$ so dass
+  \[\nabla f=\lambda_1\nabla \phi_1,\cdots,\lambda_j \nabla\phi_j\]
+  $\lambda_1,\cdots,\lambda_n$ sind die Multiplikatoren von Lagrange.
+\end{Sat}
+\begin{Bew}
+  $\md\phi|_p$ eine $j\times n+j$ Matrix. $j$ Zeilen, $n+j$ Spalten $\implies$ die Zeilen sind linear unabhängige Vektoren. $\implies$ $\exists$ $j$ linear unabhängige Spalten. OBdA sind die $j$-Spalten die letzten (rechts). Seien $(x_1,\cdots,x_n,y_1,\cdots,y_j)$ ein System von Koordinaten in $\mb{R}^{n+j}$
+  \[\md\phi|_p=(\md_x\phi|_p\underbrace{\md_y\phi|_p}_{j\times j \text{$j$-Matrix}})\]
+  Die $j$-Matrix hat Rang $j$ $\implies$ ist umkehrbar. Theorem über die implizite Funktion: $\exists$ $U$ von $a$ und $\exists V$ von $b$ und eine $\mb{C}^1$ Abbildung $g:U\to V$ so dass
+  \[E\cap U\times V=\left\{ \phi=0 \right\}\cap U\times V=\left\{ (x,g(x)):x\in U \right\}\]
+  Betrachte: $h:U\to\mb{R}$ $h(x)=f(x,g(x))$ in $U$ ist $a$ eine Maximumstelle von $h$
+  \begin{eqnarray*}
+    h(a)=f(p)\\
+    h(x)=f(\underbrace{x,g(x)}_{q\in E})\implies h(a)\geq h(x)\\
+    \implies \md_x h|_a=0
+  \end{eqnarray*}
+  Kettenregel:
+  \begin{eqnarray*}
+    \md_x h|_a=\md_xf|_{\underbrace{(a,g(a))}_p}+\md_yf|_p\md_xg|_a\\
+    \implies 0=\md_xf|_p+\md_yf|_p\md_xg|_a
+  \end{eqnarray*}
+  Sei $\Psi(x)=(x,g(x))$
+  \begin{eqnarray*}
+    \md f=(\md_xf\md_yf)\\
+    \md\Psi|_a = \begin{pmatrix}
+      1&0&\cdots&0\\
+      0&1&\cdots&0\\
+      \vdots&\vdots&\vdots&\vdots\\
+      0&0&\cdots&0\\
+      \Part{g_1}{x_1}&&\cdots&\Part{g_1}{x_n}\\
+      \vdots&\vdots&\vdots&\vdots\\
+      \Part{g_j}{x_n}&&\cdots&\Part{g_j}{x_n}
+    \end{pmatrix} = \begin{pmatrix}
+      \id\\
+      \md_xg|_a
+    \end{pmatrix}\\
+    \md h|_a=\md f|_{\underbrace{\Psi(a)}_p}\md \psi|_a\\
+    = \md_x f|_p+\md_yf|_p\md_xg|_a\\
+    D=\begin{pmatrix}
+      \md_xf|_p&\md_yf|_p\\
+      \md_x\phi|_p&\md_y\phi|_p
+    \end{pmatrix}= \begin{pmatrix}
+      A&B
+    \end{pmatrix}\\
+    \md_xf|_a=-\md_yf|_p\md_xg|_a
+  \end{eqnarray*}
+  Aber 
+  \[\md_xg|_a=-(\md_y\phi|_p)^{-1}\md_x\phi|_p\]
+  \begin{eqnarray*}
+    \phi(x,g(x))=0\\
+    \md_x\phi+\md_y\phi\md_xg=0\\
+    \implies \md_xg=-(\md_y\phi)^{-1}\md_x\phi
+  \end{eqnarray*}
+  \[ \cdots \md_xf|_a=-\md_yf|_p\md_xg|_a=\md_yf|p(\md_y\phi|_p)^{-1}\md_x\phi\]
+  so:
+  \[A:=\begin{pmatrix}
+    \md_x f\\
+    \md_x\phi
+  \end{pmatrix}\]
+  \[B:= \begin{pmatrix}
+    \md_yf\\
+    \md_y\phi
+  \end{pmatrix}\]
+  \begin{eqnarray*}
+    \md_xf&=\md_yf(\md_y\phi)^{-1}\md_x\phi=\md_yf C\\
+    \md_x\phi&=\md_y\phi(\md_y\phi)^{-1}\md_x\phi=\md_y\phi C
+  \end{eqnarray*}
+  $\iff A=BC$ $\implies$ jede Spalte von $A$ ist eine lineare Kombination der Spalten von $B$ $\implies$ Rang $D$ $\leq j$. Allerdings ist Rang $D$ $=j$. $j+1$ Zeilen in $D$.
+  \[\begin{pmatrix}
+    \Part{f}{x_1}&\cdots&\Part{f}{x_n}&\Part{f}{y_1}&\cdots&\Part{f}{y_j}\\
+    \Part{\phi}{x_1}&\cdots&\Part{\phi}{x_n}&\Part{\phi}{y_1}&\cdots&\Part{\phi}{y_j}\\
+    \vdots&&\vdots&\vdots&&\vdots\\
+    \Part{\phi_j}{x_1}&&&&&\Part{\phi_j}{y_j}
+  \end{pmatrix}\]
+  $\implies$ $\exists$ $\mu_0,\cdots,\mu_j$ so dass
+  \[\mu_0\nabla f(p)+\frac{\mu_1}{\mu_0}\nabla\phi_1(p)+\cdots+\frac{\mu_j}{\mu_0}\nabla\phi(p)=0\]
+  $\mu_0\neq 0$ $\implies$ Sei $\lambda=-\frac{\mu_i}{\mu_0}$
+  \[\implies\nabla f(p)=\Lambda_1\nabla\phi_1(p)+\cdots+\nabla_j\nabla\phi_j(p)\]
+  $\mu_0$ $\implies$ Rang $(\md_x\phi \md_y\phi)$ $\leq j-1$ nicht möglich weil Rang $=j$
+\end{Bew}
+\begin{Lem}
+  Seien $A,B$ und $C$ so dass $A=BC$. Dann sind die Spalten von $A$ Linearkombinationen der Spalten von $B$.
+\end{Lem}
+\begin{Bew}
+  $A$ ist eine $n\times k$ Matrix, $B$ eine $n\times j$ Matrix und $C$ eine $j\times k$ Matrix
+  \begin{eqnarray*}
+    A=(a_{il})\\
+    B=(b_{\alpha\beta}\\
+    C=(C_st)\\
+    a_{il}=\sum^j_{\alpha=1}b_{i\alpha}c_{\alpha l}
+  \end{eqnarray*}
+  Die $\lambda$ Spalte von $A$ ist
+  \begin{eqnarray*}
+    \begin{pmatrix}
+      a_{1\lambda}\\
+      a_{2\lambda}\\
+      \vdots\\
+      a_{n\lambda}\\
+    \end{pmatrix} = \begin{pmatrix}
+      \sum^j_{\alpha=1}b_{1\alpha}c_{\alpha\lambda}\\
+      \vdots\\
+      \sum^j_{\alpha=1}b_{n\alpha}c_{\alpha\lambda}\\
+    \end{pmatrix}\\
+    \underbrace{\begin{pmatrix}
+      a_{1\lambda}\\
+      \vdots\\
+      a_{n\lambda}
+    \end{pmatrix}}_{\text{Die $\lambda$-Spalte von $A$}}
+    = \underbrace{\mu_1\begin{pmatrix}
+      b_{11}\\\vdots\\ b_{n1}
+    \end{pmatrix}}_{\text{erste Spalte von $B$}}
+    + \underbrace{\mu_2\begin{pmatrix}
+      b_{12}\\\vdots\\ b_{n2}
+    \end{pmatrix}}_{\text{zweite Spalte}}
+    + \cdots
+    + \mu_j\begin{pmatrix}
+      b_{1j}\\\vdots\\ b_{nj}
+    \end{pmatrix}
+  \end{eqnarray*}
+\end{Bew}
+\begin{Sat}
+  $\left\{ \phi(x,y,z)=0 \right\}=E$ $x_0,y_0,z_0$ eine Extremalstelle von $f$ auf $E$:
+  \[\nabla f(x_0,y_0,z_0)=\lambda\nabla\phi(x_0,y_0,z_0)\]
+  \[\begin{cases}
+    \phi(x_0,y_0,z_0)=0\\
+    \Part{f}{x}(x_0,y_0,z_0)=\lambda\Part{\phi}{x}(x_0,y_0,z_0)\\
+    \Part{f}{y}(x_0,y_0,z_0)=\lambda\Part{\phi}{y}(x_0,y_0,z_0)\\
+    \Part{f}{z}(x_0,y_0,z_0)=\lambda\Part{\phi}{z}(x_0,y_0,z_0)
+  \end{cases}\]
+\end{Sat}
+\section{Integration in $\mb{R}^n$}
+\begin{Def}
+  Wir betrachten halboffene Würfel:
+  \[W:= [a_1,b_1[\times [a_2,b_2[ \times \cdots\times [ a_n,b_n [ \]
+  Mass (Volumen) von $R$
+  \[\abs{R}:=\prod_{i=1}^n(b_i-a_i)\]
+\end{Def}
+\begin{Def}
+  Eine beschränkte Menge $\Omega\subset\mb{R}^n$ ist Peano-Jordan massbar falls $\forall \varepsilon>0$ $\exists L_1$ und $L_2$ endliche Familien von disjunkten halboffenen Würfel gibt mit:
+  \begin{enumerate}
+    \item $\bigcup_{R\in L_1}\subset\Omega\subset\bigcup_{R\in L_2}R$
+    \item $\sum_{R\in L_2}\abs{R}-\sum_{R\in L_1}\abs{R}<\varepsilon$
+  \end{enumerate}
+  % TODO Skizze
+\end{Def}

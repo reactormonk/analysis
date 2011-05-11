@@ -1,0 +1,141 @@
+\subsection{Satz über implizite Funktionen}
+Wir nutzen die Koordinaten $(x,y) = (x_1,\cdots,x_k,y_1,\cdots,y_n)\in\mb{R}^n\times\mb{R}^k$
+\begin{Sat}
+  Sei $f:U\to\mb{R}^k$ eine $\mb{C}^1$ Abbildung (wobei $U$ eine offene Menge in $\mb{R}^n\times\mb{R}^k$ ist). Sei $(a,b)\in U$ mit der Eigenschaft dass $\md_y f$ umkehrbar ist und $f(a,b)=0$. Vom letzten Mal:
+  \[\md f=(\underbrace{\md_x f}_{J_{fx}}, \underbrace{\md_y f)}_{J_{fy}}\]
+  Dann: $\exists$ $U', U''$ Umgebungen von $a$ und $b$ und eine $\mb{C}^1$-Abbildung $g:U'\to U''$ so dass
+  \[\left\{ (x,y)\in U'\times U''\s f(x,y)=0 \right\}=\left\{ (x,y(x))\s x\in U' \right\}\]
+\end{Sat}
+% TODO Skizze (Bsp)
+\begin{Bew}
+  Sei $\Phi:U\to\mb{R}^n\times\mb{R}^k$
+  \[\Phi(x,y)=(\underbrace{x}_{\in\mb{R}^n},\underbrace{f(x,y)}_{\in\mb{R}^k})\in\mb{R}^n\times\mb{R}^k\]
+  \[\md\Phi|_{(a,b)}= \begin{pmatrix}
+    1 & & 0 & & \\
+    & \ddots & 1 & 0 & \\
+    0 & & 1 & & \\
+    & & & & \\
+    & \md_x f & & \md_y f \\
+    & & & & \\
+  \end{pmatrix} \]
+  Letztes Mal: $\md\Phi|_{(a,b)}$ ist umkehrbar. Deswegen $\exists$ $U_0$ offene Umgebung von $(a,b)$, $\exists$ $V$ offene Umgebung von $(a,0)=\Phi(a,b)$ und $\Psi:V\to U_0$ $\mb{C}^1$-Abbildung so dass
+  \[\Psi(\Phi(x,y))=\Phi(\Psi(x,y))=(x,y)\]
+  d.h. $\Psi=\left( \Phi|_{U_0} \right)^{-1}$
+  \begin{eqnarray*}
+    \mb{R}^n\times\mb{R}^k\ni\Psi(x,y)=(\underbrace{\xi(x,y)}_{\in\mb{R}^n},\underbrace{\zeta(x,y))}_{\mb{R}^k}\s\forall (x,y)\in V\\
+    (x,y)=\Phi(\Psi(x,y))=\Phi(\xi(x,y),\zeta(x,y))\\
+    \implies (x,y)=(\xi(x,y), f(x,\zeta(x,y)))\\
+    \iff \begin{cases}
+      x=\xi(x,y)\\
+      y=f(x,\zeta(x,y))
+    \end{cases}\implies \Psi(x,y)=(x,\zeta(x,y)) \\
+  \end{eqnarray*}
+  Aus der zweiten Gleichung $0=f(x,\overbrace{\zeta(x,0)}^{y(x)}$. Deswegen enthält $V$ $(0,0)$. Deswegen $\exists r > 0$ so dass
+  \[\underbrace{B^n_r(a)}_{\mb{R}^n}\times \underbrace{B^k_r(0)}_{\mb{R}^k}\subset V\]
+  Sei $U'=B_r^n(a)$
+  \begin{eqnarray*}
+    \Psi(B^n_r(a)\times B_r^k(0))=\text{offene Menge}\\
+    \supset B^n_r(a)\times B_p(b)\s \exists p\\
+  \end{eqnarray*}
+    weil $\Psi(0,0)=(a,\underbrace{\zeta(a,0)}_{\text{soll $b$ sein weil $\Psi$ die Umkehrung von $\Phi$ ist}})$ und $f(a,\zeta(a,0))=0$. $g$ ist eine stetige Funktion
+    \begin{eqnarray*}
+      g(a)=\zeta(a,0)=b\\
+      g^{-1}(B_p(b))=:U'
+    \end{eqnarray*}
+    $U'$ ist eine offene Menge und enthält $a$.
+    \begin{eqnarray*}
+      B_p(b)=U''\\
+      g:\underbrace{U'}_{\text{Umgebung von $a$}} \to\underbrace{U''}_{\text{Umgebung von $b$}}\\
+      f(x,g(x))=0\implies \left\{ (x,y)\in U'\times U'':f(x,y)=0 \right\}\supset \left\{ (x,g(x)): x\in U' \right\}
+    \end{eqnarray*}
+    Sei $(x,y)\in U'\times U'': f(x,y)=0$. Aber
+    \[(x,y)\in U_0\implies \Phi(x,y)=(x,f(x,y))=(x,0)\in V  \implies\Psi(x,0)=(x,y)\]
+    weil $\Psi$ die Umkehrung von $\Phi$ ist
+    \begin{eqnarray*}
+      \Psi(x,0)=(x,\zeta(x,0))=(x,g(x))\implies y=g(x)\\
+      \implies \left\{ (x,y=\in U'\times U'':f(x,y)=0 \right\}\subset \left\{ (x,g(x)):x\in U' \right\}\\
+    \end{eqnarray*}
+\end{Bew}
+\begin{Bem}
+  Seien $f$ und $g$ wie im letzten Sat. Dann
+  \begin{align*}
+    \underbrace{f}_{\mb{C}^1}(x,\underbrace{g(x))}_{\mb{C}^1}=0&&\forall x\in U'
+  \end{align*}
+  \begin{eqnarray*}
+    \implies \md (f(x,g(x)))|_{x_0}=0\\
+    \md f|_{(x_0,g(x_0))}(\md(x,g(x)))|_{x_0}\\
+    \md f|_{(x_0,g(x_0))}=\left( \underbrace{\md_x f|_{(x_0,g(x_0))}}_{n\times k}, \underbrace{\md_y f|_{(x_0,g(x_0))}}_{k\times k} \right)
+  \end{eqnarray*}
+  Darstellung von $\md(x,g(x))|_{x_0}$
+  \[ \begin{pmatrix}
+    \id \\ \md g|_{x_0}
+  \end{pmatrix} \]
+  $\xRightarrow{\text{Matrix-Produkt}}$
+  \begin{eqnarray*}
+    \md (f(x,g(x)))|_{x_0}=\md_x f|_{(x_0,g(x_0))} + \md_y f|_{(x_0,g(x_0))} \md g|_{x_0}\\
+    \md|_{(x_0,g(x_0))}\md_xg|_{x_0}=-\md_x f|_{(x_0,g(x_0))}\\
+    \implies \md_x g|_{x_0}= - \left( \md_yf|_{(x_0,g(x_0))} \right)^{-1}\left( \md_xf|_{(x_0,g(x_0))} \right)
+  \end{eqnarray*}
+\end{Bem}
+\begin{Bsp}
+  $k=n+1$
+  \[f(x_1,y_1)=0\]
+  \[\Part{f}{y_1}(a,b)\neq 0\]
+  \begin{eqnarray*}
+    \exists g:U'\to U''\s\text{mit}\s f(x,g(x))=0\\
+    \implies 0=\Part{f}{x_1}(x_1,g(x_1))+\Part{f}{y_1}(x_1,g(x_1))g'(x_1)\\
+    \implies g'(x_1)= - \frac{\Part{f}{x_1}(x_1,g(x_1))}{\Part{f}{y_1}(x_1,g(x_1)}
+  \end{eqnarray*}
+\end{Bsp}
+\subsection{Untermannigfaltigkeiten}
+\begin{Def}
+  Eine Menge $E\subset\mb{R}^N$ ist eine $\mb{C}^1$-Untermannigfaltigkeit mit Dimension $k$ falls $\forall p\in E$ die folgende Eigenschaft gilt: $\exists$ eine Ordnung der Koordinaten $(x_1,\cdots,x_{N-k}, y_1,\cdots,y_n$ so dass
+  \begin{itemize}
+    \item $p=(\underbrace{a}_{\in\mb{R}^n\times \mb{R}^k},b)$
+    \item $\exists$ $U,V$ von $a$ und $b$ (Umgebungen)
+    \item $\exists f:U\to V$ $\mb{C}^1$ so dass
+      \[(U\times V)\cap E= \left\{ (x,f(x)):x\in U \right\}\]
+  \end{itemize}
+\end{Def}
+% TODO Bsp
+\begin{Def}
+  Sei $N\geq k+1$ $f:\underbrace{U}_{\mb{R}^N}\to\mb{R}^k$ eine $\mb{C}^1$-Abbildung. $c\in\mb{R}^k$ heisst ein regilärer Wert falls $\forall x_0\in U$ so dass $f(x_0)=c$ hat das Differential $\md f|_{x_0}$ Rang $k$ (maximaler Rang)
+\end{Def}
+\begin{Sat}
+  Falls $c$ ein regulärer Wert ist, dann 
+  \[f^{-1}(\left\{ c \right\})=\left\{ z:f(z)=c \right\}\]
+  ist eine Untermannigfaltigkeit mit Dimension $N-k$.
+\end{Sat}
+\begin{Bew}
+  Sei $p$ so dass $f(p)=c$
+  \[\md f|_p= \left( \underbrace{\Part{f}{z_1}}_{\begin{pmatrix} \Part{f_1}{z_1}\\ \vdots \\ \Part{f_k}{z_1}\end{pmatrix}},\cdots\Part{f}{z_2},\cdots,\Part{f}{z_N} \right)\]
+  Neue Ordnung der Koorddinaten:
+  \begin{eqnarray*}
+    \md f|_p=\left( \Part{f}{x_1},\cdots,\Part{f}{x_{N-k}},\Part{f}{y_1},\cdots,\Part{f}{y_k} \right)\\
+    = (\md_x f|_p, \md_y f|_p)
+  \end{eqnarray*}
+  Rang $k$ $\implies$ $\exists$ $k$ linear unabhängige Spalten. $\xRightarrow{\text{Satz über implizite Funktionen}}$ $\exists$ $\underbrace{U'\times U''}_U$ Umgebung von $p=(a,b)$ so dass
+  \[U\cap E=\left\{ q\in U:f(q)-c=0 \right\}=\left\{ (x,g(x)):x\in U' \right\}\]
+\end{Bew}
+\subsection{Die Multiplikationsregel von Lagrange}
+\begin{Sat}
+  Sei $U\subset\mb{R}^n$ und seien $(\phi_1,\cdots,\phi_j)$ die Nebenbedingungen. D.h. $j$ verschiedene Funktionen $\phi_i:U\to\mb{R}$. Sei $f:U\to\mb{R}$ eine $\mb{C}^1$-Funktion und $p$ ein Punkt wo die Funktion $f$ das Maximum (bzw. das Minimum) mit Nebenbedingungen erreicht.
+  \[(\phi_1(p)=\cdots=\phi_j(p)=0\s\text{und}\s f(p)\geq f(q)\s\forall\s\text{mit}\s\phi_1(q)=\cdots\phi_j(q)=0\]
+  Falls $\nabla\phi_1(p),\cdots,\nabla\phi_j(p)$ linear unabhängige Vektoren sind, dann: $\exists \lambda_1,\cdots,\lambda_j$ so dass
+  \[\nabla f(p)=\lambda_1\nabla\phi_1(p)+\cdots+\lambda_j\nabla\phi_j(p)\]
+  (Multiplikatorregel)
+\end{Sat}
+\begin{Bem}
+  (NB) + (MR) ist eine System von Gleichungen mit Unbekannten $\lambda_1,\cdots,\lambda_j, p$
+\end{Bem}
+\begin{Bem}
+  $ \underbrace{\begin{pmatrix}
+    \nabla\phi_1\\ \vdots \\ \nabla\phi_j
+  \end{pmatrix}}_{j\times n \s\text{Matrix}} $ sind die Zeilen von $\md \phi$. Lineare Unabhängigkeit $\implies$ $\md \phi|_p$ hat maximaler Rang, d.h. $j$. 
+  \[\xRightarrow{\text{Satz über die impliziten Funktionen}} \text{(NB)}\implies \iff \left\{ \phi=0 \right\}\iff \left\{ (x,g(x)), x\in U' \right\}\]
+  in einer Umgebung $U'\times U''$.
+  Sei $(x_0,g(x_0))=p$. $f$ hat ein Maximum in $p$ unter (NB).
+  \[\implies x\mapsto f(x,g(x))=h(x)\]
+  hat ein Maximum in $x0$
+  \[\implies\md h|_{x_0}=0\implies\text{(MR)}\]
+\end{Bem}

@@ -1,0 +1,116 @@
+\begin{Lem}
+  Sei $\Phi:U\to V$ eine $\mb{C}^1$ umkehrbare Abbildung ($U,V\subset\mb{R}^n$ offene Menge). Sei $\Psi:V\to U$ die Umkehrfunktion von $\Phi$. Wenn $\Psi$ stetig ist und $\md \Phi|_x$ umkehrbar $\forall x$ ist, dann ist auch $\Psi$ eine $\mb{C}^1$-Abbildung.
+\end{Lem}
+Mit dem Lemma schliessen wir den dritten Schritt des Beweises der lokalen Umkehrbarkeit.
+  Es genügt die differenzierbarkeit von $\Psi$ zu zeigen. In diesem Fall:
+  \[\md\Psi|_y= (\md\Phi|_{\Psi(y)})^{-1}\]
+  Falls $M(y)$ die Jacobimatrix von $\md\Psi|_y$ und $N(x)$ die Jacobimatrix von $\md\Phi|_x$ ist
+  \[M_{ij}(y)=(N(\Psi(y))^{-1}_{ij}=\frac{(-1)^{i+j}}{\det N(\Psi(y))}\det C\circ f^{ij}(N(\Psi(y)))\]
+  \[C\circ f^{ij}= \begin{pmatrix} \cdots \end{pmatrix}\]
+  $C\circ f^{ij}$ ist die Matrix $\in ( (n-1)\times (n-1))$ die wir von $N$ erhalten, wenn wir die $i$-te ZEile und die $j$-te Spalte löschen. $\implies$ die Koeffizienten $M_{ij}(y)$ ist eine stetige Funktion.
+  \[M_{ij}(y)=\Part{\Psi_i}{y_j}\]
+  Diff von $\Psi$. Wir fixieren $y\in V$
+  \[\Psi(y_0)\implies\Phi(x_0)=y_0\]
+  Wir setzen
+  \[L:=(\md\Phi|_{x_0})^{-1}\]
+  Sei $\Phi'=L\circ\Phi$, $\Phi\in\mb{C}^1$
+  \[\md\Phi'|_{x_0}L\circ\md\Phi|_{x_0}=\id\]
+  \[\md\Phi'|_x=\underbrace{L\circ\md\Phi|_x}_{\text{umkehrbar}}\]
+  Dann ist $\Psi'=\Psi\circ L^{-1}$ die Umkehrfunktion von $\Phi'$
+\begin{Beh}
+  $\Phi'$ ist an der Stelle 
+  \[y_0'=\Phi'(x_0)=L(\Phi(x_0))=L(y_0)\]
+  differenzierbar $\implies$ $\Psi=\Psi'\circ L$ ist an der Stelle $y_0$ differenzierbar
+  \[\md\Psi|_{y_0}=\md\Psi'|_{L(y_0)}\]
+\end{Beh}
+OBdA können wir zusätzlich annehmen $\md\Phi|_{x_0}=\id$
+\begin{Bem}
+  $\exists B_\delta(y_0)$ so dass 
+  \[\Norm{\Psi(z)-\Psi(w)}\leq 2\Norm{z-w}\]
+  Falls $\delta$ klein genug ist, $\underbrace{\Psi(z)}_\zeta$ und $\underbrace{\Psi(w)}_\omega$ in einer Umgebung von $x_0$
+  \begin{eqnarray*}
+    \Norm{(\Phi(\zeta)-\Phi(\omega))-(\zeta-\omega)}=\Norm{\underbrace{(\Phi(\zeta)-\zeta)}_{\Lambda(\zeta)}-\underbrace{(\Phi(\omega)-\omega)}_{\Lambda(\omega)}}\\
+    \md\Lambda|_{x_0}=\md\Phi|_{x_0}-\id =0\\
+    \implies\Norm{\md\Lambda|_x}_O\leq\frac{1}{2}\s\forall x\in \ol{B_\varepsilon(x_0)}\\
+    \leq\max_{x\in \ol{B_\varepsilon(x_0)}}\Norm{\md\Lambda|_x}_O\Norm{\zeta-\omega}\\
+    \implies \Norm{(\Phi(\zeta)-\Phi(\omega))-(\zeta-\omega)}\leq\frac{1}{2}\Norm{\zeta-\omega}\\
+    % TODO fit that in somewhere: \Norm{\zeta-\omega}-\Norm{\Phi(\zeta)-\Phi(\omega)}
+    \implies \frac{1}{2}\Norm{\zeta-\omega}\leq\Norm{\Phi(\zeta)-\Phi(\omega)}\\
+    \implies \frac{1}{2}\Norm{\Psi(z)-\Psi(w)}\leq\Norm{z-w}\\
+    \Norm{\Psi(z)-\Psi(w)}\leq2\Norm{z-w}\\
+    \Phi(x)-\Phi(x_0)=\underbrace{\md\Phi(x_0)}_{\id} (x-x_0)+\underbrace{R(x)}_{o(\Norm{x-x_0}}\\
+    \overbrace{\Phi(x)}^{y\iff x=\Psi(y)}-\Phi(x_0)=(x-x_0)+R(x)\\
+    y-x_0=\Psi(y)-\Psi(y_0)+R(\Psi(y))\s\forall y\in B_\delta(y_0)\\
+    \implies (\Psi(y)-\Psi(y_0))=\id (y-y_0)-R(\Psi(y))\\
+  \end{eqnarray*}
+  Für die differenzierbarkeit brauchen wir $R(\Psi(y))=o(\Norm{y-y_0})$
+  \begin{eqnarray*}
+    \frac{\abs{R(\Psi(y))}}{\Norm{y-y_0}}=\frac{\abs{\Psi(y))}}{\Norm{\Psi(y)-\Psi(y_0)}} \frac{\Norm{\psi(y)-\Psi(y_0)}}{\Norm{y-y_0}}\leq 2\frac{\abs{R(\Psi(y))}}{\Norm{y-x_0}}\\
+    \lim_{y\to y_0}2\frac{\abs{R(\Psi(y))}}{\Norm{y-x_0}}=\lim_{x\to x_0}\frac{\abs{R(x)}}{\Norm{x-x_0}}=0\\
+    y\to y_0\implies \Psi(y)\to\Psi(y_0)
+  \end{eqnarray*}
+\end{Bem}
+\subsection{Lösungen von Gleichungen}
+Der Satz über implizite Funktionen
+\[x^2+bx+c=0\iff(x,b,c)\in \s\text{Nullstellen von}\s f\]
+\[f(x,b,c)=x^2+bx+c\]
+Die Gleichung zu lösen $\iff$ Es gibt eine Funktion $g$ so dass $x=g(b,c)$ die Gleichung löst.
+\begin{align*}
+  f(x,a)=0 & & x\in\mb{R}, a\in\mb{R}
+\end{align*}
+% TODO Skizze
+Sei $(x_0,a_0)$ Nullstelle. Gibt es in einer Umgebung von $(x_0,a_0)$ eine ``Formel'' $x=g(a)$ für die Lösungen?
+\paragraph{Allgemein}
+Sei $f:\underbrace{U}_{\mb{R}^n=\mb{R}^{k+m}}\to\mb{R}^k$. $z\in\mb{R}^{k+m}$ schreiben wir als 
+\[z=(\underbrace{x_1,\cdots,x_n}_x, \underbrace{y_1,\cdots,y_m}_y)=(x,y)\]
+Das System
+\[\begin{cases}
+  f_1(x_1,\cdots,x_k,y_1,\cdots,y_m)=0\\
+  f_2(x_1,\cdots,x_k,y_1,\cdots,y_m)=0\\
+  \vdots \\
+  f_k(x_1,\cdots,x_k,y_1,\cdots,y_m)=0
+\end{cases} \iff f(x,y)=0\]
+\begin{Sat}
+  Sei $f:U\to\mb{R}^k$ eine $\mb{C}^1$ Abbildung und $(\bar x, \bar y)$ eine Nullstelle von $f$. Falls $\md_xf|_{\bar x,\bar y}$ umkehrbar ist dann $\exists$ $U,V$ Umgebungen von $\bar y$ und $\bar x$ und eine $\mb{C}^1$ Funktion
+  \[g:U\to V\s\text{so dass}\s \left\{ (g(y),y) \right\}=\left\{ f=0 \right\}\cap V\times U\]
+\end{Sat}
+\begin{Bem}
+  Jacobi Matrix für $\md_xf|_{(\bar x, \bar y)}$
+  \[ \begin{pmatrix}
+    % TODO markiere x_1 bis x_k
+    \Part{f_1}{x_1}&\Part{f_1}{x_2}&\cdots&\Part{f_1}{x_k}&\Part{f_1}{y_1}&\cdots&\Part{f_1}{y_m}\\
+    \Part{f_2}{x_1}&\Part{f_2}{x_2}&\cdots&\Part{f_2}{x_k}&\Part{f_2}{y_1}&\cdots&\Part{f_2}{y_m}\\
+    \vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\
+    \Part{f_k}{x_1}&\Part{f_k}{x_2}&\cdots&\Part{f_k}{x_k}&\Part{f_k}{y_1}&\cdots&\Part{f_k}{y_m}\\
+  \end{pmatrix}\]
+  % TODO Skizze
+  $f=f_1$, $(x_1,y_1)$
+  \[\left( \Part{f_1}{x_1}, \Part{f_1}{y_1} \right)\]
+  \[\md_xf=\left( \Part{f_1}{x_1} \right)\]
+  \[\Part{f_1}{x_1}\neq 0\]
+\end{Bem}
+\begin{Bem}
+  Satz nicht benutzen, wenn der Gradient verschwindet!
+\end{Bem}
+\begin{Bew}
+  Sei
+  \[\Phi(x,y)=(f(x,y),y)\]
+  \[\Phi:\underbrace{\tilde U}_{\subset\mb{R}^{k+m}}\to\mb{R}^{k+m}\]
+  $\md\Phi|_{(\bar x, \bar y)}$ Jacobi Matrix
+  \[ \begin{pmatrix}
+    \Part{f_1}{x_1}&\cdots&\Part{f_1}{x_k}&\Part{f_1}{y_1}\cdots\Part{f_1}{y_m}\\
+    \vdots & & \vdots & \vdots & & \vdots \\
+    \Part{f_1}{x_1}&\cdots&\Part{f_1}{x_k}&\Part{f_1}{y_1}\cdots\Part{f_1}{y_m}\\
+    0 & \cdots & 0 & 1 & \cdots & 0\\
+    0 & \cdots & 0 & 0 & 1 \cdots & 0\\
+    \vdots & & \vdots &\vdots & & \vdots\\
+    0 & \cdots & 0 & 0 & \cdots & 1
+  \end{pmatrix} = \begin{pmatrix}
+    \md_x f & \md_y f\\
+    0 & \id
+  \end{pmatrix}\]
+\end{Bew}
+\begin{Ueb}
+  \[\Ker \md \Phi|_{(\bar x,\bar y)}=\left\{ 0 \right\}\]
+  sonst $\det \neq 0$
+\end{Ueb}
