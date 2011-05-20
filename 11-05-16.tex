@@ -1,0 +1,160 @@
+\begin{Lem}
+  Sei $R$ eine endlische Familie von disjunkten und rechtsoffenen Rechtecken $R$ mit $R\in \Omega$ und $S$ dasselbe mit $\cup_{S\in\mb{C}}\supset\Omega$.
+  Falls $\Omega$ Peano-Jordan messbar ist, so gilt:
+  \[\sup \left\{ \sum_{R\in\mb{C}^1}\Abs{R} \right\} = \inf \left\{ \sum_{S\in\mb{C}}|S) \right\}\]
+  Diese Zahl ist das Mass der Menge $\Omega$. Bezeichnung: $\abs{\Omega}$
+\end{Lem}
+\begin{Bew}
+  Definition und
+  \[\cup_{R\in\mb{C}_1}R\subset U_{R\in\mb{C}_2}\implies\sum_{R\in\mb{C}_1}\Abs{R}\leq\sum_{R\in\mb{C}_2}\abs{R}\]
+\end{Bew}
+\paragraph{Eigenschaften}
+\begin{Sat}
+  Setze $\abs{\varnothing}:=0$
+  Seien $\Omega_1,\Omega_2$ messbar. Es gelten:
+  \begin{enumerate}
+    \item $\Omega_1\cup\Omega_2$, $\Omega_1\cap\Omega_2$, $\Omega_1\setminus\Omega_2$, $\Omega_2\setminus\Omega_1$ messbar und es gilt
+      \[\abs{\Omega_1\cup\Omega_2}=\abs{\Omega_1}+\abs{\Omega_2}-\abs{\Omega_1\cap\Omega_2}\]
+    \item Insbesondere gilt:
+      \[\abs{\Omega_1\cup\Omega_2}=\abs{\Omega_1}+\abs{\Omega_2}\]
+      falls $\Omega_1\cap\Omega_2=\varnothing$
+    \item Falls $\Omega_2\subset\Omega_1$
+      \[\abs{\Omega_1}=\abs{\Omega_2}+\abs{\Omega_1\setminus\Omega_2}\]
+      und
+      \[\abs{\Omega_1}\geq\abs{\Omega_2}\]
+  \end{enumerate}
+\end{Sat}
+\begin{Sat}
+  \begin{enumerate}
+    \item Sei $A$ messbar mit $\abs{A}=0$. Dann ist jede Teilmenge von $A$ messbar.
+    \item Sei $\Omega$ messbar, dann ist $\partial\Omega$ messbar und es gilt $\abs{\partial\Omega}=0$
+  \end{enumerate}
+\end{Sat}
+\begin{Kor}
+  Sei $\Omega$ messbar, dann sind es auch $\ol{\Omega}$ und $\circ\Omega$
+  \[\abs{\Omega}=\abs{\ol\Omega}=\abs{\circ\Omega}\] % TODO: put circ above Omega
+\end{Kor}
+\begin{Sat}
+  Sei $\Omega$ beschränkt und $\partial\Omega$ $\mb{C}^1$-Untermannigfaltigkeit. Dann ist $\Omega$ messbar.
+\end{Sat}
+\paragraph{Mass und Integral}
+\begin{Lem}
+  Sei $f[a,1]\to\mb{R}^+$ stetig. Dann ist
+  \[\Omega=\left\{ x,y):0\leq x\leq 1, 0\leq y \leq f(x)\right\}\subset\mb{R}^2\]
+  messbar und es gilt:
+  \[\int_0^1f(t)\md t=\abs{\Omega}\]
+\end{Lem}
+\begin{Bew}
+  Unterteile $[0,1)$ in $n$ rechtsoffene Intervalle der Länge $\frac{1}{n}$ $I_1,\cdots,I_n$. Sei $M_i:=(\max_{I_i}f)+\frac{1}{n}$ und $m_i:=(\min_{I_i}f)$.
+  \begin{eqnarray*}
+    \mb{C}_1:=\left\{ I_i\times [a,M_i) \right\}\\
+    \mb{C}_2:=\left\{ I_i\times [a,m_i) \right\}
+  \end{eqnarray*}
+  ergibt rechtsoffene Rechtecke, die disjunkt sind.
+  \[\implies \cup_{R\in\mb{C}_1}\supset\Omega\supset\cup_{R\in\mb{C}_2}R\]
+  Seien
+  \begin{eqnarray*}
+    A_n:=\sum_{R\in\mb{C}_1}\abs{R}=\sum^n_{i=1}\frac{1}{n}M_i\\
+    a_n:=\sum_{R\in\mb{C}_2}\abs{R}=\sum^n_{i=1}\frac{1}{n}m_i
+  \end{eqnarray*}
+  d.h. $A_n$, $a_n$ sind Integrale von Treppenfunktionen $F_n$, $f_n$ mit $\Norm{F_n-f}\to 0$, $\Norm{f_n-f}\to 0$.
+  \[\implies \Limi{n} A_n=\Limi{n}a_n\int_0^1f(t)\md t\]
+  d.h.
+  \[\abs{\Omega}=\int_0^1f(t)\md t\]
+\end{Bew}
+\begin{Sat}
+  Sei $\Omega\subset\mb{R}^n$ messbar, $f:\ol{\Omega}\to\mb{R}^+$ stetig. Dann ist die Menge
+  \[\Gamma:=\left\{ (x_1,\cdots,x_n,x_{n+1}):(x_1,\cdots,x_n)\in\Omega, 0\leq x_{n+1}\leq f(x_1,\cdots,x_n) \right\}\]
+  messbar.
+\end{Sat}
+\begin{Bew}
+  Eher eine Skizze. Sei $\varepsilon>0$.
+  \begin{enumerate}
+    \item Wähle Funktionen $\mb{C}_1$, $\mb{C}_2$ disjunkter, rechtsoffener Rechte, so dass
+      \[\cup_{R\in\mb{C}_1}R\subset \Omega \subset \cup_{R\in\mb{C}_2}\]
+      und
+      \[\left( \sum_{R\in\mb{C}_2}\abs{R}-\sum_{R\in\mb{C}_1}\abs{R} \right)<\varepsilon\]
+    \item Wähle eine Verfeinerung $\mb{C}_2'$, so dass
+      \[\left\{ R\cap S:R\in\mb{C}_2\s \&\s S\in\mb{C}_1 \right\}\subset\mb{C}_2'\]
+      und
+      \[\cup_{R\in\mb{C}_1'}R = \cup_{R\in\mb{C}_2'}\]
+    \item Wähle eine weitere Verfeinerung (und bezeichne sie immer noch gleich), indem jedes Rechteck in $2^{Nn}$ gleichmässige Rechtecke aufgeteilt wird, so dass
+      \[\diam(R)<\frac{1}{k}\s\forall R\in\mb{C}_2'\]
+      Sei 
+      \[\mb{C}_1':=\left\{ R\in\mb{C}_2':R\subset\Omega \right\}\]
+      Es gilt
+      \[\sum_{R\in\mb{C}_2'}\abs{R}-\sum_{R\in\mb{C}_1'}\abs{R} < \varepsilon\]
+    \item Nehme an, dass $\mb{C}_2'$ keine Rechtecke $R$ enthält mit $R\cap\ol{\Omega}=\varnothing$ (falls ja, werfe sie (oBdA) weg). Def: für jedes Rechteck $R\in\mb{C}_2'$
+      \[M_R=\max_{\ol R\cap\ol\Omega}f+\varepsilon, \s m_R:=\min_{\ol R\cap\ol\Omega}\]
+      $\ol\Omega$ kompakt $\implies$ $f$ gleichmässig statig $\implies$ $\exists k$ gross genug:
+      \[\diam R<\frac{1}{k}\implies M_R-m_R\leq 2\varepsilon\]
+    \item Def:
+      \begin{eqnarray*}
+        \mathscr{S}_1:=\left\{ R\times [a,m_R):R\in\mb{C}_1'\right\}\\
+        \mathscr{S}_2:=\left\{ R\times [a,M_R):R\in\mb{C}_2'\right\}\\
+        \implies \cup_{\tilde R\in\mathscr{S}_1}\subset\Gamma\subset\cup_{\tilde R\in\mathscr{S}_2}\tilde R
+      \end{eqnarray*}
+      Es Gilt
+      \begin{eqnarray*}
+        \sum_{\tilde R\in \mathscr{S}_2}\abs{\tilde R} -\sum_{\tilde R\in \mathscr{S}_1}\abs{\tilde R}\\
+        = \sum_{\tilde R\in \mb{C}_2'\setminus\mb{C}_1'}\abs{\tilde R}M_R + \sum_{\tilde R\in \mb{C}_1'}\abs{\tilde R}M_R-\sum_{\tilde R\in \mb{C}_1'}\abs{\tilde R}m_R\\
+        \leq (\varepsilon+\max_{\ol\Omega}f)\underbrace{\sum_{\tilde R\in \mb{C}_2'\setminus\mb{C}_1'}\abs{\tilde R}}_{\leq \varepsilon}+\underbrace{(M_R-m_R)}_{\leq 2\varepsilon}\underbrace{\sum_{R\in\mb{C}_1'}\abs{R}}_{\abs\Omega}\\
+        \leq \underbrace{(\varepsilon+\max_{\ol\Omega}f+2\abs\Omega)}_{\leq C}\varepsilon\\
+        \leq C\varepsilon
+      \end{eqnarray*}
+      d.h. die Behauptung: $\Omega$ messbar
+  \end{enumerate}
+\end{Bew}
+\begin{Def}
+  $f$ und $\Omega$ wie oben.
+  \[\int_\Omega f(x)\md x:=\abs{\Gamma}\]
+  Falls $f\leq 0$, dann setze
+  \[\int_\Omega f:=-\int_\Omega -f\]
+  Für allgemeines $f$: $f+:=\max\left\{ f,0 \right\}$, $f^-:=\min\left\{ f,0 \right\}$
+  \[\int_\Omega f:=\int_\Omega f^++\int_\Omega f^-\]
+\end{Def}
+\paragraph{Berechnung von Integralen}
+\begin{Sat}
+  (Fubini) Sei $\Omega=[a_1,b_1]\times\cdots\times [a_n,b_n]$, $f:\Omega\to\mb{R}^+$ stetig. Dann gilt:
+  \[\int_\Omega f=\int_{a_n}^{b_n}\int_{a_{n-1}}^{b_{n-1}}\cdots\int_{a_1}^{b_1}f(x_1,\cdots,x_n)\md x_1\cdots\md x_n\]
+\end{Sat}
+\begin{Bew}
+  (SKizze) OBdA: $a_1=\cdots=a_n=b_1=\cdots=b_n=1$ Unterteile $\Omega$ in $\frac{1}{N^n}$ Würfel $C$
+  \[\int_C^\sim f:=\int_{c_n}^{d_n}\cdots\int_{c_1}^{d_1}f(x_1,\cdots,x_n)\md x_1\cdots\md x_n\]
+  Es gilt
+  \[\int_C^\sim f\sum_C\int_C^\sim f\]
+  Setze:
+  \begin{eqnarray*}
+    M_C:=\max_{\ol C}f\\
+    m_C:=\min_{\ol C}f
+  \end{eqnarray*}
+  Definition
+  \begin{eqnarray*}
+    A_C:=\sum_C\abs{C}M_C\\
+    a_C:=\sum_C\abs{C}m_C\\
+  \end{eqnarray*}
+  Wie oben erhalten wir
+  \[\int_\Omega f:=\Limi{N}A_N=\Limi{N}a_N\]
+  andererseits:
+  \[\abs{C}m_C\leq\int_C^\sim f\leq\abs{C}M_C\]
+  d.h.
+  \[a_N\leq \int_\Omega^\sim f\leq A_N\]
+  \[\implies \int_\Omega^\sim f=\int_\Omega f\]
+\end{Bew}
+\begin{Bem}
+  In der Tat gilt nicht nur
+  \[\Limi{N}A_N=\int_\Omega f=\Limi{N}a_n\]
+  Betrachte eine Unterteilung $\mathscr{S}$ von $\Omega$ in Rechtecke der ``Grösse'' $\leq\varepsilon$, d.h. $\diam R\leq \varepsilon$. Für $S\in\mathscr{S}$ wähle $x_s\in S$. Definiere Riemannsche Summe:
+  \[R(\varepsilon)=\sum_{S\in\mathscr{S}}f(x_S)\abs{S}\]
+  Dann gilt:
+  \[\Limo{\varepsilon}R(\varepsilon)=\int_\Omega f\]
+\end{Bem}
+\begin{Def}
+  (Normaler Bereich) Eine Menge $\Omega\subset\mb{R}^n$ heisst \ul{normal}, falls es ein Koordinatensystem und zwei Funktionen $f\geq g$ (stetig) und $a_i\leq b_i$ $i\in \left\{ 1,\cdots,n+1 \right\}$ gibt so dass
+  \[\Omega=\left\{ (x_1,\cdots,x_n,x_{n+1}:a_+\leq x_1\leq b_+,\cdots,a_{n-1}\leq n_{n-1}\leq b_{n-1}, g(x_1,\cdots,x_{n-1}\leq x_n\leq f(x_1,\cdots,x_{n-1} \right\}\]
+\end{Def}
+\begin{Bem}
+  Man zeigt: Ist $\Omega$ normal, so gilt:
+  \[\int_\Omega F:=\int_{a_1}^{b_1}\cdots\int_{a_{n-1}}^{b_{n-1}}\int_{a_n}^{b_n}F(x_1,\cdots,x_n)\]
+  Sei $\Omega\subset\mb{R}^n$ offen mit $\partial\Omega$ $\mb{C}^1$-Untermanigfaltigkeit. Dann gilt $\forall x\in\partial\Omega$ $\exists$ Würfel $C$ so dass $C\cap \Omega$ normal ist. Dan $\ol\Omega$ kompakt ist, lässt sich $\Omega$ mit endlich vielen solchen Würfel überdecken.
+\end{Bem}
