@@ -80,3 +80,56 @@ So Mass Aussen - Mass Innen
   % TODO Skizze
   $\implies$ Formel $\int_\Omega F$ (wenn $F$ eine stetig Funktion ist)
 \end{Sat}
+\paragraph{Ziel}
+den Inhalt $B_1(0)\subset\mb{R}^3$ zu berechnen
+\begin{Bew}
+  Sei $\Omega=\left\{ x_1^2+x_2^2\leq r^2 \right\}\subset\mb{R}^2$, $I=[a,b]\subset\mb{R}$ $\Omega\times I\subset\mb{R}^3$. $\Omega\times I$ ist messbar und Inhalt = $=\pi r^2(b-a)$ $\Omega$ ist ein normaler Bereich:
+  \[\left\{ (x_1,x_2):x_1\in [-1,1], -\sqrt{1-x_1^2}\leq x_2\leq \sqrt{1-x_1^2} \right\}\]
+  \[\Omega\times I=\left\{ (x_1,x_2,x_3):(x_1,x_2)\in\Omega\s\text{und}\s a\leq x_3\leq b \right\}\]
+  \begin{eqnarray*}
+    \text{Inhalt}\s =\int_{-1}^1\int_{-\sqrt{1-x_1^2}}^{\sqrt{1-x_1^2}}\int_a^b 1\md x_3\md x_2\md x_1\\
+    =(b-a)\left( \int_{-1}^1\int_{-\sqrt{1-x_1^2}}^{\sqrt{1-x_1^2}}1\md x_2\md x_1 \right)\\
+    =(b-a)=\int_\Omega 1=(b-a)\text{Inhalt}(\Omega)=(b-a)\pi r^2
+  \end{eqnarray*}
+  % TODO Skizze
+  \begin{eqnarray*}
+    I_i=[a_i,b_i]\times [-\sqrt{1-a_i^2},\sqrt{1-a_i^2}]
+  \end{eqnarray*}
+  Rotation: Zylinder
+  \[ [a_i,b_i]\times \left\{ x_2^2+x_3^2<\overbrace{1-a_i^2}^{r^2} \right\}\]
+  $b_i-a_i=\frac{1}{N}$ $2N$ Intervalle:
+  \begin{eqnarray*}
+    \underbrace{\cup_{i=1}^{2N}}_{\Omega_N}\subset B_i(0)\subset\cup_{i=1}^{2N}c_i^a
+  \end{eqnarray*}
+  Zylinder
+  \[c_i^a=[a_i,b_i]\times \left\{ x_2^2+x_3^2=1-b_i^2 \right\}\]
+  $\Omega_N$ ist messbar und
+  \begin{eqnarray*}
+    \text{Inhalt} I = \sum_{i=1}^{2N}(b_i-a_i)\pi\overbrace{(1-a_i^2)}^{f(a_i)}\\
+    \text{Inhalt} A = \sum_{i=1}^{2N}(b_i-a_i)\pi\overbrace{(1-b_i^2)}^{f(b_i)}
+  \end{eqnarray*}
+  \begin{eqnarray*}
+    \Limi{N}\text{Inhalt} I=\int_{-1}^1\pi(1-x^2)\md x=\pi(x-\frac{x^3}{3})|_{-1}^1=\pi\left( \frac{2}{3}\left( \frac{2}{3} \right) \right)=\frac{4\pi}{3}\\
+    \Limi{N}\text{Inhalt} I=\int_{-1}^1\pi(1-x^2)\md x=\pi = \cdots =\frac{4\pi}{3}\\
+  \end{eqnarray*}
+  Wenn die Kugel Radius $r$ hat
+  \[\int_{-r}^r\pi(r^2-x^2)\md x=\pi\left( xr^2-\frac{x^3}{3} \right)|_{-r}^r=\frac{4}{3}\pi r^3\]
+  Der Inhalt von 
+  \[B_1(0)=\overbrace{\sup_{\text{Innere Approximation}}(\text{Inhalt $I$})}^S = \overbrace{\inf_{\text{Äussere Approximation}}\text{Inhalt} A}^I\]
+  \[S\leq \frac{4\pi}{3}\]
+  der Limes von eriner Folge von äusseren Approximation. ``Konkrete'' innere Approximation:
+  \[S\geq\Limi{N}\text{Inhalt} I=\frac{4\pi}{3}\]
+  $S=\frac{4\pi}{3}$, $I=\frac{4\pi}{3}$ $\implies$ Messbarkeit von $B_1(0)$ und Formel $=\frac{4\pi}{3}$
+\end{Bew}
+\begin{Bew}
+  ``Richtiger'' $S=\frac{4\pi}{3}$ Sei nun $\cup_{i=1}^MW_i\subset\cup_{i=1}^{2N}C_i^a$ eine Innere Approximation.
+  \[\text{Inhalt}(\cup_{i=1}^MW_i)=\sum^M_{i=1}\abs{W_i}\leq \Limi{N}\underbrace{\sum_{j=1}^{2N}\text{Inhalt}(C_j^a)}_{A_N}\leq\frac{4\pi}{3}\]
+  $\implies$ $S\leq \frac{4\pi}{3}$
+  \[I_N:=\sum_{i=1}^{2N}\text{Inhalt}(C_i)=\sup_{\text{Erlaubte innere Approximation von}\s \cup_{i=1}^{2N}C_i}\]
+  $\implies$ $\exists$ eine innere Approximation mit Würfel von $\cup_{i=1}^{2N}C_i$ $W_1,\cdots,W_N$ so dass
+  \[\sum_{i=1}^N\text{Inhalt}(W_i)\geq I_N-\frac{1}{N}\]
+  Deswegen
+  \[S\geq I_n\frac{1}{N}\]
+  weil $\cup_{i=1}^{N'}W_i$ eine innere Approximation für $B_1(0)$ ist
+  \[S\geq \Limi{N}\left( I_N-\frac{1}{N} \right)=\frac{4\pi}{3}\]
+\end{Bew}
