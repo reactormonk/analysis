@@ -1,0 +1,151 @@
+\subsection{Gauss-Green in 3d}
+\begin{Bem}
+  Sei $\uR{\Omega}{2}\to\mb R^3$ gute Parametrisierung der Fläche $\Phi(\Omega)$
+  \begin{eqnarray*}
+    \partial_{x_1}\Phi=\left( \Part{\Phi_1}{x_1}, \Part{\Phi_2}{x_1}, \Part{\Phi_3}{x_1}\right)\\
+    \partial_{x_2}\Phi=\left( \Part{\Phi_1}{x_2}, \Part{\Phi_2}{x_2}, \Part{\Phi_3}{x_2}\right)\\
+  \end{eqnarray*}
+  erzeugen den Tangentialraum $T_q$.
+  Präziser: $T_q$, der Tangentialraum an $\Phi(\Omega)$ im Punkt $q=\Phi(p)$, ist gegeben durch
+  \[T_q=\left\{ \Phi(p) + t\partial_{x_1}\Phi(p) + s\partial_{x_2}\Phi(p), s,t\in\mb R\right\}\]
+  Nun:
+  \[n_q:=\frac{\partial_{x_1}\Phi(p) \times \partial_{x_2}\Phi(p)}{\Norm{\partial_{x_1}\Phi(p) \times \partial_{x_2}\Phi(p)}}\]
+  steht senkrecht auf $T_q$ und $\Norm{n_q}=1$. Falls $\Phi$ gut (regulär) ist, ist $\Norm{\partial_{x_1}\Phi \times \partial_{x_2}\Phi}>0$, d.h. $n_q$ ist wohldefiniert.
+  Aber: auch $-n_q$ steht senkrecht auf $T_q$ und hat Norm 1.
+\end{Bem}
+\begin{Bem}
+  $\Phi$ ist eine (reguläre) Parametrisierung falls
+  \begin{enumerate}
+    \item $\Phi$ $\ms{C}^1$
+    \item $\Phi$ injektiv
+    \item $\rang(\Phi)=2$
+  \end{enumerate}
+  $\implies$
+  \begin{enumerate}
+    \item $T_q$ ist wohldefiniert
+    \item $T_q$ ist eine 2-dimensionale Ebene
+  \end{enumerate}
+\end{Bem}
+\begin{Bsp}
+  Sei $f:\Omega\to\mb R$ $\mr{C}^1$ und betrachte den Graph
+  \[G:=\left\{ (x_1,x_2, f(x_1,x_2)), (x_1,x_2)\in\Omega \right\}\]
+  Wir wissen: $\Phi\to\mb{R}^3$, $(x_1,x_2)\mapsto (x_1,x_2,f(x_1))$ ist eine gute Parametrisierung.
+  Weiter:
+  \[\partial_{x_1}\Phi=\left( 1,0,\Part{f}{x_1} \right), \partial_{x_2}\Phi=\left( 0,1,\Part{f}{x_2} \right) \]
+  Also:
+  \[n_q=\frac{\Part{f}{x_1} ,\Part{f}{x_2}, 1 \right)}{\sqrt{1+\left( \Part{f}{x_1} \right)^2 + \left(\Part{f}{x_2}\right)^2}} \]
+\end{Bsp}
+\begin{Def}
+  Sei $\Omega$ offen mit $\partial\Omegea$ ist $\mr{C}^1$-Untermannigfaltigkeit (2-dim) 
+  \[\implies \forall q\in \partial\Omega\s B_\rho(q): B_\rho(q)\cap \partial\Omega\]
+  ist der Graph einer $\mr{C}^1$-Funktion $f:\mb{R}^2_{x_{i_1}, x_{i_2}}\to\mb{R}_{x_{i_3}}$
+  z.B. $x_3=f(x_1,x_2)$, aber auch $x_1=f(x_2,x_3)$, $x_2=f(x_3,x_1)$.
+  Wichtig: Reihenfolge betrachten, d.h. $(1,2,3)$, $(3,1,2)$, $(2,3,1)$.
+  Jetzt: oBdA $i_1=1$, $i_2=2$, $i_3=3$. Dann gilt
+  \begin{enumerate}
+    \item entweder
+      \[B_\rho(q)\cap\Omega=B_\rho(q)\cap\left\{ x:x_3<f(x_1,x_2) \right\} \]
+      Dann setze:
+      \[\mu(q)=\frac{\partial_{x_1}\Phi(p) \times \partial_{x_2}\Phi(p)}{\Norm{\partial_{x_1}\Phi(p) \times \partial_{x_2}\Phi(p)}}\]
+      wobei $\Phi$ wie im Bsp oben
+    \item oder 
+      \[B_\rho(q)\cap\Omega=B_\rho(q)\cap\left\{ x:x_3>f(x_1,x_2) \right\} \]
+      Dann setze:
+      \[\mu(q)=-\frac{\partial_{x_1}\Phi(p) \times \partial_{x_2}\Phi(p)}{\Norm{\partial_{x_1}\Phi(p) \times \partial_{x_2}\Phi(p)}}\]
+  \end{enumerate}
+  $\mu$ heist \ul{äussere Einheitsnormale}
+\end{Def}
+\begin{Bem}
+  Nahe der meisten Punkte auf $\partial\Omega$ ist $\partial\Omega$ der Graph einer Funktion bezüglich mehrerer ``unabhängiger'' Variablen. $\mu(q)$ hängt \ul{nicht} von dieser Wahl ab!
+\end{Bem}
+\begin{Bem}
+  Falls $\Omega$ ``unter'' dem Graphen liegt, ``zeigt'' $\mu$ nach oben. Falls $\Omega$ ``über'' dem Graphen liegt, ``zeigt'' $\mu$ nach unten.
+\end{Bem}
+\begin{Sat}
+  Sei $\Gamma$ beschränkt und offen in $\mb{R}$ mit $\partial\Gamma$ $\mr{C}^1$-Untermannigfaltigkeit. Sei $B\mb{R^3}\to\mb{R^3}$ ein $\mr{C}^1$-Vektorfeld.
+  \begin{equation}
+    \label{e:1105301}
+    \implies \int_\Gamma\div B=\int_{\partial\Gamma}B\mu
+  \end{equation}
+  Um die rechte Seite zu berechnen, ``schneiden'' wir $\partial\Gamma$ in Graphen und summieren wir die Integrale über die Graphen auf. Fr das Integral über den Graphen verwenden wir die Parametrisierung wie im Beispiel. % erstes Bsp
+  \begin{eqnarray*}
+    \int_{\partial\Gamma}B\mu = \int_\Omega B(\Phi(p))\mu(\Phi(p))J\Phi(p)\md p\\
+    =\int_\Omega B(x_1,x_2,f(x_1,x_2))\frac{\left( -\Part{f}{x_1},-\Part{f}{x_2},1 \right)}{\sqrt{1+\left( \Part{f}{x_2} \right)^2+\left( \Part{f}{x_1} \right)^2}}\sqrt{1+\left( \Part{f}{x_2} \right)^2+\left( \Part{f}{x_1} \right)^2}\\
+    =\int_\Omega (-B_1(x,f(x))\Part{f}{x_1}-(-B_2(x,f(x))\Part{f}{x_2}+B_3(x,f(x))\md x
+  \end{eqnarray*}
+\end{Sat}
+\begin{Bem}
+  Man müsste wieder zeigen, dass $\int B\mu$ \ul{nicht} von der Unterteilung in Graphen abhängt.
+\end{Bem}
+\begin{Def}
+  Sei $\Gamma$ ein normaler Bereich in $\mb{R}^3$.
+  \begin{equation}
+    \label{e:11-05-302}
+    \Gamma=\left\{ (x_1,x_2,x_3)\in\mr{R}^3:(x_1,x_2)\in\Omega, f(x_1,x_2)<x_3<g(x_1,x_2) \right\}
+  \end{equation}
+  Definiere den \ul{oberen} Teil $U$ von $\partial \Gamma$:
+  \[ \left\{ (x_1,x_2,g(x_1,x_2): (x_1,x_2)\in\Omega \right\}\]
+  Definiere den \ul{unteren} Teil $U$ von $\partial \Gamma$:
+  \[ \left\{ (x_1,x_2,f(x_1,x_2): (x_1,x_2)\in\Omega \right\}\]
+  Die Seitenflächen von $\partial\Gamma$:
+  \[ \left\{ (x_1,x_2,x_3: (x_1,x_2)\in\partial\Omega, f(x_1,x_2)<x_3<g(x_1,x_2) \right\}\]
+  Beachte:
+  % TODO Skizze
+  \begin{itemize}
+    \item Falls $\partial\Omega$ $\mr{C}^1$-Untermannigfaltigkeit (1-dim), dann ist $LS$
+      $\mr{C}^1$-Untermannigfaltigkeit (2-dim)
+    \item Falls $f,g:\mr{C}^1$, so sind $L,U$ $\mr{C}^1$-Untermannigfaltigkeiten
+  \end{itemize}
+  $\implies$ Definieren $\mu$ wie in Definition oben für alle Punkte in $U\cup L\cup LS$
+\end{Def}
+\begin{Bem}
+  Einige Punkte werden so ausgelassen (``Kanten''). Vergleiche Satz von Gauss in 2d.
+\end{Bem}
+\begin{Sat}
+  Sei $\Gamma$ ein beschränkter, normaler Bereich, der die Punkte % itemize oben
+  erfüllt. Sei $B:\mb{R}^3\to\mb{R}^3$ ein $\mr{C}^1$-Vektorfeld.
+  \begin{equation}
+    \label{e:1105303}
+    \implies \int_\Gamma\div B=\int_{\Gamma}B\mu=\int_UB\mu+\int_LB\mu+\int_{LS}B\mu
+  \end{equation}
+\end{Sat}
+\begin{Bew}
+  Skizze im Fall 2-d:
+  \begin{enumerate}
+    \item Beweis für ``spezielle'' Dreiecke (rechtwinklig)
+    \item Approximiere allgemeine $\Omega$ durch Dreiecke
+  \end{enumerate}
+  ähnlich in 3d, leider ein wenig komplizierter: Das einfachste analogon eines Dreieckes, d.h. 1. Schritt:
+  Sei $\Gamma$ ein Tetraeder mit Eckpunkten auf der Achse. % Ist nicht wirklich ein Tetraeder - wie nennt man das?
+  Achtung: $\Gamma$ erfüllt die Punkte % gleich wie vorher
+  nicht. Dennoch, das Analogon zu \ref{e:1105303} ist:
+  \begin{equation}
+    \label{e:1105303}
+    \int_\Gamma\div B=\int_{S_{12}}B\mu+\int_{S_{13}}B\mu+\int_{S_{23}}B\mu+\int_{D}B\mu
+  \end{equation}
+  Schreibe
+  \begin{eqnarray*}
+    \Gamma=\left\{ (x_1,x_2,x_3): 0<x_1<a, 0<x_2<b-\frac{b}{a}x_1,0<x_3<c-\frac{c}{a}x_1-\frac{c}{b}x_2 \right\}\\
+    \implies \int_\Gamma\Part{B_3}{x_3}=\int_0^a\int_0^{^b-\frac{b}{a}x_1}\int_0^{c-\frac{c}{a}x_1-\frac{c}{a}x_2}\Part{B_3}{x_3}\md x_3\md x_2\md x_1\\
+    =\int_0^a \int_0^{b-\frac{b}{a}x_1}B_3(x_1,x_2,c-\frac{c}{a}x_1-\frac{c}{b}x_2)-B_3(x_1,x_2,0)\md x_1\md x_2\\
+    =\int_0^a \int_0^{b-\frac{b}{a}x_1}B_3(x_1,x_2,0)\md x_2\md x_1\\
+    =\int_{S_{12}}B(x_1,x_2,0)(0,0,-1)\md x_1\md x_2\\
+    =\int_{S_{12}}B(x_1,x_2,0)\mu\md x_1\md x_2\\
+  \end{eqnarray*}
+  Betrachte $\Phi:S_{12}\to\mb{R}^3$, $(x_1,x_2,f(x_1,x_2))$, $f(x_1,x_2=c-\frac{c}{a}x_1-\frac{c}{b}x_2$
+  \[\implies \mu = \frac{-\Part{f}{x_1} ,-\Part{f}{x_2}, 1 \right)}{\sqrt{1+\left( \Part{f}{x_1} \right)^2 + \left(\Part{f}{x_2}\right)^2}}=(\mu_1,\mu_2,\mu_3)\]
+  Also
+  \[\int_D\mu B_3=\int_{S_{12}}B_3(x_1,x_2,f(x_1,x_2))\frac{1}{\sqrt{1+\left( \Part{f}{x_1} \right)^2 + \left(\Part{f}{x_2}\right)^2}}\sqrt{1+\left( \Part{f}{x_1} \right)^2 + \left(\Part{f}{x_2}\right)^2}\md x_2\md x_1\]
+  \begin{eqnarray}
+    \label{e:1105305}
+    \implies \int_\Gamma\Part{B_3}{x_3}=\int_{S_{12}}B\mu+\int_D B_3\mu_3\\
+    \label{e:1105306}
+    \int_\Gamma\Part{B_1}{x_1}=\int_{S_{23}}B\mu+\int_D B_1\mu_1\\
+    \label{e:1105307}
+    \int_\Gamma\Part{B_2}{x_2}=\int_{S_{13}}B\mu+\int_D B_2\mu_2\\
+  \end{eqnarray}
+  \begin{eqnarray}
+    \xRightarrow{\ref{e:1105305},\ref{e:1105306},\ref{e:1105307}} \int_\Gamma\div B=\int_{S_{12}}B\mu+\int_{S_{23}}B\mu+\int_{S_{13}}B\mu+\underbrace{\int_DB_1\mu_1+\int_DB_2\mu_2+\int_DB_3\mu_3}_{\int_D=\int_DB\mu}
+  \end{eqnarray}
+  d.h. \ref{e:1105304}
+\end{Bew}
