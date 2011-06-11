@@ -1,0 +1,291 @@
+\section{lineare Algebra}
+\subsection{Matrizen}
+\begin{Def}
+  Eine \ul{Matrix} ist ein ``rechteckiges Schema''.
+  \[A= \begin{pmatrix}
+    a_{11}&\cdots&a_{1n}\\
+    \vdots & \ddots & \vdots\\
+    a_{m1}&\cdots&a_{mn}
+  \end{pmatrix}\]
+  $m\times n$-Matrix, $m$ Zeilen und $n$ Spalten, $\mat(m\times n,\mb{R})$, $\mb{R}^{m\times n}\sim \mb{R}^{mn}$.
+  \[A=(a_{ij})_{1\leq i, \leq m\\ 1\leq j \leq n}\]
+\end{Def}
+\begin{Bsp}
+  Jacobi-Matrix, Hesse-Matrix
+\end{Bsp}
+\begin{Def}
+  \[\mat(m\times n,\mb{R})\]
+  ist ein $\mb{R}$-Vektorraum. D.h
+  \begin{enumerate}
+    \item Addition: $(a_{ij})+(b_{ij}):=(a_{ij}+b_{ij})$
+    \item Skalarmultiplikation: $\lambda(a_ij):=(\lambda a_{ij})$
+  \end{enumerate}
+  Vektorraumaxiome sind erfüllt.
+\end{Def}
+\begin{Def} Multiplikation
+  $A=(a_{ij})_{1\leq i, \leq m\\ 1\leq j \leq n}$, $B=(b_{ij})_{1\leq i, \leq n\\ 1\leq j \leq l}$
+  \[AB=(\sum^n_{k=1}a_{ik}b_{kj})_{1\leq i, \leq m\\ 1\leq j \leq l}\in\mat(m\times l,\mb{R})\]
+\end{Def}
+\begin{Bem}
+  $AB$ definiert $\not\iff$ $BA$ definiert.
+\end{Bem}
+\begin{Bem}
+  In der Regel gilt nicht $BA=AB$.
+\end{Bem}
+\begin{Bsp}
+  \begin{eqnarray*}
+    A=2\times 3,\s B=3\times 2\\
+    \implies AB=2\times 2,\s BA=3\times 3
+  \end{eqnarray*}
+\end{Bsp}
+\begin{Bsp}
+  \begin{eqnarray*}
+    \begin{pmatrix}
+      1&2\\-1&0
+    \end{pmatrix} \begin{pmatrix}
+      2&1&3\\
+      3&2&1
+    \end{pmatrix} = \begin{pmatrix}
+      8&5&5\\
+      -2&-1&-3
+    \end{pmatrix}
+  \end{eqnarray*}
+\end{Bsp}
+\begin{Bsp}
+  Kettenregel, $f:\mb{R}^m\to\mb{R}^n$, $g:\mb{R}^n\to\mb{R}^l$
+  \[g\circ f:\mb{R}^m\to\mb{R}^l\]
+  \[\underbrace{\md (g\circ f)|_x}_{\mat(m\times l, \mb{R})}=\underbrace{\md g|_{f(x)}}_{\mat(m\times n,\mb{R})}\underbrace{\md f|_x}_{\mat(n\times l,\mb{R})}\]
+\end{Bsp}
+\begin{Def}
+  Transponierte Matrix
+  \begin{eqnarray*}
+    A=(a_{ij})_{1\leq i, \leq m\\ 1\leq j \leq n}\in\mat(m\times n,\mb{R})\\
+    A^t:=(a_{ji})_{1\leq i, \leq m\\ 1\leq j \leq n}\in\mat(n\times m,\mb{R})\\
+  \end{eqnarray*}
+\end{Def}
+\begin{Bsp}
+  \begin{eqnarray*}
+    A= \begin{pmatrix}
+      3&1\\0&4
+    \end{pmatrix}\\
+    A^t= \begin{pmatrix}
+      3&0\\1&4
+    \end{pmatrix}\\
+  \end{eqnarray*}
+\end{Bsp}
+\begin{Bsp}
+  \begin{eqnarray*}
+    B= \begin{pmatrix}
+      1&2&3\\
+      4&5&6
+    \end{pmatrix}\\
+    B^t= \begin{pmatrix}
+      1&4\\
+      2&5\\
+      3&6
+    \end{pmatrix}\\
+  \end{eqnarray*}
+\end{Bsp}
+\begin{Bem}
+  Regeln
+  \begin{enumerate}
+    \item $(A+B)^t=A^t+B^t$
+    \item $(\lambda A)^t=\lambda A^t$
+    \item $(A^t)^t=a$
+    \item $(\underbrace{A}_{m\times n}\underbrace{B}_{n\times l})^t=B^tA^t$
+  \end{enumerate}
+\end{Bem}
+\subsection{Determinante}
+\begin{Def}
+  \[\det:\mat(n\times n,\mb{R})\to\mb{R}\]
+  ist eindeutig definiert durch
+  \begin{enumerate}
+    \item $\det$ ist multilinear in den Spalten, d.h.
+      \[\det(a_1,\cdots,\lambda a_i+\mu a_i,\cdots,a_n)=\lambda\det(a_1,\cdots,a_i,\cdots,a_n)+\mu\det(a_1,\cdots,a_i,\cdots,a_n)\]
+    \item $\det$ alternierend, d.h.
+      \[\det(\cdots,\underbrace{a}_{\text{$i$}-te},\cdots,\underbrace{a}_{\text{$j$}-te},\cdots)=0\s\forall a\in\mb{R}^n\]
+    \item $\det(E)=1$, d.h. $\det$ ist nomiert
+  \end{enumerate}
+\end{Def}
+\begin{Bem}
+  $v_1,v_2,v_3\in\mb{R}^3$
+  \[ \begin{pmatrix}
+    v_1,v_2,v_3
+  \end{pmatrix}=A \impleis \det(A)=\s\text{Spatprodukt}(v_1,v_2,v_3)\]
+\end{Bem}
+\begin{Bem}
+  Eigenschaften
+  \begin{enumerate}
+    \item $\det(A)=0$ $\iff$ die Spalten sind linear abhängig d.h. $v_1,\cdots,v_n$ sind linear abhängig 
+      \[\iff\exists \lambda_1,\cdots,\lambda_n\in\mb{R},\s\text{nicht alle}\s \lambda_i=0:\enum_{i=1}^n\lambda_i v_i=0\]
+    \item $\det(A)\neq 0$ $\iff$ das Gleichungssystem $Ax=b$ hat alle $b\in\mb{R}^n$ genau eine Lösung.
+    \item 
+      \[\det \begin{pmatrix}
+      \lambda_1&\cdots&0\\
+      \vdots&\ddots&\vdots\\
+      0&\cdots&\lambda_n\\
+    \end{pmatrix}=\lambda_1\cdots\lambda_n\]
+  \item $A,B\in\mat(n\times n,\mb{R})$
+    \[\det(AB)=\det(A)\det(B)\]
+    Es gilt in der Regel:
+    \[\det(A+B)\neq\det(A)+\det(B)\]
+  \end{enumerate}
+\end{Bem}
+\subsubsection{Berechnung}
+\url{http://de.wikipedia.org/wiki/Regel_von_Sarrus}
+\url{http://de.wikipedia.org/wiki/Determinante_(Mathematik)#Laplacescher_Entwicklungssatz}
+\subsection{Inverse Matrix}
+$Ax=b$, falls $A^{-1}$ existiert mit $A^{-1}A=E$, dann gilt
+\[x=Ex=A^{-1}Ax=A^{-1}b\]
+\begin{Sat}
+  Sei $A\in\mat(n\times n,\mb{R})$ mit $\det A\neq 0$. Definiere $C=(a_ii)_{1\leq i, \leq n}$ durch
+  \[c_{ij}:=(-1)^{i+j}\det A_{ij}'\]
+  wobei $A_{ij}'$ die Submatrix der Laplace-Entwicklung ist.
+  Dann gilt:
+  \[A^{-1}A=AA^{-1}=E\]
+  für
+  \[A^{-1}=\frac{1}{\det A}C^t\]
+\end{Sat}
+\begin{Bem}
+  \[(AB)^{-1}=B^{-1}A^{-1}\]
+\end{Bem}
+\begin{Bsp}
+  $f:\mb{R}^n\to\mb{R}^n$, lokal um $a$ invertierbar ($\det\md f|_a\neq 0$)
+  \[\implies\md f^{-1}|_{f(x)}=\left[ \md f|_x \right]^{-1}\]
+\end{Bsp}
+\begin{Bsp}
+  \[A= \begin{pmatrix}
+    1&0&1\\
+    1&0&0\\
+    2&1&1
+  \end{pmatrix} \implies A^t= \begin{pmatrix}
+    1&1&2\\
+    0&0&1\\
+    1&0&1
+  \end{pmatrix},\s\det(A)=1\]
+  \[A^{-1}= \begin{pmatrix}
+    0&1&0\\
+    -1&-1&1\\
+    1&-1&0
+  \end{pmatrix}\]
+  Test:
+  \[\begin{pmatrix}
+    0&1&0\\
+    -1&-1&1\\
+    1&-1&0
+  \end{pmatrix}\begin{pmatrix}
+    1&0&1\\
+    1&0&0\\
+    2&1&1
+  \end{pmatrix}=\begin{pmatrix}
+    1&0&0\\
+    0&1&0\\
+    0&0&1
+  \end{pmatrix}\]
+\end{Bsp}
+\begin{Bem}
+  Für $n=2$ gilt die folgende Formel:
+  \[A= \begin{pmatrix}
+    a&b\\c&d
+  \end{pmatrix}\implies A^{-1}-\frac{1}{ad-bc} \begin{pmatrix}
+    d&-b\\-c&a
+  \end{pmatrix}\]
+\end{Bem}
+\subsubsection{Eigenwerte}
+\begin{Def}
+  Sei $A\in\mat(n\times n,\mb{R})$. $\lambda\in\mb{R}$ (oder $\mb{C}$) heisst Eigenwert $\iff$ $\exists v\in\mb{R}^n\setminus\left\{ 0 \right\}$ mit $Av=\lambda v$
+\end{Def}
+\begin{Sat}
+  (Hauptachsentransformation) Sei $A\in\matsym(n\times n,\mb{R})$, d.h.$A=A^t$. Dann existiert eine orthogonale Matrix $O$ (d.h. $OO^t=O^tO=t$)
+  \[O^tAO= \begin{pmatrix}
+    \lambda_1&\cdots&0\\
+    \vdots&\ddots&\vdots\\
+    0&\cdots&\lambda_n\\
+  \end{pmatrix}\]
+  mit $\lambda_1,\cdots,\lambda_n$ Eigenwerte $\lambda_i\in\mb{R}$
+\end{Sat}
+\begin{Bew}
+  z.B. Lagrange Multiplikatoren
+\end{Bew}
+\begin{Bem}
+  In der Regel gilt $\lambda_i\in\mb{C}$, falls $A$ nicht symmetrisch ist.
+\end{Bem}
+\begin{Bem}
+  \begin{eqnarray*}
+    \det(O^tAO)=\det\begin{pmatrix}
+      \lambda_1&\cdots&0\\
+      \vdots&\ddots&\vdots\\
+      0&\cdots&\lambda_n\\
+    \end{pmatrix}=\lambda_1\cdots\lambda_n\\
+    =\det(O^t)\det(A)\det(O)\\
+    =\det(A)\frac{1}{\det(O)}
+  \end{eqnarray*}
+\end{Bem}
+\begin{Bem}
+  \[Av=\lambda v\iff (A-\lambda E)v=0\]
+  D.h. es existiert eine Lösung $v\neq 0=0$, falls $\det(A-\lambda E)=0$ $\to$ Polynom vom Grad $n$ ($A\in\mat(n\times n,\mb{R})$) $\implies$ wir müssen also Nullstellen des Polynoms $\det(A-\lambda E)=0$ finden.
+\end{Bem}
+\begin{Bsp}
+  \[A= \begin{pmatrix}
+    \cos \alpha&\sin \alpha\\
+    \sin \alpha&-\cos \alpha
+  \end{pmatrix}\]
+  \begin{eqnarray*}
+    \det(A-\lambda E)=\det \begin{pmatrix}
+      \cos \alpha-l&\sin\alpha\\
+      \sin \alpha&-\cos\alpha-\lambda
+    \end{pmatrix} = (\cos\alpha-\lambda)(\cos \alpha-\lambda)-\sin^2\alpha\\
+    =-\cos^2\alpha+\lambda^2-\sin^2\alpha=-1+\lambda^2\stackrel{!}{=}0
+  \end{eqnarray*}
+  d.h. $\lambda=\pm 1$ sind die Eigenwerte.
+\end{Bsp}
+\begin{Bsp}
+  \begin{eqnarray*}
+  A=
+  \begin{pmatrix}
+    1&-1&-1\\
+    -1&1&-1\\
+    -1&-1&1
+  \end{pmatrix}
+  \implies A-\lambda E
+  \begin{pmatrix}
+    1-\lambda&-1&-1\\
+    -1&1-\lambda&-1\\
+    -1&-1&1-\lambda
+  \end{pmatrix}
+  \\
+  \det(A-\lambda E)=(1-\lambda)^3-2-(3(1-\lambda))\\
+  =1-3\lambda+3\lambda^2-\lambda^3-2-3+3\lambda\\
+  =-\lambda^3+3\lambda^2-4\stackrel{!}{=}0\\
+  =(\lambda+1)(-\lambda^2+4\lambda-4)\\
+  =-(\lambda+1)(\lambda-2)^2
+  \end{eqnarray*}
+  d.h. $-1$ und $2$ sind die Eigenwert, $2$ ist ein doppelter.
+\end{Bsp}
+\begin{Def}
+  Eine symmetrische Matrix heisst
+  \begin{itemize}
+    \item positiv definit $\iff$ alle Eigenwerte sind positiv $(>0)$
+    \item negativ definit $\iff$ alle Eigenwerte sind negativ $(<0)$
+    \item indefinit $\iff$ es existieren positive und negative Eigenwerte.
+    \item semidefinit $\iff$ die Eigenwerte sind $\geq 0$ bzw. $\leq 0$
+  \end{itemize}
+\end{Def}
+\begin{Bsp}
+  \[A= \begin{pmatrix}
+    3&0\\0&1
+  \end{pmatrix}\]
+  ist positiv definit
+\end{Bsp}
+\begin{Bem}
+  Für symmetrische $2\times 2$-Matrizen gibt es ein einfaches Kriterium: $A= \begin{pmatrix} a&b\\c&d \end{pmatrix}$
+  \begin{itemize}
+    \item $A$ positiv definit $\iff$ $\det A>0$ und $a>0$
+    \item $A$ negativ definit $\iff$ $\det A<0$ und $a>0$
+    \item $A$ semidefinit $\iff$ $\det A\geq0$
+    \item $A$ indefinit $\iff$ $\det A<0$
+  \end{itemize}
+\end{Bem}
+\begin{Bsp}
+  Hesse-Matrix $\to$ Extrema
+\end{Bsp}
