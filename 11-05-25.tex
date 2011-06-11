@@ -1,0 +1,125 @@
+\begin{Bem}
+  Sei $f:I\to\mb{R}$ $\mr{C}^1$ Abb., $g:\Omega_{\subset\mb{R}^2}\to\mb{R}$ $\mr{C}^1$ Abb. 
+  \begin{align*}
+    \gamma:I\to\mb{R}^2 & \gamma(t):=(t,f(t))\\
+    \Phi:\Omega\to\mb{R}^3 & \Phi(x_1,x_2)=(x_1,x_2, g(x_1,x_2))\\
+    \implies \Norm{\dot\gamma}>0 & (\Norm{\dot\gamma}=\sqrt{1+{f^2}'})\\
+    J\Phi=\sqrt{\det \md \Phi^T\md \Phi}=\sqrt{1+\Part{f_2}{x_1}+\Part{f_2}{x_2}}
+  \end{align*}
+  $\implies$ $\md\Phi$ hat maximalen Rang auf jedem Punkt (d.h. Rang $=2$).
+  \[\dot\gamma(t)=(1,f'(t))\]
+  % TODO Skizze
+  die Tangente
+  \[(y-f(x_0))=f'(x_0)(x-x_0)\]
+  $(z,w)\in$ Tangente
+  \[\iff (z,w)=(x_0,f(x_0))+\left( (x-x_0),f'(x)(x-x_0) \right)\]
+  Tangente = 
+  \[\left\{ \underbrace{(x_0,f(x_0))+(t,f'(x_0)t)}_{(x_0,f(x_0))+t\underbrace{(t(1,f'(x_0)))}}, t\in\mb{R}\right\}\]
+  % TODO Skizze
+  Für den Graph von $g$ ist die tangente Ebene in $p$ die folgende Menge:
+  \[\pi_p=\left\{ (a,b,f(a,b))+s(1,\Part{g}{x_1}(a,b), 0)+t(1,0, \Part{g}{x_2}(a,b)) \right\}\]
+  % TODO Skizze
+  Die beiden Tangenten sind in der oberen Gleichung mit jeweils $t=0$ bzw. $s=0$ enthalten und bilden die Tangentialebene $\pi_p$.
+\end{Bem}
+\begin{Def}
+  Wenn $\gamma:I\to\mb{R}^2$ eine $\mr{C}^1$ Kurve ist mit
+  \begin{enumerate}
+    \item $\gamma$ injektiv
+    \item $\Norm{\dot\gamma}>0$
+  \end{enumerate}
+  dann ist der Vektor 
+  \[n(t)=\frac{(-\gamma_2'(t),\gamma_1'(t))}{\Norm{\dot\gamma(t)}}\]
+  ist das Normalvektorfeld auf $\gamma$
+\end{Def}
+\begin{Bem}
+  \[\Norm{n(t)}=1\]
+\end{Bem}
+\begin{Bem}
+  \[n(t)\perp\dot\gamma(t)\]
+\end{Bem}
+\begin{Bsp}
+  \begin{eqnarray*}
+    \gamma(t)=(t,f(t))\\
+    \dot\gamma(t)=(1,f'(t))\\
+    n(t)=(-f'(t), 1)
+  \end{eqnarray*}
+  Wenn man die Kurve anders parametrisiert:
+  \begin{eqnarray*}
+    \gamma(t)=(1-t,f(1-t))\\
+    \dot\gamma(t)=(-1,-f'(1-t))\\
+    n(t)=(f'(1-t), -1)
+  \end{eqnarray*}
+  Zeigt der Normalenvektor in die gegengesetzte Richtung.
+\end{Bsp}
+\begin{Sat}
+  Sei $\Omega$ eine offene Menge in $\mb{R}^2$ so dass $\partial\Omega$ eine $\mr{C}^1$-Mannigfaltigkeit ist. D.h. $\partial\Omega$ ist ``lokal'' ein Graph einer $\mr{C}^1$ Funktion. In desem Fall ist $\mu(p)$ das externe Vektorfeld $n(p)$ mit der äusseren Parametrisierung wenn die Menge unter dem Graphen der Funktion ist, sonst $n(p)$ mit der inneren.
+\end{Sat}
+\begin{Def}
+  Falls $\Omega\subset\mb{R}^2$ ein normaler Bereich ist
+  \[\Omega=\left\{ (x_1,x_2); x_1\in ]a,b[, f(x_1)<x_2<g(x_1) \right\}\]
+  Oben wird mit
+  \[\mu(x_1,g(x_1))=\frac{(-g'(x_1),1)}{\sqrt{g'(x_1)^2+1}}\]
+  parametrisiert, unten mit
+  \[\mu(x_1,f(x_1))=\frac{(f'(x_1),-1)}{\sqrt{f'(x_1)^2+1}}\]
+  An den Seiten ist $\mu=(1,0)$, bzw. $\mu(-1,0)$
+\end{Def}
+\subsection{Satz von Gauss in 2d}
+\begin{Sat}
+  Sei $\Omega$ eine beschränkte offene Menge in $\mb{R}^2$ so dass
+  \begin{enumerate}
+    \item entweder $\partial\Omega$ eine $\mr{C}^1$ Mannigfaltigkeit ist
+    \item oder $\Omega$ ein normaler Bereich ist
+  \end{enumerate}
+  Sei $B:\mb{R}^2\to\mb{R}^2$ ein $\mr{C}^1$-Vektorfeld.
+  \[\int_\Omega\div B=\int_{\partial\Omega}B\mu\]
+\end{Sat}
+\begin{Bem}
+  \[\int_{\partial\Omega}B\mu=\sum\int_{\gamma_i}B\mu_i=\int_{J_i}B(\gamma(s))\mu(\gamma(s))\Norm{\dot\gamma(s)}\md s\]
+\end{Bem}
+\begin{Bem}
+  Konvention: Parametrisierung ausserhalb im Uhrzeigersinn, innerhalb gegen den Uhrzeigersinn.
+\end{Bem}
+\begin{Bew}
+  Als Übung zu Hause: Quadrat. Wir beweisen ein Dreieck.
+  \begin{align*}
+    \int_{T_1}\div B=\int_{\partial T_1}\mu B && \int_{T_2}\div B=\int_{\partial T_2}\mu B\\
+  \end{align*}
+  \[\int_R\div B=\int_{T_1}V\mu +\int_{T_2}B\mu \stackrel{?}{=}\int_{\partial R}B\mu\]
+  % TODO farbige Integrale \usepachage{xcolor} .. ${\color{red}A} = 1$
+  Plan:
+  \begin{enumerate}
+    \item Wir beweisen das Theorem für Dreiecke
+    \item Wir approximieren ein allgemeines $\Omega$ mit Dreiecken. (Skizze)
+  \end{enumerate}
+  \begin{eqnarray*}
+    \int_\Omega\div B\sim\sum\int_{T_i}\div B\\
+    =\sum_{i=1}^N\int_{\partial\Omega}B\mu=\sum_{j=1}^{\ol{N}}\int_{\sigma_j}B\mu=\sum_{\sigma\s\text{am Rand}}\int B\mu\\
+    \sim\int_{\partial\Omega}B\mu\\
+    % TODO Skizze
+    T=\left\{ (x_1,x_2):0<x_1<a, 0<x_2<\frac{b}{a}x_1 \right\}\\
+    B=(b_1,b_2)\\
+    \int_T\Part{b_1}{x_1}+\Part{b_2}{x_2}=\int_T\Part{b_1}{x_2}+\int_T\Part{b_2}{x_2}\\
+    \int_T\Part{b_2}{x_2}=\int_0^a\left( \int_0^{\frac{b}{a}x_1}\Part{b_2}{x_2}(x_1,x_2)\md x_2 \right)\md x_1\\
+    =\int_0^a(b_2\left( x_1,\frac{b}{a}x_1 \right)-b_2(x_1,0))\md x_1\\
+    \int_T\Part{b_1}{x_1}=\int_0^b\int^a_{\frac{a}{b}x_2}\Part{b_1}{x_1}(x_1,x_2)\md x_1\md x_2\\
+    =\int_0^b\left( b_1(a,x_2)-b_1\left( \frac{a}{b}x_2,x_2 \right) \right)\md x_2\\
+    \int_T\div B=\color{red}\underbrace{\color{black}\int_0^bb_1(a,x_2)}-\color{green}\underbrace{\color{black}\int_0^ab_2(x_1,0)}+\int_0^ab_2\left( x_1,\frac{b}{a}x_1 \right)\md x_1-\int_0^bb_1\left( \frac{a}{n}x_2,x_2 \right)\md x_2\\
+    t=\frac{a}{b}x_2\\
+    \int_0^ab_2\left( t,\frac{b}{a}t \right)\md t-\int_0^ab_1\left( t,\frac{b}{a}t \right)\frac{b}{a}\md t\\
+    % TODO Skizze
+    \int_T B\mu{\color{red}\int_0^b}b_(a,t)\md t + {\color{green}\int -b_2}(t,0)\md t + {\color{yellow}\int}\\
+    {\color{red}\gamma(t)}=(a,t)\\
+    {\color{red}\mu=(1,0)}\\
+    {\color{red}B\mu=b_1}(a,t)\\
+    \gamma:[0,b]\to\mb{R}^2\\
+    \Norm{\dot\gamma}=1\\
+    \cdots = \int_0^a\left( b_2\left( t,\frac{b}{a}t \right)-b_1\left( t,\frac{b}{a}t \right)\frac{b}{a} \right)\md t\\
+    {\color{yellow} \gamma[0,a]\to\mb{R}^2}\\
+    \gamma(t)=\left( t,\frac{b}{a}t\right)\\
+    n(t)=\frac{(-\gamma_2^(t),\gamma'(t))}{\Norm{\gamma(t)}}=\frac{\left( -\frac{b}{a}, 1 \right)}{\Norm{\gamma(t)}}\\
+    \int_0^aB(\gamma(t))n(t)\Norm{\dot\gamma(t)}\md t\\
+    \int_0^a\left( b_1\left( t,\frac{b}{a}t \right), b_2\left( t,\frac{b}{a}t \right) \right)\frac{\left( -\frac{b}{a},1 \right)}{\Norm{\dot\gamma(t)}}\Norm{\dot\gamma(t)}\md t\\
+    \int_T\Part{b_1}{x_1}=\int_0^b\int_{\frac{a}{b}x_2}^a\Part{b_1}{x_1}(x_1,x_2)\md x_1\md x_2\\
+    =\int_0^b\left( b_1(a,x_2)-b_1\left( \frac{a}{b}x_2,x_2 \right) \right)\md x_2
+  \end{eqnarray*}
+\end{Bew}

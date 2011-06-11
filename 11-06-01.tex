@@ -1,0 +1,102 @@
+Wir haben eine w-d parametrisierte Fläche in $\mb{R}^3$, d.h. $\uR{\Omega}{2}\to\mb{R}^3$, $\Omega$ ist offen und $\Phi\in\mr{C}^1$ und:
+\begin{enumerate}
+  \item $\Phi$ ist injektiv
+  \item $\md\Phi|_p$ hat Rang 2 $\forall p\in \Omega$
+\end{enumerate}
+\[(\Gamma=\Phi(\Omega))\]
+Sei $\Phi$ auch in einer Umgebung von $\ol{\Omega}$ definiert. Dann definieren wir den Rand von $\Gamma$: 
+\[\partial\Gamma=\Phi(\overbrace{\partial\Omega}^{\text{topologischer Rand}})\]
+\ul{KEIN} topologischer Rand
+\begin{Bem}
+  Sei $\partial\Omega$ eine $\mr{C}^1$-Mannigfaltigkeit, d.h.
+  \[\forall x\in\partial\Omega\s\exists U\s\text{Umgebung s.d.}\s U\cap\partial\Omega=\text{Graph einer Funktion}\]
+  das Bild von 
+  \[]a,b[\ni t\mapsto \gamma(t)=(t,f(t))\]
+  wobei $f:]a,b[\to\mb{R}$ eine $\mr{C}^1$-Funktion ist.
+  \[\tilde\gamma=\Phi\circ\gamma\]
+  \[\tilde\gamma:]a,b[\to\mb{R}^3\]
+  Dann
+  \begin{enumerate}
+    \item Falls $\gamma$ injektiv ist, ist auch $\tilde\gamma$ injektiv.
+      \begin{eqnarray*}
+        \gamma\s\text{injektiv}\implies\gamma(\sigma)\neq\gamma(\tau)\s\forall \sigma\neq\tau\\
+        \Phi\s\text{injektiv}\implies\Phi(\gamma(\sigma))\neq\Phi(\gamma(\tau))
+      \end{eqnarray*}
+    \item
+      \begin{eqnarray*}
+        \dot\tilde\gamma(t)=\md\tilde\gamma|_t=\md(\Phi\circ\gamma)|_t\\
+        = \md\Phi|_{\gamma(t)}\circ\md\gamma|_t=\underbrace{\md\Phi|_{\gamma(t)}(\dot\gamma(t))}\\
+        = \begin{pmatrix}
+          \Part{\Phi_1}{x_1}(\gamma(t)) & \Part{\Phi_1}{x_2}(\gamma(t))\\
+          \Part{\Phi_2}{x_1}(\gamma(t)) & \Part{\Phi_2}{x_2}(\gamma(t))\\
+          \Part{\Phi_3}{x_1}(\gamma(t)) & \Part{\Phi_3}{x_2}(\gamma(t))
+        \end{pmatrix} \begin{pmatrix}
+          \gamma_1'(t)\\
+          \gamma_2'(t)
+        \end{pmatrix}\\
+        = \begin{pmatrix}
+          \gamma_1'(t)\Part{\Phi_1}{x_1}(\gamma(t)) + \gamma_2'(t)\Part{\Phi_1}{x_2}(\gamma(t))\\
+          \gamma_1'(t)\Part{\Phi_2}{x_1}(\gamma(t)) + \gamma_2'(t)\Part{\Phi_2}{x_2}(\gamma(t))\\
+          \gamma_1'(t)\Part{\Phi_3}{x_1}(\gamma(t)) + \gamma_2'(t)\Part{\Phi_3}{x_2}(\gamma(t))
+        \end{pmatrix}
+        = \gamma_1'(t)\Part{\Phi}{x_1}(\gamma(t)) + \gamma_2'(t)\Part{\Phi}{x_2}(\gamma(t))\\
+        \neq 0
+      \end{eqnarray*}
+      $\Part{\Phi}{x_1}(\gamma(t))$ und $\Part{\Phi}{x_2}(\gamma(t))$ sind linear unabhängig!
+      \begin{eqnarray*}
+        (\dot\gamma(t)=(\gamma_1'(t),\gamma_2'(t))=(1,f'(t))\\
+        \implies \tilde\dot\gamma(t)\neq 0
+      \end{eqnarray*}
+  \end{enumerate}
+\end{Bem}
+\begin{Lem}
+  \begin{equation}
+    \label{e:1106011}
+    \tilde\dot\gamma=\gamma_1'\Part{\Phi}{x_1}\circ\gamma + \gamma_2'\Part{\Phi}{x_2}\circ\gamma
+  \end{equation}
+\end{Lem}
+\begin{Bem}
+  \[\int_\Gamma g=\int_\Omega g\circ\Phi J\Phi\]
+  \[\int_{\partial\Gamma}g\left( =\sum_{i=1}^N\int_{a_i}^{b_i}g\circ\tilde\gamma_i(t)\Norm{\tilde\dot\gamma_i(t)}\md t \right)\]
+\end{Bem}
+\begin{Sat} (von Stokes)
+  $\uR{\Omega}{2}$ ist eine beschränkte Menge und $\partial\Omega$ ist eine $\mr{C}^1$-Mannigfaltigkeit.
+  \[\Phi:U\to\mb{R}^3\s (U\supset\ol{\Omega}\s\text{ist offen})\]
+  mit $\Phi\in\mr{C}^1$, injektiv, mit maximalem Rang (überall)
+  \begin{eqnarray*}
+    \Gamma:=\Phi(\Omega)\\
+    \partial\Gamma:=\Phi(\partial\Omega)
+  \end{eqnarray*}
+  Sei $v:\mb{R}^3\to\mb{R}^3$ ein $\mr{C}^1$ Vektorfeld. Dann:
+  \[\int_\Gamma(\nabla\times v)\mu_\Gamma=\int_{\partial\Gamma}v\tau=\int_{\partial\Omega}B\mu_\Omega\]
+  \begin{eqnarray*}
+    \tilde\gamma=\Phi\circ\gamma\\
+    \tau=\frac{\tilde\dot\gamma}{\Norm{\dot\tilde\gamma}}
+  \end{eqnarray*}
+  \[\frac{(-\gamma_2'(t),\gamma_1'(t))}{\Norm{\dot\gamma(t)}}\]
+  ist immer die äussere Normale auf $\Omega$
+  \begin{eqnarray*}
+    \int_\Gamma(\nabla\times v)\mu_\Gamma=\int_\Omega(\nabla\times v)\underbrace{\mu_\Gamma}_{\frac{\Part{\Phi}{x_1}\times\Part{\Phi}{x_2}}{\Norm{\Part{\Phi}{x_1}\times\Part{\Phi}{x_2}}}}(\Phi(x)) \underbrace{J\Phi(x)}_{\Norm{\Part{\Phi}{x_1}\times\Part{\Phi}{x_2}}}\\
+    = \int_\Omega \left[ (\nabla\times v)\circ\Phi \right]\Part{\Phi}{x_1}\times\Part{\Phi}{x_2}\\ % TODO missing something?
+  \end{eqnarray*}
+  \begin{eqnarray*}
+    \int_\Gamma(\nabla\times v)\mu_\Gamma=\int_\Omega\left( \left[ \nabla\times v \right]\circ\Phi \right)\left( \Part{\Phi}{x_1}\times\Part{\Phi}{x_2} \right)\\
+    \int_{\partial\Gamma}v\tau{\color{red}(\sum)}\int_a^bv(\overbrace{\Phi(\gamma)}^{\tilde\gamma}){\color{red}\frac{\dot\tilde\gamma}{\Norm{\dot\tilde\gamma}}\Norm{\dot\tilde\gamma}}\\
+    ={\color{red}\sum}\int_a^bv\circ\Phi(\gamma)\left( \Part{\Phi}{x_1}\circ\gamma\gamma_1'+\Part{\Phi}{x_2}\circ\gamma\gamma_2' \right)\\
+    ={\color{red}\sum}\int_a^b\left[ \left( \underbrace{v\circ\Phi(\gamma)}_{\text{3d}}\underbrace{\Part{\Phi}{x_1}(\gamma)}_{\text{3d}} \right)+\left( v\circ\Phi(\gamma)\Part{\Phi}{x_2} \right)\gamma_2' \right]\\
+    B:=\left(-v\circ\Phi\Part{\Phi}{x_2}, v\circ\Phi\Part{\Phi}{x_1}\right)\\
+    \cdots={\color{red}\sum}\int_a^bB(\gamma(t))\left[ \frac{(-\gamma_2'(t),\gamma_1'(t))}{\Norm{\dot\gamma(t)}} \right]\Norm{\dot\gamma(t)}\md t\\
+    {\color{red}\sum}\int_{\partial\Omega}B\mu_\Omega
+  \end{eqnarray*}
+  Deswegen ist die Übersetzung des Satzes von Stockes:
+  \begin{equation}
+    \label{e:1106014}
+    \int_{\partial\Omega}B\mu_\Omega=\int_\Omega\left[ \left( \nabla\times v \right)\circ\Phi \right]\left( \Part{\Phi}{x_1}\times\Part{\Phi}{x_2} \right)
+  \end{equation}
+  \[\text{Gauss}\implies \int_{\partial\Omega}B\mu_\Omega=\int_\Omega\div B\]
+  Deswegen
+  \[\ref{e:1106014}\iff\int_\Omega\div B=\int\Omega\left[ \left( \nabla\times v \right)\circ \Phi \right]\left( \Part{\Phi}{x_1}\times\Part{\Phi}{x_2} \right)\]
+\end{Sat}
+Dann
+\[\div B=\left[ (\nabla\times v)\circ\Phi \right]\left( \Part{\Phi}{x_1}\times\Part{\Phi}{x_2} \right)\]
+$\Phi\in\mr{C}^2$

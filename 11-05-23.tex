@@ -1,0 +1,112 @@
+\section{Divergenz, Rotation, Gauss-Theorem, Stokes}
+Fundamentalsatz der Integralrechnung:
+\[\int_a^b f'(t)\md = f(b)-f(a)\]
+\begin{Def}
+  Ein Vektorfeld ist eine Abbildung
+  \[v:\underbrace{\Omega}_{\subset\mb{R}^n}\to\mb{R}^n\]
+\end{Def}
+\begin{Def}
+  Sei $v:\Omega\to\mb{R}^n$ differenzierbar $v=(v_1,\cdots,v_n)$, $(v_i:\Omega\to\mb{R})$, $(x_1,\cdots,x_n)$ Koordinaten in $\mb{R}^n$. Die Divergenz von $v$ ist
+  \[\sum^n_{i=1}\Part{v_i}{x_i} = \div v(=\nabla v)\]
+\end{Def}
+\begin{Def}
+  Sei $v:\underbrace{\Omega}_{\subset\mb{R}^3}\to\mb{R}^3$ differenzierbar. Dann ist die Rotation von $v$
+  \[\nabla\times v = \left( \Part{v_2}{x_3}-\Part{v_3}{x_2}, \Part{v_3}{x_1}-\Part{v_1}{x_3}, \Part{v_1}{x_2}-\Part{v_2}{x_1} \right)\]
+\end{Def}
+\begin{Bem}
+  Falls $v=\nabla \phi$ und $\phi\in\mb{C}^2$, dann
+  \begin{eqnarray*}
+    \nabla\times v=0\\
+    v=\left( \Part{\phi}{x_1},\Part{\phi}{x_2},\Part{\phi}{x_3} \right)\\
+    \nabla\times v=\left( \underbrace{\Part{}{x_3}\Part{\phi}{x_2}-\Part{}{x_2}\Part{\phi}{x_3}}_{=0}, \underbrace{\cdots}_{=0}, \underbrace{\cdots}_{=0} \right)
+  \end{eqnarray*}
+\end{Bem}
+\begin{Bem}
+  Mit einigen Ausnahmen über dem Definitionsbereich gilt auch
+  \[\nabla\times v=0\implies v=\nabla \phi\]
+  (z.B. gilt das wenn $\Omega=B_{\Omega}(x)$ und $v\in\mb{C}^1$)
+\end{Bem}
+\paragraph{Kurvenintegral}
+Sei $f:\Omega\to\mb{R}$ eine stetige funktion. Sei $\gamma:[0,1]\to\underbrace{\Omega}_{\mb{R}^n}$ eine $\mb{C}^1$-Kurven die auch injektiv ist.
+\begin{Def}
+  Das Kurvenintegral von $f$ auf $\gamma$ ist:
+  \begin{eqnarray*}
+    \int_\gamma f:=\int_a^b f(\gamma(t))\Norm{\dot\gamma(t)}\md t\\
+    =\int_a^bf(\gamma_1(t),\cdots,\gamma_n(t))\sqrt{\gamma_1'(t)^2+\cdots+\gamma_n'(t)}\md t
+  \end{eqnarray*}
+\end{Def}
+\begin{Bem}
+  Die Länge von $\gamma$
+  \[\int_\gamma 1=\int_a^b\Norm{\dot\gamma(t)}\md t\]
+  Die intuitive Erklärung
+  % TODO Skizze
+  \[\Norm{\gamma(t)-\gamma(a)}\sim\Norm{\dot\gamma(a)(t_1-a)}=\Norm{\dot\gamma(a)}(t_1-a)\]
+  \[\sum<\text{Länge}\sim\underbrace{\sum_i\Norm{\overbrace{\dot\gamma(t_i)}^{g(t_i)}}(t_i-t_{i-1})}_{=\int_a^b g}\]
+\end{Bem}
+\begin{Def}
+  eine $\mb{C}^1$-Abbildung $\Phi$ von einem Gebiet $\underbrace{\Omega}_{\subset\mb{R}^2}\to\mb{R}^3$ ist eine Parametrisierung der Fläche $\Phi(\Omega)$ falls
+  \begin{enumerate}
+    \item $\Phi$ injektiv ist
+    \item $\md\Phi|_p$ maximaler Rang hat $\forall p\in \Omega$ (d.h. kein Kern)
+  \end{enumerate}
+\end{Def}
+\begin{Sat}
+  Sei $f:\Omega'\to\mb{R}$ eine stetige Funktion mit $\ol{\Phi(\Omega)}\subset\Omega'$. Angenommen dass $\Omega$ Peano-Jordan messbar ist, dann
+  \[\int_{\Phi(\Omega)}f:=\int_\Omega f\circ\Phi J\Phi\]
+  Wobei
+  \[J\Phi=\sqrt{\det(\md\Phi^T\dot\md\Phi)}=\sqrt{\Norm{\Part{\Phi}{x_1}}^2\Norm{\Part{\Phi}{x_2}}^2-\left( \Part{\Phi}{x_1}\Part{\Phi}{x_2} \right)^2}\]
+  \begin{eqnarray*}
+    \md\Phi = \begin{pmatrix}
+      \Part{\Phi_1}{x_1}&\Part{\Phi_1}{x_2}\\
+      \Part{\Phi_2}{x_1}&\Part{\Phi_2}{x_2}\\
+      \Part{\Phi_3}{x_1}&\Part{\Phi_3}{x_2}
+    \end{pmatrix}\\
+    \md\Phi^T\md\Phi = \begin{matrix}
+      \Part{\Phi}{x_1}\\
+      \Part{\Phi}{x_2}
+    \end{matrix} \begin{pmatrix}
+      \Part{\Phi}{x_1}&\Part{\Phi}{x_2}
+    \end{pmatrix} = \begin{pmatrix}
+      \Norm{\Part{\Phi}{x_1}}^2&\Part{\Phi}{x_1}\Part{\Phi}{x_2}\\
+      \Part{\Phi}{x_1}\Part{\Phi}{x_2}&\Norm{\Part{\Phi}{x_2}}^2
+    \end{pmatrix}\\
+    \det(\md\Phi^T\md\Phi)=\Norm{\Part{\Phi}{x_1}}^2\Norm{\Part{\Phi}{x_2}}^2-\left( \Part{\Phi}{x_1}\Part{\Phi}{x_2} \right)^2
+  \end{eqnarray*}
+\end{Sat}
+\begin{Bem}
+  Kein Kern und Cauchy-Schwarz $\implies$ $J\Phi >0$ $\implies$ Inhalt $(\Phi(B_\varepsilon(x_0)))>0$
+\end{Bem}
+% TODO Skizze
+\begin{Bew}
+  Sei $\Phi:(x_1,x_2)=(x_1,x_2, f(x_1,x_2))$. Wenn $f\in\mb{C}^1$, ist auch $\Phi\in\mb{C}^1$.
+  \begin{enumerate}
+    \item stimmt $\Phi(p)\neq \Phi(q)$ falls $p\neq q\in\Omega$
+    \item 
+      \[\md\Phi|_{(a_b)}= \begin{pmatrix}
+        1&0\\
+        0&1\\
+        \Part{f}{x_1}(a,b) & \Part{f}{x_2}(a,b)
+      \end{pmatrix}\]
+      \[\implies\text{Rand}\s\md\Phi|_{(a,b)}=2\]
+      \begin{eqnarray*}
+        \text{Inhalt} = \int_\Omega J\phi= \sqrt{\underbrace{\Norm{\Part{\Phi}{x_1}^2}}\underbrace{\Norm{\Part{\Phi}{x_2}^2}}-\underbrace{\left( \Part{\Phi}{x_1}\Part{\Phi}{x_2} \right)^2}}\\
+        \int_\Omega \sqrt{\left( 1+\left( \Part{f}{x_1} \right)^2 \right)\left( 1+\left( \Part{f}{x_2} \right)^2 \right)-\left( \Part{f}{x_1}\Part{f}{x_2} \right)^2)}\\
+        =\int_\Omega \sqrt{1+\left( \Part{f}{x_1} \right)^2+\left( \Part{f}{x_2} \right)}
+      \end{eqnarray*}
+  \end{enumerate}
+\end{Bew}
+\begin{Bsp}
+  % TODO Skizzen
+  $f(x_1,x_2)=ax_1$
+  \begin{eqnarray*}
+    \int_R\sqrt{1+a^2+0^2}\\
+    =\int_R\sqrt{1+a^2}\\
+    =\int_0^b\int_{-c}^c\sqrt{1+a^2}\md x_2\md x_1\\
+    =\int_0^b2c\sqrt{1+a^2}\md x_1=2cb\sqrt{1+a^2}
+  \end{eqnarray*}
+  Von diesem einfachen Fall $\implies$ das Gleiche für allgemeine Abbildungen derart $f(x_1,x_2) = c+ax_1+bx_2$ (eine affine Funktion)
+\end{Bsp}
+\begin{Bem}
+  Triangulierung - sehr problematisch.
+  \[\sum_{\text{Dreiecke} T_i}\sqrt{1+\Part{f}{x_1}(p_i)^2+\Part{f}{x_2}(p_i)^2}\text{Inhalt}(T_i)\to\int_\Omega\sqrt{1+\left( \Part{f}{x_1} \right)^2+\left( \Part{f}{x_2} \right)}\]
+\end{Bem}

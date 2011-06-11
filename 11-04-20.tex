@@ -1,0 +1,145 @@
+\begin{Bew}
+  Sei $\gamma:[0,1]\to U$ ($U$ konvex)
+  \begin{eqnarray*}
+    \gamma(t)=(1-t)p+tq\\
+    \gamma:[0,1]\to U\\
+    \gamma_i(t)=(1-t)p_i+tq_i\\
+    \gamma_i'(t)=q_i-p_i\\
+    \implies \gamma\in\mr{C}^1\\
+    \dot\gamma(t)= \begin{pmatrix}
+      \gamma_1'(t)\\ \vdots \gamma_k'(t)
+    \end{pmatrix} = \begin{pmatrix}
+      q_1-p_1 \\ \vdots q_k-p_k
+    \end{pmatrix} = q-p \\
+    \Norm{f(p)-f(q)}=\Norm{f(\gamma(0))-f(\gamma(1))}\\
+    \underbrace{\leq \max_{t\in [0,1]}\Norm{\md f|_{\gamma(t)}}_O}_A \underbrace{\int_0^1\Norm{\dot\gamma(t)}\md t}_{\int_0^1\Norm{q-p}\md t}\\
+    \leq \overbrace{\sup_U\Norm{\md f}_O}^A\Norm{q-p}
+  \end{eqnarray*}
+\end{Bew}
+\begin{Bem}
+  für $k=1$ haben wir eine stärkere Aussage (Mittelwertsatz)
+\end{Bem}
+\begin{Bsp}
+  Sei $f:\underbrace{U}_{\subset\mb{R}^2}\to\mb{R}$ $\Part{f}{y}(0,0)\neq 0$, $f(0,0)=0$, $f\in\mr{C}$ Implizites Funktionentheorem garantiert eine Lösung der Gleichung $f(x_0,\cdot) = 0$
+\end{Bsp}
+\begin{Bem}
+  $f:\underbrace{U}_{\subset\mb{R}^n}\to f(U)\subset\mb{R}^n$
+  \[f\s\text{umkehrbar}\iff f\s\text{injektiv}\]
+\end{Bem}
+\begin{Bem}
+  aus der LinAlg: Seien $V$ und $W$ zwei Vektorräume mit $\dim m$ und $n$ und sei $A:V\to W$ linear und bijektiv
+  \[\implies m=\dim V=\dim W=n\]
+  Sei $V=\mb{R}^m$, $W=\mb{R}^n$. Sei $(a_{ij})$ die Matrixdarstellung für $A$.
+  \[v\in V, v=(v_1,\cdots, v_m)\s w\in W, w=(w_1,\cdots, w_m)\]
+  \[w=Av\iff w_i=\sum_{j=1}^ma_{ij}v_j\s w=av\s \forall i\in \ol{1,n}\]
+  Die Umkehrbarkeit von $A$ bedeutet Surjektivität und Injektivität
+  \[\text{sur}\iff \forall w\in W\s\exists v: Av=w\]
+  \[\text{inj}\iff V\s\text{oben ist eindeutig}\]
+\end{Bem}
+\begin{Bem}
+  \begin{enumerate}
+    \item $A$ ist bijektiv $\iff$ $m=n$ und $a\in\mb{R}^{n\times n}$ eine invertierbare Matrix ($\iff \det a\neq 0$)
+    \item $A$ bijektiv $\implies$ die Umkehrabbildung von $A$ (das heisst $A^{-1}$) ist auch eine lineare Abbildung und die Matirxdarstellung von $A^{-1}$ ist die Inverse von $a$ ($a^{-1}$) wobei $a^{-1}$ die einzige Matrix ist, so dass $a^{-1}a=E_n$ (die Einheitsmatrix)
+      \[\left( (a^{-1})_{ij} \right)^T=\frac{\det M^{ij}}{\det a}(-1)^{i+j}\]
+      wobei $M$ $a$ ohne die $i$-te Zeile und die $j$-te Spalte ist
+      \[\implies (a^{-1})_{ij} =\frac{\det M^{ij}}{\det a}(-1)^{i+j}\]
+      $a\in\mb{R}$, $A:\mb{R}^2\to\mb{R}^2$
+      \[a= \begin{pmatrix}
+        \alpha&\beta\\
+        \gamma&\delta
+      \end{pmatrix}\s \det a = \alpha\delta-\beta\gamma\neq 0\]
+      d.h. $a$ umkehrbar $\implies$
+      \begin{eqnarray*}
+        \left( a^{-1} \right)^T=\frac{1}{\det a} \begin{pmatrix}
+          \delta&-\gamma\\
+          -\beta&\alpha
+        \end{pmatrix}\\
+        a^{-1}a=\frac{1}{\det a} \begin{pmatrix}
+          \delta&-\gamma\\
+          -\beta&\alpha
+        \end{pmatrix}^T\begin{pmatrix}
+          \alpha&\beta\\
+          \gamma&\delta
+        \end{pmatrix}\\
+        \implies a^{-1}a=\frac{1}{\det a}\begin{pmatrix}
+          \alpha&-\gamma\\
+          -\beta&\delta
+        \end{pmatrix}\begin{pmatrix}
+          \alpha&\beta\\
+          \gamma&\delta
+        \end{pmatrix}
+        = \frac{1}{\det a} \begin{pmatrix}
+          \alpha\delta-\beta\gamma&0\\
+          0&\alpha\delta-\beta\gamma\\
+        \end{pmatrix} = \begin{pmatrix}
+          1&0\\0&1
+        \end{pmatrix}
+      \end{eqnarray*}
+      $a^T$ bedeutet $(a^T)_{ij}=a_{ji}$
+  \end{enumerate}
+\end{Bem}
+\begin{Def}
+  $\Phi\subset\mr{C}^1$ mit Umkehrabbildung $\Psi\in\mr{C}^1$ nennt man einen Diffeomorphismus
+\end{Def}
+\begin{Lem}
+  Sei $\Phi:\uR{U}{m}\to\uR{U}{n}$ $\mr{C}^1$, bijektiv mit Umkehrfunktion $\Psi:V\to U$ auch $\mr{C}^1$, oder $\Phi$ ein Diffeomorphismus. Dann:
+  \begin{enumerate}
+    \item $m=n$
+    \item $\md\Phi|_p$ ist eine umkehrbare lineare Funktion $\forall \rho\in U$
+    \item $\md\Psi|_q=\left( \md\Phi|_{\Psi(q)} \right)^{-1}$ (Jacobi-Matrix von $\Psi$ ind $q$ = die Inverse der Jacobimatrix von $\Phi$ in $\Psi(q)$
+  \end{enumerate}
+  Im Fall $m=n=1$ bedeutet die letzte Formel
+  \[\Psi'(q)=\frac{1}{\Phi'(\Psi(q))}\]
+\end{Lem}
+\begin{Bew}
+  \[\Phi(\Psi(q))=q=\id\]
+  \begin{align*}
+    V\ni q\mapsto q\in V &&\md\id|_{q}=\id
+  \end{align*}
+  Kettenregel:
+  \[\underbrace{\md\Phi|_{\Psi(q)}}_{\text{lineare Abbildung}\s A}\circ\underbrace{\md\Psi|_{q}}_{\text{lineare Abbildung}\s B}=\id_q\iff A(B(v))=v\s\forall v\in\mb{R}^n\]
+  $\iff$ $A$ ist umkehrbar und linear, $B$ ist die Umkehrfunktion
+  \begin{enumerate}
+    \item flogt aus der linearen Algebra
+    \item ist die Aussage ``$A$ ist umkehrbar an der Stelle $\Psi(q)$'' ($\Psi$ ist die Umkehrfunktion von $\Psi$ $\implies$ $\forall p\in U$ $\exists q\in V$ mit $\Psi(q)=p$)
+    \item \[\left( \md\Phi|_{\Psi(q)} \right)^{-1}\circ \left( \md\Phi|_{\Psi(q)} \right)\circ \md\Psi|_q=\left( \md \Phi|_{\Psi(q)} \right)^{-1}\circ\id\]
+  \end{enumerate}
+  \[\implies \md \Psi|_q=\left( \md\Phi|_{\Psi(q)} \right)^{-1}\]
+\end{Bew}
+\begin{Bsp}
+  \begin{align*}
+    \Phi:\uR{U}{2}\to\uR{V}{2} &&\Phi(x_1,x_2)=(f_1(x_1,x_2),f_2(x_1,x_2))\\
+    \Psi:V\to U && \Phi(y_1,y_2)=(g_1(y_1,y_2),g_2(y_1,y_2))\\
+    \Phi\circ\Psi:V\to V&&\Phi\circ\Psi(y_1,y_2)=(y_1,y_2)\\
+  \end{align*}
+  \begin{eqnarray*}
+    \Phi\circ\Psi=(f_1(g_1(y_1,y_2),g_2(y_1,y_2)),f_2(g_1(y_1,y_2),g_2(y_1,y_2)))\\
+    \md\Phi|_{(p_1,p_2)}= \begin{pmatrix}
+      \Part{f_1}{x_1}(p) & \Part{f_1}{x_2}(p)\\
+      \Part{f_2}{x_1}(p) & \Part{f_2}{x_2}(p)
+    \end{pmatrix}\\
+    \md\Psi|_{(p_1,p_2)}= \begin{pmatrix}
+      \Part{g_1}{x_1}(p) & \Part{g_1}{x_2}(p)\\
+      \Part{g_2}{x_1}(p) & \Part{g_2}{x_2}(p)
+    \end{pmatrix}\\
+    \md\Phi|_{(p_1,p_2)}= \frac{1}{\Delta(p)}\begin{pmatrix}
+      \Part{f_2}{x_2}(p) & -\Part{f_1}{x_2}(p)\\
+      -\Part{f_2}{x_1}(p) & \Part{f_1}{x_1}(p)
+    \end{pmatrix}\\
+    \Delta(p)= \left( \Part{f_1}{x_1} \Part{f_2}{x_2} -\Part{f_2}{x_1} \Part{f_1}{x_2} \right)(p)\\
+    \md\Phi|_q=\left( \md\Phi|_{\Psi(q)} \right)^{-1}=\frac{1}{\Delta(\Psi(q))}\begin{pmatrix}
+      \Part{f_2}{x_2}(\Psi(p)) & -\Part{f_1}{x_2}(\Psi(p))\\
+      -\Part{f_2}{x_1}(\Psi(p)) & \Part{f_1}{x_1}(\Psi(p))
+    \end{pmatrix}
+  \end{eqnarray*}
+  d.h. z.B.
+  \begin{eqnarray*}
+    \Part{g_1}{y_1}(q_1,q_2)=\frac{\Part{f_2}{x_2}(\Psi(q))}{\Delta(\Psi(q))}\\
+    =\frac{\Part{f_2}{x_2}(g_1(q_1,q_2),g_2(q_1,q_2))}{\left( \Part{f_1}{x_1} \Part{f_2}{x_2} -\Part{f_2}{x_1} \Part{f_1}{x_2} \right)(g_1(q_1,q_2),g_2(q_1,q_2))}
+  \end{eqnarray*}
+\end{Bsp}
+\begin{Bem}
+  Falls $\Phi:U\to V\in\mr{C}^1$ ist und umkehrbar und $\Psi=\Phi^{-1}$ stetig und diffbar $\implies$ $\Psi$ ist $\mr{C}^1$ Eigentlich können wir auch die Kettenregel anwenden ($\Phi(\Psi(q))=q$) und deswegen die Formel:
+  \[\md\Psi|_q=\left( \md\Phi|_{\Psi(q)} \right)^{-1}\]
+  schliessen $\implies$ die entsprechende Formel für die partiellen Ableitungen der Komponenten von $\Psi$ garantieren ihre Stetigkeit $\implies$ $\Psi\in\mr{C}^1$
+\end{Bem}

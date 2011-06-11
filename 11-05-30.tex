@@ -16,7 +16,7 @@
 \begin{Bem}
   $\Phi$ ist eine (reguläre) Parametrisierung falls
   \begin{enumerate}
-    \item $\Phi$ $\ms{C}^1$
+    \item $\Phi$ $\mr{C}^1$
     \item $\Phi$ injektiv
     \item $\rang(\Phi)=2$
   \end{enumerate}
@@ -33,10 +33,10 @@
   Weiter:
   \[\partial_{x_1}\Phi=\left( 1,0,\Part{f}{x_1} \right), \partial_{x_2}\Phi=\left( 0,1,\Part{f}{x_2} \right) \]
   Also:
-  \[n_q=\frac{\Part{f}{x_1} ,\Part{f}{x_2}, 1 \right)}{\sqrt{1+\left( \Part{f}{x_1} \right)^2 + \left(\Part{f}{x_2}\right)^2}} \]
+  \[n_q=\frac{\left(\Part{f}{x_1} ,\Part{f}{x_2}, 1 \right)}{\sqrt{1+\left( \Part{f}{x_1} \right)^2 + \left(\Part{f}{x_2}\right)^2}} \]
 \end{Bsp}
 \begin{Def}
-  Sei $\Omega$ offen mit $\partial\Omegea$ ist $\mr{C}^1$-Untermannigfaltigkeit (2-dim) 
+  Sei $\Omega$ offen mit $\partial\Omega$ ist $\mr{C}^1$-Untermannigfaltigkeit (2-dim) 
   \[\implies \forall q\in \partial\Omega\s B_\rho(q): B_\rho(q)\cap \partial\Omega\]
   ist der Graph einer $\mr{C}^1$-Funktion $f:\mb{R}^2_{x_{i_1}, x_{i_2}}\to\mb{R}_{x_{i_3}}$
   z.B. $x_3=f(x_1,x_2)$, aber auch $x_1=f(x_2,x_3)$, $x_2=f(x_3,x_1)$.
@@ -133,7 +133,7 @@
     =\int_{S_{12}}B(x_1,x_2,0)\mu\md x_1\md x_2\\
   \end{eqnarray*}
   Betrachte $\Phi:S_{12}\to\mb{R}^3$, $(x_1,x_2,f(x_1,x_2))$, $f(x_1,x_2=c-\frac{c}{a}x_1-\frac{c}{b}x_2$
-  \[\implies \mu = \frac{-\Part{f}{x_1} ,-\Part{f}{x_2}, 1 \right)}{\sqrt{1+\left( \Part{f}{x_1} \right)^2 + \left(\Part{f}{x_2}\right)^2}}=(\mu_1,\mu_2,\mu_3)\]
+  \[\implies \mu = \frac{-\left(\Part{f}{x_1} ,-\Part{f}{x_2}, 1 \right)}{\sqrt{1+\left( \Part{f}{x_1} \right)^2 + \left(\Part{f}{x_2}\right)^2}}=(\mu_1,\mu_2,\mu_3)\]
   Also
   \[\int_D\mu B_3=\int_{S_{12}}B_3(x_1,x_2,f(x_1,x_2))\frac{1}{\sqrt{1+\left( \Part{f}{x_1} \right)^2 + \left(\Part{f}{x_2}\right)^2}}\sqrt{1+\left( \Part{f}{x_1} \right)^2 + \left(\Part{f}{x_2}\right)^2}\md x_2\md x_1\]
   \begin{eqnarray}
